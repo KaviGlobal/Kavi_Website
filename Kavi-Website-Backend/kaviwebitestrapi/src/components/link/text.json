@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_link_texts",
+  "info": {
+    "displayName": "Text",
+    "icon": "arrows-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "text"
+    },
+    "label": {
+      "type": "string"
+    }
+  }
+}
