@@ -35,4 +35,10 @@ export class HeaderContentComponent implements OnInit {
           
     });
   }
+
+  ngOnDestroy(): void {
+    if(this.modalRefUnsubscribe){
+      this.modalRefUnsubscribe.unsubscribe();
+    }
+  }
 }

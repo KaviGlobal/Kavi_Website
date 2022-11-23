@@ -19,6 +19,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { CommonModule } from '@angular/common';
 import { HeaderContentModule } from './header-content/header-content.module';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptorService } from './interceptorService.ts/tokenInterceptor.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,12 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     CommonModule,
   ],
   providers: [
-    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } }
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false }},
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    }
   ],
   bootstrap: [AppComponent]
 })
