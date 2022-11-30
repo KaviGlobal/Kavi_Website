@@ -15,7 +15,12 @@
 <div class="menu-items">
     <div class="row">
         <div style="padding-left: 75px;" class="col-4">
-            <ul>
+            <ul *ngIf="menuItems.length > 0">
+                <li *ngFor="let item of menuItems">
+                    <a href="" class="montserrat-semi-bold">{{item.attributes.Name}}</a>
+                </li>
+            </ul>
+            <!-- <ul>
                 <li> <a href="http://google.com/search" href="http://google.com/search"
                         class="montserrat-semi-bold">About Us</a>
                 </li>
@@ -27,10 +32,6 @@
                         class="montserrat-semi-bold">Careers</a>
                 </li>
             </ul>
-            <!-- <a href="http://google.com/search" href="http://google.com/search" class="montserrat-semi-bold">About Us</a>
-            <a href="http://google.com/search" href="http://google.com/search" class="montserrat-semi-bold">Contact
-                Us</a>
-            <a href="http://google.com/search" href="http://google.com/search" class="montserrat-semi-bold">Careers</a> -->
             <h3 class="montserrat-semi-bold">Services</h3>
             <ul>
                 <li> <a href="http://google.com/search" class="montserrat-medium">Strategy & Roadmap</a>
@@ -51,9 +52,9 @@
                 </li>
                 <li> <a href="http://google.com/search" class="montserrat-medium">Managed services</a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
-        <div style="padding-left: 50px;" class="col-4">
+        <!-- <div style="padding-left: 50px;" class="col-4">
             <h3 class="montserrat-semi-bold">Solutions</h3>
             <ul>
                 <li> <a href="http://google.com/search" class="montserrat-medium">Enterprise Solutions</a>
@@ -85,8 +86,8 @@
                 <li> <a href="http://google.com/search" class="montserrat-medium">Data Labeling</a>
                 </li>
             </ul>
-        </div>
-        <div class="col-4 montserrat-medium">
+        </div> -->
+        <!-- <div class="col-4 montserrat-medium">
             <div class="vl"></div>
             <ul>
                 <li class="side-bar"> <a href="http://google.com/search">Blog</a>
@@ -104,22 +105,17 @@
                 <li class="side-bar"> <a href="http://google.com/search">Magazines</a>
                 </li>
             </ul>
-        </div>
+        </div> -->
     </div>
-    <div class="row menu-footer">
+    <!-- <div class="row menu-footer">
         <div class="col-4">
             <h3 class="montserrat-medium">Subscribe for Newsletter</h3>
-            <!-- <span> -->
             <div class="send-paper">
                 <input type="search" class="form-control montserrat-regular" placeholder="Email Address"
                     aria-label="Email Address" aria-describedby="email address" />
                 <i style="padding-right: 2px; font-size:large;padding-left: 11px;
                 font-weight: bold;" class="fa fa-paper-plane" aria-hidden="true"></i>
             </div>
-
-            <!-- <a href="http://google.com/search"  class="search-icon" id="search-addon"> -->
-            <!-- </a> -->
-            <!-- </span> -->
         </div>
         <div style="padding-left: 5%;" class="col-3">
             <h3 class="montserrat-medium">Follow Us</h3>
@@ -139,13 +135,6 @@
             <span class="open-sans-regular">
                 contact@kaviglobal.com
             </span>
-        </div>
-    </div>
-    <!-- <div class="menu-footer">
-        <div>
-            <h3>Subscribe for Newsletter</h3>
-            <input type="search" class="form-control rounded" placeholder="Email Address" aria-label="Email Address"
-            aria-describedby="email address" />
         </div>
     </div> -->
 </div>

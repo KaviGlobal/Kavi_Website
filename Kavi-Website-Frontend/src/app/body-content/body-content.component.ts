@@ -9,6 +9,8 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 export class BodyContentComponent implements OnInit {
   public searchCriteria!: FormGroup;
   public testHtml!: string;
+  public screenheight: number = 0;
+  
   @HostListener("window:scroll", [])
   onWindowScroll() {
     console.log("Scrolling!");
@@ -17,6 +19,7 @@ export class BodyContentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.screenheight =  window.innerHeight
   }
 
   ngAfterViewInit(): void {
@@ -24,10 +27,8 @@ export class BodyContentComponent implements OnInit {
   }
 
   ScrollIntoView(elem: string) {
-    // console.log(elem);
     if (elem) {
       window.document.getElementById(elem)?.scrollIntoView();
     }
-    // document.querySelector(elem).scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }

@@ -22,6 +22,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-family: "open-sans-regular";
     src: local("open-sans-regular"), url(./assets/fonts/OpenSans-Regular.ttf) format("opentype");
 }
+@font-face {
+    font-family: "open-sans-bold";
+    src: local("open-sans-bold"), url(./assets/fonts/OpenSans-Bold.ttf) format("opentype");
+}
 
 h3.montserrat-semi-bold {
     font-weight: 500;

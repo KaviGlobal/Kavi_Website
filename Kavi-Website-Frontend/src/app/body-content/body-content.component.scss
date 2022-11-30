@@ -1,6 +1,6 @@
 .content {
     background-image: url('../../assets/Group_2007.png');
-    height: 100%;
+    // height: 93%;
     background-size: 100%;
 
     .content-block {
@@ -30,10 +30,11 @@
         justify-content: start;
         /* align-items: center; */
         text-align: center;
-        padding-top: 16%;
-        button{
-            width:100%;
-            height:48px;
+        padding-top: 14%;
+
+        button {
+            width: 100%;
+            height: 48px;
         }
 
         .arrow-icon {
@@ -42,4 +43,57 @@
             font-size: 109px;
         }
     }
+}
+
+.section-2 {
+    .page1 {
+        min-height: 647px;
+        text-align: center;
+        margin: 2%;
+        max-height: 100%;
+
+        h3 {
+            font-family: 'open-sans-bold';
+            color: #EA6B1E;
+            font-size: 35px;
+        }
+
+        p {
+            font-size: 20px;
+            width: 45%;
+            margin-left: 21%;
+            line-height: 1.3;
+        }
+
+        @media screen and (min-width:1960px) {
+            font-size: 53px;
+        }
+
+        .cost-divisions {
+            display: flex;
+            align-items: stretch;
+            text-align: center;
+            justify-content: center;
+            margin: 5% 20% 4% 20%;
+
+            h1 {
+                font-size: xxx-large;
+                line-height: 1;
+                color: #224991;
+                font-weight: bold;
+            }
+            p{
+                width: 78%;
+                font-size: 28px;
+                color: #0D2C3D;
+            }
+
+            .vl {
+                width: 1%;
+                background: #00000029;
+                justify-content: right;
+            }
+        }
+    }
+
 }
