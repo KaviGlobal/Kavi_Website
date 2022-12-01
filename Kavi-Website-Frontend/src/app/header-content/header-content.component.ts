@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
@@ -11,14 +11,19 @@ import { MenuItemsComponent } from './menu-items/menu-items.component';
 })
 export class HeaderContentComponent implements OnInit {
   menuItems: any = [];
-  modalRefUnsubscribe!:Subscription;
+  modalRefUnsubscribe!: Subscription;
+  isFixed: boolean = false;
   constructor(private dialog: MatDialog, private httpClient: HttpClient) { }
+
+  @HostListener('window:scroll', ['$event']) onscroll() {
+    console.log('scrolly',window.scrollY)
+    window.scrollY > 100 ? this.isFixed = true : this.isFixed = false;
+  }
 
   ngOnInit(): void {
     this.httpClient.get("assets/menu_data/menuData.json").subscribe((data: any) => {
       console.log(data);
       this.menuItems = data;
-
     });
   }
 
@@ -32,12 +37,12 @@ export class HeaderContentComponent implements OnInit {
       data: this.menuItems
     });
     this.modalRefUnsubscribe = dialogRef.afterClosed().subscribe(result => {
-          
+
     });
   }
 
   ngOnDestroy(): void {
-    if(this.modalRefUnsubscribe){
+    if (this.modalRefUnsubscribe) {
       this.modalRefUnsubscribe.unsubscribe();
     }
   }

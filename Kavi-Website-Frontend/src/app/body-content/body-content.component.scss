@@ -29,8 +29,8 @@
         color: #FFFFFF;
         justify-content: start;
         /* align-items: center; */
-        text-align: center;
-        padding-top: 14%;
+        position: relative;
+        top: 48%;
 
         button {
             width: 100%;
@@ -47,9 +47,9 @@
 
 .section-2 {
     .page1 {
-        min-height: 647px;
+        min-height: 400px;
         text-align: center;
-        margin: 2%;
+        margin: 3%;
         max-height: 100%;
 
         h3 {
