@@ -30,7 +30,7 @@
         justify-content: start;
         /* align-items: center; */
         position: relative;
-        top: 48%;
+        top: 39%;
 
         button {
             width: 100%;
@@ -93,6 +93,38 @@
                 background: #00000029;
                 justify-content: right;
             }
+        }
+        .item-block {
+            background-color: whitesmoke;
+            height: 100%;
+            width: 39%;
+            margin-left: 145px;
+            display: flex;
+
+            h4 {
+                font-size: x-large;
+                color: #224991;
+            }
+
+            a {
+                display: flex;
+                color: #224991;
+
+                mat-icon {
+                    width: 25px;
+                    font-weight: 600;
+                }
+            }
+
+
+        }
+
+        .sub-item {
+            background-color: white;
+            margin: 14px;
+            width: 215px;
+            height: 220px;
+            border: 1px solid #707070;
         }
     }
 

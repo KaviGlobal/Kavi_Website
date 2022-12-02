@@ -48,15 +48,3 @@ h3 {
     right: 0px;
 
 }
-
-.fixed{
-    position: fixed;
-    width: 100%;
-    transition: 0.2s linear;
-    top: 0px;
-}
-.notFixed{
-    position: static;
-    transition: 0.2s linear;
-    top: -50px;
-}

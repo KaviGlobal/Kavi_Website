@@ -15,11 +15,6 @@ export class HeaderContentComponent implements OnInit {
   isFixed: boolean = false;
   constructor(private dialog: MatDialog, private httpClient: HttpClient) { }
 
-  @HostListener('window:scroll', ['$event']) onscroll() {
-    console.log('scrolly',window.scrollY)
-    window.scrollY > 100 ? this.isFixed = true : this.isFixed = false;
-  }
-
   ngOnInit(): void {
     this.httpClient.get("assets/menu_data/menuData.json").subscribe((data: any) => {
       console.log(data);
