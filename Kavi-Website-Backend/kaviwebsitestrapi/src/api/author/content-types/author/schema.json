@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "authors",
+  "info": {
+    "singularName": "author",
+    "pluralName": "authors",
+    "displayName": "authors",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "DisplayName": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Bio": {
+      "type": "string"
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": true,
+      "component": "seo.seo"
+    }
+  }
+}

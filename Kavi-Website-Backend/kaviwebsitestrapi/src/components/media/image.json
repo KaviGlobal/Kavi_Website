@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_media_images",
+  "info": {
+    "displayName": "Image",
+    "icon": "address-book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Label": {
+      "type": "string"
+    }
+  }
+}
