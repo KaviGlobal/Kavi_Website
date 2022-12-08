@@ -40,5 +40,11 @@ h3 {
     color: white;
     display: flex;
     align-items: center;
+    position: fixed;
+    /* transition: 0.2s linear; */
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+    right: 0px;
 
 }
