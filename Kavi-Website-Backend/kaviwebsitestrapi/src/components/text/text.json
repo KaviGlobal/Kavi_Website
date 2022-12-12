@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_text_texts",
+  "info": {
+    "displayName": "title_sub_para",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Subtitle": {
+      "type": "string"
+    },
+    "Paragraph": {
+      "type": "text"
+    }
+  }
+}

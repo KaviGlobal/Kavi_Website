@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_text_title_paras",
+  "info": {
+    "displayName": "Title_Para",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Para": {
+      "type": "text"
+    }
+  }
+}
