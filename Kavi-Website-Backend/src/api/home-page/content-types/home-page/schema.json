@@ -28,11 +28,6 @@
       "relation": "oneToMany",
       "target": "api::post.post"
     },
-    "Text": {
-      "type": "component",
-      "repeatable": true,
-      "component": "text.title-para"
-    },
     "RotatingCards": {
       "type": "component",
       "repeatable": true,

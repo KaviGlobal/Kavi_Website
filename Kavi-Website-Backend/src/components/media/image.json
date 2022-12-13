@@ -1,13 +1,13 @@
 {
   "collectionName": "components_media_images",
   "info": {
-    "displayName": "Image",
+    "displayName": "Media",
     "icon": "address-book",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "Image": {
+    "Media": {
       "type": "media",
       "multiple": true,
       "required": false,
@@ -18,7 +18,7 @@
         "audios"
       ]
     },
-    "Label": {
+    "Alt": {
       "type": "string"
     }
   }

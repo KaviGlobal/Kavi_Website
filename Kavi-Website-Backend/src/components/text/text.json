@@ -1,15 +1,14 @@
 {
   "collectionName": "components_text_texts",
   "info": {
-    "displayName": "title_sub_para",
-    "description": ""
+    "displayName": "Text"
   },
   "options": {},
   "attributes": {
     "Title": {
       "type": "string"
     },
-    "Subtitle": {
+    "SubTitle": {
       "type": "string"
     },
     "Paragraph": {

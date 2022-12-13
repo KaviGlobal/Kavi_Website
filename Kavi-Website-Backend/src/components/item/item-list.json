@@ -1,21 +1,16 @@
 {
   "collectionName": "components_item_item_lists",
   "info": {
-    "displayName": "ItemList",
+    "displayName": "Item",
     "icon": "bars",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "tag": {
+    "Tag": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::tag.tag"
-    },
-    "item_type": {
-      "type": "component",
-      "repeatable": false,
-      "component": "item.type"
     },
     "Title": {
       "type": "string"
@@ -34,10 +29,10 @@
         "audios"
       ]
     },
-    "ContentUrl": {
+    "ContentLink": {
       "type": "component",
       "repeatable": false,
-      "component": "link.text"
+      "component": "link.content-link"
     }
   }
 }

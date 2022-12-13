@@ -17,11 +17,6 @@
       "repeatable": false,
       "component": "page.header"
     },
-    "ItemType": {
-      "type": "component",
-      "repeatable": false,
-      "component": "item.type"
-    },
     "items": {
       "type": "component",
       "repeatable": true,
