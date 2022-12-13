@@ -1,0 +1,8 @@
+<div class="main-container">
+    <cdk-virtual-scroll-viewport #mainScrollViewport class="default-scroll-viewport" itemSize="20">
+        <div class="sub-container" style="overflow:auto" [ngStyle]="{'height': (innerHeight - 90)+'px' }">
+            <app-body-content></app-body-content>
+            <app-footer-content></app-footer-content>
+        </div>
+    </cdk-virtual-scroll-viewport>
+</div>

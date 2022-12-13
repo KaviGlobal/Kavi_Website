@@ -1,0 +1,50 @@
+.card-body {
+    display: flex;
+}
+
+.card-body {
+    padding: 0px
+}
+
+ul {
+    width: 100%;
+    display: flex;
+
+    li {
+        list-style: none;
+        margin: 8px 15px 0 0;
+        font-size: large;
+        font-weight: unset;
+    }
+}
+
+h3 {
+    // padding: 18px;
+    padding: 22px 0 0 57px;
+    font-size: xx-large;
+    width: 90%;
+}
+
+.container-fluid {
+    background: transparent;
+    color: black;
+    height: 75px;
+    padding-right: 142px;
+    display: flex;
+    padding-top: 10px;
+}
+
+.content {
+    background-image: url('../../assets/Group_2007.png');
+    height: 17%;
+    color: white;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    /* transition: 0.2s linear; */
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+    right: 0px;
+
+}
