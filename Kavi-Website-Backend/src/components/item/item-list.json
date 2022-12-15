@@ -15,9 +15,6 @@
     "Title": {
       "type": "string"
     },
-    "Description": {
-      "type": "text"
-    },
     "Image": {
       "type": "media",
       "multiple": false,
@@ -29,10 +26,8 @@
         "audios"
       ]
     },
-    "ContentLink": {
-      "type": "component",
-      "repeatable": false,
-      "component": "link.content-link"
+    "Description": {
+      "type": "richtext"
     }
   }
 }
