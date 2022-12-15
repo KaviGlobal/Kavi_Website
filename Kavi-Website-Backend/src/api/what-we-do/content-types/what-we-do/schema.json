@@ -11,11 +11,5 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {
-    "header": {
-      "type": "component",
-      "repeatable": true,
-      "component": "page.header"
-    }
-  }
+  "attributes": {}
 }

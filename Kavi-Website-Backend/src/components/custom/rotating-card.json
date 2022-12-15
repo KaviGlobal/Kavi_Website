@@ -1,15 +1,18 @@
 {
-  "collectionName": "components_seo_shared_images",
+  "collectionName": "components_card_rotating_cards",
   "info": {
-    "displayName": "SharedImage",
+    "displayName": "RotatingCard",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "Alt": {
+    "Title": {
       "type": "string"
     },
-    "Media": {
+    "Description": {
+      "type": "text"
+    },
+    "Image": {
       "type": "media",
       "multiple": false,
       "required": false,
