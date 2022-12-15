@@ -21,6 +21,7 @@ import { HeaderContentModule } from './header-content/header-content.module';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './interceptorService.ts/tokenInterceptor.service';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { TokenInterceptorService } from './interceptorService.ts/tokenIntercepto
     MatButtonModule,
     MatDialogModule,
     HeaderContentModule,
-    ScrollingModule
+    ScrollingModule,
+    MatCardModule
   ],
   exports: [
     CommonModule,
