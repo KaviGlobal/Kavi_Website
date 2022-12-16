@@ -13,6 +13,7 @@ export class BodyContentComponent implements OnInit {
   public screenheight: number = 0;
   public tinySliderConfig!: NgxTinySliderSettingsInterface;
   @ViewChild("customControl", { static: true }) customControl!: ElementRef;
+
   @HostListener("window:scroll", [])
   onWindowScroll() {
     console.log("Scrolling!");

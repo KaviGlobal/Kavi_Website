@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_text_texts",
+  "info": {
+    "displayName": "Text"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "SubTitle": {
+      "type": "string"
+    },
+    "Paragraph": {
+      "type": "text"
+    }
+  }
+}
