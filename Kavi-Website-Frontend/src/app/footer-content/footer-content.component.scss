@@ -1,0 +1,53 @@
+.footer-block {
+    background-color: #000D42;
+    width: 100%;
+    height: 58%;
+    display: flex;
+
+    .first-block {
+        margin-left: 142px;
+        margin-top: 33px;
+        width: 44%;
+
+        .send-paper {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-control {
+            width: 100%;
+        }
+
+        .montserrat-medium {
+            font-family: "montserrat-medium";
+            color: #EA6B1E;
+            font-size: 20px;
+        }
+    }
+
+    ul {
+        padding-left: 0px;
+    }
+
+    li {
+        display: block;
+    }
+
+    .second-block{
+        width: 50%;
+        ngb-carousel .wrapper {
+            position: relative;
+            height: 0;
+            padding-top: 55%;
+            /* Keep ratio for 900x500 images */
+        }
+    
+        ngb-carousel .wrapper>img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+    }
+}

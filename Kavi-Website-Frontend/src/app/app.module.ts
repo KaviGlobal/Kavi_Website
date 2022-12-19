@@ -21,6 +21,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './interceptorService.ts/tokenInterceptor.service';
 import {MatCardModule} from '@angular/material/card';
 import {NgxTinySliderModule} from 'ngx-tiny-slider';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +46,8 @@ import {NgxTinySliderModule} from 'ngx-tiny-slider';
     HeaderContentModule,
     ScrollingModule,
     MatCardModule,
-    NgxTinySliderModule
+    NgxTinySliderModule,
+    NgbModule
   ],
   exports: [
     CommonModule,

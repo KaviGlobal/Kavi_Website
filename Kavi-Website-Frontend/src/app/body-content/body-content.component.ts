@@ -1,7 +1,7 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BodyContentService } from '../services/body-content.service';
-import {NgxTinySliderSettingsInterface} from 'ngx-tiny-slider';
+import { NgxTinySliderSettingsInterface } from 'ngx-tiny-slider';
 @Component({
   selector: 'app-body-content',
   templateUrl: './body-content.component.html',
@@ -18,7 +18,7 @@ export class BodyContentComponent implements OnInit {
   onWindowScroll() {
     console.log("Scrolling!");
   }
-  constructor(private formBuilder: FormBuilder,private bodyContent: BodyContentService
+  constructor(private formBuilder: FormBuilder, private bodyContent: BodyContentService
   ) { }
 
   ngOnInit(): void {
