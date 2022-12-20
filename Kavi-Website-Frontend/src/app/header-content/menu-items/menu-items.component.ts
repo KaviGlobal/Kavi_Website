@@ -9,16 +9,16 @@ import { MenuItemService } from 'src/app/services/menu-item.service';
   styleUrls: ['./menu-items.component.scss']
 })
 export class MenuItemsComponent implements OnInit {
-  public menuItems:any=[];
+  public menuItems: any = [];
 
   constructor(public dialogRef: MatDialogRef<MenuItemsComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private httpClient: HttpClient,private menuItemservice: MenuItemService) {
+    @Inject(MAT_DIALOG_DATA) public data: any, private httpClient: HttpClient, private menuItemservice: MenuItemService) {
   }
 
   ngOnInit(): void {
     this.menuItemservice.getMenuItems().subscribe((data: any) => {
-      this.menuItems=data.data;
-      console.log(data,this.menuItems);
+      this.menuItems = data.data;
+      console.log(data, this.menuItems);
 
     })
   }

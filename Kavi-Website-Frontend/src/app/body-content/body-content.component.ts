@@ -23,14 +23,14 @@ export class BodyContentComponent implements OnInit {
 
   ngOnInit(): void {
     this.screenheight = window.innerHeight;
-    this.tinySliderConfig = {
-      arrowKeys: true,
-      autoWidth: true,
-      gutter: 10,
-      controlsText: ["<", ">"],
-      waitForDom: false,
-      controlsContainer: this.customControl.nativeElement //custom controls
-    };
+    // this.tinySliderConfig = {
+    //   arrowKeys: true,
+    //   autoWidth: true,
+    //   gutter: 10,
+    //   controlsText: ["<", ">"],
+    //   waitForDom: false,
+    //   controlsContainer: this.customControl.nativeElement //custom controls
+    // };
     // this.bodyContent.getImage().subscribe((data: any) => {
 
     // })

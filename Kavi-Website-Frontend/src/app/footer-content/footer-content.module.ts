@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FooterContentComponent } from './footer-content.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -9,7 +10,8 @@ import { FooterContentComponent } from './footer-content.component';
     
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NgbModule
   ]
 })
 export class FooterContentModule { }

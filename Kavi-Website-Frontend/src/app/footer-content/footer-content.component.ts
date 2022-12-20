@@ -10,7 +10,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 export class FooterContentComponent implements OnInit {
   images: any;
   constructor(config: NgbCarouselConfig) {
-    config.interval = 2000;
+    // config.interval = 2000;
     config.keyboard = true;
     config.pauseOnHover = true;
   }

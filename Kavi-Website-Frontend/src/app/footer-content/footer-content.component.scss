@@ -33,15 +33,21 @@
         display: block;
     }
 
-    .second-block{
+    .second-block {
         width: 50%;
+
+        button {
+            display: none;
+        }
+
         ngb-carousel .wrapper {
             position: relative;
             height: 0;
             padding-top: 55%;
+            margin-left: 116px;
             /* Keep ratio for 900x500 images */
         }
-    
+
         ngb-carousel .wrapper>img {
             position: absolute;
             top: 0;
@@ -49,5 +55,41 @@
             bottom: 0;
             right: 0;
         }
+
+        ::ng-deep .carousel-indicators {
+            display: none;
+        }
+
+        ::ng-deep .carousel-control-prev {
+            display: contents;
+            color: transparent;
+        }
+
+        ::ng-deep .carousel-control-next {
+            display: contents;
+            color: transparent;
+        }
+
+        ::ng-deep .carousel-inner {
+            width: 79%;
+            height: 331px;
+        }
+
+        ::ng-deep .carousel-control-prev-icon {
+            top: 150px;
+            left: 88px;
+            position: absolute;
+        }
+
+        ::ng-deep .carousel-control-next-icon {
+            position: absolute;
+            left: 514px;
+            top: 150px;
+        }
+
+        .visually-hidden {
+            display: none;
+        }
+
     }
 }
