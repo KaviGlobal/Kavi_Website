@@ -9,29 +9,7 @@
     "Description": {
       "type": "text"
     },
-    "BackgroundImage": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "RecognitionImages": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "KaviLogos": {
+    "Images": {
       "type": "media",
       "multiple": true,
       "required": false,

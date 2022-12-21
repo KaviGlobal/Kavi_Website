@@ -1,7 +1,7 @@
 {
   "collectionName": "components_item_items",
   "info": {
-    "displayName": "Item",
+    "displayName": "Card",
     "description": ""
   },
   "options": {},
@@ -23,16 +23,13 @@
     "PreviewText": {
       "type": "text"
     },
-    "Tag": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::tag.tag"
-    },
     "UrlLabel": {
       "type": "string"
     },
-    "Url": {
-      "type": "text"
+    "Menu": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::left-menu.left-menu"
     }
   }
 }
