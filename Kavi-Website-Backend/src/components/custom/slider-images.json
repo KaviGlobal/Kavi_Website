@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_custom_slider_images",
+  "info": {
+    "displayName": "SliderImages",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.image"
+    }
+  }
+}
