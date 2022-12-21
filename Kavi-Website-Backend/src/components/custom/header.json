@@ -1,25 +1,46 @@
 {
   "collectionName": "components_custom_headers",
   "info": {
-    "displayName": "header"
+    "displayName": "Hero",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "Title": {
-      "type": "string"
-    },
     "Description": {
       "type": "text"
     },
-    "Image": {
+    "BackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
+      ]
+    },
+    "RecognitionImages": {
       "type": "media",
-      "multiple": true
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "KaviLogos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
