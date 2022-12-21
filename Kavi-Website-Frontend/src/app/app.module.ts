@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BodyContentComponent } from './body-content/body-content.component';
 import { FooterContentComponent } from './footer-content/footer-content.component';
-import { HeaderContentComponent } from './header-content/header-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -15,17 +14,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { HeaderContentModule } from './header-content/header-content.module';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './interceptorService.ts/tokenInterceptor.service';
-
+import {MatCardModule} from '@angular/material/card';
+import {NgxTinySliderModule} from 'ngx-tiny-slider';
 @NgModule({
   declarations: [
     AppComponent,
-    // HeaderContentComponent,
     BodyContentComponent,
     FooterContentComponent,
     DefaultComponent
@@ -44,10 +42,13 @@ import { TokenInterceptorService } from './interceptorService.ts/tokenIntercepto
     MatButtonModule,
     MatDialogModule,
     HeaderContentModule,
-    ScrollingModule
+    ScrollingModule,
+    MatCardModule,
+    NgxTinySliderModule
   ],
   exports: [
     CommonModule,
+    NgxTinySliderModule
   ],
   providers: [
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false }},

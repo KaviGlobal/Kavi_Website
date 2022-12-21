@@ -51,7 +51,22 @@
         text-align: center;
         margin: 3%;
         max-height: 100%;
+        mat-card {
+            width: 18%;
+            height: 154px;
+            border-radius: 15px;
+            margin-left: 2%;
 
+            mat-card-content {
+                font-size: 20px;
+                text-align: center;
+                position: relative;
+                top: 78%;
+                color: #224991;
+                font-family: 'open-sans-bold';
+
+            }
+        }
         h3 {
             font-family: 'open-sans-bold';
             color: #EA6B1E;
@@ -97,8 +112,8 @@
         .item-block {
             background-color: whitesmoke;
             height: 100%;
-            width: 39%;
-            margin-left: 145px;
+            width: 46%;
+            margin-left: 80px;
             display: flex;
 
             h4 {
