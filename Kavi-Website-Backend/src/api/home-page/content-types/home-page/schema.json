@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Header": {
+    "Hero": {
       "type": "component",
       "repeatable": false,
       "component": "custom.header"
