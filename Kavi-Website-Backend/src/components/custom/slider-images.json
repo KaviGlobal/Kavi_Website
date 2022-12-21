@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_item_item_lists",
+  "collectionName": "components_custom_slider_images",
   "info": {
-    "displayName": "ItemList",
+    "displayName": "SliderImages",
     "description": ""
   },
   "options": {},
@@ -9,10 +9,10 @@
     "Title": {
       "type": "string"
     },
-    "Items": {
+    "Images": {
       "type": "component",
       "repeatable": true,
-      "component": "item.item"
+      "component": "media.image"
     }
   }
 }
