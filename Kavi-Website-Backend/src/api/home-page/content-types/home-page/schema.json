@@ -17,50 +17,67 @@
       "repeatable": false,
       "component": "custom.header"
     },
-    "Achievements": {
-      "type": "component",
-      "repeatable": false,
-      "component": "text.text"
+    "AchievementsTitle": {
+      "type": "string"
+    },
+    "AchievementsParagraph": {
+      "type": "text"
     },
     "Estimations": {
       "type": "component",
       "repeatable": true,
       "component": "text.text"
     },
+    "OfferingsTitle": {
+      "type": "string"
+    },
     "Offerings": {
       "type": "component",
-      "repeatable": false,
-      "component": "item.item-list"
+      "repeatable": true,
+      "component": "card.item"
     },
     "Analytics": {
       "type": "component",
       "repeatable": false,
-      "component": "item.item"
+      "component": "card.item"
     },
-    "OurClients": {
-      "type": "component",
-      "repeatable": false,
-      "component": "text.text"
+    "OurClientsTitle": {
+      "type": "string"
     },
-    "RotatingCards": {
+    "OurClientsParagraph": {
+      "type": "text"
+    },
+    "OurClientDetail": {
       "type": "component",
       "repeatable": true,
       "component": "custom.rotating-card"
     },
-    "SlidingImages": {
+    "OurClientImagesTitle": {
+      "type": "string"
+    },
+    "OurClientImages": {
       "type": "component",
-      "repeatable": false,
-      "component": "custom.slider-images"
+      "repeatable": true,
+      "component": "media.image"
+    },
+    "BlogsTitle": {
+      "type": "string"
     },
     "Blogs": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::post.post"
     },
+    "NewsTitle": {
+      "type": "string"
+    },
     "News": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::post.post"
+    },
+    "SuccessStoryTitle": {
+      "type": "string"
     },
     "SuccessStory": {
       "type": "relation",
@@ -73,15 +90,6 @@
       "repeatable": false,
       "component": "custom.subscription"
     },
-    "BlogsTitle": {
-      "type": "string"
-    },
-    "NewsTitle": {
-      "type": "string"
-    },
-    "SuccessStoryTitle": {
-      "type": "string"
-    },
     "Seo": {
       "type": "component",
       "repeatable": false,
@@ -91,11 +99,6 @@
       "type": "component",
       "repeatable": false,
       "component": "custom.contact-us"
-    },
-    "Footer": {
-      "type": "component",
-      "repeatable": false,
-      "component": "custom.footer"
     }
   }
 }
