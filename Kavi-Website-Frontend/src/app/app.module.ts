@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,9 +19,10 @@ import { HeaderContentModule } from './header-content/header-content.module';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './interceptorService.ts/tokenInterceptor.service';
-import {MatCardModule} from '@angular/material/card';
-import {NgxTinySliderModule} from 'ngx-tiny-slider';
+import { MatCardModule } from '@angular/material/card';
+import { NgxTinySliderModule } from 'ngx-tiny-slider';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -47,14 +48,18 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     ScrollingModule,
     MatCardModule,
     NgxTinySliderModule,
-    NgbModule
+    NgbModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw'
+    })
   ],
   exports: [
     CommonModule,
     NgxTinySliderModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
-    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false }},
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

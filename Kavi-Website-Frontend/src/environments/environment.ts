@@ -4,7 +4,6 @@
 
 export const environment = {
   production: false,
-  baseurl: 'https://kavi-web-app.azurewebsites.net'
 };
 
 /*
