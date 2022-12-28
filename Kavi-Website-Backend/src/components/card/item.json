@@ -9,27 +9,21 @@
     "Title": {
       "type": "string"
     },
-    "Image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "PreviewText": {
-      "type": "text"
-    },
-    "UrlLabel": {
+    "LinkLabel": {
       "type": "string"
     },
     "Menu": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::left-menu.left-menu"
+    },
+    "OfferingMedia": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
+    },
+    "PreviewText": {
+      "type": "richtext"
     }
   }
 }

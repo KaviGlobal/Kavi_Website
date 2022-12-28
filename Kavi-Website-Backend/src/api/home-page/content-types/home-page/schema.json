@@ -12,16 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Hero": {
+    "HeroHeader": {
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "custom.header"
-    },
-    "AchievementsTitle": {
-      "type": "string"
-    },
-    "AchievementsParagraph": {
-      "type": "text"
     },
     "Estimations": {
       "type": "component",
@@ -99,6 +93,16 @@
       "type": "component",
       "repeatable": false,
       "component": "custom.contact-us"
+    },
+    "Achievements": {
+      "type": "component",
+      "repeatable": false,
+      "component": "text.title-paragraph"
+    },
+    "AchievementMetrics": {
+      "type": "component",
+      "repeatable": true,
+      "component": "text.title-subtitle"
     }
   }
 }
