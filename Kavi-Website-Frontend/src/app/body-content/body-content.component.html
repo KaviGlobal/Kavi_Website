@@ -11,11 +11,27 @@
             <img src="assets/clutch.png" alt="" style="width: 120px;">
             <img src="assets/inc500.png" alt="">
             <img src="assets/gartner.png" alt="" style="height: 73px;">
-            <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
-                <!-- <mat-icon>delete</mat-icon> -->
-                <img src="assets/kg_logo.png" alt="" style="height: 47px;width: 62px;margin-top: 0;">
-
-            </button>
+            <div>
+                <button mat-fab color="primary" style="background-color: #FFFFFF;text-align: right;display: flex;
+                justify-content: center;
+                left: 93%;
+                align-items: center;bottom: 110px;" aria-label="Example icon button with a delete icon">
+                    <img src="assets/helping.png" alt=""
+                        style="height: 33px;width: 55px;margin-top: 0;margin-left: 20px;"> </button>
+                <button mat-fab color="primary" style="background-color: #FFFFFF;text-align: right;display: flex;
+                justify-content: center;
+                left: 93%;
+                align-items: center;bottom: 104px;" aria-label="Message">
+                    <mat-icon style="color:#000D42">chat_bubble</mat-icon>
+                </button>
+                <button mat-fab color="primary" style="background-color: #FFFFFF;text-align: right;display: flex;
+                justify-content: center;
+                left: 93%;
+                align-items: center;bottom: 97px;" aria-label="Kaviglobal">
+                    <img src="assets/kg_logo.png" alt=""
+                        style="height: 47px;width: 62px;margin-top: 0;margin-left: 16px;">
+                </button>
+            </div>
 
         </div>
         <div class="arrow-block">
@@ -74,8 +90,8 @@
                 <div style="text-align: left;padding-left: 13px;">
                     <h4 style="font: normal normal 600 25px/20px Montserrat;">Software
                     </h4>
-                    <span style="width: 98%;
-                display: inline-flex;">Offer a patented, comprehensive, No-Code, technology agnostic, data analytics
+                    <span style="width: 98%;display: inline-flex;">Offer a patented, comprehensive, No-Code, technology
+                        agnostic, data analytics
                         software to the market to help business professional, data engineers, and scientists thrive in
                         their analytical goals.</span>
                     <a href="" style="font: normal normal 600 16px/23px Montserrat;">Learn more<mat-icon>
@@ -150,52 +166,33 @@
                     competition</strong> </h2>
             <div style="display:flex; margin-left: 8%;">
                 <mat-card>
+                    <img src="assets/strategy.png" alt="">
                     <mat-card-content>Strategy</mat-card-content>
                 </mat-card>
                 <mat-card>
+                    <img src="assets/consulting.png" alt="">
                     <mat-card-content>Consulting</mat-card-content>
                 </mat-card>
                 <mat-card>
+                    <img src="assets/R&D.png" alt="">
                     <mat-card-content>R & D</mat-card-content>
                 </mat-card>
                 <mat-card>
+                    <img src="assets/full_spectrum.png" alt="">
                     <mat-card-content>Full Spectrum</mat-card-content>
                 </mat-card>
             </div>
         </div>
         <div style="margin-top: 5%;text-align: center;background:#9B9B9B 0% 0% no-repeat padding-box;;height: 400px;">
             <h3 style="font-family: 'open-sans-bold';color: #EA6B1E; font-size: 35px;padding-top: 6%;"> Our Clients</h3>
-            <!-- <div>
-                <ngx-tiny-slider [config]="tinySliderConfig">
-                    <ng-container class="items" style="display: flex;">
-                        <div class="item">
-                            <a target="_blank" href="google.com">
-                                <img src="http://www.mattsorger.com/newsletterpics/gsw07_01.jpg">
-                            </a>
-                        </div>
-    
-                        <div class="item">
-                            <a target="_blank" href="google.com">
-                                <img src="http://www.mattsorger.com/newsletterpics/gsw07_01.jpg">
-                            </a>
-                        </div>
-    
-                        <div class="item">
-                            <a target="_blank" href="google.com">
-                                <img src="http://www.mattsorger.com/newsletterpics/gsw07_01.jpg">
-                            </a>
-                        </div>
-                    </ng-container>
-                </ngx-tiny-slider>
-            </div>
-            <ul class="controls" #customControl>
-                <button class="prev">
-                    Prev
-                </button>
-                <button class="next">
-                    Next
-                </button>
-            </ul> -->
+            <ngb-carousel *ngIf="clientImages.length">
+                <ng-template ngbSlide *ngFor="let item of clientImages">
+                    <span class="wrapper" *ngFor="let subItem of item">
+                        <img [src]="subItem" alt="Random first slide" style="background-color: #FFFFFF;margin-right: 20px;height: 100px;
+                        width: 18%;padding: 10px;">
+                    </span>
+                </ng-template>
+            </ngb-carousel>
         </div>
         <div>
             <div class="page1">

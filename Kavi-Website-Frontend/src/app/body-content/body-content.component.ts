@@ -18,6 +18,7 @@ export class BodyContentComponent implements OnInit {
   zoom: number = 8;
   lat: number = 51.673858;
   lng: number = 7.815982;
+  clientImages: any = [];
   @ViewChild('googleMap') googleMapEle!: ElementRef;
   @ViewChild("customControl", { static: true }) customControl!: ElementRef;
 
@@ -41,6 +42,13 @@ export class BodyContentComponent implements OnInit {
     // this.bodyContent.getImage().subscribe((data: any) => {
 
     // })
+    let images = [];
+    for (let index = 1; index < 5; index++) {
+      // console.log(`assets/client_images/${index}.png`)
+      images.push(`assets/client_images/${index}.png`);
+    }
+    this.clientImages.push(images);
+    console.log(this.clientImages);
   }
 
   ngAfterViewInit(): void {

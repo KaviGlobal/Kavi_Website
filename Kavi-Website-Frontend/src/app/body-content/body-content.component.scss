@@ -76,11 +76,16 @@
             border-radius: 15px;
             margin-left: 2%;
 
+            img {
+                width: 50%;
+                height: 77%;
+            }
+
             mat-card-content {
                 font-size: 20px;
                 text-align: center;
                 position: relative;
-                top: 78%;
+                top: 15%;
                 color: #224991;
                 font-family: 'open-sans-bold';
 
@@ -159,8 +164,6 @@
                     font-weight: 600;
                 }
             }
-
-
         }
 
         .sub-item {
@@ -176,4 +179,33 @@
 agm-map {
     width: 100%;
     height: 100%;
+}
+ngb-carousel{
+    display: flex;
+    top: 39px;
+}
+
+::ng-deep .carousel-control-prev {
+    display: none;
+    color: transparent;
+}
+
+::ng-deep .carousel-control-next {
+    display: none;
+    color: transparent;
+}
+
+// ::ng-deep .carousel-control-prev-icon {
+//     display: none;
+// }
+// ::ng-deep .carousel-control-next-icon {
+//     display: none;
+// }
+
+::ng-deep .visually-hidden{
+    display: none;
+}
+
+::ng-deep .carousel-indicators{
+    top: 169px;
 }
