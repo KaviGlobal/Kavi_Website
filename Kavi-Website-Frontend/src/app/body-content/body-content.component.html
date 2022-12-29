@@ -86,6 +86,9 @@
             </div>
             <div class="item-block" style="display: block;margin-left: 10px;">
                 <div class="sub-item" style="width: 90%; height: 217px;">
+                    <img src="assets/advana.png" alt="" style="width: 82%;
+                    position: relative;
+                    top: 29px;">
                 </div>
                 <div style="text-align: left;padding-left: 13px;">
                     <h4 style="font: normal normal 600 25px/20px Montserrat;">Software
@@ -120,13 +123,13 @@
             </div>
             <div class="item-block" style="margin-left: 9px;margin-top: 10px;">
                 <div class="sub-item">
+                    <img src="assets/Kavi_Labs.png" alt="" style="height: 218px;width: 100%;">
                 </div>
                 <div style="text-align: left;padding-top: 32px;">
-                    <h4 style="font: normal normal 600 25px/20px Montserrat;">Kaviglobal</h4>
-                    <span style="width: 343px;display: inline-flex;">Deliver both industry standard and
-                        enterprise-specific data analytics solutions and technologies across key business
-                        functions of the organization; bringing industry expertise and best practices in order
-                        to generate and capture value through data.</span>
+                    <h4 style="font: normal normal 600 25px/20px Montserrat;">Kavi Labs</h4>
+                    <span style="width: 343px;display: inline-flex;">Innovation arm for solution incubation bringing
+                        innovation to enterprises and research institutions through data analytics, leveraging the
+                        latest emerging technologies & best practice innovation framework.</span>
                     <a href="" style="font: normal normal 600 16px/23px Montserrat;">Learn more<mat-icon>
                             arrow_forward</mat-icon>
                     </a>
@@ -143,9 +146,14 @@
                 Our advanced <strong> machine learning & data science </strong> capabilities enable you to do more with
                 data
                 analytics.
+                <a href="" style="font: normal normal 600 16px/23px Montserrat;">Read more<mat-icon style="">
+                        arrow_forward</mat-icon>
+                </a>
             </p>
-            <div style="height: 200px;width: 35%;background-color: white;">
 
+            <div style="height: 200px;width: 35%;background-color: white;">
+                <img src="assets/seek_more.png" alt=""
+                    style="width: 56%;height: 168px;margin-left: 94px;margin-top: 18px;">
             </div>
         </div>
     </div>
@@ -164,7 +172,7 @@
             <h2 style="font-size: 28px; color: #163547;margin: 34px;text-align: center;">Net Savings Minimum <strong>30%
                     over
                     competition</strong> </h2>
-            <div style="display:flex; margin-left: 8%;">
+            <!-- <div style="display:flex; margin-left: 8%;">
                 <mat-card>
                     <img src="assets/strategy.png" alt="">
                     <mat-card-content>Strategy</mat-card-content>
@@ -181,6 +189,24 @@
                     <img src="assets/full_spectrum.png" alt="">
                     <mat-card-content>Full Spectrum</mat-card-content>
                 </mat-card>
+            </div> -->
+            <div class="tp-wrapper" style="display: flex;">
+                <div class="tp-box card" style="width: 272px;height: 229px;" (click)="toggleFlip(i)"
+                    [@flipState]="ourCientImages[i].flip" *ngFor="let image of ourCientImages;let i= index">
+                    <div class="tp-box__side tp-box__front" style="background-color: #FFFFFF;padding-top: 10px;">
+                        <img [src]="image.link" alt="">
+                        <h4 style="font-size: 20px;
+                        text-align: center;
+                        position: relative;
+                        top: 4%;
+                        color: #224991;
+                        font-family: 'open-sans-bold';">{{image.title}}</h4>
+                    </div>
+                    <div class="tp-box__side tp-box__back"
+                        style="color: #000D42;
+                    font-size: large;padding: 9px; display: flex;background: #FFFFFF;line-height: 1;align-items: center;">{{image.description}}
+                    </div>
+                </div>
             </div>
         </div>
         <div style="margin-top: 5%;text-align: center;background:#9B9B9B 0% 0% no-repeat padding-box;;height: 400px;">
@@ -198,8 +224,9 @@
             <div class="page1">
                 <h3> Blogs</h3>
                 <div class="col-6" style="display: flex;max-width: 100%;">
-                    <div class="item-block" style="display: block;width: 42%;">
+                    <div class="item-block" style="display: block;width: 42%;background-color: #FFFFFF">
                         <div class="sub-item" style="width: 95%;">
+                            <img src="assets/blog1.png" alt="" style="height: 218px;width: 100%;">
                         </div>
                         <div style="text-align: left;padding-left: 13px;">
                             <h4 style="font: normal normal 600 21px/20px Montserrat;">Enterprise Data Access:
@@ -216,8 +243,10 @@
                             </a>
                         </div>
                     </div>
-                    <div class="item-block" style="margin-left: 18px;width: 50%;height: 192px;">
-                        <div class="sub-item" style="height: 150px;width: 439px;">
+                    <div class="item-block"
+                        style="margin-left: 18px;width: 50%;height: 192px;background-color: #FFFFFF">
+                        <div class="sub-item" style="height: 188px;width: 439px;">
+                            <img src="assets/blog2.jpg" alt="" style="height: 188px;width: 100%;">
                         </div>
                         <div style="text-align: left;padding-top: 32px;">
                             <h4 style="font: normal normal 600 21px/20px Montserrat;">Intelligent Applications Power
@@ -234,8 +263,10 @@
                     </div>
                 </div>
                 <div class="col-6" style="display: flex;max-width: 100%;">
-                    <div class="item-block" style="margin-left: 50%;margin-top: -178px;width: 50%;height: 178px;">
-                        <div class="sub-item" style="height: 150px;width: 439px;">
+                    <div class="item-block"
+                        style="margin-left: 50%;margin-top: -178px;width: 50%;height: 178px;background-color: #FFFFFF">
+                        <div class="sub-item" style="height: 188px;width: 470px;">
+                            <img src="assets/blog3.png" alt="" style="height: 188px;width: 100%;">
                         </div>
                         <div style="text-align: left;padding-top: 32px;">
                             <h4 style="font: normal normal 600 21px/20px Montserrat;">Intelligent Augmented Reality Apps
@@ -246,8 +277,20 @@
                                     arrow_forward</mat-icon>
                             </a>
                         </div>
+
                     </div>
-                    <div></div>
+                </div>
+                <div style="background-color: #9B9B9B;border-color: #707070;    margin-left: 87px;
+                text-align: left;
+                height: 75px;
+                padding-left: 20px;
+                display: flex;
+                align-items: center;width: 50%;
+                position: relative;
+                left: 44.3%;top: -15px;">
+                    <a href="" style="color: #0D2C3D;font-size: 32px;">Read more on our news
+                        <mat-icon style="font-size: 29px;">arrow_forward</mat-icon>
+                    </a>
                 </div>
             </div>
             <div>
@@ -255,7 +298,8 @@
                     <h3> News</h3>
                     <div style="display: flex; margin-left: 87px;text-align: left">
                         <div class="col-4">
-                            <div class="sub-item" style="height: 150px;width: 100%;margin: 0 0 14px 0;">
+                            <div class="sub-item" style="height: 229px;width: 100%;margin: 0 0 14px 0;">
+                                <img src="assets/news1.png" alt="" style="width: 100%;height: 100%;">
                             </div>
                             <h2>
                                 Kavi Global Wins 2022 Most Comprehensive Data and Analytics Company
@@ -272,7 +316,12 @@
                             </a>
                         </div>
                         <div class="col-4">
-                            <div class="sub-item" style="height: 150px;width: 100%;margin: 0 0 14px 0;">
+                            <div class="sub-item" style="height: 229px;width: 100%;margin: 0 0 14px 0;">
+                                <img src="assets/advana.png" alt="" style="width: 72%;
+                                height: 52%;
+                                position: relative;
+                                top: 47px;
+                                left: 47px;">
                             </div>
                             <h2>Advana DaaS and Data Catalog Features Released</h2>
                             <p style="font-size: 14px;width: 100%;margin-left: 0;">Kavi Global
@@ -287,7 +336,12 @@
                             </a>
                         </div>
                         <div class="col-4">
-                            <div class="sub-item" style="height: 150px;width: 100%;margin: 0 0 14px 0;">
+                            <div class="sub-item" style="height: 229px;width: 100%;margin: 0 0 14px 0;">
+                                <img src="assets/news3.png" alt="" style="width: 72%;
+                                height: 52%;
+                                position: relative;
+                                top: 47px;
+                                left: 47px;">
                             </div>
                             <h2>Research Partnership with Ann & Robert H. Lurie Children’s Hospital of Chicago</h2>
                             <p style="font-size: 14px;width: 100%;margin-left: 0;">“We value the
@@ -308,9 +362,8 @@
                     padding-left: 20px;
                     display: flex;
                     align-items: center;">
-                        <a href="" style="color: #0D2C3D;font-size: 32px;">Read
-                            more on our news<mat-icon style="font-size: 29px;">
-                                arrow_forward</mat-icon>
+                        <a href="" style="color: #0D2C3D;font-size: 32px;">Read more on our news
+                            <mat-icon style="font-size: 29px;">arrow_forward</mat-icon>
                         </a>
                     </div>
                 </div>
@@ -332,7 +385,8 @@
                         <h3> Success stories</h3>
                         <div style="display: flex;text-align: left;">
                             <div style=" width: 50%;">
-                                <div class="sub-item" style="height: 150px;width: 100%;margin: 0 0 14px 0;">
+                                <div class="sub-item" style="height: 201px;width: 100%;margin: 0 0 14px 0;">
+                                    <img src="assets/success_story1.png" alt="" style="height: 100%;width: 100%;">
                                 </div>
                                 <h2>IIoT Preventative Maintenance Platform</h2>
                                 <p style="font-size: 14px;width: 100%;margin-left: 0;">A flexible, scalable and
@@ -357,14 +411,15 @@
                                     more<mat-icon style="padding-top: 7px;font-size: 21px;">
                                         arrow_forward</mat-icon>
                                 </a>
-                                <div class="sub-item" style="height: 150px;width: 100%;margin: 0 0 14px 0;">
+                                <div class="sub-item" style="height: 201px;width: 100%;margin: 0 0 14px 0;">
+                                    <img src="assets/success_story2.png" alt="" style="height: 100%;width: 100%;">
+
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div
                         style="background-color: whitesmoke;width: 53%;height: 50px;display: flex;text-align: center;padding: 9px 9px 9px 39px;">
-                        <!-- <h2 style="letter-spacing: 0px;color: #0D2C3D;">Read more on our Success stories </h2> -->
                         <a href="" style="font: normal normal 600 19px/23px Montserrat;color: #224991;">Read more on our
                             Success stories <mat-icon style="padding-top: 7px;font-size: 21px;">
                                 arrow_forward</mat-icon>
