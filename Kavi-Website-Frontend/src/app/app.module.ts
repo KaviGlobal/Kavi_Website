@@ -23,13 +23,15 @@ import { MatCardModule } from '@angular/material/card';
 import { NgxTinySliderModule } from 'ngx-tiny-slider';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AgmCoreModule } from '@agm/core';
+import { BlogComponent } from './components/blog/blog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BodyContentComponent,
     FooterContentComponent,
-    DefaultComponent
+    DefaultComponent,
+    BlogComponent
   ],
   imports: [
     CommonModule,
