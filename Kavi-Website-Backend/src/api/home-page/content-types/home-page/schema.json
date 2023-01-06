@@ -17,10 +17,15 @@
       "repeatable": true,
       "component": "custom.header"
     },
-    "Estimations": {
+    "Achievements": {
+      "type": "component",
+      "repeatable": false,
+      "component": "text.title-paragraph"
+    },
+    "AchievementMetrics": {
       "type": "component",
       "repeatable": true,
-      "component": "text.text"
+      "component": "text.title-subtitle"
     },
     "OfferingsTitle": {
       "type": "string"
@@ -93,16 +98,6 @@
       "type": "component",
       "repeatable": false,
       "component": "custom.contact-us"
-    },
-    "Achievements": {
-      "type": "component",
-      "repeatable": false,
-      "component": "text.title-paragraph"
-    },
-    "AchievementMetrics": {
-      "type": "component",
-      "repeatable": true,
-      "component": "text.title-subtitle"
     }
   }
 }
