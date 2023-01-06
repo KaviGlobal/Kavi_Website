@@ -1,24 +1,21 @@
 {
   "collectionName": "components_custom_headers",
   "info": {
-    "displayName": "Hero",
+    "displayName": "Slider",
     "description": ""
   },
   "options": {},
   "attributes": {
     "Description": {
-      "type": "text"
+      "type": "richtext"
     },
-    "Images": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "Order": {
+      "type": "integer"
+    },
+    "SliderMedia": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
     }
   }
 }
