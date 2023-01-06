@@ -30,6 +30,9 @@
     "OfferingsTitle": {
       "type": "string"
     },
+    "OfferingsTitle": {
+      "type": "string"
+    },
     "Offerings": {
       "type": "component",
       "repeatable": true,
