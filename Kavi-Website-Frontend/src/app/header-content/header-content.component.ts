@@ -16,10 +16,10 @@ export class HeaderContentComponent implements OnInit {
   constructor(private dialog: MatDialog, private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-    this.httpClient.get("assets/menu_data/menuData.json").subscribe((data: any) => {
-      console.log(data);
-      this.menuItems = data;
-    });
+    // this.httpClient.get("assets/menu_data/menuData.json").subscribe((data: any) => {
+    //   console.log(data);
+    //   this.menuItems = data;
+    // });
   }
 
   openMenu(): void {

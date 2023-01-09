@@ -2,11 +2,37 @@
     <div class="content" [ngStyle]="{'height.px':screenheight}">
         <div class="content-block">
             <!-- <h3 class="montserrat-semi-bold">Kavi Global</h3> -->
-            <span class="sentence">
+            <div class="sentence">
                 <strong>Kavi Global</strong>
                 is a pure play data and analytics company offering a comprehensive set of data analytics solutions,
                 software and services invested in business value co-creation and knowledge sharing.
-            </span>
+            </div>
+            <img src="assets/microsoft_partner.png" alt="">
+            <img src="assets/clutch.png" alt="" style="width: 120px;">
+            <img src="assets/inc500.png" alt="">
+            <img src="assets/gartner.png" alt="" style="height: 73px;">
+            <div>
+                <button mat-fab color="primary" style="background-color: #FFFFFF;text-align: right;display: flex;
+                justify-content: center;
+                left: 93%;
+                align-items: center;bottom: 110px;" aria-label="Example icon button with a delete icon">
+                    <img src="assets/helping.png" alt=""
+                        style="height: 33px;width: 55px;margin-top: 0;margin-left: 20px;"> </button>
+                <button mat-fab color="primary" style="background-color: #FFFFFF;text-align: right;display: flex;
+                justify-content: center;
+                left: 93%;
+                align-items: center;bottom: 104px;" aria-label="Message">
+                    <mat-icon style="color:#000D42">chat_bubble</mat-icon>
+                </button>
+                <button mat-fab color="primary" style="background-color: #FFFFFF;text-align: right;display: flex;
+                justify-content: center;
+                left: 93%;
+                align-items: center;bottom: 97px;" aria-label="Kaviglobal">
+                    <img src="assets/kg_logo.png" alt=""
+                        style="height: 47px;width: 62px;margin-top: 0;margin-left: 16px;">
+                </button>
+            </div>
+
         </div>
         <div class="arrow-block">
             <button (click)="ScrollIntoView('section2')" mat-icon-button aria-label="Example icon-button with a menu">
@@ -60,12 +86,15 @@
             </div>
             <div class="item-block" style="display: block;margin-left: 10px;">
                 <div class="sub-item" style="width: 90%; height: 217px;">
+                    <img src="assets/advana.png" alt="" style="width: 82%;
+                    position: relative;
+                    top: 29px;">
                 </div>
                 <div style="text-align: left;padding-left: 13px;">
                     <h4 style="font: normal normal 600 25px/20px Montserrat;">Software
                     </h4>
-                    <span style="width: 98%;
-                display: inline-flex;">Offer a patented, comprehensive, No-Code, technology agnostic, data analytics
+                    <span style="width: 98%;display: inline-flex;">Offer a patented, comprehensive, No-Code, technology
+                        agnostic, data analytics
                         software to the market to help business professional, data engineers, and scientists thrive in
                         their analytical goals.</span>
                     <a href="" style="font: normal normal 600 16px/23px Montserrat;">Learn more<mat-icon>
@@ -86,7 +115,7 @@
                     <span style="width: 98%;display: inline-flex;">Deliver both industry standard and
                         enterprise-specific data analytics solutions and technologies across key business
                         functions of the organization; bringing industry expertise and best practices in order
-                        to generate and capture value through data.</span>   
+                        to generate and capture value through data.</span>
                     <a href="" style="font: normal normal 600 16px/23px Montserrat;">Learn more<mat-icon>
                             arrow_forward</mat-icon>
                     </a>
@@ -94,13 +123,13 @@
             </div>
             <div class="item-block" style="margin-left: 9px;margin-top: 10px;">
                 <div class="sub-item">
+                    <img src="assets/Kavi_Labs.png" alt="" style="height: 218px;width: 100%;">
                 </div>
                 <div style="text-align: left;padding-top: 32px;">
-                    <h4 style="font: normal normal 600 25px/20px Montserrat;">Kaviglobal</h4>
-                    <span style="width: 343px;display: inline-flex;">Deliver both industry standard and
-                        enterprise-specific data analytics solutions and technologies across key business
-                        functions of the organization; bringing industry expertise and best practices in order
-                        to generate and capture value through data.</span>
+                    <h4 style="font: normal normal 600 25px/20px Montserrat;">Kavi Labs</h4>
+                    <span style="width: 343px;display: inline-flex;">Innovation arm for solution incubation bringing
+                        innovation to enterprises and research institutions through data analytics, leveraging the
+                        latest emerging technologies & best practice innovation framework.</span>
                     <a href="" style="font: normal normal 600 16px/23px Montserrat;">Learn more<mat-icon>
                             arrow_forward</mat-icon>
                     </a>
@@ -117,9 +146,14 @@
                 Our advanced <strong> machine learning & data science </strong> capabilities enable you to do more with
                 data
                 analytics.
+                <a href="" style="font: normal normal 600 16px/23px Montserrat;">Read more<mat-icon style="">
+                        arrow_forward</mat-icon>
+                </a>
             </p>
-            <div style="height: 200px;width: 35%;background-color: white;">
 
+            <div style="height: 200px;width: 35%;background-color: white;">
+                <img src="assets/seek_more.png" alt=""
+                    style="width: 56%;height: 168px;margin-left: 94px;margin-top: 18px;">
             </div>
         </div>
     </div>
@@ -135,63 +169,64 @@
                 Find below the differentiators that give us a proven
                 competitive edge in our category:
             </p>
-            <h2 style="font-size: 28px; color: #163547;margin: 34px;">Net Savings Minimum <strong>30% over
+            <h2 style="font-size: 28px; color: #163547;margin: 34px;text-align: center;">Net Savings Minimum <strong>30%
+                    over
                     competition</strong> </h2>
-            <div style="display:flex; margin-left: 8%;">
+            <!-- <div style="display:flex; margin-left: 8%;">
                 <mat-card>
+                    <img src="assets/strategy.png" alt="">
                     <mat-card-content>Strategy</mat-card-content>
                 </mat-card>
                 <mat-card>
+                    <img src="assets/consulting.png" alt="">
                     <mat-card-content>Consulting</mat-card-content>
                 </mat-card>
                 <mat-card>
+                    <img src="assets/R&D.png" alt="">
                     <mat-card-content>R & D</mat-card-content>
                 </mat-card>
                 <mat-card>
+                    <img src="assets/full_spectrum.png" alt="">
                     <mat-card-content>Full Spectrum</mat-card-content>
                 </mat-card>
+            </div> -->
+            <div class="tp-wrapper" style="display: flex;">
+                <div class="tp-box card" style="width: 272px;height: 229px;" (click)="toggleFlip(i)"
+                    [@flipState]="ourCientImages[i].flip" *ngFor="let image of ourCientImages;let i= index">
+                    <div class="tp-box__side tp-box__front" style="background-color: #FFFFFF;padding-top: 10px;">
+                        <img [src]="image.link" alt="">
+                        <h4 style="font-size: 20px;
+                        text-align: center;
+                        position: relative;
+                        top: 4%;
+                        color: #224991;
+                        font-family: 'open-sans-bold';">{{image.title}}</h4>
+                    </div>
+                    <div class="tp-box__side tp-box__back"
+                        style="color: #000D42;
+                    font-size: large;padding: 9px; display: flex;background: #FFFFFF;line-height: 1;align-items: center;">{{image.description}}
+                    </div>
+                </div>
             </div>
         </div>
         <div style="margin-top: 5%;text-align: center;background:#9B9B9B 0% 0% no-repeat padding-box;;height: 400px;">
             <h3 style="font-family: 'open-sans-bold';color: #EA6B1E; font-size: 35px;padding-top: 6%;"> Our Clients</h3>
-            <!-- <div>
-                <ngx-tiny-slider [config]="tinySliderConfig">
-                    <ng-container class="items" style="display: flex;">
-                        <div class="item">
-                            <a target="_blank" href="google.com">
-                                <img src="http://www.mattsorger.com/newsletterpics/gsw07_01.jpg">
-                            </a>
-                        </div>
-    
-                        <div class="item">
-                            <a target="_blank" href="google.com">
-                                <img src="http://www.mattsorger.com/newsletterpics/gsw07_01.jpg">
-                            </a>
-                        </div>
-    
-                        <div class="item">
-                            <a target="_blank" href="google.com">
-                                <img src="http://www.mattsorger.com/newsletterpics/gsw07_01.jpg">
-                            </a>
-                        </div>
-                    </ng-container>
-                </ngx-tiny-slider>
-            </div>
-            <ul class="controls" #customControl>
-                <button class="prev">
-                    Prev
-                </button>
-                <button class="next">
-                    Next
-                </button>
-            </ul> -->
+            <ngb-carousel *ngIf="clientImages.length">
+                <ng-template ngbSlide *ngFor="let item of clientImages">
+                    <span class="wrapper" *ngFor="let subItem of item">
+                        <img [src]="subItem" alt="Random first slide" style="background-color: #FFFFFF;margin-right: 20px;height: 100px;
+                        width: 18%;padding: 10px;">
+                    </span>
+                </ng-template>
+            </ngb-carousel>
         </div>
         <div>
             <div class="page1">
                 <h3> Blogs</h3>
                 <div class="col-6" style="display: flex;max-width: 100%;">
-                    <div class="item-block" style="display: block;width: 42%;">
+                    <div class="item-block" style="display: block;width: 42%;background-color: #FFFFFF">
                         <div class="sub-item" style="width: 95%;">
+                            <img src="assets/blog1.png" alt="" style="height: 218px;width: 100%;">
                         </div>
                         <div style="text-align: left;padding-left: 13px;">
                             <h4 style="font: normal normal 600 21px/20px Montserrat;">Enterprise Data Access:
@@ -208,8 +243,10 @@
                             </a>
                         </div>
                     </div>
-                    <div class="item-block" style="margin-left: 18px;width: 50%;height: 192px;">
-                        <div class="sub-item" style="height: 150px;width: 439px;">
+                    <div class="item-block"
+                        style="margin-left: 18px;width: 50%;height: 192px;background-color: #FFFFFF">
+                        <div class="sub-item" style="height: 188px;width: 439px;">
+                            <img src="assets/blog2.jpg" alt="" style="height: 188px;width: 100%;">
                         </div>
                         <div style="text-align: left;padding-top: 32px;">
                             <h4 style="font: normal normal 600 21px/20px Montserrat;">Intelligent Applications Power
@@ -226,8 +263,10 @@
                     </div>
                 </div>
                 <div class="col-6" style="display: flex;max-width: 100%;">
-                    <div class="item-block" style="margin-left: 50%;margin-top: -178px;width: 50%;height: 178px;">
-                        <div class="sub-item" style="height: 150px;width: 439px;">
+                    <div class="item-block"
+                        style="margin-left: 50%;margin-top: -178px;width: 50%;height: 178px;background-color: #FFFFFF">
+                        <div class="sub-item" style="height: 188px;width: 470px;">
+                            <img src="assets/blog3.png" alt="" style="height: 188px;width: 100%;">
                         </div>
                         <div style="text-align: left;padding-top: 32px;">
                             <h4 style="font: normal normal 600 21px/20px Montserrat;">Intelligent Augmented Reality Apps
@@ -239,12 +278,184 @@
                             </a>
                         </div>
                     </div>
-                    <div></div>
+                </div>
+                <div style="background-color: #9B9B9B;border-color: #707070;    margin-left: 87px;
+                text-align: left;
+                height: 75px;
+                padding-left: 20px;
+                display: flex;
+                align-items: center;width: 50%;
+                position: relative;
+                left: 44.3%;top: -15px;">
+                    <a href="" style="color: #0D2C3D;font-size: 32px;">Read more on our news
+                        <mat-icon style="font-size: 29px;">arrow_forward</mat-icon>
+                    </a>
                 </div>
             </div>
             <div>
                 <div class="page1">
                     <h3> News</h3>
+                    <div style="display: flex; margin-left: 87px;text-align: left">
+                        <div class="col-4">
+                            <div class="sub-item" style="height: 229px;width: 100%;margin: 0 0 14px 0;">
+                                <img src="assets/news1.png" alt="" style="width: 100%;height: 100%;">
+                            </div>
+                            <h2>
+                                Kavi Global Wins 2022 Most Comprehensive Data and Analytics Company
+                            </h2>
+                            <p style="font-size: 14px; width: 100%;margin-left: 0;">Augmented Reality
+                                Creates Business Values Recent
+                                technological advancements
+                                have made it
+                                possible to seamlessly overlay computer-generated virtual images onto real-world
+                                objects.</p>
+                            <a href="" style="font: normal normal 600 14px/23px Montserrat;color: #224991;">Read
+                                more<mat-icon style="padding-top: 7px;font-size: 21px;">
+                                    arrow_forward</mat-icon>
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <div class="sub-item" style="height: 229px;width: 100%;margin: 0 0 14px 0;">
+                                <img src="assets/advana.png" alt="" style="width: 72%;
+                                height: 52%;
+                                position: relative;
+                                top: 47px;
+                                left: 47px;">
+                            </div>
+                            <h2>Advana DaaS and Data Catalog Features Released</h2>
+                            <p style="font-size: 14px;width: 100%;margin-left: 0;">Kavi Global
+                                announced the general release of DaaS
+                                (Data as a Service) and
+                                Data Catalog
+                                features in their flagship No-Code Data Engineering and Data Science software, Advana.
+                            </p>
+                            <a href="" style="font: normal normal 600 14px/23px Montserrat;color: #224991;">Read
+                                more<mat-icon style="padding-top: 7px;font-size: 21px;">
+                                    arrow_forward</mat-icon>
+                            </a>
+                        </div>
+                        <div class="col-4">
+                            <div class="sub-item" style="height: 229px;width: 100%;margin: 0 0 14px 0;">
+                                <img src="assets/news3.png" alt="" style="width: 72%;
+                                height: 52%;
+                                position: relative;
+                                top: 47px;
+                                left: 47px;">
+                            </div>
+                            <h2>Research Partnership with Ann & Robert H. Lurie Children’s Hospital of Chicago</h2>
+                            <p style="font-size: 14px;width: 100%;margin-left: 0;">“We value the
+                                opportunity to partner with Lurie
+                                Children’s to innovate
+                                clinical AI
+                                solutions that will transform pediatric medicine and shape the future of Healthcare.”
+                            </p>
+                            <a href="" style="font: normal normal 600 14px/23px Montserrat;color: #224991;">Read
+                                more<mat-icon style="padding-top: 7px;font-size: 21px;">
+                                    arrow_forward</mat-icon>
+                            </a>
+                        </div>
+                    </div>
+                    <div style="background-color: #9B9B9B;border-color: #707070;    margin-left: 87px;
+                    text-align: left;
+                    height: 75px;
+                    padding-left: 20px;
+                    display: flex;
+                    align-items: center;">
+                        <a href="" style="color: #0D2C3D;font-size: 32px;">Read more on our news
+                            <mat-icon style="font-size: 29px;">arrow_forward</mat-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div
+                style="width: 100%;height: 126px;background-color: #000D42; margin-bottom: 61px;display: flex;align-items: center;padding-left: 128px;opacity: 100%;">
+                <h3 style="color: #EA6B1E;font-size: 30px;">Subscribe for news letter</h3>
+                <div class="send-paper" style="display: flex;align-items: center;    margin-left: 21%;
+                width: 43%;">
+                    <input type="search" class="form-control montserrat-regular" placeholder="Email Address"
+                        aria-label="Email Address" aria-describedby="email address" />
+                    <i style="padding-right: 2px; font-size:large;padding-left: 11px;
+                        font-weight: bold;color: #FFFFFF;" class="fa fa-paper-plane" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="page1" style="margin: 3% 3% 0% 3%;">
+                        <h3> Success stories</h3>
+                        <div style="display: flex;text-align: left;">
+                            <div style=" width: 50%;">
+                                <div class="sub-item" style="height: 201px;width: 100%;margin: 0 0 14px 0;">
+                                    <img src="assets/success_story1.png" alt="" style="height: 100%;width: 100%;">
+                                </div>
+                                <h2>IIoT Preventative Maintenance Platform</h2>
+                                <p style="font-size: 14px;width: 100%;margin-left: 0;">A flexible, scalable and
+                                    comprehensive Distributed Sensor Solutions Platform that can be deployed either on
+                                    the cloud or on premise. The platform provides streaming data ingestion and
+                                    analytics on critical assets to ensure high standards of safety, availability and
+                                    cost optimization.
+                                </p>
+                                <a href="" style="font: normal normal 600 14px/23px Montserrat;color: #224991;">Read
+                                    more<mat-icon style="padding-top: 7px;font-size: 21px;">
+                                        arrow_forward</mat-icon>
+                                </a>
+                            </div>
+                            <div style="padding-left: 15px;width: 50%;">
+                                <h2>Wheel Remaining Useful Life (RUL) Analytics</h2>
+                                <p style="font-size: 14px;width: 100%;margin-left: 0;">Calculated decay rates for
+                                    different locomotive types. Performed a benefit-risk analysis on shifting policy
+                                    limits. Derived a detailed decision diagram that helps shop manage replacement &
+                                    truing events.
+                                </p>
+                                <a href="" style="font: normal normal 600 14px/23px Montserrat;color: #224991;">Read
+                                    more<mat-icon style="padding-top: 7px;font-size: 21px;">
+                                        arrow_forward</mat-icon>
+                                </a>
+                                <div class="sub-item" style="height: 201px;width: 100%;margin: 0 0 14px 0;">
+                                    <img src="assets/success_story2.png" alt="" style="height: 100%;width: 100%;">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        style="background-color: whitesmoke;width: 53%;height: 50px;display: flex;text-align: center;padding: 9px 9px 9px 39px;">
+                        <a href="" style="font: normal normal 600 19px/23px Montserrat;color: #224991;">Read more on our
+                            Success stories <mat-icon style="padding-top: 7px;font-size: 21px;">
+                                arrow_forward</mat-icon>
+                        </a>
+                    </div>
+                    <div style="width: 100%;height: 10px;background-color: #000D42;"></div>
+                </div>
+            </div>
+            <div style="height: 500px;margin-top: 48px;">
+                <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false"
+                    [zoomControl]="false" (mapClick)="mapClicked($event)">
+
+                    <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label!, i)"
+                        [latitude]="m.lat" [longitude]="m.lng" [label]="m.label!" [markerDraggable]="m.draggable"
+                        (dragEnd)="markerDragEnd(m, $event)">
+
+                        <agm-info-window>
+                            <strong>InfoWindow content</strong>
+                        </agm-info-window>
+                    </agm-marker>
+
+                    <!-- <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'"
+                        [circleDraggable]="true" [editable]="true">
+                    </agm-circle> -->
+
+                </agm-map>
+                <div
+                    style="background-color: #000D42;width: 29%;height: 190px;position: relative;border-top-right-radius: 25px;
+                border-bottom-right-radius: 25px;top: -451px;align-items: center;justify-content: center;display: flex;">
+                    <div style="    text-align: left;
+                    color: #FFFF;">
+                        <h3 style="color: #EA6B1E;font: normal normal bold 26px/11px Open Sans;
+                        padding-left: 55px;">Contact us</h3>
+                        <p><mat-icon> location_on</mat-icon>1250 S Grove Ave, Barrington, IL 60010</p>
+                        <p><mat-icon> phone</mat-icon>(847) 387-6760</p>
+                        <p><mat-icon> email</mat-icon>contact@kaviglobal.com</p>
+                    </div>
                 </div>
             </div>
         </div>
