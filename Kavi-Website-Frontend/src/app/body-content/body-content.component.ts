@@ -5,7 +5,6 @@ import { NgxTinySliderSettingsInterface } from 'ngx-tiny-slider';
 // import { MouseEvent } from '@agm/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 declare const google: any;
-
 @Component({
   selector: 'app-body-content',
   templateUrl: './body-content.component.html',
@@ -83,7 +82,6 @@ export class BodyContentComponent implements OnInit {
     this.ourCientImages[index].flip = (this.ourCientImages[index].flip == 'inactive') ? 'active' : 'inactive'
     // this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
     console.log(this.ourCientImages)
-
   }
 
   ngAfterViewInit(): void {

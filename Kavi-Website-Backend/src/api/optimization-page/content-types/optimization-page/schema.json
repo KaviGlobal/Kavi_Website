@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "items": {
-      "type": "component",
-      "repeatable": true,
-      "component": "item.item-list"
-    },
     "SliderImage": {
       "type": "component",
       "repeatable": true,

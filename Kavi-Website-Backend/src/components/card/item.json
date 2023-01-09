@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_item_items",
+  "info": {
+    "displayName": "Card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "LinkLabel": {
+      "type": "string"
+    },
+    "Menu": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::left-menu.left-menu"
+    },
+    "OfferingMedia": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
+    },
+    "PreviewText": {
+      "type": "richtext"
+    }
+  }
+}

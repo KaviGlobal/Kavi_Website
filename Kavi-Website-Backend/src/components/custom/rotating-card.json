@@ -6,22 +6,15 @@
   },
   "options": {},
   "attributes": {
-    "Title": {
-      "type": "string"
+    "OurClientDescription": {
+      "type": "component",
+      "repeatable": false,
+      "component": "text.title-paragraph"
     },
-    "Description": {
-      "type": "text"
-    },
-    "Image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "OurClientIcon": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
     }
   }
 }

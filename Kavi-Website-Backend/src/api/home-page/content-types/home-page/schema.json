@@ -12,32 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Blogs": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::post.post"
-    },
-    "RotatingCards": {
-      "type": "component",
-      "repeatable": true,
-      "component": "custom.rotating-card"
-    },
-    "SliderImages": {
-      "type": "component",
-      "repeatable": true,
-      "component": "media.image"
-    },
-    "News": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::post.post"
-    },
-    "SuccessStory": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::post.post"
-    },
-    "Header": {
+    "HeroHeader": {
       "type": "component",
       "repeatable": true,
       "component": "custom.header"
@@ -45,45 +20,87 @@
     "Achievements": {
       "type": "component",
       "repeatable": false,
-      "component": "text.text"
+      "component": "text.title-paragraph"
     },
-    "Offerings": {
+    "AchievementMetrics": {
       "type": "component",
       "repeatable": true,
-      "component": "item.item-list"
+      "component": "text.title-subtitle"
     },
-    "Analytics": {
-      "type": "component",
-      "repeatable": false,
-      "component": "item.item-list"
-    },
-    "OurClients": {
-      "type": "component",
-      "repeatable": false,
-      "component": "text.text"
-    },
-    "Estimations": {
-      "type": "component",
-      "repeatable": true,
-      "component": "text.text"
-    },
-    "RotatingCardsTitle": {
-      "type": "string"
-    },
-    "SlidingImagesTitle": {
-      "type": "string"
-    },
-    "BlogsTitle": {
-      "type": "string"
-    },
-    "NewsTitle": {
-      "type": "string"
-    },
-    "SuccessStoryTitle": {
+    "OfferingsTitle": {
       "type": "string"
     },
     "OfferingsTitle": {
       "type": "string"
+    },
+    "Offerings": {
+      "type": "component",
+      "repeatable": true,
+      "component": "card.item"
+    },
+    "Analytics": {
+      "type": "component",
+      "repeatable": false,
+      "component": "card.item"
+    },
+    "OurClientsTitle": {
+      "type": "string"
+    },
+    "OurClientsParagraph": {
+      "type": "text"
+    },
+    "OurClientDetail": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.rotating-card"
+    },
+    "OurClientImagesTitle": {
+      "type": "string"
+    },
+    "OurClientImages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.image"
+    },
+    "BlogsTitle": {
+      "type": "string"
+    },
+    "Blogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post.post"
+    },
+    "NewsTitle": {
+      "type": "string"
+    },
+    "News": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post.post"
+    },
+    "SuccessStoryTitle": {
+      "type": "string"
+    },
+    "SuccessStory": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post.post"
+    },
+    "Subscription": {
+      "displayName": "Subscription",
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.subscription"
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "ContactUs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.contact-us"
     }
   }
 }

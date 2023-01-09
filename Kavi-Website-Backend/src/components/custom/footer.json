@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_custom_footers",
+  "info": {
+    "displayName": "Footer"
+  },
+  "options": {},
+  "attributes": {
+    "FooterSubscription": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.subscription"
+    },
+    "KaviLogo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "AboutKavi": {
+      "type": "string"
+    },
+    "Sliders": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

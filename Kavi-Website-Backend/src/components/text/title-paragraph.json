@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_text_title_paragraphs",
+  "info": {
+    "displayName": "TitleParagraph",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Paragraph": {
+      "type": "richtext"
+    }
+  }
+}
