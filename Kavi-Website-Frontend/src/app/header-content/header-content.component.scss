@@ -18,12 +18,9 @@ ul {
     }
 }
 
-h3 {
-    // padding: 18px;
-    padding: 22px 0 0 57px;
-    font-size: xx-large;
-    width: 90%;
-}
+// img {
+//     padding: 22px 0 0 57px;
+// }
 
 .container-fluid {
     background: transparent;
@@ -41,10 +38,20 @@ h3 {
     display: flex;
     align-items: center;
     position: fixed;
-    /* transition: 0.2s linear; */
     top: 0px;
     left: 0px;
     z-index: 9999;
     right: 0px;
+
+    button {
+        padding: 22px 0 0 57px;
+        background-color: transparent;
+        border-color: transparent;
+    }
+
+    .sub-content {
+        position: relative;
+        left: 65%;
+    }
 
 }
