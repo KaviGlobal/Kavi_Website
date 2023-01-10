@@ -24,6 +24,7 @@ declare const google: any;
   ]
 })
 export class BodyContentComponent implements OnInit {
+  public renderData: any;
   public searchCriteria!: FormGroup;
   public screenheight: number = 0;
   public tinySliderConfig!: NgxTinySliderSettingsInterface;
@@ -40,10 +41,17 @@ export class BodyContentComponent implements OnInit {
   onWindowScroll() {
     console.log("Scrolling!");
   }
-  constructor(private formBuilder: FormBuilder, private bodyContent: BodyContentService
+  constructor(private bodyContent: BodyContentService
   ) { }
 
   ngOnInit(): void {
+    this.bodyContent.getHomeContent().subscribe((response: any) => {
+      if (response && response.data && response.data.attributes) {
+        this.renderData = response.data.attributes;
+        console.log(this.renderData);
+      }
+    })
+
     this.screenheight = window.innerHeight;
     this.ourCientImages.push({
       title: "Strategy",
