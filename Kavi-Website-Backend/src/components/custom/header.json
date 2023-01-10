@@ -1,25 +1,21 @@
 {
   "collectionName": "components_custom_headers",
   "info": {
-    "displayName": "header"
+    "displayName": "Slider",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "Title": {
-      "type": "string"
-    },
     "Description": {
-      "type": "text"
+      "type": "richtext"
     },
-    "Image": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
+    "Order": {
+      "type": "integer"
+    },
+    "SliderMedia": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
     }
   }
 }

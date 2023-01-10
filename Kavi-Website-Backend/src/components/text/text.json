@@ -1,7 +1,8 @@
 {
   "collectionName": "components_text_texts",
   "info": {
-    "displayName": "Text"
+    "displayName": "TitleSubtitleParagraph",
+    "description": ""
   },
   "options": {},
   "attributes": {

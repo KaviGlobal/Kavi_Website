@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_custom_contactuses",
+  "info": {
+    "displayName": "ContactUs",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Address": {
+      "type": "text"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "PhoneNumber": {
+      "type": "string"
+    }
+  }
+}

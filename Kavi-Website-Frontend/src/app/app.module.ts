@@ -24,7 +24,6 @@ import { NgxTinySliderModule } from 'ngx-tiny-slider';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AgmCoreModule } from '@agm/core';
 import { BlogComponent } from './components/blog/blog.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +53,7 @@ import { BlogComponent } from './components/blog/blog.component';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw'
     })
+
   ],
   exports: [
     CommonModule,
