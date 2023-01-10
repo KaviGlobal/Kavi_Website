@@ -69,19 +69,6 @@
         text-align: center;
         margin: 3%;
         max-height: 100%;
-        mat-card {
-            width: 18%;
-            height: 154px;
-            border-radius: 15px;
-            margin-left: 2%;
-
-            mat-card-content {
-                font-size: 20px;
-                text-align: center;
-                position: relative;
-                top: 78%;
-                color: #224991;
-                font-family: 'open-sans-bold';
 
         mat-card {
             width: 18%;
@@ -104,6 +91,7 @@
 
             }
         }
+
         h3 {
             font-family: 'open-sans-bold';
             color: #EA6B1E;
