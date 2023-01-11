@@ -34,11 +34,15 @@
             width: 830px;
             font: normal normal normal 28px/46px Montserrat;
 
-            strong {
-                font-weight: 500;
-                font-size: 24px;
-                color: #EA6B1E;
-                font-family: "montserrat-semi-bold";
+            // strong {
+            //     font-weight: 500;
+            //     font-size: 24px;
+            //     color: #EA6B1E;
+            //     font-family: "montserrat-semi-bold";
+            // }
+
+            h3 {
+                font-size: 20px;
             }
         }
     }
@@ -143,11 +147,15 @@
             }
         }
 
+        .col-6 {
+            padding-top: 12px;
+        }
+
         .item-block {
             background-color: whitesmoke;
             height: 100%;
             width: 100%;
-            margin-left: 80px;
+            // margin-left: 80px;
             display: flex;
 
             h4 {

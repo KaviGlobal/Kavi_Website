@@ -47,6 +47,24 @@ export class BodyContentComponent implements OnInit {
       if (response && response.data && response.data.attributes) {
         this.renderData = response.data.attributes;
         console.log(this.renderData);
+        this.renderData.Offerings.forEach((element: any) => {
+          element.OfferingMedia.Media.data.attributes.height = '100%';
+          element.OfferingMedia.Media.data.attributes.width = '100%';
+        });
+
+        this.renderData.Blogs.data.forEach((element: any) => {
+          element.attributes.Media.data[0].attributes.width = '100%';
+          element.attributes.Media.data[0].attributes.height = '100%';
+          if (element.attributes.Title === 'Intelligent Augmented Reality') {
+            element.attributes['position'] = 'right';
+            element.attributes['imagePosition'] = 'left';
+          }
+          else if (element.attributes.Title === 'Industrial Awakening') {
+            element.attributes['position'] = 'right';
+            element.attributes['imagePosition'] = 'left';
+          }
+        });
+
         // document.getElementById('imageContent')?.style.backgroundImage = `url(${this.renderData.HeroHeader[0].SliderMedia.Media.data.attributes.url})`
         let temp: any = [];
         let items: any = [];

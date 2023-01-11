@@ -59,92 +59,29 @@
                 </ng-container>
             </div>
             <h3>{{renderData.OfferingsTitle}}</h3>
-            <ng-container>
-                <div class="col-6" style="display: flex;" *ngFor="let offerItem of renderData.Offerings">
-                    <div class="item-block" *ngIf="offerItem.Title==='Services'">
-                        <div class="sub-item">
-                            <img [src]="offerItem.OfferingMedia.Media.data.attributes.url" alt=""
-                                style="width: 100%;position: relative;height: 100%;">
+            <ng-container *ngIf="renderData.Offerings.length">
+                <div class="row">
+                    <ng-container *ngFor="let offerItem of renderData.Offerings">
+                        <div class="col-6" style="height: 100%; width: 100%;" *ngIf="offerItem.Position === 'left'">
+                            <div class="item-block"
+                                [ngStyle]="{'height.px':offerItem.OfferingMedia.Media.data.attributes.height,'width.px':offerItem.OfferingMedia.Media.data.attributes.width}">
+                                <app-collage-view [imagePosition]="offerItem.ImagePosition"
+                                    [image]="offerItem.OfferingMedia.Media.data.attributes.url"
+                                    [title]="offerItem.Title" [description]="offerItem.PreviewText">
+                                </app-collage-view>
+                            </div>
                         </div>
-                        <div style="text-align: left;padding-top: 32px;">
-                            <h4 style="font: normal normal 600 25px/20px Montserrat;">Services</h4>
-                            <span style="width: 343px;display: inline-flex;">Help our partners across the data analytics
-                                lifecycle by providing all required services to support
-                                their data analytics operations (data gathering, engineering, science, and others) and
-                                provide
-                                the
-                                operational support to assist partners in their journey to digitalization.</span>
-                            <a href="" style="font: normal normal 600 16px/23px Montserrat;">Learn more<mat-icon
-                                    style="">
-                                    arrow_forward</mat-icon>
-                            </a>
+                        <div class="col-6" *ngIf="offerItem.position === 'right'">
+                            <div class="item-block"
+                                [ngStyle]="{'height.px':offerItem.OfferingMedia.Media.data.attributes.height,'width.px':offerItem.OfferingMedia.Media.data.attributes.width}">
+                                <app-collage-view [imagePosition]="offerItem.imagePosition"
+                                    [image]="offerItem.OfferingMedia.Media.data.attributes.url"
+                                    [title]="offerItem.Title" [description]="offerItem.PreviewText">
+                                </app-collage-view>
+                            </div>
                         </div>
-                    </div>
-                    <div class="item-block" style="display: block;margin-left: 10px;"
-                        *ngIf="offerItem.Title==='Software'">
-                        <div class="sub-item" style="width: 90%; height: 217px;">
-                            <img [src]="offerItem.OfferingMedia.Media.data.attributes.url" alt=""
-                                style="width: 82%;position: relative;top: 29px;">
-                        </div>
-                        <div style="text-align: left;padding-left: 13px;">
-                            <h4 style="font: normal normal 600 25px/20px Montserrat;">Software
-                            </h4>
-                            <span style="width: 98%;display: inline-flex;">Offer a patented, comprehensive, No-Code,
-                                technology
-                                agnostic, data analytics
-                                software to the market to help business professional, data engineers, and scientists
-                                thrive
-                                in
-                                their analytical goals.</span>
-                            <a href="" style="font: normal normal 600 16px/23px Montserrat;">Learn more<mat-icon>
-                                    arrow_forward</mat-icon>
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                    </div>
-                    <!-- <div class="col-6" style="display: flex;max-width: 100%;"
-                    *ngIf="offerItem.Title === 'Solutions' || offerItem.Title === 'Kavi Labs'"> -->
-                    <div class="item-block" style="display: block;margin-left: 80px;position: relative;top: -106px;"
-                        *ngIf="offerItem.Title === 'Solutions'">
-                        <div class="sub-item" style="width: 90%; height: 217px;">
-                            <img [src]="offerItem.OfferingMedia.Media.data.attributes.url" alt=""
-                                style="width: 82%;position: relative;top: 29px;">
-                        </div>
-                        <div style="text-align: left;padding-left: 13px;">
-                            <h4 style="font: normal normal 600 25px/20px Montserrat;">Solutions
-                            </h4>
-                            <span style="width: 98%;display: inline-flex;">Deliver both industry standard and
-                                enterprise-specific data analytics solutions and technologies across key business
-                                functions of the organization; bringing industry expertise and best practices in order
-                                to generate and capture value through data.</span>
-                            <a href="" style="font: normal normal 600 16px/23px Montserrat;">Learn more<mat-icon>
-                                    arrow_forward</mat-icon>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item-block" style="margin-left: 9px;margin-top: 10px;"
-                        *ngIf="offerItem.Title === 'Kavi Labs'">
-                        <div class="sub-item">
-                            <img [src]="offerItem.OfferingMedia.Media.data.attributes.url" alt=""
-                                style="width: 82%;position: relative;top: 29px;">
-                        </div>
-                        <div style="text-align: left;padding-top: 32px;">
-                            <h4 style="font: normal normal 600 25px/20px Montserrat;">Kavi Labs</h4>
-                            <span style="width: 343px;display: inline-flex;">Innovation arm for solution incubation
-                                bringing
-                                innovation to enterprises and research institutions through data analytics, leveraging
-                                the
-                                latest emerging technologies & best practice innovation framework.</span>
-                            <a href="" style="font: normal normal 600 16px/23px Montserrat;">Learn more<mat-icon>
-                                    arrow_forward</mat-icon>
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                    </div>
+                    </ng-container>
                 </div>
-                <!-- </div> -->
             </ng-container>
         </div>
         <div style="height: 380px;width: 100%; background-color: #000D42;color: #FFFFFF;">
@@ -205,8 +142,30 @@
             </div>
             <div>
                 <div class="page1">
-                    <h3> Blogs</h3>
-                    <div class="col-6" style="display: flex;max-width: 100%;">
+                    <h3> {{renderData.BlogsTitle}}</h3>
+                    <div class="row">
+                        <ng-container *ngFor="let blogItem of renderData.Blogs.data">
+                            <div class="col-6" *ngIf="blogItem.attributes.position === 'left'">
+                                <div class="item-block"
+                                    [ngStyle]="{'height.px':blogItem.attributes.height,'width.px':blogItem.attributes.width}">
+                                    <app-collage-view [imagePosition]="blogItem.attributes.imagePosition"
+                                        [image]="blogItem.attributes.Media.data[0].attributes.url"
+                                        [title]="blogItem.attributes.Title" [description]="blogItem.attributes.Content">
+                                    </app-collage-view>
+                                </div>
+                            </div>
+                            <div class="col-6" *ngIf="blogItem.attributes.position === 'right'">
+                                <div class="item-block"
+                                    [ngStyle]="{'height.px':blogItem.attributes.height,'width.px':blogItem.attributes.width}">
+                                    <app-collage-view [imagePosition]="blogItem.attributes.imagePosition"
+                                        [image]="blogItem.attributes.Media.data[0].attributes.url"
+                                        [title]="blogItem.attributes.Title" [description]="blogItem.attributes.Content">
+                                    </app-collage-view>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <!-- <div class="col-6" style="display: flex;max-width: 100%;">
                         <div class="item-block" style="display: block;width: 42%;background-color: #FFFFFF">
                             <div class="sub-item" style="width: 95%;">
                                 <img src="assets/blog1.png" alt="" style="height: 218px;width: 100%;">
@@ -266,15 +225,15 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div> -->
                     <div style="background-color: #9B9B9B;border-color: #707070;margin-left: 87px;
                 text-align: left;
                 height: 75px;
                 padding-left: 20px;
                 display: flex;
-                align-items: center;width: 50%;
+                align-items: center;width: 49%;
                 position: relative;
-                left: 44.3%;top: -15px;">
+                left: 44.2%;top: 1px;">
                         <a href="" style="color: #0D2C3D;font-size: 32px;">Read more on our news
                             <mat-icon style="font-size: 29px;">arrow_forward</mat-icon>
                         </a>
@@ -284,66 +243,23 @@
                     <div class="page1">
                         <h3> {{renderData.NewsTitle}}</h3>
                         <div style="display: flex; margin-left: 87px;text-align: left">
-                            <div class="col-4">
-                                <div class="sub-item" style="height: 229px;width: 100%;margin: 0 0 14px 0;">
-                                    <img src="assets/news1.png" alt="" style="width: 100%;height: 100%;">
+                            <ng-container *ngFor="let newsItem of renderData.News.data">
+                                <div class="col-4">
+                                    <div class="sub-item" style="height: 229px;width: 100%;margin: 0 0 14px 0;">
+                                        <img [src]="newsItem.attributes.Media.data[0].attributes.url" alt=""
+                                            style="width: 100%;height: 100%;">
+                                    </div>
+                                    <h2>
+                                        {{newsItem.attributes.Title}}
+                                    </h2>
+                                    <p style="font-size: 14px; width: 100%;margin-left: 0;">
+                                        {{newsItem.attributes.Content}}</p>
+                                    <a href="" style="font: normal normal 600 14px/23px Montserrat;color: #224991;">Read
+                                        more<mat-icon style="padding-top: 7px;font-size: 21px;">
+                                            arrow_forward</mat-icon>
+                                    </a>
                                 </div>
-                                <h2>
-                                    Kavi Global Wins 2022 Most Comprehensive Data and Analytics Company
-                                </h2>
-                                <p style="font-size: 14px; width: 100%;margin-left: 0;">Augmented Reality
-                                    Creates Business Values Recent
-                                    technological advancements
-                                    have made it
-                                    possible to seamlessly overlay computer-generated virtual images onto real-world
-                                    objects.</p>
-                                <a href="" style="font: normal normal 600 14px/23px Montserrat;color: #224991;">Read
-                                    more<mat-icon style="padding-top: 7px;font-size: 21px;">
-                                        arrow_forward</mat-icon>
-                                </a>
-                            </div>
-                            <div class="col-4">
-                                <div class="sub-item" style="height: 229px;width: 100%;margin: 0 0 14px 0;">
-                                    <img src="assets/advana.png" alt="" style="width: 72%;
-                                height: 52%;
-                                position: relative;
-                                top: 47px;
-                                left: 47px;">
-                                </div>
-                                <h2>Advana DaaS and Data Catalog Features Released</h2>
-                                <p style="font-size: 14px;width: 100%;margin-left: 0;">Kavi Global
-                                    announced the general release of DaaS
-                                    (Data as a Service) and
-                                    Data Catalog
-                                    features in their flagship No-Code Data Engineering and Data Science software,
-                                    Advana.
-                                </p>
-                                <a href="" style="font: normal normal 600 14px/23px Montserrat;color: #224991;">Read
-                                    more<mat-icon style="padding-top: 7px;font-size: 21px;">
-                                        arrow_forward</mat-icon>
-                                </a>
-                            </div>
-                            <div class="col-4">
-                                <div class="sub-item" style="height: 229px;width: 100%;margin: 0 0 14px 0;">
-                                    <img src="assets/news3.png" alt="" style="width: 72%;
-                                height: 52%;
-                                position: relative;
-                                top: 47px;
-                                left: 47px;">
-                                </div>
-                                <h2>Research Partnership with Ann & Robert H. Lurie Children’s Hospital of Chicago</h2>
-                                <p style="font-size: 14px;width: 100%;margin-left: 0;">“We value the
-                                    opportunity to partner with Lurie
-                                    Children’s to innovate
-                                    clinical AI
-                                    solutions that will transform pediatric medicine and shape the future of
-                                    Healthcare.”
-                                </p>
-                                <a href="" style="font: normal normal 600 14px/23px Montserrat;color: #224991;">Read
-                                    more<mat-icon style="padding-top: 7px;font-size: 21px;">
-                                        arrow_forward</mat-icon>
-                                </a>
-                            </div>
+                            </ng-container>
                         </div>
                         <div style="background-color: #9B9B9B;border-color: #707070;    margin-left: 87px;
                     text-align: left;
@@ -373,7 +289,25 @@
                         <div class="page1" style="margin: 3% 3% 0% 3%;">
                             <h3> {{renderData.SuccessStoryTitle}}</h3>
                             <div style="display: flex;text-align: left;">
-                                <div style=" width: 50%;">
+                                <ng-container *ngFor="let successItem of renderData.SuccessStory.data">
+                                    <div style="width: 50%;">
+                                        <div class="sub-item" style="height: 201px;width: 100%;margin: 0 0 14px 0;">
+                                            <img [src]="successItem.attributes.Media.data[0]?.attributes.url" alt=""
+                                                style="height: 100%;width: 100%;"
+                                                *ngIf="successItem.attributes.Media.data">
+                                        </div>
+                                        <h2>{{successItem.attributes.Title}}</h2>
+                                        <p style="font-size: 14px;width: 100%;margin-left: 0;">
+                                            {{successItem.attributes.Content}}
+                                        </p>
+                                        <a href=""
+                                            style="font: normal normal 600 14px/23px Montserrat;color: #224991;">Read
+                                            more<mat-icon style="padding-top: 7px;font-size: 21px;">
+                                                arrow_forward</mat-icon>
+                                        </a>
+                                    </div>
+                                </ng-container>
+                                <!-- <div style="width: 50%;">
                                     <div class="sub-item" style="height: 201px;width: 100%;margin: 0 0 14px 0;">
                                         <img src="assets/success_story1.png" alt="" style="height: 100%;width: 100%;">
                                     </div>
@@ -405,7 +339,7 @@
                                     <div class="sub-item" style="height: 201px;width: 100%;margin: 0 0 14px 0;">
                                         <img src="assets/success_story2.png" alt="" style="height: 100%;width: 100%;">
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div
