@@ -24,13 +24,15 @@ import { NgxTinySliderModule } from 'ngx-tiny-slider';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AgmCoreModule } from '@agm/core';
 import { BlogComponent } from './components/blog/blog.component';
+import { CollageViewComponent } from './collage/collage-view/collage-view.component';
 @NgModule({
   declarations: [
     AppComponent,
     BodyContentComponent,
     FooterContentComponent,
     DefaultComponent,
-    BlogComponent
+    BlogComponent,
+    CollageViewComponent
   ],
   imports: [
     CommonModule,
