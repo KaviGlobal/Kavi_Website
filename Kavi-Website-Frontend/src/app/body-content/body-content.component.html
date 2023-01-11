@@ -1,6 +1,7 @@
 <ng-container *ngIf="renderData">
     <section style="width:100%;">
-        <div class="content" [ngStyle]="{'height.px':screenheight}">
+        <div id="imageContent" class="content"
+            [ngStyle]="{'height.px':screenheight,'background-image': 'url('+this.renderData.HeroHeader[0].SliderMedia.Media.data.attributes.url+')'}">
             <div class="content-block">
                 <div class="sentence">
                     <ng-container *ngFor="let item of renderData.HeroHeader">
@@ -11,14 +12,7 @@
                             <img [src]="item.SliderMedia.Media.data.attributes.url" alt="item.SliderMedia.Alt">
                         </ng-container>
                     </ng-container>
-                    <!-- <strong>Kavi Global</strong>
-                is a pure play data and analytics company offering a comprehensive set of data analytics solutions,
-                software and services invested in business value co-creation and knowledge sharing. -->
                 </div>
-                <!-- <img src="assets/microsoft_partner.png" alt="">
-            <img src="assets/clutch.png" alt="" style="width: 120px;">
-            <img src="assets/inc500.png" alt="">
-            <img src="assets/gartner.png" alt="" style="height: 73px;"> -->
                 <div>
                     <button mat-fab color="primary" style="background-color: #FFFFFF;text-align: right;display: flex;
                 justify-content: center;
@@ -55,113 +49,103 @@
                 <h3>{{this.renderData.Achievements.Title}}</h3>
                 <p>{{this.renderData.Achievements.Paragraph}}</p>
             </ng-containter>
-            <!-- <h3> With Kavi Global, clients like you so far got to achieve…</h3>
-        <p> We have been serving clients across a wide range of verticals including
-            <strong> transportation,
-                healthcare, manufacturing,higher education, digital marketing,</strong> and more and have help them
-            achieve
-        </p> -->
             <div class="col-4" class="cost-divisions" style="display:flex;">
                 <ng-container *ngFor="let card of this.renderData.AchievementMetrics">
                     <div style="width: 100%;">
                         <h1>{{card.Title}}</h1>
-                        <!-- <h1>Million</h1> -->
                         <p style="width: 69%;">{{card.Subtitle}}</p>
                     </div>
                     <div class="vl"></div>
                 </ng-container>
-                <!-- <div style="width: 100%;">
-                    <h1>$ 500</h1>
-                    <h1>Million</h1>
-                    <p style="width: 69%;">Cost Optimization</p>
-                </div>
-                <div class="vl"></div>
-                <div style="width: 100%;">
-                    <h1>$ 250</h1>
-                    <h1>Million</h1>
-                    <p>New Revenue Opportunities</p>
-                </div>
-                <div class="vl"></div>
-                <div style="width: 100%;padding-top: 32px;">
-                    <h1 style="padding-bottom: 27px;">60%</h1>
-                    <p>Increase in Customer Retention</p>
-                </div> -->
             </div>
-            <!-- <h3> How do we get you there?</h3> -->
-            <h3>{{this.renderData.OfferingsTitle}}</h3>
-            <div class="col-6" style="display: flex;max-width: 100%;">
-                <div class="item-block">
-                    <div class="sub-item">
+            <h3>{{renderData.OfferingsTitle}}</h3>
+            <ng-container>
+                <div class="col-6" style="display: flex;" *ngFor="let offerItem of renderData.Offerings">
+                    <div class="item-block" *ngIf="offerItem.Title==='Services'">
+                        <div class="sub-item">
+                            <img [src]="offerItem.OfferingMedia.Media.data.attributes.url" alt=""
+                                style="width: 100%;position: relative;height: 100%;">
+                        </div>
+                        <div style="text-align: left;padding-top: 32px;">
+                            <h4 style="font: normal normal 600 25px/20px Montserrat;">Services</h4>
+                            <span style="width: 343px;display: inline-flex;">Help our partners across the data analytics
+                                lifecycle by providing all required services to support
+                                their data analytics operations (data gathering, engineering, science, and others) and
+                                provide
+                                the
+                                operational support to assist partners in their journey to digitalization.</span>
+                            <a href="" style="font: normal normal 600 16px/23px Montserrat;">Learn more<mat-icon
+                                    style="">
+                                    arrow_forward</mat-icon>
+                            </a>
+                        </div>
                     </div>
-                    <div style="text-align: left;padding-top: 32px;">
-                        <h4 style="font: normal normal 600 25px/20px Montserrat;">Services</h4>
-                        <span style="width: 343px;display: inline-flex;">Help our partners across the data analytics
-                            lifecycle by providing all required services to support
-                            their data analytics operations (data gathering, engineering, science, and others) and
-                            provide
-                            the
-                            operational support to assist partners in their journey to digitalization.</span>
-                        <a href="" style="font: normal normal 600 16px/23px Montserrat;">Learn more<mat-icon style="">
-                                arrow_forward</mat-icon>
-                        </a>
+                    <div class="item-block" style="display: block;margin-left: 10px;"
+                        *ngIf="offerItem.Title==='Software'">
+                        <div class="sub-item" style="width: 90%; height: 217px;">
+                            <img [src]="offerItem.OfferingMedia.Media.data.attributes.url" alt=""
+                                style="width: 82%;position: relative;top: 29px;">
+                        </div>
+                        <div style="text-align: left;padding-left: 13px;">
+                            <h4 style="font: normal normal 600 25px/20px Montserrat;">Software
+                            </h4>
+                            <span style="width: 98%;display: inline-flex;">Offer a patented, comprehensive, No-Code,
+                                technology
+                                agnostic, data analytics
+                                software to the market to help business professional, data engineers, and scientists
+                                thrive
+                                in
+                                their analytical goals.</span>
+                            <a href="" style="font: normal normal 600 16px/23px Montserrat;">Learn more<mat-icon>
+                                    arrow_forward</mat-icon>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                    <!-- <div class="col-6" style="display: flex;max-width: 100%;"
+                    *ngIf="offerItem.Title === 'Solutions' || offerItem.Title === 'Kavi Labs'"> -->
+                    <div class="item-block" style="display: block;margin-left: 80px;position: relative;top: -106px;"
+                        *ngIf="offerItem.Title === 'Solutions'">
+                        <div class="sub-item" style="width: 90%; height: 217px;">
+                            <img [src]="offerItem.OfferingMedia.Media.data.attributes.url" alt=""
+                                style="width: 82%;position: relative;top: 29px;">
+                        </div>
+                        <div style="text-align: left;padding-left: 13px;">
+                            <h4 style="font: normal normal 600 25px/20px Montserrat;">Solutions
+                            </h4>
+                            <span style="width: 98%;display: inline-flex;">Deliver both industry standard and
+                                enterprise-specific data analytics solutions and technologies across key business
+                                functions of the organization; bringing industry expertise and best practices in order
+                                to generate and capture value through data.</span>
+                            <a href="" style="font: normal normal 600 16px/23px Montserrat;">Learn more<mat-icon>
+                                    arrow_forward</mat-icon>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item-block" style="margin-left: 9px;margin-top: 10px;"
+                        *ngIf="offerItem.Title === 'Kavi Labs'">
+                        <div class="sub-item">
+                            <img [src]="offerItem.OfferingMedia.Media.data.attributes.url" alt=""
+                                style="width: 82%;position: relative;top: 29px;">
+                        </div>
+                        <div style="text-align: left;padding-top: 32px;">
+                            <h4 style="font: normal normal 600 25px/20px Montserrat;">Kavi Labs</h4>
+                            <span style="width: 343px;display: inline-flex;">Innovation arm for solution incubation
+                                bringing
+                                innovation to enterprises and research institutions through data analytics, leveraging
+                                the
+                                latest emerging technologies & best practice innovation framework.</span>
+                            <a href="" style="font: normal normal 600 16px/23px Montserrat;">Learn more<mat-icon>
+                                    arrow_forward</mat-icon>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
                     </div>
                 </div>
-                <div class="item-block" style="display: block;margin-left: 10px;">
-                    <div class="sub-item" style="width: 90%; height: 217px;">
-                        <img src="assets/advana.png" alt="" style="width: 82%;
-                    position: relative;
-                    top: 29px;">
-                    </div>
-                    <div style="text-align: left;padding-left: 13px;">
-                        <h4 style="font: normal normal 600 25px/20px Montserrat;">Software
-                        </h4>
-                        <span style="width: 98%;display: inline-flex;">Offer a patented, comprehensive, No-Code,
-                            technology
-                            agnostic, data analytics
-                            software to the market to help business professional, data engineers, and scientists thrive
-                            in
-                            their analytical goals.</span>
-                        <a href="" style="font: normal normal 600 16px/23px Montserrat;">Learn more<mat-icon>
-                                arrow_forward</mat-icon>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                </div>
-            </div>
-            <div class="col-6" style="display: flex;max-width: 100%;">
-                <div class="item-block" style="display: block;margin-left: 80px;position: relative;top: -106px;">
-                    <div class="sub-item" style="width: 90%; height: 217px;">
-                    </div>
-                    <div style="text-align: left;padding-left: 13px;">
-                        <h4 style="font: normal normal 600 25px/20px Montserrat;">Solutions
-                        </h4>
-                        <span style="width: 98%;display: inline-flex;">Deliver both industry standard and
-                            enterprise-specific data analytics solutions and technologies across key business
-                            functions of the organization; bringing industry expertise and best practices in order
-                            to generate and capture value through data.</span>
-                        <a href="" style="font: normal normal 600 16px/23px Montserrat;">Learn more<mat-icon>
-                                arrow_forward</mat-icon>
-                        </a>
-                    </div>
-                </div>
-                <div class="item-block" style="margin-left: 9px;margin-top: 10px;">
-                    <div class="sub-item">
-                        <img src="assets/Kavi_Labs.png" alt="" style="height: 218px;width: 100%;">
-                    </div>
-                    <div style="text-align: left;padding-top: 32px;">
-                        <h4 style="font: normal normal 600 25px/20px Montserrat;">Kavi Labs</h4>
-                        <span style="width: 343px;display: inline-flex;">Innovation arm for solution incubation bringing
-                            innovation to enterprises and research institutions through data analytics, leveraging the
-                            latest emerging technologies & best practice innovation framework.</span>
-                        <a href="" style="font: normal normal 600 16px/23px Montserrat;">Learn more<mat-icon>
-                                arrow_forward</mat-icon>
-                        </a>
-                    </div>
-                </div>
-                <div>
-                </div>
-            </div>
+                <!-- </div> -->
+            </ng-container>
         </div>
         <div style="height: 380px;width: 100%; background-color: #000D42;color: #FFFFFF;">
             <h3 style="text-align: center;padding-top: 50px;font-size: 34px;">{{renderData.Analytics.Title}}</h3>
@@ -185,60 +169,35 @@
                 <p style="width: 76%;margin-left: 10%;text-align: left;">
                     {{renderData.OurClientsParagraph}}
                 </p>
-                <!-- <p style="width: 76%; margin-left: 10%; text-align: left;">
-                    Find below the differentiators that give us a proven
-                    competitive edge in our category:
-                </p>
-                <h2 style="font-size: 28px; color: #163547;margin: 34px;text-align: center;">Net Savings Minimum
-                    <strong>30%
-                        over
-                        competition</strong>
-                </h2> -->
-                <!-- <div style="display:flex; margin-left: 8%;">
-                <mat-card>
-                    <img src="assets/strategy.png" alt="">
-                    <mat-card-content>Strategy</mat-card-content>
-                </mat-card>
-                <mat-card>
-                    <img src="assets/consulting.png" alt="">
-                    <mat-card-content>Consulting</mat-card-content>
-                </mat-card>
-                <mat-card>
-                    <img src="assets/R&D.png" alt="">
-                    <mat-card-content>R & D</mat-card-content>
-                </mat-card>
-                <mat-card>
-                    <img src="assets/full_spectrum.png" alt="">
-                    <mat-card-content>Full Spectrum</mat-card-content>
-                </mat-card>
-            </div> -->
                 <div class="tp-wrapper" style="display: flex;">
                     <div class="tp-box card" style="width: 272px;height: 229px;" (click)="toggleFlip(i)"
-                        [@flipState]="ourCientImages[i].flip" *ngFor="let image of ourCientImages;let i= index">
+                        [@flipState]="image.Flip" *ngFor="let image of renderData.OurClientDetail;let i= index">
                         <div class="tp-box__side tp-box__front" style="background-color: #FFFFFF;padding-top: 10px;">
-                            <img [src]="image.link" alt="">
+                            <img [src]="image.OurClientIcon.Media.data.attributes.url" alt="">
                             <h4 style="font-size: 20px;
                         text-align: center;
                         position: relative;
                         top: 4%;
                         color: #224991;
-                        font-family: 'open-sans-bold';">{{image.title}}</h4>
+                        font-family: 'open-sans-bold';">{{image.OurClientDescription.Title}}</h4>
                         </div>
                         <div class="tp-box__side tp-box__back"
                             style="color: #000D42;
-                    font-size: large;padding: 9px; display: flex;background: #FFFFFF;line-height: 1;align-items: center;">{{image.description}}
+                    font-size: large;padding: 9px; display: flex;background: #FFFFFF;line-height: 1;align-items: center;">
+                            {{image.OurClientDescription.Paragraph}}
                         </div>
                     </div>
                 </div>
             </div>
             <div
                 style="margin-top: 5%;text-align: center;background:#9B9B9B 0% 0% no-repeat padding-box;;height: 400px;">
-                <h3 style="font-family: 'open-sans-bold';color: #EA6B1E; font-size: 35px;padding-top: 6%;"> {{renderData.OurClientImagesTitle}}
+                <h3 style="font-family: 'open-sans-bold';color: #EA6B1E; font-size: 35px;padding-top: 6%;">
+                    {{renderData.OurClientImagesTitle}}
                 </h3>
                 <ngb-carousel *ngIf="clientImages.length">
-                    <ng-template ngbSlide *ngFor="let item of clientImages">
-                        <span class="wrapper" *ngFor="let subItem of item">
-                            <img [src]="subItem" alt="Random first slide" style="background-color: #FFFFFF;margin-right: 20px;height: 100px;
+                    <ng-template ngbSlide *ngFor="let item of clientImages;let i = index">
+                        <span class="wrapper" *ngFor="let subItem of item ">
+                            <img [src]="subItem.SliderMedia.Media.data.attributes.url" alt="Random first slide" style="background-color: #FFFFFF;margin-right: 20px;height: 100px;
                         width: 18%;padding: 10px;">
                         </span>
                     </ng-template>
@@ -308,7 +267,7 @@
 
                         </div>
                     </div>
-                    <div style="background-color: #9B9B9B;border-color: #707070;    margin-left: 87px;
+                    <div style="background-color: #9B9B9B;border-color: #707070;margin-left: 87px;
                 text-align: left;
                 height: 75px;
                 padding-left: 20px;
@@ -323,7 +282,7 @@
                 </div>
                 <div>
                     <div class="page1">
-                        <h3> News</h3>
+                        <h3> {{renderData.NewsTitle}}</h3>
                         <div style="display: flex; margin-left: 87px;text-align: left">
                             <div class="col-4">
                                 <div class="sub-item" style="height: 229px;width: 100%;margin: 0 0 14px 0;">
@@ -400,7 +359,7 @@
                 </div>
                 <div
                     style="width: 100%;height: 126px;background-color: #000D42; margin-bottom: 61px;display: flex;align-items: center;padding-left: 128px;opacity: 100%;">
-                    <h3 style="color: #EA6B1E;font-size: 30px;">Subscribe for news letter</h3>
+                    <h3 style="color: #EA6B1E;font-size: 30px;">{{renderData.Subscription.Title}}</h3>
                     <div class="send-paper" style="display: flex;align-items: center;    margin-left: 21%;
                 width: 43%;">
                         <input type="search" class="form-control montserrat-regular" placeholder="Email Address"
@@ -412,7 +371,7 @@
                 <div>
                     <div>
                         <div class="page1" style="margin: 3% 3% 0% 3%;">
-                            <h3> Success stories</h3>
+                            <h3> {{renderData.SuccessStoryTitle}}</h3>
                             <div style="display: flex;text-align: left;">
                                 <div style=" width: 50%;">
                                     <div class="sub-item" style="height: 201px;width: 100%;margin: 0 0 14px 0;">
@@ -445,7 +404,6 @@
                                     </a>
                                     <div class="sub-item" style="height: 201px;width: 100%;margin: 0 0 14px 0;">
                                         <img src="assets/success_story2.png" alt="" style="height: 100%;width: 100%;">
-
                                     </div>
                                 </div>
                             </div>
@@ -464,20 +422,13 @@
                 <div style="height: 500px;margin-top: 48px;">
                     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false"
                         [zoomControl]="false" (mapClick)="mapClicked($event)">
-
                         <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label!, i)"
                             [latitude]="m.lat" [longitude]="m.lng" [label]="m.label!" [markerDraggable]="m.draggable"
                             (dragEnd)="markerDragEnd(m, $event)">
-
                             <agm-info-window>
                                 <strong>InfoWindow content</strong>
                             </agm-info-window>
                         </agm-marker>
-
-                        <!-- <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'"
-                        [circleDraggable]="true" [editable]="true">
-                    </agm-circle> -->
-
                     </agm-map>
                     <div
                         style="background-color: #000D42;width: 29%;height: 190px;position: relative;border-top-right-radius: 25px;
@@ -486,9 +437,9 @@
                     color: #FFFF;">
                             <h3 style="color: #EA6B1E;font: normal normal bold 26px/11px Open Sans;
                         padding-left: 55px;">Contact us</h3>
-                            <p><mat-icon> location_on</mat-icon>1250 S Grove Ave, Barrington, IL 60010</p>
-                            <p><mat-icon> phone</mat-icon>(847) 387-6760</p>
-                            <p><mat-icon> email</mat-icon>contact@kaviglobal.com</p>
+                            <p><mat-icon> location_on</mat-icon>{{renderData.ContactUs.Address}}</p>
+                            <p><mat-icon> phone</mat-icon>{{renderData.ContactUs.PhoneNumber}}</p>
+                            <p><mat-icon> email</mat-icon>{{renderData.ContactUs.Email}}</p>
                         </div>
                     </div>
                 </div>
