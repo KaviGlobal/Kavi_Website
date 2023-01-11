@@ -1,0 +1,22 @@
+<div class="item-container" [ngClass]="imagePosition==='left'? 'left-image':'top'" *ngIf="imagePosition==='left'">
+    <div class="sub-item">
+        <img [src]="image" alt="">
+    </div>
+    <div class="desc-div" style="text-align: left;padding-top: 32px;">
+        <h4>{{title}}</h4>
+        <span style="width: 343px;">{{description}}</span>
+        <a href="" style="display: block;">Learn more<mat-icon>arrow_forward</mat-icon>
+        </a>
+    </div>
+</div>
+<div class="item-container" [ngClass]="imagePosition==='left'? 'left-image':'top'" *ngIf="imagePosition === 'top'">
+    <div class="sub-item" style="width: 90%; height: 217px;">
+        <img [src]="image" alt="" style="height: 100%;width: 100%;position: relative;">
+    </div>
+    <div class="desc-div" style="padding-left: 13px;">
+        <h4>{{title}}</h4>
+        <span style="width: 98%;">{{description}}</span>
+        <a href="">Learn more<mat-icon>arrow_forward</mat-icon>
+        </a>
+    </div>
+</div>
