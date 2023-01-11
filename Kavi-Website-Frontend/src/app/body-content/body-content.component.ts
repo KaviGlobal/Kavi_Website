@@ -35,7 +35,6 @@ export class BodyContentComponent implements OnInit {
   flip: string = 'inactive';
   @ViewChild('googleMap') googleMapEle!: ElementRef;
   @ViewChild("customControl", { static: true }) customControl!: ElementRef;
-
   @HostListener("window:scroll", [])
   onWindowScroll() {
     console.log("Scrolling!");
@@ -48,52 +47,27 @@ export class BodyContentComponent implements OnInit {
       if (response && response.data && response.data.attributes) {
         this.renderData = response.data.attributes;
         console.log(this.renderData);
+        // document.getElementById('imageContent')?.style.backgroundImage = `url(${this.renderData.HeroHeader[0].SliderMedia.Media.data.attributes.url})`
+        let temp: any = [];
+        let items: any = [];
+        for (let index = 0; index < this.renderData.OurClientImages.length; index++) {
+          if (this.renderData.OurClientImages[index].Order % 4 === 0) {
+            items.push(this.renderData.OurClientImages[index]);
+            temp.push(items);
+            items = [];
+          }
+          else {
+            items.push(this.renderData.OurClientImages[index]);
+          }
+        }
+        this.clientImages = temp;
       }
     })
-
     this.screenheight = window.innerHeight;
-    this.ourCientImages.push({
-      title: "Strategy",
-      link: 'assets/strategy.png',
-      flip: 'inactive',
-      description: 'Don’t settle just for the “What”. Also, demand the Blueprint on “How”.'
-    });
-    this.ourCientImages.push({
-      title: "Consulting",
-      link: 'assets/consulting.png',
-      flip: 'inactive',
-      description: 'Focus on solutions & Outcomes, not the ongoing head count.'
-    });
-    this.ourCientImages.push({
-      title: "R&D",
-      link: 'assets/R&D.png',
-      flip: 'inactive',
-      description: 'Drive Innovation; Optimize Cost.'
-    });
-    this.ourCientImages.push({
-      title: "full_spectrum",
-      link: 'assets/full_spectrum.png',
-      flip: 'inactive',
-      description: 'Full-suite of Data Analytics capabilities.'
-    });
-    let images = [];
-    for (let index = 1; index < 5; index++) {
-      // console.log(`assets/client_images/${index}.png`)
-      images.push(`assets/client_images/${index}.png`);
-    }
-    this.clientImages.push(images);
-    console.log(this.clientImages);
   }
 
   toggleFlip(index: number) {
-    console.log(this.ourCientImages[index].flip)
-    this.ourCientImages[index].flip = (this.ourCientImages[index].flip == 'inactive') ? 'active' : 'inactive'
-    // this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
-    console.log(this.ourCientImages)
-  }
-
-  ngAfterViewInit(): void {
-
+    this.renderData.OurClientDetail[index].Flip = (this.renderData.OurClientDetail[index].Flip == 'inactive') ? 'active' : 'inactive'
   }
 
   ScrollIntoView(elem: string) {
