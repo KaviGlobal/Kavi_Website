@@ -50,23 +50,23 @@ export class BodyContentComponent implements OnInit {
         this.renderData.Offerings.forEach((element: any) => {
           element.OfferingMedia.Media.data.attributes.height = '100%';
           element.OfferingMedia.Media.data.attributes.width = '100%';
-          // if (element.Title === 'Services') {
-          //   element['Position'] = 'left'
-          //   element['ImagePosition'] = 'left'
-          // }
-          // else if (element.Title === 'Solutions') {
-          //   element['Position'] = 'left';
-          //   element['ImagePosition'] = 'top';
-          // }
-          // else if (element.Title === 'Software') {
-          //   element['Position'] = 'right'
-          //   element['ImagePosition'] = 'top'
-          // }
-          // else if (element.Title === 'Kavi Labs') {
-          //   element['Position'] = 'right'
-          //   element['ImagePosition'] = 'left'
+          if (element.Title === 'Services') {
+            element['Position'] = 'left'
+            element['ImagePosition'] = 'left'
+          }
+          else if (element.Title === 'Solutions') {
+            element['Position'] = 'left';
+            element['ImagePosition'] = 'top';
+          }
+          else if (element.Title === 'Software') {
+            element['Position'] = 'right'
+            element['ImagePosition'] = 'top'
+          }
+          else if (element.Title === 'Kavi Labs') {
+            element['Position'] = 'right'
+            element['ImagePosition'] = 'left'
 
-          // }
+          }
         });
         let temp: any = [];
         let items: any = [];
