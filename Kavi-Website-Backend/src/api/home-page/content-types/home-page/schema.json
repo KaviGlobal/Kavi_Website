@@ -33,12 +33,12 @@
     "Offerings": {
       "type": "component",
       "repeatable": true,
-      "component": "card.item"
+      "component": "card.card"
     },
     "Analytics": {
       "type": "component",
       "repeatable": false,
-      "component": "card.item"
+      "component": "card.card"
     },
     "OurClientsTitle": {
       "type": "string"
