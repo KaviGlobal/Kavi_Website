@@ -34,7 +34,7 @@
     "CSSPosition": {
       "type": "string"
     },
-    "Top": {
+    "CSSTop": {
       "type": "string"
     }
   }
