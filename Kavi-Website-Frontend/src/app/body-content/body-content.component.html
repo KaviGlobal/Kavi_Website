@@ -54,6 +54,7 @@
             <ng-container *ngIf="renderData.Offerings.length">
                 <div class="row">
                     <ng-container *ngFor="let offerItem of renderData.Offerings">
+
                         <div class="col-6" style="height: 100%; width: 100%;"
                             [ngClass]="offerItem.Title === 'Solutions' ? 'collage-top-item':'collage-topless-item'"
                             *ngIf="offerItem.Position === 'left'">
@@ -65,6 +66,7 @@
                                 </app-collage-view>
                             </div>
                         </div>
+
                         <div class="col-6" style="height: 100%; width: 100%;" *ngIf="offerItem.Position === 'right'">
                             <div class="item-block"
                                 [ngStyle]="{'height.px':offerItem.OfferingMedia.Media.data.attributes.height,'width.px':offerItem.OfferingMedia.Media.data.attributes.width}">
@@ -191,7 +193,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div style="background-color: #9B9B9B;border-color: #707070;margin-left: 87px;
                 text-align: left;
                 height: 75px;
