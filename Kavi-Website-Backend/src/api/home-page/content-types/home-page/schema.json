@@ -30,16 +30,6 @@
     "OfferingsTitle": {
       "type": "string"
     },
-    "Offerings": {
-      "type": "component",
-      "repeatable": true,
-      "component": "card.card"
-    },
-    "Analytics": {
-      "type": "component",
-      "repeatable": false,
-      "component": "card.card"
-    },
     "OurClientsTitle": {
       "type": "string"
     },
