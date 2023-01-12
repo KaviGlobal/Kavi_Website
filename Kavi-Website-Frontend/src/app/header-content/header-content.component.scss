@@ -44,14 +44,18 @@ ul {
     right: 0px;
 
     button {
-        padding: 22px 0 0 57px;
+        // padding: 22px 0 0 46px;
         background-color: transparent;
         border-color: transparent;
     }
 
     .sub-content {
         position: relative;
-        left: 65%;
+        left: 86%;
     }
 
+}
+
+button {
+    outline: none;
 }
