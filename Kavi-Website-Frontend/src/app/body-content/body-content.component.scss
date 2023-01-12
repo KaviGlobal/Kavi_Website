@@ -9,6 +9,21 @@
         padding-left: 43px;
         padding-top: 237px;
 
+        .float-buttons {
+            position: relative;
+            top: 35px;
+        }
+
+        button {
+            background-color: #FFFFFF;
+            text-align: right;
+            display: flex;
+            justify-content: center;
+            left: 93%;
+            align-items: center;
+            // bottom: 110px;
+        }
+
         img {
             width: 202px;
             height: 135px;
@@ -52,7 +67,7 @@
         justify-content: start;
         /* align-items: center; */
         position: relative;
-        top: 39%;
+        top: 40%;
 
         button {
             width: 100%;
@@ -104,7 +119,7 @@
 
         h2 {
             color: #224991;
-            font-size: 15px;
+            font-size: 20px;
             line-height: 1;
             text-align: left;
         }
@@ -215,15 +230,21 @@ ngb-carousel {
     display: none;
 }
 
+::ng-deep .carousel-indicators .active {
+    background-color: #161515;
+}
+
 ::ng-deep .carousel-indicators {
     top: 169px;
 
     button {
-        height: 22px;
-        width: 21px;
+        height: 14px;
+        width: 0px;
         border-radius: 50%;
         display: inline-block;
         border-color: #163547;
+        margin-right: 6px;
+
     }
 }
 
@@ -280,3 +301,19 @@ ngb-carousel {
     -ms-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
 }
+
+.columnReverse {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+button {
+    outline: none;
+}
+
+.collage-top-item {
+    position: relative;
+    top: -153px;
+}
+
+.collage-topless-item {}

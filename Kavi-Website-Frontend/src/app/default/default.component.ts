@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild,HostListener } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 @Component({
@@ -8,15 +8,16 @@ import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 })
 export class DefaultComponent implements OnInit {
   @ViewChild(CdkVirtualScrollViewport) virtualScroll!: CdkVirtualScrollViewport;
-  innerHeight:any;
+  innerHeight: any;
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.innerHeight = window.innerHeight;
+  }
   constructor() { }
 
   ngOnInit(): void {
     // this.virtualScroll.scrollToIndex(0);
-  }
-  @HostListener('window:resize', ['$event'])
-  onResize() {
-    this.innerHeight = window.innerHeight;
   }
 
 }
