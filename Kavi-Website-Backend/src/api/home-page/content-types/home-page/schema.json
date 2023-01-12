@@ -57,7 +57,7 @@
     "OurClientImages": {
       "type": "component",
       "repeatable": true,
-      "component": "media.image"
+      "component": "custom.header"
     },
     "BlogsTitle": {
       "type": "string"
