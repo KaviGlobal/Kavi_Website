@@ -36,6 +36,11 @@
     "Dynamic": {
       "type": "boolean"
     },
+    "ItemType": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::item-type.item-type"
+    },
     "Tags": {
       "type": "relation",
       "relation": "oneToOne",

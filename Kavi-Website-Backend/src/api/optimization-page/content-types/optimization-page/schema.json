@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "optimization_pages",
+  "info": {
+    "singularName": "optimization-page",
+    "pluralName": "optimization-pages",
+    "displayName": "OptimizationPage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SliderImage": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.image"
+    }
+  }
+}
