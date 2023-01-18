@@ -16,7 +16,7 @@ export class FooterContentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.images = [700, 800, 807].map((n) => `https://picsum.photos/id/${n}/900/500`);
+    this.images = ['footer_image1.png', 'footer_image2.png'].map((n) => `assets/${n}`);
   }
 
 }

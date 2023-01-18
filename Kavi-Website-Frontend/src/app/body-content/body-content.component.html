@@ -51,33 +51,124 @@
                 </ng-container>
             </div>
             <h3>{{renderData.OfferingsTitle}}</h3>
+
             <ng-container *ngIf="renderData.Offerings.length">
                 <div class="row">
-                    <ng-container *ngFor="let offerItem of renderData.Offerings">
-
-                        <div class="col-6" style="height: 100%; width: 100%;"
-                            [ngClass]="offerItem.Title === 'Solutions' ? 'collage-top-item':'collage-topless-item'"
-                            *ngIf="offerItem.Position === 'left'">
-                            <div class="item-block"
-                                [ngStyle]="{'height.px':offerItem.OfferingMedia.Media.data.attributes.height,'width.px':offerItem.OfferingMedia.Media.data.attributes.width}">
-                                <app-collage-view [imagePosition]="offerItem.ImagePosition"
-                                    [image]="offerItem.OfferingMedia.Media.data.attributes.url"
-                                    [title]="offerItem.Title" [description]="offerItem.PreviewText">
-                                </app-collage-view>
-                            </div>
+                    <div class="col-6" style="height: 100%; width: 100%;">
+                        <div class="item-block"
+                            [ngStyle]="{'height.px':renderData.Offerings[0].OfferingMedia.Media.data.attributes.height,'width.px':renderData.Offerings[0].OfferingMedia.Media.data.attributes.width}">
+                            <app-collage-view [imagePosition]="renderData.Offerings[0].ImagePosition"
+                                [image]="renderData.Offerings[0].OfferingMedia.Media.data.attributes.url"
+                                [title]="renderData.Offerings[0].Title"
+                                [description]="renderData.Offerings[0].PreviewText">
+                            </app-collage-view>
                         </div>
-
-                        <div class="col-6" style="height: 100%; width: 100%;" *ngIf="offerItem.Position === 'right'">
-                            <div class="item-block"
-                                [ngStyle]="{'height.px':offerItem.OfferingMedia.Media.data.attributes.height,'width.px':offerItem.OfferingMedia.Media.data.attributes.width}">
-                                <app-collage-view [imagePosition]="offerItem.ImagePosition"
-                                    [image]="offerItem.OfferingMedia.Media.data.attributes.url"
-                                    [title]="offerItem.Title" [description]="offerItem.PreviewText">
-                                </app-collage-view>
-                            </div>
+                        <div class="item-block" style="margin-top: 15px;"
+                            [ngStyle]="{'height.px':renderData.Offerings[1].OfferingMedia.Media.data.attributes.height,'width.px':renderData.Offerings[1].OfferingMedia.Media.data.attributes.width}">
+                            <app-collage-view [imagePosition]="renderData.Offerings[1].ImagePosition"
+                                [image]="renderData.Offerings[1].OfferingMedia.Media.data.attributes.url"
+                                [title]="renderData.Offerings[1].Title"
+                                [description]="renderData.Offerings[1].PreviewText">
+                            </app-collage-view>
                         </div>
-                    </ng-container>
+                    </div>
+                    <div class="col-6" style="height: 100%; width: 100%;">
+                        <div class="item-block"
+                            [ngStyle]="{'height.px':renderData.Offerings[2].OfferingMedia.Media.data.attributes.height,'width.px':renderData.Offerings[2].OfferingMedia.Media.data.attributes.width}">
+                            <app-collage-view [imagePosition]="renderData.Offerings[2].ImagePosition"
+                                [image]="renderData.Offerings[2].OfferingMedia.Media.data.attributes.url"
+                                [title]="renderData.Offerings[2].Title"
+                                [description]="renderData.Offerings[2].PreviewText">
+                            </app-collage-view>
+                        </div>
+                        <div class="item-block" style="margin-top: 15px;"
+                            [ngStyle]="{'height.px':renderData.Offerings[3].OfferingMedia.Media.data.attributes.height,'margin-top.px':'15px','width.px':renderData.Offerings[3].OfferingMedia.Media.data.attributes.width}">
+                            <app-collage-view [imagePosition]="renderData.Offerings[3].ImagePosition"
+                                [image]="renderData.Offerings[3].OfferingMedia.Media.data.attributes.url"
+                                [title]="renderData.Offerings[3].Title"
+                                [description]="renderData.Offerings[3].PreviewText">
+                            </app-collage-view>
+                        </div>
+                    </div>
                 </div>
+                <!-- <ng-container *ngFor="let offerItem of renderData.Offerings">
+                    <div class="row" style="height:'200px'">
+                        <div class="col-6">
+                            <ng-container *ngIf="offerItem.id===3">
+                                <div class="col-12">
+                                    <div class="item-block" style="height: 30px;">
+                                        <app-collage-view [imagePosition]="offerItem.ImagePosition"
+                                            [image]="offerItem.OfferingMedia.Media.data.attributes.url"
+                                            [height]="offerItem.height" [width]="offerItem.width"
+                                            [title]="offerItem.Title" [description]="offerItem.PreviewText">
+                                        </app-collage-view>
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <ng-container *ngIf="offerItem.id===4">
+                                <div class="col-12">
+                                    <div class="item-block" style="height: 70px;margin-top: 5px;"
+                                        >
+                                        <app-collage-view [imagePosition]="offerItem.ImagePosition"
+                                            [image]="offerItem.OfferingMedia.Media.data.attributes.url"
+                                            [height]="offerItem.height" [width]="offerItem.width"
+                                            [title]="offerItem.Title" [description]="offerItem.PreviewText">
+                                        </app-collage-view>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="col-6">
+                            <ng-container *ngIf="offerItem.id===5">
+                                <div class="col-12">
+                                    <div class="item-block" style="height: 70px;" >
+                                        <app-collage-view [imagePosition]="offerItem.ImagePosition"
+                                            [image]="offerItem.OfferingMedia.Media.data.attributes.url"
+                                            [height]="offerItem.height" [width]="offerItem.width"
+                                            [title]="offerItem.Title" [description]="offerItem.PreviewText">
+                                        </app-collage-view>
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <ng-container *ngIf="offerItem.id===6">
+                                <div class="col-12">
+                                    <div class="item-block" style="height: 30px;margin-top: 5px;"
+                                        >
+                                        <app-collage-view [imagePosition]=" offerItem.ImagePosition"
+                                            [image]="offerItem.OfferingMedia.Media.data.attributes.url"
+                                            [height]="offerItem.height" [width]="offerItem.width"
+                                            [title]="offerItem.Title" [description]="offerItem.PreviewText">
+                                        </app-collage-view>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </ng-container> -->
+                <!-- <div class="col"> -->
+                <!-- <ng-container *ngFor="let offerItem of renderData.Offerings">
+                        <div class="col-6" style="height: 100%; width: 100%;">
+                            <div class="item-block"
+                                [ngStyle]="{'height':offerItem.height,'width':offerItem.width}">
+                                <app-collage-view [imagePosition]="offerItem.ImagePosition"
+                                    [image]="offerItem.OfferingMedia.Media.data.attributes.url"
+                                    [height]="offerItem.height" [width]="offerItem.width" [title]="offerItem.Title"
+                                    [description]="offerItem.PreviewText">
+                                </app-collage-view>
+                            </div>
+                        </div>
+
+                        <div class="col-6" [ngClass]="offerItem.id === 5 ? 'collage-top-item':''" style="height: 100%; width: 100%;" *ngIf="offerItem.Position === 'right'">
+                            <div class="item-block"
+                                [ngStyle]="{'height.px':offerItem.OfferingMedia.Media.data.attributes.height,'width.px':offerItem.OfferingMedia.Media.data.attributes.width}">
+                                <app-collage-view [imagePosition]="offerItem.ImagePosition"
+                                    [image]="offerItem.OfferingMedia.Media.data.attributes.url"
+                                    [title]="offerItem.Title" [description]="offerItem.PreviewText">
+                                </app-collage-view>
+                            </div>
+                        </div>
+                    </ng-container> -->
+                <!-- </div> -->
             </ng-container>
         </div>
         <div style="height: 380px;width: 100%; background-color: #000D42;color: #FFFFFF;">
@@ -193,7 +284,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <div style="background-color: #9B9B9B;border-color: #707070;margin-left: 87px;
                 text-align: left;
                 height: 75px;
