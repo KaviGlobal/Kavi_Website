@@ -16,7 +16,7 @@ export class FooterContentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.images = ['footer_image1.png', 'footer_image2.png'].map((n) => `assets/${n}`);
+    this.images = ['footer_image1.png', 'footer_image2.png', 'footer_image3.png'].map((n) => `assets/${n}`);
   }
 
 }

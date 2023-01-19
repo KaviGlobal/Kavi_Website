@@ -9,7 +9,8 @@
                             <h3>{{item.Description}}</h3>
                         </ng-container>
                         <ng-container *ngIf="!item.Description">
-                            <img [src]="item.SliderMedia.Media.data.attributes.formats.thumbnail.url" alt="item.SliderMedia.Alt">
+                            <img [src]="item.SliderMedia.Media.data.attributes.formats.thumbnail.url"
+                                alt="item.SliderMedia.Alt">
                         </ng-container>
                     </ng-container>
                 </div>
@@ -58,7 +59,7 @@
                         <div class="item-block"
                             [ngStyle]="{'height.px':renderData.Offerings[0].OfferingMedia.Media.data.attributes.height,'width.px':renderData.Offerings[0].OfferingMedia.Media.data.attributes.width}">
                             <app-collage-view [imagePosition]="renderData.Offerings[0].ImagePosition"
-                                [image]="renderData.Offerings[0].OfferingMedia.Media.data.attributes.url"
+                                [image]="renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats && renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats.thumbnail.url ? renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats.thumbnail.url : renderData.Offerings[0].OfferingMedia.Media.data.attributes.url"
                                 [title]="renderData.Offerings[0].Title"
                                 [description]="renderData.Offerings[0].PreviewText">
                             </app-collage-view>
@@ -66,7 +67,7 @@
                         <div class="item-block" style="margin-top: 15px;"
                             [ngStyle]="{'height.px':renderData.Offerings[1].OfferingMedia.Media.data.attributes.height,'width.px':renderData.Offerings[1].OfferingMedia.Media.data.attributes.width}">
                             <app-collage-view [imagePosition]="renderData.Offerings[1].ImagePosition"
-                                [image]="renderData.Offerings[1].OfferingMedia.Media.data.attributes.url"
+                                [image]="renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats && renderData.Offerings[1].OfferingMedia.Media.data.attributes.formats.thumbnail.url ? renderData.Offerings[1].OfferingMedia.Media.data.attributes.formats.thumbnail.url : renderData.Offerings[1].OfferingMedia.Media.data.attributes.url"
                                 [title]="renderData.Offerings[1].Title"
                                 [description]="renderData.Offerings[1].PreviewText">
                             </app-collage-view>
@@ -76,7 +77,7 @@
                         <div class="item-block"
                             [ngStyle]="{'height.px':renderData.Offerings[2].OfferingMedia.Media.data.attributes.height,'width.px':renderData.Offerings[2].OfferingMedia.Media.data.attributes.width}">
                             <app-collage-view [imagePosition]="renderData.Offerings[2].ImagePosition"
-                                [image]="renderData.Offerings[2].OfferingMedia.Media.data.attributes.url"
+                                [image]="renderData.Offerings[2].OfferingMedia.Media.data.attributes.formats && renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats.thumbnail.url ? renderData.Offerings[2].OfferingMedia.Media.data.attributes.formats.thumbnail.url : renderData.Offerings[2].OfferingMedia.Media.data.attributes.url"
                                 [title]="renderData.Offerings[2].Title"
                                 [description]="renderData.Offerings[2].PreviewText">
                             </app-collage-view>
@@ -84,7 +85,7 @@
                         <div class="item-block" style="margin-top: 15px;"
                             [ngStyle]="{'height.px':renderData.Offerings[3].OfferingMedia.Media.data.attributes.height,'margin-top.px':'15px','width.px':renderData.Offerings[3].OfferingMedia.Media.data.attributes.width}">
                             <app-collage-view [imagePosition]="renderData.Offerings[3].ImagePosition"
-                                [image]="renderData.Offerings[3].OfferingMedia.Media.data.attributes.url"
+                                [image]="renderData.Offerings[3].OfferingMedia.Media.data.attributes.formats && renderData.Offerings[3].OfferingMedia.Media.data.attributes.formats.thumbnail.url ? renderData.Offerings[3].OfferingMedia.Media.data.attributes.formats.thumbnail.url : renderData.Offerings[3].OfferingMedia.Media.data.attributes.url"
                                 [title]="renderData.Offerings[3].Title"
                                 [description]="renderData.Offerings[3].PreviewText">
                             </app-collage-view>
@@ -172,7 +173,7 @@
             </ng-container>
         </div>
         <div style="height: 380px;width: 100%; background-color: #000D42;color: #FFFFFF;">
-            <h3 style="text-align: center;padding-top: 50px;font-size: 34px;">{{renderData.Analytics.Title}}</h3>
+            <h3 style="text-align: center;padding-top: 50px;font-size: 32px;">{{renderData.Analytics.Title}}</h3>
             <div style="display: flex;">
                 <span style="font-size: 20px;margin: 0 20px 0 140px;width: 50%;padding-top: 28px;">
                     {{renderData.Analytics.PreviewText}}
@@ -237,7 +238,7 @@
                     <div class="col-6" style="display: flex;max-width: 100%;">
                         <div class="item-block" style="display: block;width: 100%;background-color: #FFFFFF">
                             <div class="sub-item" style="width: 94%;">
-                                <img [src]="renderData.Blogs.data[0].attributes.Media.data[0].attributes.url" alt=""
+                                <img [src]="renderData.Blogs.data[0].attributes.Media.data[0].attributes.formats.thumbnail.url" alt=""
                                     style="height: 218px;width: 100%;">
                             </div>
                             <div style="text-align: left;padding-left: 13px;">
@@ -253,8 +254,8 @@
                         </div>
                         <div class="item-block" style="width: 50%;height: 100%;background-color: #FFFFFF">
                             <div class="sub-item" style="height: 188px;width: 439px;">
-                                <img [src]="renderData.Blogs.data[1].attributes.Media.data[0].attributes.formats.thumbnail.url" alt=""
-                                    style="height: 100%;width: 100%;">
+                                <img [src]="renderData.Blogs.data[1].attributes.Media.data[0].attributes.formats.thumbnail.url"
+                                    alt="" style="height: 100%;width: 100%;">
                             </div>
                             <div style="text-align: left;padding-top: 15px;">
                                 <h4 style="font: normal normal 600 21px/20px Montserrat;">
@@ -271,7 +272,7 @@
                         <div class="item-block"
                             style="margin-left: 50%;margin-top: -159px;width: 50%;height: 100%;background-color: #FFFFFF">
                             <div class="sub-item" style="height: 100%;width: 470px;">
-                                <img [src]="renderData.Blogs.data[2].attributes.Media.data[0].attributes.url" alt=""
+                                <img [src]="renderData.Blogs.data[2].attributes.Media.data[0].attributes.formats.thumbnail.url" alt=""
                                     style="height: 188px;width: 100%;">
                             </div>
                             <div style="text-align: left;padding-top: 15px;">
@@ -301,12 +302,12 @@
                 <div>
                     <div class="page1">
                         <h3> {{renderData.NewsTitle}}</h3>
-                        <div style="display: flex; margin-left: 87px;text-align: left">
+                        <div style="display: flex; margin-left: 40px;margin-right: 40px;text-align: left">
                             <ng-container *ngFor="let newsItem of renderData.News.data">
                                 <div class="col-4">
                                     <div class="sub-item" style="height: 229px;width: 100%;margin: 0 0 14px 0;">
-                                        <img [src]="newsItem.attributes.Media.data[0].attributes.formats.thumbnail.url" alt=""
-                                            style="width: 100%;height: 100%;">
+                                        <img [src]="newsItem.attributes.Media.data[0].attributes.formats.thumbnail.url"
+                                            alt="" style="width: 100%;height: 100%;">
                                     </div>
                                     <div>
                                         <h2>
@@ -354,8 +355,8 @@
                                 <ng-container *ngFor="let successItem of renderData.SuccessStory.data;let i=index">
                                     <div [ngClass]="i===1? 'columnReverse':''" style="width: 50%;margin-right: 12px;">
                                         <div class="sub-item" style="height: 248px;width: 97%;margin: 0 0 14px 0;">
-                                            <img [src]="successItem.attributes.Media.data[0]?.attributes.url" alt=""
-                                                style="height: 100%;width: 100%;"
+                                            <img [src]="successItem.attributes.Media.data[0]?.attributes.formats && successItem.attributes.Media.data[0]?.attributes.formats.thumbnail.url ? successItem.attributes.Media.data[0]?.attributes.formats.thumbnail.url  : successItem.attributes.Media.data[0]?.attributes.url"
+                                                alt="" style="height: 100%;width: 100%;"
                                                 *ngIf="successItem.attributes.Media.data">
                                         </div>
                                         <div style="width: 90%;padding-left: 10px;">
@@ -403,9 +404,9 @@
                     color: #FFFF;">
                             <h3 style="color: #EA6B1E;font: normal normal bold 26px/11px Open Sans;
                         padding-left: 55px;">Contact us</h3>
-                            <p><mat-icon> location_on</mat-icon>{{renderData.ContactUs.Address}}</p>
-                            <p><mat-icon> phone</mat-icon>{{renderData.ContactUs.PhoneNumber}}</p>
-                            <p><mat-icon> email</mat-icon>{{renderData.ContactUs.Email}}</p>
+                            <p><mat-icon style="margin-right: 7px;"> location_on</mat-icon>{{renderData.ContactUs.Address}}</p>
+                            <p><mat-icon style="margin-right: 7px;"> phone</mat-icon>{{renderData.ContactUs.PhoneNumber}}</p>
+                            <p><mat-icon style="margin-right: 7px;"> email</mat-icon>{{renderData.ContactUs.Email}}</p>
                         </div>
                     </div>
                 </div>
