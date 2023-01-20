@@ -225,12 +225,50 @@ ngb-carousel {
     color: transparent;
 }
 
-// ::ng-deep .carousel-control-prev-icon {
-//     display: none;
-// }
-// ::ng-deep .carousel-control-next-icon {
-//     display: none;
-// }
+.success-story {
+    #read-more-success {
+        background-color: whitesmoke;
+        width: 53%;
+        height: 50px;
+        display: flex;
+        text-align: center;
+        padding: 9px 9px 9px 39px;
+
+        a {
+            font: normal normal 600 19px/23px Montserrat;
+            color: #224991;
+
+            mat-icon {
+                padding-top: 7px;
+                font-size: 21px;
+            }
+        }
+    }
+}
+
+.contact-us {
+    background-color: #000D42;
+    width: 29%;
+    height: 190px;
+    position: relative;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    top: -451px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #FFFF;
+
+    h3 {
+        color: #EA6B1E;
+        font: normal normal bold 26px/11px Open Sans;
+        padding-left: 55px;
+    }
+
+    .mat-items {
+        margin-right: 7px;
+    }
+}
 
 ::ng-deep .visually-hidden {
     display: none;
@@ -320,5 +358,4 @@ button {
     top: -151px;
 }
 
-.collage-topless-item {
-}
+.collage-topless-item {}

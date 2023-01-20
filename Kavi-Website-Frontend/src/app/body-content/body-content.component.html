@@ -238,8 +238,8 @@
                     <div class="col-6" style="display: flex;max-width: 100%;">
                         <div class="item-block" style="display: block;width: 100%;background-color: #FFFFFF">
                             <div class="sub-item" style="width: 94%;">
-                                <img [src]="renderData.Blogs.data[0].attributes.Media.data[0].attributes.formats.thumbnail.url" alt=""
-                                    style="height: 218px;width: 100%;">
+                                <img [src]="renderData.Blogs.data[0].attributes.Media.data[0].attributes.formats.thumbnail.url"
+                                    alt="" style="height: 218px;width: 100%;">
                             </div>
                             <div style="text-align: left;padding-left: 13px;">
                                 <h4 style="font: normal normal 600 21px/20px Montserrat;">
@@ -272,8 +272,8 @@
                         <div class="item-block"
                             style="margin-left: 50%;margin-top: -159px;width: 50%;height: 100%;background-color: #FFFFFF">
                             <div class="sub-item" style="height: 100%;width: 470px;">
-                                <img [src]="renderData.Blogs.data[2].attributes.Media.data[0].attributes.formats.thumbnail.url" alt=""
-                                    style="height: 188px;width: 100%;">
+                                <img [src]="renderData.Blogs.data[2].attributes.Media.data[0].attributes.formats.thumbnail.url"
+                                    alt="" style="height: 188px;width: 100%;">
                             </div>
                             <div style="text-align: left;padding-top: 15px;">
                                 <h4 style="font: normal normal 600 21px/20px Montserrat;">
@@ -299,7 +299,7 @@
                         </a>
                     </div>
                 </div>
-                <div>
+                <div class="">
                     <div class="page1">
                         <h3> {{renderData.NewsTitle}}</h3>
                         <div style="display: flex; margin-left: 40px;margin-right: 40px;text-align: left">
@@ -324,7 +324,7 @@
                                 </div>
                             </ng-container>
                         </div>
-                        <div style="background-color: #9B9B9B;border-color: #707070;    margin-left: 87px;
+                        <div style="background-color: #9B9B9B;border-color: #707070;margin-left: 33px;
                     text-align: left;
                     height: 75px;
                     padding-left: 20px;
@@ -347,7 +347,7 @@
                         font-weight: bold;color: #FFFFFF;" class="fa fa-paper-plane" aria-hidden="true"></i>
                     </div>
                 </div>
-                <div>
+                <div class="success-story">
                     <div>
                         <div class="page1" style="margin: 3% 3% 0% 3%;">
                             <h3> {{renderData.SuccessStoryTitle}}</h3>
@@ -375,12 +375,8 @@
                                 </ng-container>
                             </div>
                         </div>
-                        <div
-                            style="background-color: whitesmoke;width: 53%;height: 50px;display: flex;text-align: center;padding: 9px 9px 9px 39px;">
-                            <a href="" style="font: normal normal 600 19px/23px Montserrat;color: #224991;">Read more on
-                                our
-                                Success stories <mat-icon style="padding-top: 7px;font-size: 21px;">
-                                    arrow_forward</mat-icon>
+                        <div id="read-more-success">
+                            <a href="">Read more on our Success stories <mat-icon>arrow_forward</mat-icon>
                             </a>
                         </div>
                         <div style="width: 100%;height: 10px;background-color: #000D42;"></div>
@@ -397,16 +393,14 @@
                             </agm-info-window>
                         </agm-marker>
                     </agm-map>
-                    <div
-                        style="background-color: #000D42;width: 29%;height: 190px;position: relative;border-top-right-radius: 25px;
-                border-bottom-right-radius: 25px;top: -451px;align-items: center;justify-content: center;display: flex;">
-                        <div style="    text-align: left;
-                    color: #FFFF;">
-                            <h3 style="color: #EA6B1E;font: normal normal bold 26px/11px Open Sans;
-                        padding-left: 55px;">Contact us</h3>
-                            <p><mat-icon style="margin-right: 7px;"> location_on</mat-icon>{{renderData.ContactUs.Address}}</p>
-                            <p><mat-icon style="margin-right: 7px;"> phone</mat-icon>{{renderData.ContactUs.PhoneNumber}}</p>
-                            <p><mat-icon style="margin-right: 7px;"> email</mat-icon>{{renderData.ContactUs.Email}}</p>
+                    <div class="contact-us">
+                        <div>
+                            <h3>Contact us</h3>
+                            <p><mat-icon class="mat-items">
+                                    location_on</mat-icon>{{renderData.ContactUs.Address}}</p>
+                            <p><mat-icon class="mat-items">
+                                    phone</mat-icon>{{renderData.ContactUs.PhoneNumber}}</p>
+                            <p><mat-icon class="mat-items"> email</mat-icon>{{renderData.ContactUs.Email}}</p>
                         </div>
                     </div>
                 </div>
