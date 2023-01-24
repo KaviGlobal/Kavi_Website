@@ -24,18 +24,6 @@
     },
     "PreviewText": {
       "type": "richtext"
-    },
-    "Position": {
-      "type": "string"
-    },
-    "ImagePosition": {
-      "type": "string"
-    },
-    "CSSPosition": {
-      "type": "string"
-    },
-    "CSSTop": {
-      "type": "string"
     }
   }
 }
