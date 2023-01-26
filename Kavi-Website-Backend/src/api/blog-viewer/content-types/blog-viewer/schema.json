@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "blog_viewers",
+  "info": {
+    "singularName": "blog-viewer",
+    "pluralName": "blog-viewers",
+    "displayName": "BlogViewer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Authors": {
+      "type": "string"
+    },
+    "BlogPostContent": {
+      "type": "string"
+    },
+    "Recommendation": {
+      "type": "string"
+    }
+  }
+}

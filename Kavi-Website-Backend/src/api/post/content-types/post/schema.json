@@ -30,7 +30,7 @@
         "audios"
       ]
     },
-    "Content": {
+    "ShortContent": {
       "type": "richtext"
     },
     "Media": {
@@ -77,6 +77,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::author.author"
+    },
+    "FullContent": {
+      "type": "richtext"
     }
   }
 }

@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offerings",
+  "info": {
+    "singularName": "offering",
+    "pluralName": "offerings",
+    "displayName": "Offering",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PredictionsTranformations": {
+      "type": "component",
+      "repeatable": true,
+      "component": "text.title-paragraph"
+    },
+    "OfferingType": {
+      "type": "enumeration",
+      "enum": [
+        "Services",
+        "Software",
+        "Solutions",
+        "KaviLabs"
+      ]
+    }
+  }
+}
