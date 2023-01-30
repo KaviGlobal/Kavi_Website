@@ -51,11 +51,15 @@ export class BodyContentComponent implements OnInit {
           element.OfferingMedia.Media.data.attributes.height = '100%';
           element.OfferingMedia.Media.data.attributes.width = '100%';
           if (element.Title === 'Services' || element.Title === 'Kavi Labs') {
-            element['height'] = '30%'
-            element['width'] = '100%'
+            // element['height'] = '30%'
+            // element['width'] = '100%'
+            element['ImagePosition'] = 'left'
+
           } else if (element.Title === 'Solutions' || element.Title === 'Software') {
-            element['height'] = '70%'
-            element['width'] = '100%'
+            // element['height'] = '70%'
+            // element['width'] = '100%'
+            element['ImagePosition'] = 'top'
+
           }
         });
         let temp: any = [];

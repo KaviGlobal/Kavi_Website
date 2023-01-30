@@ -58,37 +58,71 @@
                     <div class="col-6" style="height: 100%; width: 100%;">
                         <div class="item-block"
                             [ngStyle]="{'height.px':renderData.Offerings[0].OfferingMedia.Media.data.attributes.height,'width.px':renderData.Offerings[0].OfferingMedia.Media.data.attributes.width}">
-                            <app-collage-view [imagePosition]="renderData.Offerings[0].ImagePosition"
+                            <!-- <app-collage-view [imagePosition]="renderData.Offerings[0].ImagePosition"
                                 [image]="renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats && renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats.thumbnail.url ? renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats.thumbnail.url : renderData.Offerings[0].OfferingMedia.Media.data.attributes.url"
                                 [title]="renderData.Offerings[0].Title"
                                 [description]="renderData.Offerings[0].PreviewText">
-                            </app-collage-view>
+                            </app-collage-view> -->
+                            <div class="item-container" style="height: 100%; width: 100%; display: flex;">
+                                <div class="sub-item">
+                                    <img [src]="renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats && renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats.thumbnail.url ? renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats.thumbnail.url : renderData.Offerings[0].OfferingMedia.Media.data.attributes.url"
+                                        alt="">
+                                </div>
+                                <div class="desc-div" style="text-align: left;padding-top: 32px;">
+                                    <h4>{{renderData.Offerings[0].Title}}</h4>
+                                    <span style="width: 343px;">{{renderData.Offerings[0].PreviewText}}</span>
+                                    <a href="">Learn more<mat-icon>arrow_forward</mat-icon>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="item-block" style="margin-top: 15px;"
                             [ngStyle]="{'height.px':renderData.Offerings[1].OfferingMedia.Media.data.attributes.height,'width.px':renderData.Offerings[1].OfferingMedia.Media.data.attributes.width}">
-                            <app-collage-view [imagePosition]="renderData.Offerings[1].ImagePosition"
-                                [image]="renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats && renderData.Offerings[1].OfferingMedia.Media.data.attributes.formats.thumbnail.url ? renderData.Offerings[1].OfferingMedia.Media.data.attributes.formats.thumbnail.url : renderData.Offerings[1].OfferingMedia.Media.data.attributes.url"
-                                [title]="renderData.Offerings[1].Title"
-                                [description]="renderData.Offerings[1].PreviewText">
-                            </app-collage-view>
+                            <div class="item-container" style="height: 100%; width: 100%; display: block;">
+                                <div class="sub-item" style="width: 90%; height: 217px;">
+                                    <img [src]="renderData.Offerings[1].OfferingMedia.Media.data.attributes.formats && renderData.Offerings[1].OfferingMedia.Media.data.attributes.formats.thumbnail.url ? renderData.Offerings[1].OfferingMedia.Media.data.attributes.formats.thumbnail.url : renderData.Offerings[1].OfferingMedia.Media.data.attributes.url"
+                                        alt="" style="height: 100%;width: 100%;position: relative;">
+                                </div>
+                                <div class="desc-div" style="padding-left: 13px;">
+                                    <h4>{{renderData.Offerings[1].Title}}</h4>
+                                    <span style="width: 98%;">{{renderData.Offerings[1].PreviewText}}</span>
+                                    <a href="">Learn more
+                                        <mat-icon>arrow_forward</mat-icon>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-6" style="height: 100%; width: 100%;">
                         <div class="item-block"
                             [ngStyle]="{'height.px':renderData.Offerings[2].OfferingMedia.Media.data.attributes.height,'width.px':renderData.Offerings[2].OfferingMedia.Media.data.attributes.width}">
-                            <app-collage-view [imagePosition]="renderData.Offerings[2].ImagePosition"
-                                [image]="renderData.Offerings[2].OfferingMedia.Media.data.attributes.formats && renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats.thumbnail.url ? renderData.Offerings[2].OfferingMedia.Media.data.attributes.formats.thumbnail.url : renderData.Offerings[2].OfferingMedia.Media.data.attributes.url"
-                                [title]="renderData.Offerings[2].Title"
-                                [description]="renderData.Offerings[2].PreviewText">
-                            </app-collage-view>
+                            <div class="item-container" style="height: 100%; width: 100%; display: block;">
+                                <div class="sub-item" style="width: 90%; height: 217px;">
+                                    <img [src]="renderData.Offerings[1].OfferingMedia.Media.data.attributes.formats && renderData.Offerings[1].OfferingMedia.Media.data.attributes.formats.thumbnail.url ? renderData.Offerings[1].OfferingMedia.Media.data.attributes.formats.thumbnail.url : renderData.Offerings[1].OfferingMedia.Media.data.attributes.url"
+                                        alt="" style="height: 100%;width: 100%;position: relative;">
+                                </div>
+                                <div class="desc-div" style="padding-left: 13px;">
+                                    <h4>{{renderData.Offerings[1].Title}}</h4>
+                                    <span style="width: 98%;">{{renderData.Offerings[1].PreviewText}}</span>
+                                    <a href="">Learn more<mat-icon>arrow_forward</mat-icon>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div class="item-block" style="margin-top: 15px;"
                             [ngStyle]="{'height.px':renderData.Offerings[3].OfferingMedia.Media.data.attributes.height,'margin-top.px':'15px','width.px':renderData.Offerings[3].OfferingMedia.Media.data.attributes.width}">
-                            <app-collage-view [imagePosition]="renderData.Offerings[3].ImagePosition"
-                                [image]="renderData.Offerings[3].OfferingMedia.Media.data.attributes.formats && renderData.Offerings[3].OfferingMedia.Media.data.attributes.formats.thumbnail.url ? renderData.Offerings[3].OfferingMedia.Media.data.attributes.formats.thumbnail.url : renderData.Offerings[3].OfferingMedia.Media.data.attributes.url"
-                                [title]="renderData.Offerings[3].Title"
-                                [description]="renderData.Offerings[3].PreviewText">
-                            </app-collage-view>
+                            <div class="item-container" style="height: 100%; width: 100%; display: flex;">
+                                <div class="sub-item">
+                                    <img [src]="renderData.Offerings[3].OfferingMedia.Media.data.attributes.formats && renderData.Offerings[3].OfferingMedia.Media.data.attributes.formats.thumbnail.url ? renderData.Offerings[3].OfferingMedia.Media.data.attributes.formats.thumbnail.url : renderData.Offerings[3].OfferingMedia.Media.data.attributes.url"
+                                        alt="">
+                                </div>
+                                <div class="desc-div" style="text-align: left;padding-top: 32px;">
+                                    <h4>{{renderData.Offerings[3].Title}}</h4>
+                                    <span style="width: 343px;">{{renderData.Offerings[3].PreviewText}}</span>
+                                    <a href="">Learn more<mat-icon>arrow_forward</mat-icon>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -245,8 +279,8 @@
                                 <h4 style="font: normal normal 600 21px/20px Montserrat;">
                                     {{renderData.Blogs.data[0].attributes.Title}}</h4>
                                 <span
-                                    style="width: 100%;display: inline-flex;">{{renderData.Blogs.data[0].attributes.Content}}</span>
-                                <a href="" style="font: normal normal 600 16px/23px Montserrat;">Read more<mat-icon
+                                    style="width: 100%;display: inline-flex;">{{renderData.Blogs.data[0].attributes.ShortContent}}</span>
+                                <a href="/blog" style="font: normal normal 600 16px/23px Montserrat;">Read more<mat-icon
                                         style="">
                                         arrow_forward</mat-icon>
                                 </a>
@@ -261,8 +295,9 @@
                                 <h4 style="font: normal normal 600 21px/20px Montserrat;">
                                     {{renderData.Blogs.data[0].attributes.Title}}</h4>
                                 <span
-                                    style="width: 343px;display: inline-flex;">{{renderData.Blogs.data[0].attributes.Content}}</span>
-                                <a href="" style="font: normal normal 600 16px/23px Montserrat;">Read more<mat-icon>
+                                    style="width: 343px;display: inline-flex;">{{renderData.Blogs.data[0].attributes.ShortContent}}</span>
+                                <a href="/blog" style="font: normal normal 600 16px/23px Montserrat;">Read
+                                    more<mat-icon>
                                         arrow_forward</mat-icon>
                                 </a>
                             </div>
@@ -279,8 +314,9 @@
                                 <h4 style="font: normal normal 600 21px/20px Montserrat;">
                                     {{renderData.Blogs.data[0].attributes.Title}}</h4>
                                 <span
-                                    style="width: 343px;display: inline-flex;">{{renderData.Blogs.data[0].attributes.Content}}</span>
-                                <a href="" style="font: normal normal 600 16px/23px Montserrat;">Read more<mat-icon>
+                                    style="width: 343px;display: inline-flex;">{{renderData.Blogs.data[0].attributes.ShortContent}}</span>
+                                <a href="/blog" style="font: normal normal 600 16px/23px Montserrat;">Read
+                                    more<mat-icon>
                                         arrow_forward</mat-icon>
                                 </a>
                             </div>
@@ -362,7 +398,7 @@
                                         <div style="width: 90%;padding-left: 10px;">
                                             <h2>{{successItem.attributes.Title}}</h2>
                                             <p style="font-size: 14px;width: 100%;margin-left: 0;">
-                                                {{successItem.attributes.Content}}
+                                                {{successItem.attributes.ShortContent}}
                                             </p>
                                             <a href=""
                                                 style="font: normal normal 600 16px/23px Montserrat;display: flex;color: #224991;">Read
