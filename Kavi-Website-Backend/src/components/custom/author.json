@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_custom_authors",
+  "info": {
+    "displayName": "Author",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "type": "string"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Bio": {
+      "type": "string"
+    },
+    "MaxCount": {
+      "type": "integer"
+    }
+  }
+}

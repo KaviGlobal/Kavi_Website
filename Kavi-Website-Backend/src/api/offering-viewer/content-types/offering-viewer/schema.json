@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "blog_viewers",
+  "collectionName": "offering_viewers",
   "info": {
-    "singularName": "blog-viewer",
-    "pluralName": "blog-viewers",
-    "displayName": "BlogViewer",
+    "singularName": "offering-viewer",
+    "pluralName": "offering-viewers",
+    "displayName": "OfferingViewer",
     "description": ""
   },
   "options": {
@@ -15,26 +15,18 @@
     "Title": {
       "type": "string"
     },
-    "AuthorName": {
-      "type": "string"
-    },
-    "Date": {
-      "type": "string"
-    },
     "Media": {
+      "type": "string"
+    },
+    "Description": {
       "type": "string"
     },
     "Content": {
       "type": "string"
     },
-    "Author": {
+    "Posts": {
       "type": "component",
-      "repeatable": false,
-      "component": "custom.author"
-    },
-    "Recommendation": {
-      "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "custom.recommendation"
     }
   }

@@ -12,10 +12,22 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "PredictionsTranformations": {
+    "Name": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Image": {
       "type": "component",
-      "repeatable": true,
-      "component": "text.title-paragraph"
+      "repeatable": false,
+      "component": "media.image"
+    },
+    "ShortContent": {
+      "type": "richtext"
+    },
+    "FullContent": {
+      "type": "richtext"
     },
     "OfferingType": {
       "type": "enumeration",
@@ -25,6 +37,16 @@
         "Solutions",
         "KaviLabs"
       ]
+    },
+    "Tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    },
+    "ParentOffering": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::offering.offering"
     }
   }
 }

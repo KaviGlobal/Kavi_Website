@@ -22,12 +22,12 @@
     "DisplayName": {
       "type": "text"
     },
-    "tag_group": {
+    "TagGroup": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::tag-group.tag-group"
     },
-    "parent_tag": {
+    "ParentTag": {
       "type": "string"
     }
   }

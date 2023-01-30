@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_custom_recommendations",
+  "info": {
+    "displayName": "ListForViewer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "ItemMedia": {
+      "type": "string"
+    },
+    "ItemTitle": {
+      "type": "string"
+    },
+    "ItemContent": {
+      "type": "string"
+    },
+    "LinkLabel": {
+      "type": "string"
+    },
+    "MaxCount": {
+      "type": "integer"
+    },
+    "TypeFilter": {
+      "type": "string"
+    }
+  }
+}

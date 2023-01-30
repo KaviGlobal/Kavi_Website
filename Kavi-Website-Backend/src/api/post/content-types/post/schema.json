@@ -50,11 +50,6 @@
     "ExpiresOn": {
       "type": "date"
     },
-    "tags": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::tag.tag"
-    },
     "Seo": {
       "type": "component",
       "repeatable": false,
@@ -73,13 +68,18 @@
     "Summary": {
       "type": "text"
     },
-    "Authors": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::author.author"
-    },
     "FullContent": {
       "type": "richtext"
+    },
+    "Tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    },
+    "Authors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::author.author"
     }
   }
 }
