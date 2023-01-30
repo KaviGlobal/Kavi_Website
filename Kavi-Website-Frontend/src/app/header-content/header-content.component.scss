@@ -45,13 +45,19 @@ ul {
 
     button {
         // padding: 22px 0 0 46px;
+        padding-left: 29px;
+        width: 20%;
         background-color: transparent;
         border-color: transparent;
+
+        img {
+            width: 100%;
+        }
     }
 
     .sub-content {
         position: relative;
-        left: 86%;
+        left: 68%;
     }
 
 }

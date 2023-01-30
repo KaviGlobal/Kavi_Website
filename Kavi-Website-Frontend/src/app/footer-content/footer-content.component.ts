@@ -10,13 +10,12 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 export class FooterContentComponent implements OnInit {
   images: any;
   constructor(config: NgbCarouselConfig) {
-    // config.interval = 2000;
     config.keyboard = true;
     config.pauseOnHover = true;
   }
 
   ngOnInit(): void {
-    this.images = [700, 800, 807].map((n) => `https://picsum.photos/id/${n}/900/500`);
+    this.images = ['footer_image1.png', 'footer_image2.png', 'footer_image3.png'].map((n) => `assets/${n}`);
   }
 
 }
