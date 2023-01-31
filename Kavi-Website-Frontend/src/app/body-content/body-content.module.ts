@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { BodyContentRoutingModule } from './body-content-routing.module';
 import { BodyContentComponent } from './body-content.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BodyContentComponent } from './body-content.component';
     MatButtonModule,
     ReactiveFormsModule,
     MatIconModule,
+    NgbModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw'
     })

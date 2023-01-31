@@ -64,7 +64,6 @@ export class BodyContentComponent implements OnInit {
         });
         let temp: any = [];
         let items: any = [];
-
         for (let index = 0; index < this.renderData.OurClientImages.length; index++) {
           if (this.renderData.OurClientImages[index].Order % 4 === 0) {
             items.push(this.renderData.OurClientImages[index]);
@@ -76,6 +75,7 @@ export class BodyContentComponent implements OnInit {
           }
         }
         this.clientImages = temp;
+        console.log(this.clientImages)
       }
     })
     this.screenheight = window.innerHeight;
