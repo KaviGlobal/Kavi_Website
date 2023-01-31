@@ -59,7 +59,6 @@ export class BodyContentComponent implements OnInit {
             // element['height'] = '70%'
             // element['width'] = '100%'
             element['ImagePosition'] = 'top'
-
           }
         });
         let temp: any = [];
