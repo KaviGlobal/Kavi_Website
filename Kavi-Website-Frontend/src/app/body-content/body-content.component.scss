@@ -193,6 +193,43 @@
                     font-weight: 600;
                 }
             }
+            .item-container {
+                .sub-item {
+                    background-color: white;
+                    margin: 14px;
+                    width: 215px;
+                    height: 220px;
+                    border: 1px solid #707070;
+            
+                    img {
+                        width: 100%;
+                        position: relative;
+                        height: 100%;
+                    }
+                }
+            
+                .desc-div {
+                    text-align: left;
+                    padding-top: 32px;
+            
+                    a {
+                        display: flex;
+                        color: #224991;
+                        font: normal normal 600 16px/23px Montserrat;
+                    }
+            
+                    h4 {
+                        font: normal normal 600 25px/20px Montserrat;
+                        font-size: x-large;
+                        color: #224991;
+                    }
+            
+                    span {
+                        display: inline-flex;
+                    }
+                }
+            }
+
         }
 
         .sub-item {

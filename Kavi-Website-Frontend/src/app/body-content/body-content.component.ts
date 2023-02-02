@@ -51,16 +51,18 @@ export class BodyContentComponent implements OnInit {
           element.OfferingMedia.Media.data.attributes.height = '100%';
           element.OfferingMedia.Media.data.attributes.width = '100%';
           if (element.Title === 'Services' || element.Title === 'Kavi Labs') {
-            element['height'] = '30%'
-            element['width'] = '100%'
+            // element['height'] = '30%'
+            // element['width'] = '100%'
+            element['ImagePosition'] = 'left'
+
           } else if (element.Title === 'Solutions' || element.Title === 'Software') {
-            element['height'] = '70%'
-            element['width'] = '100%'
+            // element['height'] = '70%'
+            // element['width'] = '100%'
+            element['ImagePosition'] = 'top'
           }
         });
         let temp: any = [];
         let items: any = [];
-
         for (let index = 0; index < this.renderData.OurClientImages.length; index++) {
           if (this.renderData.OurClientImages[index].Order % 4 === 0) {
             items.push(this.renderData.OurClientImages[index]);
@@ -72,6 +74,7 @@ export class BodyContentComponent implements OnInit {
           }
         }
         this.clientImages = temp;
+        console.log(this.clientImages)
       }
     })
     this.screenheight = window.innerHeight;

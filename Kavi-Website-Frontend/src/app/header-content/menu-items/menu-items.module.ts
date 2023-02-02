@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MenuItemsComponent } from './menu-items.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { MatIconModule } from '@angular/material/icon';
+import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MenuItemsComponent } from './menu-items.component';
 
 
 
@@ -12,7 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   declarations: [MenuItemsComponent],
   imports: [
     CommonModule,
-    BrowserModule,
+    // BrowserModule,
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,

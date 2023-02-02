@@ -65,3 +65,6 @@ ul {
 button {
     outline: none;
 }
+::ng-deep .mat-button-ripple.mat-ripple{
+    height: 150%;
+}
