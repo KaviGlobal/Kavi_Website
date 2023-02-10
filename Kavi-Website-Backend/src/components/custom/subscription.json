@@ -1,15 +1,13 @@
 {
   "collectionName": "components_custom_subscriptions",
   "info": {
-    "displayName": "Subscription"
+    "displayName": "Subscription",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Title": {
       "type": "string"
-    },
-    "Description": {
-      "type": "text"
     },
     "Email": {
       "type": "email"
