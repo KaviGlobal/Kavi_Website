@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_custom_right_menus",
+  "info": {
+    "displayName": "RightMenu",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Label": {
+      "type": "string"
+    },
+    "ContentLink": {
+      "type": "text"
+    }
+  }
+}

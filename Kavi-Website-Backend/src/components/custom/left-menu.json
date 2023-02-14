@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_custom_left_menus",
+  "info": {
+    "displayName": "LeftMenu",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "SubSections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.sub-menu"
+    },
+    "Styles": {
+      "type": "string"
+    }
+  }
+}
