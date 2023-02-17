@@ -1,10 +1,16 @@
 {
-  "collectionName": "components_custom_footers",
+  "kind": "singleType",
+  "collectionName": "footers",
   "info": {
+    "singularName": "footer",
+    "pluralName": "footers",
     "displayName": "Footer",
     "description": ""
   },
-  "options": {},
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
   "attributes": {
     "FooterSubscription": {
       "type": "component",
@@ -40,6 +46,11 @@
       "type": "component",
       "repeatable": true,
       "component": "text.icon-text"
+    },
+    "FollowUs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.image"
     }
   }
 }

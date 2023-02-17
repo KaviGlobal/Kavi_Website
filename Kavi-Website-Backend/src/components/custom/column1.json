@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_custom_left_menus",
+  "collectionName": "components_custom_column1s",
   "info": {
-    "displayName": "LeftMenu",
+    "displayName": "Column",
     "description": ""
   },
   "options": {},
@@ -12,16 +12,13 @@
     "Title": {
       "type": "string"
     },
-    "Styles": {
-      "type": "string"
-    },
-    "Card": {
-      "type": "string"
-    },
     "SubMenu": {
       "type": "component",
       "repeatable": true,
       "component": "custom.sub-menu"
+    },
+    "Styles": {
+      "type": "string"
     }
   }
 }

@@ -15,10 +15,6 @@
     "Name": {
       "type": "string"
     },
-    "Slug": {
-      "type": "uid",
-      "targetField": "Name"
-    },
     "DisplayName": {
       "type": "text"
     },

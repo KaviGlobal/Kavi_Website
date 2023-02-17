@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * item-type service
+ * sample-menu service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::item-type.item-type');
+module.exports = createCoreService('api::sample-menu.sample-menu');

@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "sample_menus",
+  "info": {
+    "singularName": "sample-menu",
+    "pluralName": "sample-menus",
+    "displayName": "SampleMenu",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Styles": {
+      "type": "string"
+    },
+    "Card1": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.column1"
+    }
+  }
+}
