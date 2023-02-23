@@ -1,0 +1,52 @@
+<div *ngIf="!dataLoad">
+    <app-page-loader></app-page-loader>
+</div>
+<div class="container-fluid footer-container m-0 p-0" *ngIf="dataLoad">
+    <div class="footer-bg-container mb-0">
+        <div class="row">
+            <div class="col-12 col-md-6 mt-5">
+                <h6>Subscribe for Newsletter</h6>
+                <input type="email" name="email" placeholder="Email Address" class="m-0 p-0" />
+                <i class="fas fa-paper-plane" style="color: white;"></i>
+                <img src="{{footerData.attributes.headerfooter.KaviLogo.data.attributes.url}}" alt="logo">
+                <p class="description">
+                    {{footerData.attributes.headerfooter.AboutKavi}}
+                </p>
+                <p class="footer-desc">Cookie Policy</p>
+                <p class="footer-desc">Terms & Conditions</p>
+                <p class="footer-desc">© Copyright 2022. All Rights Reserved. <span class="custom">Privacy Policy</span>
+                </p>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="second-block">
+                    <ngb-carousel *ngIf="images" style="margin-top: 20px;">
+                        <ng-template ngbSlide>
+                            <div class="wrapper mt-5">
+                                <img [src]="images[0]" alt="first slide" class="carousel-img">
+                            </div>
+                        </ng-template>
+                        <ng-template ngbSlide>
+                            <div class="wrapper mt-5">
+                                <img [src]="images[1]" alt="second slide" class="carousel-img">
+                            </div>
+                        </ng-template>
+                        <ng-template ngbSlide>
+                            <div class="wrapper mt-5">
+                                <img [src]="images[2]" alt="third slide" class="carousel-img">
+                            </div>
+                        </ng-template>
+                    </ngb-carousel>
+
+                </div>
+                <div class="icon-cont ml-5">
+                    <i style="color: #FFFFFF;font-size: x-large;letter-spacing: 2px;"
+                        class="fab fa-facebook-square"></i>
+                    <i style="color: #FFFFFF;font-size: x-large;letter-spacing: 2px;" class="fab fa-linkedin"></i>
+                    <i style="color: #FFFFFF;font-size: x-large;letter-spacing: 2px;" class="fab fa-twitter-square"></i>
+                    <i style="color: #FFFFFF;font-size: x-large;letter-spacing: 2px;" class="fab fa-youtube"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

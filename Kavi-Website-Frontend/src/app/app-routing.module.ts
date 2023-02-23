@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { BlogPostComponent } from './components/blog-post/blog-post.component';
+// import { BlogViewerComponent } from './components/blog-viewer/blog-viewer.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full',
-  },
-  {
-    path: '',
-    loadChildren: () => import('./default/default.module').then(module => module.DefaultModule),
-    data: { title: 'Home' }
-  },
+  { path: '', component: HomeComponent },
+  { path: 'blog', component: BlogComponent },
+  { path: 'blog/:id', component: BlogPostComponent },
+  // {path: 'blog/:id', component: BlogViewerComponent}
 ];
 
 @NgModule({

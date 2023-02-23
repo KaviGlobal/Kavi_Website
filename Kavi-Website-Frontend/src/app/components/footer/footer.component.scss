@@ -1,0 +1,120 @@
+.footer-container{
+    max-width: 100%;
+    // max-height: 75vh;
+    background-color: #000d42;
+    // height: 76vh;
+    display: flex;
+    justify-content: center;
+}
+.footer-bg-container {
+  width: 80%;
+  h6{
+    color: #EA6B1E;
+    font-size: 2rem;
+    font-family: "montserrat-regular";
+  }
+  input{
+    width: 400px;
+    margin-right: 10px;
+    margin-bottom: 0px;
+  }
+  i{
+    color: #fff;
+    margin: 10px;
+  }
+  img {
+    width: 45%;
+    // height: 20%;
+    margin: 10px;
+    padding: 0px;
+  //   margin-left: 20px;
+  //   background-color: green;
+  }
+}
+.description{
+    color: #fff;
+    font-family: "open-sans-regular";
+    font-size: 14px;
+    line-height: 22px;
+}
+.footer-desc{
+    color: #fff;
+    font-family: "open-sans-regular";
+    font-size: 14px;
+    line-height: 15px;
+}
+span{
+    text-decoration: underline;
+    color: #2680EB;
+}
+
+.second-block {
+    height: 70%;
+
+    button {
+        display: none;
+    }
+
+    ngb-carousel .wrapper {
+        position: relative;
+        height: 0;
+        padding-top: 55%;
+        margin-left: 112px;
+    }
+
+    ngb-carousel .wrapper>img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 350px;
+        height: 200px;
+    }
+
+    ::ng-deep .carousel-indicators {
+        display: none;
+    }
+
+    ::ng-deep .carousel-control-prev {
+        display: contents;
+        color: transparent;
+    }
+
+    ::ng-deep .carousel-control-next {
+        display: contents;
+        color: transparent;
+    }
+
+/*     ::ng-deep .carousel-inner {
+        width: 600px;
+        height: 309px;
+    } */
+
+    ::ng-deep .carousel-control-prev-icon {
+        top: 150px;
+        left: 94px;
+        position: absolute;
+    }
+
+    ::ng-deep .carousel-control-next-icon {
+        position: absolute;
+        left: 484px;
+        top: 150px;
+    }
+
+    .visually-hidden {
+        display: none;
+    }
+
+}
+.carousel-img{
+    width: 900px;
+    height: 900px;
+}
+.icon-cont{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

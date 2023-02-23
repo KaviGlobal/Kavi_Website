@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/kavistrapi_frontend'),
+      dir: require('path').join(__dirname, './coverage/kaviGlobal'),
       subdir: '.',
       reporters: [
         { type: 'html' },

@@ -1,0 +1,17 @@
+<div *ngIf="!dataLoad">
+    <app-page-loader></app-page-loader>
+</div>
+<div class="blog-post-content">
+    <div class="container" *ngIf="dataLoad">
+        <div class="row">
+            <div class="col-9 page-content pt-4">
+                <markdown [data]="blogData[0].attributes.FullContent"> </markdown>
+            </div>
+            <div class="col-1 divider"></div>
+            <div class="col-2">
+                <app-blog-sidebar [data]="blogData"></app-blog-sidebar>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

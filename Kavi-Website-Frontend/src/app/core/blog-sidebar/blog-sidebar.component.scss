@@ -1,0 +1,40 @@
+.blog-page-right-menu-section {
+  width: 100%;
+  margin-left: 30px;
+  margin-top: 10%;
+  .title {
+    font-family: "montserrat-regular";
+    font-size: 1.2rem;
+    color: #666;
+  }
+  h5 {
+    font-family: "montserrat-regular";
+    font-size: 1.2rem;
+    color: #224991;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li > a {
+    font-family: "montserrat-regular";
+    font-size: 1.2rem;
+    padding-bottom: 8px;
+    color: #666;
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 2;
+  }
+  input {
+    outline: none;
+    border: 1px solid #ddd;
+    height: 40px;
+  }
+  ::placeholder {
+    text-align: center;
+    color: #000;
+  }
+}
+ngb-datepicker {
+  border: none;
+}

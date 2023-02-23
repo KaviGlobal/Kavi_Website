@@ -1,24 +1,26 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BlogRoutingModule } from './blog-routing.module';
-import { BlogComponent } from './blog.component';
-
+import { DatePipe } from '@angular/common';
+import { BlogCardLayoutModule } from 'src/app/core/blog-card-layout/blog-card-layout.module';
+import { MarkdownModule } from 'ngx-markdown';
+// import { BlogViewerComponent } from '../blog-viewer/blog-viewer.component';
 
 @NgModule({
   declarations: [
-    BlogComponent
+    // BlogCardComponent
+  
+    // BlogViewerComponent
   ],
   imports: [
     CommonModule,
     BlogRoutingModule,
-    MatIconModule,
-    MatButtonModule,
-    // BrowserModule
+    FormsModule,
+    ReactiveFormsModule,
+    BlogCardLayoutModule,
+    MarkdownModule.forChild()
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-
+  providers:[DatePipe]
 })
 export class BlogModule { }

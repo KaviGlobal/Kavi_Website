@@ -1,0 +1,138 @@
+<header [class]="commonService.activeMenuName ? 'header1' : 'header'">
+  <nav>
+    <div class="d-flex align-items-center">
+      <div class="nav-left" (click)="makeMenuActive()">
+        <!-- <a href="#">My App</a> -->
+        <img src="assets/Images/KG-logo.png" alt="logo" class="logo">
+      </div>
+      <div class="nav-right">
+        <a href="javascript:void(0)">
+          <i [class]="commonService.activeMenuName ? 'fas fa-search blog-icon' : 'fas fa-search icon'"></i>
+        </a>
+        <a href="javascript:void(0)">
+          <i [class]="commonService.activeMenuName ? 'fas fa-phone-alt blog-icon' : 'fas fa-phone-alt icon'"></i>
+        </a>
+        <a href="javascript:void(0)" (click)="toggleDiv()">
+          <i [class]="commonService.activeMenuName ? 'fas fa-bars blog-icon ': 'fas fa-bars icon'"></i>
+        </a>
+      </div>
+
+    </div>
+  </nav>
+</header>
+
+<div id="empty-div" class="menu-container" [style.display]="showMenu ? 'block' : 'none'">
+  <div class="container-fluid">
+    <div class="pt-3">
+      <div class="row">
+        <div class="col-12 col-md-6">
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="d-flex align-items-center">
+            <div style="border: 1px solid #000D42" class="col-6 d-flex align-items-center justify-content-between">
+              <input type="text" placeholder="Search" style="border: none; outline: none;width: 100%;">
+              <i class="fas fa-microphone ml-2" style="color: white;"></i>
+            </div>
+            <i class="col-5 fas fa-search" style="color: white;"></i>
+            <div class="col-1 ml-auto" (click)="toggleDiv()" style="cursor: pointer;">
+              <i class="fas fa-times" style="font-size: 1.5em;color: white;"></i>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-5">
+      <div class="row g-0">
+        <div class="col-12 col-sm-7">
+          <div class="row">
+            <div class="col-6">
+              <ul class="menu-items">
+                <li *ngFor="let menuItem of leftMenuCardOne">
+                  <a [style.color]="menuItem.Styles === 'Orange' ? '#EA6B1E' : 'white'">{{menuItem.Label}}</a>
+                  <ul class="inner-menu-items"
+                    *ngIf="menuItem.offerings && menuItem.offerings.data && menuItem.offerings.data.length > 0">
+                    <ng-container *ngFor="let subSection of menuItem.offerings.data">
+                      <li *ngIf="subSection.attributes && subSection.attributes.Name">
+                        <a style="color: white;">{{subSection.attributes.Name}}</a>
+                      </li>
+                    </ng-container>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="menu-items">
+                <li *ngFor="let menuItem of leftMenuCardTwo">
+                  <a [style.color]="menuItem.Styles === 'Orange' ? '#EA6B1E' : 'white'">{{menuItem.Label}}</a>
+                  <ul class="inner-menu-items"
+                    *ngIf="menuItem.offerings && menuItem.offerings.data && menuItem.offerings.data.length > 0">
+                    <ng-container *ngFor="let subSection of menuItem.offerings.data">
+                      <li *ngIf="subSection.attributes && subSection.attributes.Name">
+                        <a style="color: white;">{{subSection.attributes.Name}}</a>
+                      </li>
+                    </ng-container>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-5 border-right" style="border-left:2px solid grey">
+          <ul class="menu-items-right">
+            <ng-container *ngFor="let menuItem of menuData.RightMenu">
+              <li *ngIf="menuItem.Label">
+                <a style="font-size: 1.6rem;" [routerLink]="[menuItem.Title === 'Blog'?'/blog':'']"
+                  *ngIf="menuItem.Title === 'Blog'" (click)="makeMenuActive(menuItem)">{{menuItem.Label}}</a>
+                <a style="font-size: 1.6rem;" href="javascript:void(0)"
+                  *ngIf="menuItem.Title !== 'Blog'">{{menuItem.Label}}</a>
+              </li>
+            </ng-container>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pt-4">
+      <div class="row">
+        <div class="col-12 col-md-7">
+          <div class="row">
+            <div class="col-6">
+              <div class="pl-5">
+                <h6>Subscribe for Newsletter</h6>
+                <div class="row col-12  d-flex align-items-center">
+                  <input class="col-10" type="email" name="email" placeholder="Email Address" />
+                  <i class="col-1 fas fa-paper-plane" style="color: #fff;"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="pl-5">
+                <h6>Follow Us</h6>
+                <div class="d-flex align-items-center">
+                  <!-- <p>hi</p> -->
+                  <i class="fab fa-facebook-square" style="font-size: 25px; color: white; margin-right: 10px;"></i>
+                  <i class="fab fa-linkedin" style="font-size: 25px; color:white; margin-right: 10px;"></i>
+                  <i class="fab fa-twitter-square" style="font-size: 25px; color: white; margin-right: 10px;"></i>
+                  <i class="fab fa-youtube" style="font-size: 25px; color: white; margin-right: 10px;"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-5">
+          <div class="pl-5">
+            <h6>Contact Us</h6>
+            <div class="d-flex">
+              <p class="mr-5" style="color: #fff;"><i class="fas fa-phone-alt mr-2" style="color: #fff;"></i>(847)
+                387-6760
+              </p>
+              <p style="color: #fff;"><i class="fas fa-envelope mr-2" style="color: #fff;"></i>contact@kaviglobal.com
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,45 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-
-html,
-body {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+@font-face {
+  font-family: "montserrat-regular";
+  src: local("montserrat-regular"),
+    url(./assets/fonts/Montserrat-Regular.ttf) format("opentype");
 }
 
 @font-face {
-    font-family: "montserrat-regular";
-    src: local("montserrat-regular"), url(./assets/fonts/Montserrat-Regular.ttf) format("opentype");
+  font-family: "montserrat-medium";
+  src: local("montserrat-medium"),
+    url(./assets/fonts/Montserrat-Medium.ttf) format("opentype");
 }
 
 @font-face {
-    font-family: "montserrat-medium";
-    src: local("montserrat-medium"), url(./assets/fonts/Montserrat-Medium.ttf) format("opentype");
+  font-family: "montserrat-semi-bold";
+  src: local("montserrat-semi-bold"),
+    url(./assets/fonts/Montserrat-SemiBold.ttf) format("opentype");
 }
 
 @font-face {
-    font-family: "montserrat-semi-bold";
-    src: local("montserrat-semi-bold"), url(./assets/fonts/Montserrat-SemiBold.ttf) format("opentype");
+  font-family: "open-sans-regular";
+  src: local("open-sans-regular"),
+    url(./assets/fonts/OpenSans-Regular.ttf) format("opentype");
 }
 
 @font-face {
-    font-family: "open-sans-regular";
-    src: local("open-sans-regular"), url(./assets/fonts/OpenSans-Regular.ttf) format("opentype");
+  font-family: "open-sans-bold";
+  src: local("open-sans-bold"),
+    url(./assets/fonts/OpenSans-Bold.ttf) format("opentype");
 }
 
-@font-face {
-    font-family: "open-sans-bold";
-    src: local("open-sans-bold"), url(./assets/fonts/OpenSans-Bold.ttf) format("opentype");
-}
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/dist/css/bootstrap.min.css";
 
-h3.montserrat-semi-bold {
-    font-weight: 500;
-    font-size: 24px;
-    color: #EA6B1E;
-    font-family: "montserrat-semi-bold";
+.customPageLoader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1854;
+  width: 100% !important;
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 

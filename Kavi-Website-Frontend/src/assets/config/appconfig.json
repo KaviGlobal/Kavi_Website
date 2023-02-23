@@ -1,0 +1,8 @@
+{
+  "HOME": "/home-page?populate=deep,20",
+  "MENU": "/actual-menu?populate=deep,20",
+  "HEADER_FOOTER": "/header-footer?populate=deep,20",
+  "BLOGLIST": "/posts?populate=deep,20&filters[Type][$eq]=blog",
+  "BLOG_VIEW": "/posts?populate=deep,20&filters[Type][$eq]=blog&filters[Title][$eq]="
+  
+}
