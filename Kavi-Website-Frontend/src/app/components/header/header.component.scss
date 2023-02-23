@@ -27,7 +27,10 @@
   justify-content: space-around;
   a {
     padding: 4px;
-    margin-left: 10px;
+    margin-left: 14px;
+    &:hover {
+      opacity: 0.75;
+    }
   }
 }
 nav {
@@ -85,9 +88,19 @@ nav a {
 .inner-menu-items {
   list-style-type: none;
   padding-left: 0;
-  color: #fff;
+  color: #a2a6b8;
   li {
     padding-bottom: 3px;
+  }
+}
+.contactus-wrapper {
+  color: #a2a6b8;
+  padding-left: 30px;
+  p {
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+    }
   }
 }
 .menu-items-right-col {
