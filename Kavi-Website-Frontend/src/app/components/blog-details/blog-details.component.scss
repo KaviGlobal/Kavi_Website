@@ -1,28 +1,14 @@
-.blog-page-content-section {
-    width: 75%;
-    height: 100%;
-    // background-color: aqua;
-    // margin-right: 10px;
-    margin-top: 80px;
-    box-sizing: border-box;
+  .page-content {
+    padding-right: 70px;
     ::ng-deep img {
         // width: 300px;
         max-width: 100% !important;
     }
   }
-  .page-content{
-    ::ng-deep img {
-        // width: 300px;
-        max-width: 100% !important;
-    }
-  }
-  .blog-post-content{
+  .blog-details-content{
     // width: 100vw;
     // height: 100vh;
     // overflow: auto;
-  }
-  .divider {
-    border-right: 2px solid rgba(141, 141, 141, 0.6);
   }
   .blog-page-right-menu-section {
     width: 18%;

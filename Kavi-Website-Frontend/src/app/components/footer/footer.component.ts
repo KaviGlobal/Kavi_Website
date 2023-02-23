@@ -15,12 +15,18 @@ export class FooterComponent implements OnInit {
   public footerData:any;
   public dataLoad:boolean = false;
   public sliderImages:any = [];
-  constructor(
+  constructor (
     public footerService: FooterService,
-  ) { }
+    public config: NgbCarouselConfig
+  ) {
+    config.interval = 3000;
+		config.wrap = true;
+		config.keyboard = true;
+		config.pauseOnHover = false;
+  }
 
   ngOnInit(): void {
-    // this.images = ['footer_image1.png', 'footer_image2.png'].map((n) => `assets/Images/${n}`);
+    // this.images = ['footer_image1.png', 'footer_image2.png'].map((n) => `assets/images/${n}`);
     this.getFooterListData();
   }
 

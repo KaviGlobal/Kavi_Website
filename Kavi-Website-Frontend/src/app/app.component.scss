@@ -1,11 +1,9 @@
 .main-container{
     width: 100vw;
     height: 100vh;
-    // overflow-y: scroll;
     position: relative;
-    .body-cont{
+    .body-wrapper{
         height: calc(100vh - 85px);
-        // margin-top: 7%;
         box-sizing: border-box;
         overflow-y: scroll;
     }

@@ -17,7 +17,6 @@ import { CommonService } from 'src/app/services/common.service';
 })
 export class HeaderComponent implements OnInit {
   @Input() backgroundColor: any;
-  @Input() backgroundImage: string = '../../../../assets/Images/Group 2007.png';
   @Output() blogClicked = new EventEmitter<void>();
 
   public menuData: any = [];
@@ -35,9 +34,6 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // if (this.backgroundColor) {
-    //   this.backgroundImage = "";
-    // }
     this.getMenuList();
     if (false) {
       this.leftMenuCardOne = [

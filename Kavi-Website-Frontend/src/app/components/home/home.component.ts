@@ -19,19 +19,14 @@ export class HomeComponent implements OnInit {
   public layoutType:any = "topImage-layout";
   public homepageData:any;
   public backgroundImg:any;
-  public backgroundImageUrl = 'url(backgroundImg)'
   // public homepageDet:any = {title:''};
   public title:any;
   public homeData:any = [];
   public dataLoad:boolean = false;
   public partnerImg:any;
-  zoom: number = 8;
-  lat: number = 51.673858;
-  lng: number = 7.815982;
-  ourCientImages: any = [];
-  flip: string = 'inactive';
-  @ViewChild('googleMap') googleMapEle!: ElementRef;
-  // markers: any;
+  zoom: number = 16;
+  lat: number = 42.135230;
+  lng: number = -88.133640;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -52,7 +47,7 @@ export class HomeComponent implements OnInit {
     console.log(routeConfig.path);
     this.commonService.activeMenuName = cloneDeep(routeConfig.path);
     this.getHomePageData();
-    // this.clientImages = [{img:'footer_image1.png'}, {img:'footer_image1.png'},{img:'footer_image1.png'},{img:'footer_image1.png'}].map((n) => `assets/Images/${n}`);
+    // this.clientImages = [{img:'footer_image1.png'}, {img:'footer_image1.png'},{img:'footer_image1.png'},{img:'footer_image1.png'}].map((n) => `assets/images/${n}`);
     let temp: any = [];
         let items: any = [];
 
@@ -92,7 +87,7 @@ public async getHomePageData() {
     this.markers.push({
       lat: $event.coords.lat,
       lng: $event.coords.lng,
-      draggable: true
+      draggable: false
     });
   }
 
@@ -102,23 +97,23 @@ public async getHomePageData() {
 
   markers: marker[] = [
     {
-      lat: 51.673858,
-      lng: 7.815982,
-      label: 'A',
-      draggable: true
-    },
-    {
-      lat: 51.373858,
-      lng: 7.215982,
-      label: 'B',
+      lat: 42.135230,
+      lng: -88.133640,
+      label: '',
       draggable: false
     },
-    {
-      lat: 51.723858,
-      lng: 7.895982,
-      label: 'C',
-      draggable: true
-    }
+    // {
+    //   lat: 51.373858,
+    //   lng: 7.215982,
+    //   label: 'B',
+    //   draggable: false
+    // },
+    // {
+    //   lat: 51.723858,
+    //   lng: 7.895982,
+    //   label: 'C',
+    //   draggable: true
+    // }
   ] 
 
 

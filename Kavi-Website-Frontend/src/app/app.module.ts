@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './components/home/home.component';
@@ -22,7 +22,7 @@ import { PageLoaderComponent } from './core/page-loader/page-loader.component';
 import { ServiceloaderComponent } from './core/page-loader/serviceloader/serviceloader.component';
 import { SecurityContext } from '@angular/core';
 import { MarkdownModule } from 'ngx-markdown';
-import { BlogPostComponent } from './components/blog-post/blog-post.component';
+import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,7 @@ import { BlogPostComponent } from './components/blog-post/blog-post.component';
     BlogSidebarComponent,
     PageLoaderComponent,
     ServiceloaderComponent,
-    BlogPostComponent,
+    BlogDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,13 +5,14 @@ import { cloneDeep } from 'lodash';
 import { CommonService } from 'src/app/services/common.service';
 
 @Component({
-  selector: 'app-blog-post',
-  templateUrl: './blog-post.component.html',
-  styleUrls: ['./blog-post.component.scss']
+  selector: 'app-blog-details',
+  templateUrl: './blog-details.component.html',
+  styleUrls: ['./blog-details.component.scss']
 })
-export class BlogPostComponent implements OnInit {
+export class BlogDetailsComponent implements OnInit {
 
   public blogData: any = [];
+  public blogFullContent: any;
   public dataLoad: boolean = false;
 
   constructor(
@@ -37,17 +38,11 @@ export class BlogPostComponent implements OnInit {
   }
 
   getBlogListData(ecId: string) {
-    // this.blogService.getBlogList().then((response: any) => {
-    //   console.log('getBlogList: ', response);
-    //   this.dataLoad = true;
-    //   this.blogData = response.data;
-    //   // console.log(this.blogData[0].attributes.FullContent, "data");
-    //   this.dataLoad = response.data ? true : false;
-    // });
     this.blogService.getBlogView(ecId).then((response: any) => {
       console.log('response: ', response);
       if (response.data && response.data.length > 0) {
         this.blogData = response.data;
+        this.blogFullContent = response.data[0].attributes.FullContent;
         // // console.log(this.blogData[0].attributes.FullContent, "data")
         // // this.dataLoad = response.data ? true : false;
       }

@@ -5,13 +5,9 @@ import { BlogRoutingModule } from './blog-routing.module';
 import { DatePipe } from '@angular/common';
 import { BlogCardLayoutModule } from 'src/app/core/blog-card-layout/blog-card-layout.module';
 import { MarkdownModule } from 'ngx-markdown';
-// import { BlogViewerComponent } from '../blog-viewer/blog-viewer.component';
 
 @NgModule({
   declarations: [
-    // BlogCardComponent
-  
-    // BlogViewerComponent
   ],
   imports: [
     CommonModule,

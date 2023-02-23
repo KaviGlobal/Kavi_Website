@@ -3,33 +3,28 @@
 </div>
 
 <div *ngIf="dataLoad" class="blog-page-container">
-    
-        <!-- <div [innerHtml]="blogData[0].attributes.FullContent"></div> -->
-        <!-- <div [markdown] = "post"></div> -->
     <div class="container">
         <div class="row">
-            <div class="blog-page-content-section" style="margin-top: 30px;">
-                <!-- <markdown  [data]="blogData[0].attributes.FullContent"> </markdown> -->
-                <div *ngFor="let i of blogData">
-                    {{i.attributes.Title}}
-                    <div class="mb-5">
-                        <app-blog-card-layout [title]="i.attributes.Title"
-                            [blogImage]="i.attributes.CoverImage.data.attributes.url"
-                            [blogContent]="i.attributes.ShortContent" [authorDetails]="i.attributes.Authors.data"
-                            [date]="i.attributes.PublishedOn"></app-blog-card-layout>
-                        <a routerLink="{{'/blog/'+i.attributes.Title}}" class="read-more">Read
-                            More...</a>
+            <div class="col-12 col-md-8 col-lg-9 border-right">
+                <div class="blog-page-content-section">
+                    <div *ngFor="let i of blogData">
+                        {{i.attributes.Title}}
+                        <div class="pb-5">
+                            <app-blog-card-layout [title]="i.attributes.Title"
+                                [blogImage]="i.attributes.CoverImage.data.attributes.url"
+                                [blogContent]="i.attributes.ShortContent" [authorDetails]="i.attributes.Authors.data"
+                                [date]="i.attributes.PublishedOn"></app-blog-card-layout>
+                            <a routerLink="{{'/blog/'+i.attributes.Title}}" class="read-more">Read
+                                More...</a>
+                        </div>
                     </div>
                 </div>
-                <!-- <div  [style.display]="isBlog ? 'block' : 'none'">
-                </div> -->
             </div>
-            <div class="divider"></div>
-            <div style="width: 22%;" class="mt-5">
-                <app-blog-sidebar [data]="blogData"></app-blog-sidebar>
+            <div class="col-12 col-md-4 col-lg-3 border-left">
+                <div class="pt-5">
+                    <app-blog-sidebar [data]="blogData"></app-blog-sidebar>
+                </div>
             </div>
         </div>
     </div>
-    <!-- <div [I]></div> -->
-    <app-footer></app-footer>
 </div>
