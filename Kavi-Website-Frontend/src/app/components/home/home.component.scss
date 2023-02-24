@@ -7,6 +7,7 @@
   justify-content: flex-start;
   align-items: center;
   background: #000e42;
+  padding-top: 100px;
   div {
     display: flex;
     flex-direction: column;
@@ -72,92 +73,94 @@
   align-items: stretch;
 }
 .cost-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.cost-card {
-  min-height: 140px;
-  text-align: center;
-  border-left: 1px solid #000;
-  &:first-child {
-    border: none;
-  }
-  h1 {
-    font-size: 2.5rem;
-    // line-height: 1;
-    color: #224991;
-    font-weight: bold;
-  }
-  p {
-    width: 82%;
-    font-size: 1.3rem;
-    color: #0d2c3d;
-    // text-align: center;
-    padding-left: 25px;
-  }
-}
-.analytics-content {
-  padding: 40px 0;
-  text-align: left;
-  h5 {
-    font-family: "open-sans-regular";
-    color: #fff;
-    font-size: 20px;
-    align-self: center;
-    text-align: left;
-    line-height: 2;
-    &.analytics-more {
-      font-size: 14px;
-      opacity: 0.8;
-      cursor: pointer;
-      i {
-        padding-left: 6px;
-        font-size: 10px;
-      }
-      &:hover {
-        opacity: 1;
-      }
+  padding: 30px 0;
+  .cost-card-col {
+    border-left: 1px solid #000;
+    &:first-child {
+      border: none;
     }
   }
-  
-  .analytics-image {
-    background: #fff;
-    width: 80%;
-    height: 100%;
-    margin: 10px;
+  .cost-card {
+    min-height: 200px;
     text-align: center;
+    padding: 30px 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .cost-card-conteint {
+      max-width: 250px;
+    }
+    h1 {
+      font-size: 55px;
+      color: #224991;
+      font-weight: bold;
+    }
+    p {
+      font-size: 24px;
+      color: #0d2c3d;
+    }
   }
 }
-.client-content{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.achievements-section {
+  padding: 40px 0;
 }
 .analytics-section {
   background-color: #000d42;
   color: #fff;
+  padding: 50px 0;
   h1 {
     font-family: "open-sans-bold";
-    color: #fff;
     font-size: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+  }  
+  .analytics-content {
+    padding: 20px 0;
+    text-align: left;
+    h5 {
+      font-family: "open-sans-regular";
+      color: #fff;
+      font-size: 20px;
+      align-self: center;
+      text-align: left;
+      line-height: 2;
+      &.analytics-more {
+        font-size: 14px;
+        opacity: 0.8;
+        cursor: pointer;
+        i {
+          padding-left: 6px;
+          font-size: 10px;
+        }
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+    
+    .analytics-image {
+      background: #fff;
+      padding: 20px;
+      text-align: center;
+      img {
+        height: 200px;
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
   }
 }
-.analytics-img {
-  width: 55%;
-  //   height: 5%;
-}
-.analytics-section-body {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+.client-content {
+  text-align: center;
+    padding: 0 0 10px;
+  p {
+    padding: 0 0 5px;
+  }
 }
 .clients-section {
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
+  padding: 40px 0;
   text-align: center;
   h3 {
     font-family: "open-sans-bold";
@@ -165,11 +168,10 @@
     font-size: 1.8rem;
   }
   p {
-    width: 70%;
     font-family: "montserrat-regular";
     font-size: 1.4rem;
     line-height: 1.6;
-    margin-top: 10px;
+    margin: 0;
     text-align: center;
     color: #131313;
     span {
@@ -188,25 +190,27 @@
   }
 }
 .client-card-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+  padding: 25px 0 0;
+}
+.client-card-wrapper {
+  padding: 0 0 30px;
+  height: 100%;
 }
 .client-card {
-  width: 12%;
-  height: 28vh;
   border-radius: 15px;
-  margin: 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  padding: 20px;
+  box-shadow: 0px 3px 6px rgb(0 0 0 / 16%);
+  height: 100%;
+  .client-image {
+    padding: 0 0 15px;
+  }
   img {
-    width: 35%;
-    // height: 20vh;
-    padding-top: 30px;
+    width: 80px;
+    max-width: 100%;
   }
   p {
     color: #224991;
@@ -215,26 +219,11 @@
     padding-top: 5px;
   }
 }
-.clients-carousel {
-  background-color: rgba($color: #9b9b9b, $alpha: 0.06);
-  width: 100%;
-  height: 50vh;
-  text-align: center;
-  margin-top: 80px;
-  h3 {
-    font-family: "open-sans-bold";
-    color: #ea6b1e;
-    font-size: 1.8rem;
-    padding-top: 25px;
-  }
-}
 .blog-section {
-  // width: ;
-  //   text-align: center;
-  // background-color: #000d42;
+  padding: 30px 0;
   img {
-    width: 300px;
-    height: 200px;
+    // width: 300px;
+    // height: 200px;
   }
   h3 {
     font-family: "open-sans-bold";
@@ -244,57 +233,116 @@
     text-align: center;
   }
 }
-.blog-1 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-.blog-2 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
 
-ngb-carousel {
-  display: flex;
-  top: 39px;
-}
-
-::ng-deep .carousel-control-prev {
-  display: none;
-  color: transparent;
-}
-
-::ng-deep .carousel-control-next {
-  display: none;
-  color: transparent;
-}
-::ng-deep .carousel-indicators .active {
-  background-color: #161515;
-}
-
-::ng-deep .carousel-indicators {
-  top: 169px;
-
-  button {
-    height: 14px;
-    width: 0px;
-    border-radius: 50%;
-    display: inline-block;
-    border-color: #163547;
-    margin-right: 6px;
+.clients-carousel {
+  background-color: #f6f6f6;
+  text-align: center;
+  padding: 40px 0;
+  h3 {
+    font-family: "open-sans-bold";
+    color: #ea6b1e;
+    font-size: 1.8rem;
+    padding-bottom: 25px;
+    margin: 0;
+  }
+  ::ng-deep .client-slider {
+    padding-bottom: 50px;
+    .carousel-item {
+      &.active,
+      &.carousel-item-next,
+      &.carousel-item-left,
+      &.carousel-item-prev,
+      &.carousel-item-right {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .client-carousel-image-wrapper {
+      width: 33%;
+      padding: 10px;
+      .client-carousel-image-container {
+        background-color: #FFFFFF;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .client-carousel-image-content {
+          height: 80px;
+          line-height: 80px;
+        }
+        img {
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+      display: none;
+    }
+    .carousel-indicators {
+      margin: 0 auto;
+      li {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 1px solid #163547;
+        &:hover,
+        &.active {
+          background: #163547;
+        }
+      }
+    }
   }
 }
+
+// ngb-carousel {
+//   display: flex;
+//   top: 39px;
+// }
+
+// ::ng-deep .carousel-control-prev {
+//   display: none;
+//   color: transparent;
+// }
+
+// ::ng-deep .carousel-control-next {
+//   display: none;
+//   color: transparent;
+// }
+// ::ng-deep .carousel-indicators .active {
+//   background-color: #161515;
+// }
+
+// ::ng-deep .carousel-indicators {
+//   top: 169px;
+
+//   button {
+//     height: 14px;
+//     width: 0px;
+//     border-radius: 50%;
+//     display: inline-block;
+//     border-color: #163547;
+//     margin-right: 6px;
+//   }
+// }
 .image-container {
   width: 355px;
   background-color: #131313;
 }
 .read-more-section {
-  background-color: rgba(#9b9b9b, 0.25);
-  padding-right: 30px;
-  height: 60px;
-  width: 99%;
+  a {
+    background-color: rgba(#9b9b9b, 0.25);
+    padding: 15px 20px;
+    font-size: 20px;
+    color: #0D2C3D;
+    font-weight: 500;
+    display: block;
+    i {
+      padding-left: 6px;
+    }
+  }
   h3 {
     color: #0d2c3d;
     font-family: "montserrat-medium";
@@ -351,14 +399,9 @@ ngb-carousel {
   }
 }
 .news-section {
-  width: 70%;
-  margin: 10px;
-  //   text-align: center;
+  
 }
 .news-cont{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .news-letter-wrapper {
   background-color: #000d42;
@@ -431,10 +474,6 @@ ngb-carousel {
 agm-map {
   width: 100%;
   height: 100%;
-}
-.test {
-  display: flex;
-  justify-content: center;
 }
 .home-map-wrapper {
   height: 500px; 

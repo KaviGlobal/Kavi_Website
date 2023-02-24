@@ -12,10 +12,9 @@ export class CardLayoutComponent implements OnInit {
   @Input() title: any;
   @Input() hyperlinkText: any;
   @Input() image: any;
-  @Input() layoutType:any;
-  @Input() type:any;
-
-  // public type:any;
+  @Input() layoutType: any;
+  @Input() type: any;
+  @Input() moduleName: any;
 
   constructor() { }
 

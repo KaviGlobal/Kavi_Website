@@ -3,6 +3,7 @@
   "MENU": "/actual-menu?populate=deep,20",
   "HEADER_FOOTER": "/header-footer?populate=deep,20",
   "BLOGLIST": "/posts?populate=deep,20&filters[Type][$eq]=blog",
-  "BLOG_VIEW": "/posts?populate=deep,20&filters[Type][$eq]=blog&filters[Title][$eq]="
-  
+  "BLOG_VIEW": "/posts?populate=deep,20&filters[Type][$eq]=blog&filters[Title][$eq]=",
+  "BLOG_VIEWER": "/blog-viewer?populate=deep,20",
+  "BLOG_VIEW_BY_TAG": "/posts?populate=deep,20&filters[Type][$eq]=blog&filters[Tags][Name][$eq]="  
 }

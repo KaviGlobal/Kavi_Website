@@ -1,9 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, Inject } from '@angular/core';
 import { CommonService } from 'src/app/services/common.service';
-import data from "../../../assets/homepage-data.json";
 import { HomeService } from "../home/home.service";
 import { cloneDeep } from 'lodash';
 import { ActivatedRoute } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
 
 
 // declare const google: any;
@@ -14,16 +14,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  public clientImages:any = [];
-  public hyperlinkText:any = "Read More";
-  public layoutType:any = "topImage-layout";
-  public homepageData:any;
-  public backgroundImg:any;
-  // public homepageDet:any = {title:''};
-  public title:any;
-  public homeData:any = [];
-  public dataLoad:boolean = false;
-  public partnerImg:any;
+  public homeData: any = [];
+  public clientImages: any = [];
+  public hyperlinkText: any = "Read More";
+  public layoutType: any = "topImage-layout";
+  public backgroundImg: any;
+  public title: any;
+  public dataLoad: boolean = false;
+  public partnerImg: any;
   zoom: number = 16;
   lat: number = 42.135230;
   lng: number = -88.133640;
@@ -31,52 +29,52 @@ export class HomeComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     public commonService: CommonService,
-    private homeService : HomeService
+    private homeService: HomeService,
+    @Inject(DOCUMENT) private document: Document
   ) {
-    this.homepageData = data;
-    // console.log(this.homepageData.data.attributes.SuccessStory.data[1].attributes.Media.data[0].attributes.url)
-   }
+  }
 
   ngOnInit(): void {
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    });
     let routeConfig: any = this.activatedRoute.routeConfig;
     console.log(routeConfig.path);
     this.commonService.activeMenuName = cloneDeep(routeConfig.path);
+    this.commonService.pageScrollToTop();
     this.getHomePageData();
-    // this.clientImages = [{img:'footer_image1.png'}, {img:'footer_image1.png'},{img:'footer_image1.png'},{img:'footer_image1.png'}].map((n) => `assets/images/${n}`);
-    let temp: any = [];
-        let items: any = [];
-
-        for (let index = 0; index < this.homepageData.data.attributes.OurClientImages.length; index++) {
-          if (this.homepageData.data.attributes.OurClientImages[index].Order % 4 === 0) {
-            items.push(this.homepageData.data.attributes.OurClientImages[index]);
-            temp.push(items);
-            items = [];
-          }
-          else {
-            items.push(this.homepageData.data.attributes.OurClientImages[index]);
-          }
-        }
-        this.clientImages = temp;
   }
 
-public async getHomePageData() {
-    this.homeService.getHomeData().then(async (response: any) =>{
-      // let data:any = await response.data;
-    
-      this.homeData = await response.data;
-      this.dataLoad =await response.data ? true : false;
-      this.title = this.homeData.attributes.HeroHeader[0].Title;
-      this.backgroundImg = this.homeData.attributes.HeroHeader[0].SliderMedia.Media.data.attributes.url;
-      this.partnerImg  = this.homeData.attributes.HeroHeader;
-      // console.log(this.homepageData.data.attributes.Blogs.data[1],"homeData");
-      // console.log(this.homeData,"length");
+  ngOnDestroy(): void {
+    this.document.body.classList.remove('home-page');
+  }
+
+  public getHomePageData() {
+    this.homeService.getHomeData().then((response: any) => {
+      console.log('response: ', response.data);
+      if (response.data) {
+        this.homeData = response.data;
+        this.title = this.homeData.attributes.HeroHeader[0].Title;
+        this.backgroundImg = this.homeData.attributes.HeroHeader[0].SliderMedia.Media.data.attributes.url;
+        this.partnerImg = this.homeData.attributes.HeroHeader;
+        this.getClientImages();
+      }
+      this.document.body.classList.add('home-page');
+      this.dataLoad = true;
     });
-    
+  }
+
+  getClientImages() {
+    let temp: any = [];
+    let items: any = [];
+    for (let index = 0; index < this.homeData.attributes.OurClientImages.length; index++) {
+      if (this.homeData.attributes.OurClientImages[index].Order % 4 === 0) {
+        items.push(this.homeData.attributes.OurClientImages[index]);
+        temp.push(items);
+        items = [];
+      }
+      else {
+        items.push(this.homeData.attributes.OurClientImages[index]);
+      }
+    }
+    this.clientImages = temp;
   }
 
   clickedMarker(label: string, index: number) {
@@ -101,21 +99,8 @@ public async getHomePageData() {
       lng: -88.133640,
       label: '',
       draggable: false
-    },
-    // {
-    //   lat: 51.373858,
-    //   lng: 7.215982,
-    //   label: 'B',
-    //   draggable: false
-    // },
-    // {
-    //   lat: 51.723858,
-    //   lng: 7.895982,
-    //   label: 'C',
-    //   draggable: true
-    // }
-  ] 
-
+    }
+  ];
 
 }
 interface marker {

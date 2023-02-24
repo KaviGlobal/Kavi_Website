@@ -1,57 +1,101 @@
 <div *ngIf="type == 'top-image-layout'">
     <div class="top-layout-container">
         <div>
-            <img src="{{image}}" alt="image" />
+            <div class="image-wrapper">
+                <img src="{{image}}" alt="image" />
+            </div>
         </div>
         <div>
             <h3>{{title}}</h3>
-            <p>{{description}}</p>
-            <a href="#">{{hyperlinkText}} <i class="fas fa-arrow-right arrow-icon"></i></a>
+            <p class="mb-1">{{description}}</p>
+            <a routerLink="{{'/blog/'+ title}}" *ngIf="moduleName && moduleName === 'blog'">{{hyperlinkText}} <i
+                    class="fas fa-arrow-right arrow-icon ml-1"></i></a>
+            <a href="javascript:void(0)" *ngIf="!moduleName || moduleName !== 'blog'">{{hyperlinkText}} <i
+                    class="fas fa-arrow-right arrow-icon ml-1"></i></a>
         </div>
     </div>
 </div>
 <div *ngIf="type == 'left-image-layout'">
     <div class="left-layout-container">
-        <div>
-            <img src="{{image}}" alt="image" />
-        </div>
-        <div class="ml-3">
-            <h3>{{title}}</h3>
-            <p>{{description}}</p>
-            <a href="#">{{hyperlinkText}} <i class="fas fa-arrow-right arrow-icon"></i></a>
+        <div class="row no-gutters">
+            <div class="col-5">
+                <div class="image-wrapper">
+                    <img src="{{image}}" alt="image" />
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="pl-3">
+                    <h3>{{title}}</h3>
+                    <p class="mb-1">{{description}}</p>
+                    <a routerLink="{{'/blog/'+ title}}" *ngIf="moduleName && moduleName === 'blog'">{{hyperlinkText}} <i
+                            class="fas fa-arrow-right arrow-icon ml-1"></i></a>
+                    <a href="javascript:void(0)" *ngIf="!moduleName || moduleName !== 'blog'">{{hyperlinkText}} <i
+                            class="fas fa-arrow-right arrow-icon ml-1"></i></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<div *ngIf="type == 'news-card-layout'">
-    <div class="card-container">
-        <!-- style="width: 220px;height: 150px;text-align: center;" -->
-        <div class="bg-white shadow-sm card">
-            <img src="{{image}}" alt="image" />
+<div *ngIf="type == 'news-card-layout' || type == 'recommendation-card-layout'">
+    <div class="news-card-container" [ngClass]="{'recommendation-card-wrapper': type == 'recommendation-card-layout'}">
+        <div class="news-image-wrapper">
+            <div class="news-image-container">
+                <img src="{{image}}" alt="image" />
+            </div>
         </div>
-        <div>
+        <div class="new-content">
             <h3>{{title}}</h3>
-            <p>{{description}}</p>
-            <a href="#">{{hyperlinkText}} <i class="fas fa-arrow-right arrow-icon"></i></a>
+            <p class="mb-1">{{description}}</p>
+            <a routerLink="{{'/blog/'+ title}}" *ngIf="moduleName && moduleName === 'blog'">{{hyperlinkText}} <i
+                    class="fas fa-arrow-right arrow-icon ml-1"></i></a>
+            <a href="javascript:void(0)" *ngIf="!moduleName || moduleName !== 'blog'">{{hyperlinkText}} <i
+                    class="fas fa-arrow-right arrow-icon ml-1"></i></a>
         </div>
     </div>
 </div>
 <div *ngIf="type == 'success-card-layout'">
     <div class="success-card-container">
-            <img src="{{image}}" alt="image" />
-        <div class="ml-4">
-            <h3>{{title}}</h3>
-            <p>{{description}}</p>
-            <a href="#">{{hyperlinkText}} <i class="fas fa-arrow-right arrow-icon"></i></a>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="">
+                    <div class="image-wrapper">
+                        <img src="{{image}}" alt="image" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="">
+                    <h3>{{title}}</h3>
+                    <p class="mb-1">{{description}}</p>
+                    <a routerLink="{{'/blog/'+ title}}" *ngIf="moduleName && moduleName === 'blog'">{{hyperlinkText}} <i
+                            class="fas fa-arrow-right arrow-icon ml-1"></i></a>
+                    <a href="javascript:void(0)" *ngIf="!moduleName || moduleName !== 'blog'">{{hyperlinkText}} <i
+                            class="fas fa-arrow-right arrow-icon ml-1"></i></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <div *ngIf="type == 'success-right-card-layout'">
     <div class="success-card-container">
-        <div class="mr-4">
-            <h3>{{title}}</h3>
-            <p>{{description}}</p>
-            <a href="#">{{hyperlinkText}} <i class="fas fa-arrow-right arrow-icon"></i></a>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="">
+                    <h3>{{title}}</h3>
+                    <p class="mb-1">{{description}}</p>
+                    <a routerLink="{{'/blog/'+ title}}" *ngIf="moduleName && moduleName === 'blog'">{{hyperlinkText}} <i
+                            class="fas fa-arrow-right arrow-icon ml-1"></i></a>
+                    <a href="javascript:void(0)" *ngIf="!moduleName || moduleName !== 'blog'">{{hyperlinkText}} <i
+                            class="fas fa-arrow-right arrow-icon ml-1"></i></a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="">
+                    <div class="image-wrapper">
+                        <img src="{{image}}" alt="image" />
+                    </div>
+                </div>
+            </div>
         </div>
-        <img src="{{image}}" alt="image" />
     </div>
 </div>

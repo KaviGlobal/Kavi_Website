@@ -7,7 +7,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './components/home/home.component';
-import { VerticalCardComponent } from './reusable_card_components/vertical-card/vertical-card.component';
 import { AgmCoreModule } from '@agm/core';
 import { CardLayoutComponent } from './core/card-layout/card-layout.component';
 import { BlogComponent } from './components/blog/blog.component';
@@ -20,7 +19,6 @@ import { CommonModule } from '@angular/common';
 import { DatePipe } from '@angular/common';
 import { PageLoaderComponent } from './core/page-loader/page-loader.component';
 import { ServiceloaderComponent } from './core/page-loader/serviceloader/serviceloader.component';
-import { SecurityContext } from '@angular/core';
 import { MarkdownModule } from 'ngx-markdown';
 import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
 
@@ -30,7 +28,6 @@ import { BlogDetailsComponent } from './components/blog-details/blog-details.com
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    VerticalCardComponent,
     CardLayoutComponent,
     BlogComponent,
     BlogCardLayoutComponent,
@@ -53,7 +50,6 @@ import { BlogDetailsComponent } from './components/blog-details/blog-details.com
       apiKey: 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw',
     }),
     MarkdownModule.forRoot()
-    // MarkdownModule.forRoot({ loader: HttpClient, sanitize: SecurityContext.NONE })
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

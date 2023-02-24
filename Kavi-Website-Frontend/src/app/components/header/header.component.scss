@@ -1,15 +1,25 @@
 .page-header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 20;
+  transition: all 0.3s ease-out;
   padding: 10px 20px;
   display: flex;
   align-items: center;
   height: 85px;
   box-sizing: border-box;
-  background-color: #fff;
+  background: #fff;
   box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%);
   &.home-header {
-    background-color: #000e42;
-    background-image: url("../../../assets/images/Group 2007.png");
     box-shadow: none;
+    background: transparent;
+    &.isScroll {
+      background: #000e42;
+      // background-image: url("../../../assets/images/Group 2007.png");
+      box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%);
+    }
   }
 }
 

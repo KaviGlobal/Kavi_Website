@@ -1,7 +1,7 @@
 <div class="main-container">
-  <app-header></app-header>
-  <div class="body-wrapper">
+  <app-header  [logoImage]="logoImage"></app-header>
+  <div class="body-wrapper" id="body-wrapper">
     <router-outlet></router-outlet>
-    <app-footer></app-footer>
+    <app-footer [images]="images" [footerData]="headerFooterData" [sliderImages]="sliderImages" [logoImage]="logoImage" *ngIf="dataLoaded"></app-footer>
   </div>
 </div>

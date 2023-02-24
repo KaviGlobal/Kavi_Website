@@ -12,13 +12,11 @@ import { cloneDeep } from 'lodash';
 })
 
 export class BlogComponent implements OnInit {
-  @Input() content: string | undefined;
+  
   public blogData: any = [];
-  public post: any;
+  
   public isBlog: any = false;
   public dataLoad: boolean = false;
-  public model: NgbDateStruct | any;
-  public date: { year: number; month: number; } | any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -28,17 +26,11 @@ export class BlogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    });
     let routeConfig: any = this.activatedRoute.routeConfig;
     console.log(routeConfig.path);
     this.commonService.activeMenuName = cloneDeep(routeConfig.path);
     this.getBlogListData();
-    this.model = this.calendar.getToday();
-    this.post = "assets/sample.md";
+    this.commonService.pageScrollToTop();
   }
 
   getBlogListData() {

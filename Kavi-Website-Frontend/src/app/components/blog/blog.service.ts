@@ -38,4 +38,32 @@ export class BlogService {
       })
     });
   }
+  
+  public getBlogViewer(): any {
+    return new Promise<any>((resolve, reject) => {
+      const apiUrl =  appConfig.BLOG_VIEWER;
+      this.apicallService.apiCall(apiUrl, 'get', '', '').then((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+  }
+  
+  public getBlogViewByTag(tagName: string): any {
+    return new Promise<any>((resolve, reject) => {
+      const apiUrl =  appConfig.BLOG_VIEW_BY_TAG + tagName;
+      this.apicallService.apiCall(apiUrl, 'get', '', '').then((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+  }
 }

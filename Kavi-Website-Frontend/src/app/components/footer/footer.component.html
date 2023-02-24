@@ -1,16 +1,19 @@
-<div class="container-fluid footer-container" *ngIf="dataLoad">
+<div class="container-fluid footer-container">
     <div class="container footer-bg-container">
         <div class="row">
             <div class="col-12 col-md-6">
                 <h6>Subscribe for Newsletter</h6>
                 <div class="news-letter-field">
-                    <input type="text" class="form-control form-control-sm" placeholder="Email Address" autocomplete="off" />
+                    <input type="text" class="form-control form-control-sm" placeholder="Email Address"
+                        autocomplete="off" />
                     <div class="send-icon">
                         <i class="fas fa-paper-plane"></i>
                     </div>
                 </div>
                 <div class="py-3">
-                    <img src="{{footerData.attributes.headerfooter.KaviLogo.data.attributes.url}}" alt="logo">
+                    <div class="logo-wrapper">
+                        <img src="{{logoImage}}" alt="logo">
+                    </div>
                 </div>
                 <p class="description">
                     {{footerData.attributes.headerfooter.AboutKavi}}

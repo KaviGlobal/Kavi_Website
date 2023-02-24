@@ -1,10 +1,18 @@
-.main-container{
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    .body-wrapper{
-        height: calc(100vh - 85px);
-        box-sizing: border-box;
-        overflow-y: scroll;
+.main-container {
+    // width: 100vw;
+    // height: 100vh;
+    // position: relative;
+    padding-top: 85px;
+    .body-wrapper {
+        // height: 100%;
+        // box-sizing: border-box;
+        // overflow-y: scroll;
+    }
+}
+::ng-deep .home-page {
+    .main-container{
+        padding-top: 0;
+        .body-wrapper {
+        }
     }
 }

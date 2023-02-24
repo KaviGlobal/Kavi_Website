@@ -1,8 +1,8 @@
-<header class="page-header" [ngClass]="{'home-header': !commonService.activeMenuName}">
+<header class="page-header" [ngClass]="{'home-header': !commonService.activeMenuName, 'isScroll': isScroll}">
   <nav>
     <div class="d-flex align-items-center">
       <div class="nav-left" (click)="makeMenuActive()">
-        <img src="assets/images/KG-logo.png" alt="logo" class="logo">
+        <img src="{{logoImage}}" alt="logo" class="logo">
       </div>
       <div class="nav-right">
         <a href="javascript:void(0)">

@@ -17,4 +17,12 @@ export class CommonService {
       resolve(true);
     });
   }
+
+  public pageScrollToTop() {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
 }
