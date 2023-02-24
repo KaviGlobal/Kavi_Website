@@ -27,13 +27,10 @@ export class BlogDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.activatedRoute.routeConfig);
     let routeConfig: any = this.activatedRoute.routeConfig;
     this.commonService.activeMenuName = cloneDeep(routeConfig.path);
-    console.log('this.commonService.activeMenuName: ', this.commonService.activeMenuName);
     this.loadBlogData();
     this.routerEventSubscription = this.router.events.subscribe((evt: any) => {
-      console.log('evt: ', evt);
       if ((evt instanceof NavigationEnd)) {
         this.loadBlogData();
       }
@@ -45,24 +42,21 @@ export class BlogDetailsComponent implements OnInit {
     }
   }
   public loadBlogData() {
-    console.log('this.commonService.activeMenuName: ', this.commonService.activeMenuName);
     let ecId = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id'));
-    console.log('ecId: ', ecId);
     this.dataLoad = false;
-    this.commonService.pageScrollToTop();
     setTimeout(() => {
       this.blogData = [];
       this.blogFullContent = '';
       this.recommendationMetaData = [];
       if (ecId) {
         this.getBlogListData(ecId);
-      }      
+      } 
+      this.commonService.pageScrollToTop();     
     }, 50);
   }
 
   getBlogListData(ecId: string) {
     this.blogService.getBlogView(ecId).then((response: any) => {
-      console.log('response: ', response);
       if (response.data && response.data.length > 0) {
         this.blogData = response.data;
         this.blogFullContent = response.data[0].attributes.FullContent;
@@ -84,11 +78,10 @@ export class BlogDetailsComponent implements OnInit {
   }
   getBlogViewByTag(tagName: string) {
     this.blogService.getBlogViewer().then((viewerResp: any) => {
-      if (viewerResp && viewerResp.data && viewerResp.data.attributes) {
+      if (viewerResp && viewerResp.data && viewerResp.data.attributes && viewerResp.data.attributes.Recommendation) {
         // 'data science'
         this.recommendationMetaData = cloneDeep(viewerResp.data.attributes);
         this.blogService.getBlogViewByTag(tagName).then((response: any) => {
-          console.log('response: ', response);
           if (response.data && response.data.length > 0) {
             this.recommendationData = response.data;
           }

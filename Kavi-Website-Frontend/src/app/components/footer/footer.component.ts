@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import { cloneDeep } from 'lodash';
 import { FooterService } from './footer.service';
 
 @Component({
@@ -28,21 +27,5 @@ export class FooterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.images = ['footer_image1.png', 'footer_image2.png'].map((n) => `assets/images/${n}`);
-    // this.getFooterListData();
-  }
-
-  public getFooterListData() {
-    this.footerService.getFooterData().then((response: any) => {
-      if (response && response.data) {
-        this.footerData = cloneDeep(response.data);
-        console.log(this.footerData.attributes.headerfooter.Sliders.data, "footerData");
-        this.footerData.attributes.headerfooter.Sliders.data.forEach((element: any) => {
-          this.images.push(element.attributes.url);
-        });
-        this.dataLoad = response.data ? true : false;
-      }
-    });
-    console.log(this.images, "this.images");
   }
 }

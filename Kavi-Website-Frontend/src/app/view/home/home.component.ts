@@ -36,10 +36,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     let routeConfig: any = this.activatedRoute.routeConfig;
-    console.log(routeConfig.path);
     this.commonService.activeMenuName = cloneDeep(routeConfig.path);
-    this.commonService.pageScrollToTop();
     this.getHomePageData();
+    this.commonService.pageScrollToTop();
   }
 
   ngOnDestroy(): void {
@@ -48,7 +47,6 @@ export class HomeComponent implements OnInit {
 
   public getHomePageData() {
     this.homeService.getHomeData().then((response: any) => {
-      console.log('response: ', response.data);
       if (response.data) {
         this.homeData = response.data;
         this.title = this.homeData.attributes.HeroHeader[0].Title;
@@ -78,7 +76,7 @@ export class HomeComponent implements OnInit {
   }
 
   clickedMarker(label: string, index: number) {
-    console.log(`clicked the marker: ${label || index}`)
+    // console.log(`clicked the marker: ${label || index}`);
   }
 
   mapClicked($event: any) {
@@ -90,7 +88,7 @@ export class HomeComponent implements OnInit {
   }
 
   markerDragEnd(m: marker | undefined, $event: any) {
-    console.log('dragEnd', m, $event);
+    // console.log('dragEnd', m, $event);
   }
 
   markers: marker[] = [

@@ -10,14 +10,10 @@
                         {{this.homeData.attributes.HeroHeader[0].Description}}</h3>
                 </div>
                 <div class="col-6 partner-img ml-4">
-                    <img src="{{this.homeData.attributes.HeroHeader[1].SliderMedia.Media.data.attributes.url}}"
-                        alt="logo" class="">
-                    <img src="{{this.homeData.attributes.HeroHeader[2].SliderMedia.Media.data.attributes.url}}"
-                        alt="logo" class="">
-                    <img src="{{this.homeData.attributes.HeroHeader[3].SliderMedia.Media.data.attributes.url}}"
-                        alt="logo" class="">
-                    <img src="{{this.homeData.attributes.HeroHeader[4].SliderMedia.Media.data.attributes.url}}"
-                        alt="logo" class="">
+                    <ng-container *ngFor="let item of homeData.attributes.HeroHeader;let i = index">
+                        <img src="{{item.SliderMedia.Media.data.attributes.url}}"
+                        alt="logo" class="" *ngIf="i">
+                    </ng-container>
                 </div>
             </div>
         </div>

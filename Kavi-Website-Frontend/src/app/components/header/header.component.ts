@@ -40,12 +40,7 @@ export class HeaderComponent implements OnInit {
   }
   @HostListener('window:scroll', ['$event'])
   doSomething(event: any) {
-    console.log('event: ', event);
     let pos = (document.documentElement.scrollTop || document.body.scrollTop) + document.documentElement.offsetHeight;
-    let max = document.documentElement.scrollHeight;
-    console.log('documentElement: ', document.documentElement.scrollTop);
-    console.log('offsetHeight: ', document.documentElement.offsetHeight);
-    console.log('pos: ', pos);
     if (pos > document.documentElement.offsetHeight) {
       this.isScroll = true;
     }
@@ -71,7 +66,6 @@ export class HeaderComponent implements OnInit {
 
   public getMenuList() {
     this.headerService.getMenuList().then((response: any) => {
-      console.log('response: ', response);
       if (response && response.data && response.data.attributes) {
         this.menuData = cloneDeep(response.data.attributes);
         let LeftMenu: any = cloneDeep(response.data.attributes.LeftMenu);

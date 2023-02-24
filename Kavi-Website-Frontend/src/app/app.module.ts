@@ -6,10 +6,10 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './view/home/home.component';
 import { AgmCoreModule } from '@agm/core';
 import { CardLayoutComponent } from './core/card-layout/card-layout.component';
-import { BlogComponent } from './components/blog/blog.component';
+import { BlogComponent } from './view/blog/blog.component';
 import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { BlogCardLayoutComponent } from './core/blog-card-layout/blog-card-layout.component';
 import { SubscribeLayoutComponent } from './core/subscribe-layout/subscribe-layout.component';
@@ -20,7 +20,7 @@ import { DatePipe } from '@angular/common';
 import { PageLoaderComponent } from './core/page-loader/page-loader.component';
 import { ServiceloaderComponent } from './core/page-loader/serviceloader/serviceloader.component';
 import { MarkdownModule } from 'ngx-markdown';
-import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
+import { BlogDetailsComponent } from './view/blog-details/blog-details.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,7 @@ import { BlogDetailsComponent } from './components/blog-details/blog-details.com
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw',
     }),
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot(),
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
