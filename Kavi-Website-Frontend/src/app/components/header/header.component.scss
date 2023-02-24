@@ -76,6 +76,9 @@ nav a {
   max-height: calc(100vh - 85px);
   padding: 20px;
   position: fixed;
+  left: 0;
+  right: 0;
+  top: 85px;
   z-index: 1004;
   overflow-y: auto;
   color: #fff;

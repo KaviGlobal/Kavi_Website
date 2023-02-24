@@ -4,12 +4,13 @@ import {
   OnInit,
   Output,
   EventEmitter,
-  HostListener,
+  HostListener, Inject
 } from '@angular/core';
 import { HeaderService } from './header.service';
 import { cloneDeep } from 'lodash';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -32,11 +33,13 @@ export class HeaderComponent implements OnInit {
   constructor(
     public router: Router,
     public commonService: CommonService,
-    public headerService: HeaderService
+    public headerService: HeaderService,
+    @Inject(DOCUMENT) private document: Document
   ) { }
 
   ngOnInit(): void {
     this.getMenuList();
+    this.document.body.classList.remove('hide-scroll');
   }
   @HostListener('window:scroll', ['$event'])
   doSomething(event: any) {
@@ -51,6 +54,7 @@ export class HeaderComponent implements OnInit {
 
   public makeMenuActive(menuItem?: any) {
     this.showMenu = false;
+    this.document.body.classList.remove('hide-scroll');
     if (menuItem) {
       this.commonService.activeMenuName = menuItem.Label;
     }
@@ -62,6 +66,10 @@ export class HeaderComponent implements OnInit {
 
   toggleDiv() {
     this.showMenu = !this.showMenu;
+    this.document.body.classList.remove('hide-scroll');
+    if(this.showMenu) {
+      this.document.body.classList.add('hide-scroll');
+    }
   }
 
   public getMenuList() {

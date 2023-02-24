@@ -1,20 +1,24 @@
 
 
-.bg-container {
-  height: 100vh;
+.banner-wrapper {
+  min-height: 100vh;
   background-size: cover;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-end;
   background: #000e42;
-  padding-top: 100px;
+  padding: 100px 20px 50px;
+  color: #fff;
+  .banner-container {
+    width: 100%;
+  }
   div {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     h3 {
       color: #fff;
       font-family: "montserrat-regular";
-      font-size: 1.3rem;
+      font-size: 24px;
       line-height: 1.6;
       span {
         color: #ea6b1e;
@@ -22,16 +26,27 @@
       }
     }
   }
+  .top-content {
+    padding: 30px 0 0;
+  }
+  .bottom-arrow-wrapper {
+    text-align: center;
+    i {
+      font-size: 40px;
+      opacity: 0.6;
+    }
+  }
 }
-.partner-img {
+.partner-img-wrapper {
   display: flex;
-  flex-direction: row !important;
-  margin-top: 35px;
-  width: 500px;
-  max-height: 100px;
-  img {
-    width: 30%;
-    padding-right: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 50px 0 60px;
+  .partner-img {
+    // padding: 10px 10px 10px 0;
+    img {
+      width: 100%;
+    }
   }
 }
 
