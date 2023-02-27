@@ -11,17 +11,4 @@ export class FooterService {
     private apicallService: ApiCallService,
   ) { }
 
-  public getFooterData(): any {
-    return new Promise<any>((resolve, reject) => {
-      const apiUrl =  appConfig.HEADER_FOOTER;
-      this.apicallService.apiCall(apiUrl, 'get', '', '').then((resp: any) => {
-        if (resp) {
-          resolve(resp);
-        }
-        else {
-          resolve(false);
-        }
-      })
-    });
-  }
 }

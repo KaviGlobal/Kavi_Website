@@ -6,11 +6,11 @@ import {
   EventEmitter,
   HostListener, Inject
 } from '@angular/core';
-import { HeaderService } from './header.service';
 import { cloneDeep } from 'lodash';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 import { DOCUMENT } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -22,25 +22,32 @@ export class HeaderComponent implements OnInit {
   @Input() logoImage: string = '';
 
   public menuData: any = [];
-  public dataLoad: boolean = false;
+  public isDataLoaded: boolean = false;
   public leftMenuCardOne: any = [];
   public leftMenuCardTwo: any = [];
-  public rightMenuCard1: any = [];
 
   public showMenu: boolean = false;
   public isScroll: boolean = false;
+  private getMenuItem: Subscription | undefined;
 
   constructor(
     public router: Router,
     public commonService: CommonService,
-    public headerService: HeaderService,
     @Inject(DOCUMENT) private document: Document
   ) { }
 
   ngOnInit(): void {
-    this.getMenuList();
     this.document.body.classList.remove('hide-scroll');
+    this.getMenuItem = this.commonService.getMenuItem.subscribe((menuItem: any) => {
+      this.makeMenuList();
+    });
   }
+  ngOnDestroy(): void {
+    if (this.getMenuItem) {
+      this.getMenuItem.unsubscribe();
+    }
+  }
+
   @HostListener('window:scroll', ['$event'])
   doSomething(event: any) {
     let pos = (document.documentElement.scrollTop || document.body.scrollTop) + document.documentElement.offsetHeight;
@@ -52,11 +59,21 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  public makeMenuList() {
+    this.menuData = cloneDeep(this.commonService.menuData);
+    let LeftMenu: any = cloneDeep(this.menuData?.LeftMenu);
+    this.leftMenuCardOne = LeftMenu.filter((element: any) => element.Card === 'Card1');
+    this.leftMenuCardTwo = LeftMenu.filter((element: any) => element.Card === 'Card2');
+  }
+
   public makeMenuActive(menuItem?: any) {
     this.showMenu = false;
     this.document.body.classList.remove('hide-scroll');
     if (menuItem) {
       this.commonService.activeMenuName = menuItem.Label;
+      setTimeout(() => {
+        this.commonService.routeChangeSubscription.next(true);        
+      }, 100);
     }
     else {
       this.commonService.activeMenuName = '';
@@ -67,20 +84,9 @@ export class HeaderComponent implements OnInit {
   toggleDiv() {
     this.showMenu = !this.showMenu;
     this.document.body.classList.remove('hide-scroll');
-    if(this.showMenu) {
+    if (this.showMenu) {
       this.document.body.classList.add('hide-scroll');
     }
-  }
-
-  public getMenuList() {
-    this.headerService.getMenuList().then((response: any) => {
-      if (response && response.data && response.data.attributes) {
-        this.menuData = cloneDeep(response.data.attributes);
-        let LeftMenu: any = cloneDeep(response.data.attributes.LeftMenu);
-        this.leftMenuCardOne = LeftMenu.filter((element: any) => element.Card === 'Card1');
-        this.leftMenuCardTwo = LeftMenu.filter((element: any) => element.Card === 'Card2');
-      }
-    });
   }
 
 

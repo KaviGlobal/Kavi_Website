@@ -1,0 +1,254 @@
+<div *ngIf="!isDataLoaded">
+    <app-page-loader></app-page-loader>
+</div>
+<div class="cont" *ngIf="isDataLoaded">
+    <div class="banner-wrapper" [ngStyle]="{'background-image': 'url(' + backgroundImg + ')'}">
+        <div class="banner-container">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <div class="top-content">
+                                <h3><span>{{this.homeData.attributes.HeroHeader[0].Title}}</span>
+                                    {{this.homeData.attributes.HeroHeader[0].Description}}</h3>
+                            </div>
+                            <div class="partner-img-wrapper">
+                                <div class="row align-items-center">
+                                    <ng-container *ngFor="let item of homeData.attributes.HeroHeader;let i = index">
+                                        <div class="col-3" *ngIf="i && item.SliderMedia.Media.data.attributes.url">
+                                            <div class="partner-img">
+                                                <img src="{{item.SliderMedia.Media.data.attributes.url}}" alt="logo"
+                                                    class="">
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-arrow-wrapper">
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="achievements-section">
+        <div class="container">
+            <div class="description-section">
+                <h3 class="mb-2">{{homeData.attributes.Achievements.Title}}</h3>
+                <p>{{homeData.attributes.Achievements.Paragraph}}</p>
+            </div>
+            <div class="cost-wrapper">
+                <div class="row"
+                    *ngIf="homeData.attributes && homeData.attributes.AchievementMetrics && homeData.attributes.AchievementMetrics.length > 0">
+                    <div class="col-12 col-lg-4 cost-card-col"
+                        *ngFor="let achieveItem of homeData.attributes.AchievementMetrics">
+                        <div class="cost-card">
+                            <div class="cost-card-conteint">
+                                <h1>{{achieveItem.Title}}</h1>
+                                <p>{{achieveItem.Subtitle}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="analytics-section">
+        <div class="container">
+            <h1 class="">{{homeData.attributes.Analytics.Title}}</h1>
+            <div class="analytics-content">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-12 col-md-7">
+                        <h5>
+                            {{homeData.attributes.Analytics.PreviewText}}
+                        </h5>
+                        <h5 class="analytics-more">{{homeData.attributes.Analytics.LinkLabel}}<i
+                                class="fas fa-arrow-right"></i></h5>
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <div class="analytics-image">
+                            <img src="{{homeData.attributes.Analytics.OfferingMedia.Media.data.attributes.url}}"
+                                alt="image" class="analytics-img" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clients-section">
+        <div class="container">
+            <h3>{{homeData.attributes.OurClientsTitle}}</h3>
+            <div class="">
+                <div class="client-content">
+                    <p>
+                        {{homeData.attributes.OurClientsParagraph}}
+                    </p>
+                </div>
+                <div class="client-card-container">
+                    <div class="row">
+                        <div class="col-6 col-md-3"
+                            *ngFor="let item of homeData.attributes.OurClientDetail;let i = index">
+                            <div class="client-card-wrapper">
+                                <div class="client-card">
+                                    <div class="client-image">
+                                        <img src="{{item.OurClientIcon.Media.data.attributes.url}}" alt="image" />
+                                    </div>
+                                    <p>{{item.OurClientDescription.Title}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clients-carousel">
+        <div class="container">
+            <h3>{{homeData.attributes.OurClientImagesTitle}}</h3>
+            <div class="row no-gutters">
+                <div class="col-12">
+                    <ngb-carousel class="client-slider" *ngIf="clientImages.length">
+                        <ng-container *ngFor="let item of clientImages;let i = index">
+                            <ng-template ngbSlide>
+                                <div class="client-carousel-image-wrapper" *ngFor="let subItem of item ">
+                                    <div class="client-carousel-image-container">
+                                        <div class="client-carousel-image-content">
+                                            <img [src]="subItem.SliderMedia.Media.data.attributes.url"
+                                                alt="Random first slide" class="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ng-container>
+                    </ngb-carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blog-section">
+        <div class="container">
+            <h3>{{this.homeData.attributes.BlogsTitle}}</h3>
+            <div class="pt-4">
+                <div class="row">
+                    <ng-container *ngIf="homeData.attributes.News.data.length > 0">
+                        <div class="col-12 col-md-4">
+                            <div class="pt-2">
+                                <app-card-layout
+                                    [image]="homeData.attributes.Blogs.data[0].attributes.Media.data[0].attributes.url"
+                                    [title]="homeData.attributes.Blogs.data[0].attributes.Title"
+                                    [description]="homeData.attributes.Blogs.data[0].attributes.ShortContent"
+                                    moduleName="blog" [hyperlinkText]="hyperlinkText" [type]="'top-image-layout'">
+                                </app-card-layout>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-8" *ngIf="homeData.attributes.News.data.length > 1">
+                            <ng-container *ngFor="let item of homeData.attributes.News.data; let i = index">
+                                <ng-container *ngIf="i && i < 4">
+                                    <div class="" [ngClass]="{'pt-2': i === 1, 'pt-3': i !== 1}">
+                                        <app-card-layout [image]="item.attributes.Media.data[0].attributes.url"
+                                            [title]="item.attributes.Title" [description]="item.attributes.ShortContent"
+                                            moduleName="blog" [hyperlinkText]="hyperlinkText"
+                                            [type]="'left-image-layout'">
+                                        </app-card-layout>
+                                    </div>
+                                </ng-container>
+                            </ng-container>
+
+                            <div class="">
+                                <div class="read-more-section">
+                                    <a class="" [routerLink]="['/blog']">
+                                        Read more on our Blogs <i class="fas fa-arrow-right arrow-icon"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="news-cont">
+        <div class="container">
+            <h3 class="section-heading">News</h3>
+            <div class="pt-3">
+                <div class="row news-section">
+                    <div class="col-6 col-md-4" *ngFor="let item of homeData.attributes.News.data; let i = index">
+                        <ng-container *ngIf="i < 4">
+                            <app-card-layout [image]="item.attributes.Media.data[0].attributes.url"
+                                [title]="item.attributes.Title" [description]="item.attributes.ShortContent"
+                                [hyperlinkText]="hyperlinkText" [type]="'news-card-layout'">
+                            </app-card-layout>
+                        </ng-container>
+                    </div>
+                    <div class="col-12">
+                        <div class="read-more-section pt-2">
+                            <a class="pl-4" href="javascript:void(0)">
+                                Read more on our News <i class="fas fa-arrow-right arrow-icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid m-0 p-0 mt-4">
+        <div class="news-letter-wrapper">
+            <div class="container">
+                <div class="row m-0 p-0">
+                    <div class="col-12 col-md-6">
+                        <h3 class="mb-0">Subscribe for Newsletter</h3>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="news-letter-field">
+                            <input type="text" class="form-control" placeholder="Email Address" autocomplete="off" />
+                            <div class="send-icon">
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="success-story-wrapper pt-5">
+        <div class="container">
+            <h3 class="section-heading">{{this.homeData.attributes.SuccessStoryTitle}}</h3>
+            <div class="pt-4">
+                <div class="row">
+                    <div class="col-12" *ngFor="let item of homeData.attributes.SuccessStory.data; let i = index">
+                        <ng-container *ngIf="i < 2">
+                            <app-card-layout [image]="item.attributes.Media.data[0].attributes.url"
+                                [title]="item.attributes.Title" [description]="item.attributes.ShortContent"
+                                [hyperlinkText]="hyperlinkText" moduleName="success_story"
+                                [type]="i?'success-right-card-layout':'success-card-layout'"></app-card-layout>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="home-map-wrapper">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [scrollwheel]="true"
+            (mapClick)="mapClicked($event)">
+            <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label!, i)"
+                [latitude]="m.lat" [longitude]="m.lng" [label]="m.label!" [markerDraggable]="m.draggable"
+                (dragEnd)="markerDragEnd(m, $event)">
+                <agm-info-window>
+                    <strong>1250, S. Grove Avenue, Suite 300, Barrington, IL 60010 Greater Chicago area, USA.</strong>
+                </agm-info-window>
+            </agm-marker>
+        </agm-map>
+        <div class="map-contact-wrapper">
+            <div class="map-contact-container ">
+                <div class="map-contact-content">
+                    <h3 class="title">Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt mr-2"></i>{{homeData.attributes.ContactUs.Address}}</p>
+                    <p><i class="fas fa-phone-alt mr-2"></i>{{homeData.attributes.ContactUs.PhoneNumber}}</p>
+                    <p><i class="fas fa-envelope mr-2"></i>{{homeData.attributes.ContactUs.Email}}</p>
+                </div>
+            </div>
+        </div>
+    </div>

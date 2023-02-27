@@ -3,24 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AgmCoreModule } from '@agm/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HomeComponent } from './view/home/home.component';
-import { AgmCoreModule } from '@agm/core';
+import { HomeComponent } from './views/home/home.component';
 import { CardLayoutComponent } from './core/card-layout/card-layout.component';
-import { BlogComponent } from './view/blog/blog.component';
+import { RightMenuComponent } from './views/right-menu/right-menu.component';
 import { HttpClientModule,HttpClient } from '@angular/common/http';
-import { BlogCardLayoutComponent } from './core/blog-card-layout/blog-card-layout.component';
+import { RightMenuDetailsCardComponent } from './core/right-menu-details-card/right-menu-details-card.component';
 import { SubscribeLayoutComponent } from './core/subscribe-layout/subscribe-layout.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BlogSidebarComponent } from './core/blog-sidebar/blog-sidebar.component';
+import { RightMenuSidebarComponent } from './core/right-menu-sidebar/right-menu-sidebar.component';
 import { CommonModule } from '@angular/common';
 import { DatePipe } from '@angular/common';
 import { PageLoaderComponent } from './core/page-loader/page-loader.component';
 import { ServiceloaderComponent } from './core/page-loader/serviceloader/serviceloader.component';
 import { MarkdownModule } from 'ngx-markdown';
-import { BlogDetailsComponent } from './view/blog-details/blog-details.component';
+import { RightMenuDetailsComponent } from './views/right-menu-details/right-menu-details.component';
 
 @NgModule({
   declarations: [
@@ -29,13 +29,13 @@ import { BlogDetailsComponent } from './view/blog-details/blog-details.component
     FooterComponent,
     HomeComponent,
     CardLayoutComponent,
-    BlogComponent,
-    BlogCardLayoutComponent,
+    RightMenuComponent,
+    RightMenuDetailsCardComponent,
     SubscribeLayoutComponent,
-    BlogSidebarComponent,
+    RightMenuSidebarComponent,
     PageLoaderComponent,
     ServiceloaderComponent,
-    BlogDetailsComponent,
+    RightMenuDetailsComponent,
   ],
   imports: [
     BrowserModule,

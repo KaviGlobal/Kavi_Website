@@ -12,7 +12,7 @@ export class FooterComponent implements OnInit {
 
   @Input() images: any = [];
   @Input() footerData: any;
-  @Input() dataLoad: boolean = false;
+  @Input() isDataLoaded: boolean = false;
   @Input() sliderImages: any = [];
   @Input() logoImage: string = '';
 

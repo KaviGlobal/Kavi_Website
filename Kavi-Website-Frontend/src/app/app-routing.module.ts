@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './view/home/home.component';
-import { BlogComponent } from './view/blog/blog.component';
-import { BlogDetailsComponent } from './view/blog-details/blog-details.component';
+import { HomeComponent } from './views/home/home.component';
+import { RightMenuComponent } from './views/right-menu/right-menu.component';
+import { RightMenuDetailsComponent } from './views/right-menu-details/right-menu-details.component';
 
-const routes: Routes = [
+const routes: Routes = [  
   { path: '', component: HomeComponent },
-  { path: 'blog', component: BlogComponent },
-  { path: 'blog/:id', component: BlogDetailsComponent },
+  { path: ':id', component: RightMenuComponent },
+  { path: ':pageType/:id', component: RightMenuDetailsComponent },
 ];
 
 @NgModule({

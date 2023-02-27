@@ -2,8 +2,9 @@
   "HOME": "/home-page?populate=deep,20",
   "MENU": "/actual-menu?populate=deep,20",
   "HEADER_FOOTER": "/header-footer?populate=deep,20",
-  "BLOGLIST": "/posts?populate=deep,20&filters[Type][$eq]=blog",
-  "BLOG_VIEW": "/posts?populate=deep,20&filters[Type][$eq]=blog&filters[Title][$eq]=",
+  "RIGHT_MENU_TYPE": "/posts?populate=deep,20&filters[Type][$eq]=",
+  "RIGHT_MENU_VIEW_TYPE": "&filters[Title][$eq]=",
   "BLOG_VIEWER": "/blog-viewer?populate=deep,20",
-  "BLOG_VIEW_BY_TAG": "/posts?populate=deep,20&filters[Type][$eq]=blog&filters[Tags][Name][$eq]="  
+  "RECOMMENDATION_BY_TAG": "/posts?populate=deep,20&filters[Type][$eq]=",
+  "RECOMMENDATION_BY_TAG_FILTER": "&filters[Tags][Name][$eq]="
 }

@@ -5,14 +5,14 @@
         <img src="{{logoImage}}" alt="logo" class="logo">
       </div>
       <div class="nav-right">
-        <a href="javascript:void(0)">
-          <i [class]="commonService.activeMenuName ? 'fas fa-search blog-icon' : 'fas fa-search icon'"></i>
+        <a>
+          <i class="fas fa-search"></i>
         </a>
-        <a href="javascript:void(0)">
-          <i [class]="commonService.activeMenuName ? 'fas fa-phone-alt blog-icon' : 'fas fa-phone-alt icon'"></i>
+        <a>
+          <i class="fas fa-phone-alt"></i>
         </a>
-        <a href="javascript:void(0)" (click)="toggleDiv()">
-          <i [class]="commonService.activeMenuName ? 'fas fa-bars blog-icon ': 'fas fa-bars icon'"></i>
+        <a (click)="toggleDiv()">
+          <i class="fas fa-bars"></i>
         </a>
       </div>
 
@@ -96,9 +96,9 @@
           <ul class="menu-items-right">
             <ng-container *ngFor="let menuItem of menuData.RightMenu">
               <li *ngIf="menuItem.Label">
-                <a [routerLink]="[menuItem.Title === 'Blog'?'/blog':'']" *ngIf="menuItem.Title === 'Blog'"
+                <a [routerLink]="[menuItem.Url]" *ngIf="menuItem.Url"
                   (click)="makeMenuActive(menuItem)">{{menuItem.Label}}</a>
-                <a href="javascript:void(0)" *ngIf="menuItem.Title !== 'Blog'">{{menuItem.Label}}</a>
+                <a href="javascript:void(0)" *ngIf="!menuItem.Url">{{menuItem.Label}}</a>
               </li>
             </ng-container>
           </ul>

@@ -1,0 +1,37 @@
+<div *ngIf="!isDataLoaded">
+    <app-page-loader></app-page-loader>
+</div>
+<div class="details-content">
+    <div class="container" *ngIf="isDataLoaded">
+        <div class="row">
+            <div class="col-12 col-md-8 col-lg-9 border-right">
+                <div class="page-content py-4">
+                    <markdown [data]="pageFullContent"> </markdown>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 border-left">
+                <app-right-menu-sidebar [data]="pageData"></app-right-menu-sidebar>
+            </div>
+        </div>
+        <div class="recommendation-section" *ngIf="recommendationMetaData.Recommendation && recommendationMetaData.Recommendation.MaxCount && recommendationData && recommendationData.length > 0">
+            <div class="">
+                <h3>{{recommendationMetaData.Recommendation.Title}}</h3>
+            </div>
+            <div class="py-3">
+                <div class="row">
+                    <ng-container *ngFor="let item of recommendationData;let i = index">
+                        <div class="col-6 col-md-4" *ngIf="i < recommendationMetaData.Recommendation.MaxCount">
+                            <div class="pb-4">
+                                <app-card-layout [image]="item.attributes.Media.data[0].attributes.url"
+                                    [title]="item.attributes.Title" [description]="item.attributes.ShortContent"
+                                    [moduleName]="pageType" [hyperlinkText]="'Read More'"
+                                    [type]="'recommendation-card-layout'">
+                                </app-card-layout>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

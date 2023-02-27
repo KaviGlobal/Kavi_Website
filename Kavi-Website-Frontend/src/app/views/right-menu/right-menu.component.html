@@ -1,0 +1,30 @@
+<div *ngIf="!isDataLoaded">
+    <app-page-loader></app-page-loader>
+</div>
+
+<div *ngIf="isDataLoaded" class="page-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 col-lg-9 border-right">
+                <div class="page-content-section">
+                    <div *ngFor="let item of pageData">
+                        {{item?.attributes?.Title}}
+                        <div class="pb-5">
+                            <app-right-menu-details-card [title]="item?.attributes?.Title"
+                                [cardImage]="item?.attributes?.CoverImage?.data?.attributes?.url"
+                                [cardContent]="item?.attributes?.ShortContent" [authorDetails]="item?.attributes?.Authors?.data"
+                                [date]="item?.attributes?.PublishedOn"></app-right-menu-details-card>
+                            <a routerLink="{{'/'+ routePath + '/'+ item?.attributes?.Title}}" class="read-more">Read
+                                More...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 border-left">
+                <div class="pt-5">
+                    <app-right-menu-sidebar [data]="pageData"></app-right-menu-sidebar>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

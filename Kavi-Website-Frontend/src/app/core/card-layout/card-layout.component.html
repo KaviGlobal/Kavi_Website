@@ -8,9 +8,9 @@
         <div>
             <h3>{{title}}</h3>
             <p class="mb-1">{{description}}</p>
-            <a routerLink="{{'/blog/'+ title}}" *ngIf="moduleName && moduleName === 'blog'">{{hyperlinkText}} <i
+            <a routerLink="{{'/' + moduleName + '/'+ title}}" *ngIf="moduleName">{{hyperlinkText}} <i
                     class="fas fa-arrow-right arrow-icon ml-1"></i></a>
-            <a href="javascript:void(0)" *ngIf="!moduleName || moduleName !== 'blog'">{{hyperlinkText}} <i
+            <a href="javascript:void(0)" *ngIf="!moduleName">{{hyperlinkText}} <i
                     class="fas fa-arrow-right arrow-icon ml-1"></i></a>
         </div>
     </div>
@@ -27,9 +27,9 @@
                 <div class="pl-3">
                     <h3>{{title}}</h3>
                     <p class="mb-1">{{description}}</p>
-                    <a routerLink="{{'/blog/'+ title}}" *ngIf="moduleName && moduleName === 'blog'">{{hyperlinkText}} <i
+                    <a routerLink="{{'/' + moduleName + '/'+ title}}" *ngIf="moduleName">{{hyperlinkText}} <i
                             class="fas fa-arrow-right arrow-icon ml-1"></i></a>
-                    <a href="javascript:void(0)" *ngIf="!moduleName || moduleName !== 'blog'">{{hyperlinkText}} <i
+                    <a href="javascript:void(0)" *ngIf="!moduleName">{{hyperlinkText}} <i
                             class="fas fa-arrow-right arrow-icon ml-1"></i></a>
                 </div>
             </div>
@@ -46,9 +46,9 @@
         <div class="new-content">
             <h3>{{title}}</h3>
             <p class="mb-1">{{description}}</p>
-            <a routerLink="{{'/blog/'+ title}}" *ngIf="moduleName && moduleName === 'blog'">{{hyperlinkText}} <i
+            <a routerLink="{{'/' + moduleName + '/'+ title}}" *ngIf="moduleName">{{hyperlinkText}} <i
                     class="fas fa-arrow-right arrow-icon ml-1"></i></a>
-            <a href="javascript:void(0)" *ngIf="!moduleName || moduleName !== 'blog'">{{hyperlinkText}} <i
+            <a href="javascript:void(0)" *ngIf="!moduleName">{{hyperlinkText}} <i
                     class="fas fa-arrow-right arrow-icon ml-1"></i></a>
         </div>
     </div>
@@ -67,9 +67,9 @@
                 <div class="">
                     <h3>{{title}}</h3>
                     <p class="mb-1">{{description}}</p>
-                    <a routerLink="{{'/blog/'+ title}}" *ngIf="moduleName && moduleName === 'blog'">{{hyperlinkText}} <i
+                    <a routerLink="{{'/' + moduleName + '/'+ title}}" *ngIf="moduleName">{{hyperlinkText}} <i
                             class="fas fa-arrow-right arrow-icon ml-1"></i></a>
-                    <a href="javascript:void(0)" *ngIf="!moduleName || moduleName !== 'blog'">{{hyperlinkText}} <i
+                    <a href="javascript:void(0)" *ngIf="!moduleName">{{hyperlinkText}} <i
                             class="fas fa-arrow-right arrow-icon ml-1"></i></a>
                 </div>
             </div>
@@ -83,9 +83,9 @@
                 <div class="">
                     <h3>{{title}}</h3>
                     <p class="mb-1">{{description}}</p>
-                    <a routerLink="{{'/blog/'+ title}}" *ngIf="moduleName && moduleName === 'blog'">{{hyperlinkText}} <i
+                    <a routerLink="{{'/' + moduleName + '/'+ title}}" *ngIf="moduleName">{{hyperlinkText}} <i
                             class="fas fa-arrow-right arrow-icon ml-1"></i></a>
-                    <a href="javascript:void(0)" *ngIf="!moduleName || moduleName !== 'blog'">{{hyperlinkText}} <i
+                    <a href="javascript:void(0)" *ngIf="!moduleName">{{hyperlinkText}} <i
                             class="fas fa-arrow-right arrow-icon ml-1"></i></a>
                 </div>
             </div>

@@ -20,6 +20,12 @@
       // background-image: url("../../../assets/images/Group 2007.png");
       box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%);
     }
+    .nav-right {
+      justify-content: space-around;
+      a {
+        color: #fff;
+      }
+    }
   }
 }
 
@@ -38,22 +44,18 @@
   a {
     padding: 4px;
     margin-left: 14px;
+    font-size: 20px;
+    color: #000d42;
+    cursor: pointer;
     &:hover {
-      opacity: 0.75;
+      opacity: 0.6;
     }
   }
 }
 nav {
   width: 100%;
 }
-.icon {
-  color: #fff;
-  font-size: 20px;
-}
-.blog-icon {
-  color: #000d42;
-  font-size: 20px;
-}
+
 nav ul {
   display: flex;
   align-items: center;

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonService } from './common.service';
-// import * as cloneDeep from 'lodash/cloneDeep';
 import {environment} from '../../environments/environment'
+import { cloneDeep } from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class ApiCallService {
     private commonService: CommonService,
   ) { }
 
-  public apiCall(endpoint: string, method: string, payload: any, isBackground: any) {
+  public apiCall(apiUrl: string, endpoint: string, method: string, payload: any, isBackground: any) {
     return new Promise<any>((resolve, reject) => {
       this.commonService.checkValidAuth().then((auth_resp: any) => {
         if (auth_resp) {
@@ -29,28 +29,31 @@ export class ApiCallService {
             }
           }
           var url = this.url + endpoint;
+          if (apiUrl) {
+            url = cloneDeep(apiUrl);
+          }
           if (method == "get" || method == "delete") {
             if (method == "get") {
-              this.http.get(url, options).subscribe(resp => {
+              this.http.get(url, options).subscribe((resp: any) => {
                 if (!isBackground) {
                   this.commonService.isServiceloading = false;
                 }
                 resolve(resp);
               },
-                (error) => {
+                (error: any) => {
                   this.bindErrMsg(error, isBackground);
                   console.log(error,"error");
                   resolve(false);
                 });
             }
             if (method == "delete") {
-              this.http.delete(url, options).subscribe(resp => {
+              this.http.delete(url, options).subscribe((resp: any) => {
                 if (!isBackground) {
                   this.commonService.isServiceloading = false;
                 }
                 resolve(resp);
               },
-                (error) => {
+                (error: any) => {
                   this.bindErrMsg(error, isBackground);
                   resolve(false);
                 });
@@ -59,25 +62,25 @@ export class ApiCallService {
           else if (method == "post" || method == "put") {
             var payloadString = JSON.stringify(payload);
             if (method == "post") {
-              this.http.post(url, payloadString, options).subscribe(resp => {
+              this.http.post(url, payloadString, options).subscribe((resp: any) => {
                 resolve(resp);
                 if (!isBackground) {
                   this.commonService.isServiceloading = false;
                 }
               },
-                (error) => {
+                (error: any) => {
                   this.bindErrMsg(error, isBackground);
                   resolve(false);
                 });
             }
             else if (method == "put") {
-              this.http.put(url, payloadString, options).subscribe(resp => {
+              this.http.put(url, payloadString, options).subscribe((resp: any) => {
                 resolve(resp);
                 if (!isBackground) {
                   this.commonService.isServiceloading = false;
                 }
               },
-                (error) => {
+                (error: any) => {
                   this.bindErrMsg(error, isBackground);
                   resolve(false);
                 });

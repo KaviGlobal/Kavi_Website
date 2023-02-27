@@ -5,29 +5,16 @@ import { ApiCallService } from '../../services/apicall.service';
 @Injectable({
   providedIn: 'root'
 })
-export class HeaderService {
+export class HomeService {
 
   constructor(
     private apicallService: ApiCallService,
   ) { }
 
-  public getHeaderFooterData(): any {
-    return new Promise<any>((resolve, reject) => {
-      const endpoint =  appConfig.HEADER_FOOTER;
-      this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
-        if (resp) {
-          resolve(resp);
-        }
-        else {
-          resolve(false);
-        }
-      })
-    });
-  }
 
-  public getMenuList(): any {
+  public getHomeData(): any {
     return new Promise<any>((resolve, reject) => {
-      const endpoint =  appConfig.MENU;
+      const endpoint =  appConfig.HOME;
       this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
         if (resp) {
           resolve(resp);

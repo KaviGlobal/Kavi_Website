@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,10 @@ export class CommonService {
   public isloading: boolean = false;
 
   public activeMenuName: string = '';
+  
+  public getMenuItem = new Subject();
+  public routeChangeSubscription = new Subject();
+  public menuData: any = {};
 
   constructor() { }
 
