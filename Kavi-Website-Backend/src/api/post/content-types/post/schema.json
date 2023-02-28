@@ -62,6 +62,11 @@
         "news",
         "usecase",
         "success_story",
+        "publications",
+        "conferences",
+        "white_papers",
+        "magazines",
+        "podcasts_talks",
         "whitepaper"
       ]
     },
