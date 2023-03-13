@@ -1,12 +1,11 @@
 {
-  "collectionName": "components_content_link_content_links",
+  "collectionName": "components_custom_content_links",
   "info": {
-    "displayName": "ContentLink",
-    "description": ""
+    "displayName": "ContentLink"
   },
   "options": {},
   "attributes": {
-    "Label": {
+    "Type": {
       "type": "string"
     },
     "Url": {

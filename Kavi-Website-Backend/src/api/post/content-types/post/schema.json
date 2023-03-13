@@ -85,6 +85,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::author.author"
+    },
+    "ContentLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.content-link"
     }
   }
 }
