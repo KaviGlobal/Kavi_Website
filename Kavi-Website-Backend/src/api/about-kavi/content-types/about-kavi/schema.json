@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "about_kavis",
+  "info": {
+    "singularName": "about-kavi",
+    "pluralName": "about-kavis",
+    "displayName": "AboutKavi",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "ContentLink": {
+      "type": "string"
+    },
+    "FullContent": {
+      "type": "richtext"
+    },
+    "DisplayOrder": {
+      "type": "integer"
+    }
+  }
+}

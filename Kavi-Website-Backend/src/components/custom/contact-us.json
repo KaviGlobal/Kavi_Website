@@ -14,6 +14,14 @@
     },
     "PhoneNumber": {
       "type": "string"
+    },
+    "ContactIcons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "text.icon-text"
+    },
+    "Description": {
+      "type": "text"
     }
   }
 }

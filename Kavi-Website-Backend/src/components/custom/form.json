@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_custom_forms",
+  "info": {
+    "displayName": "Form",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "Type": {
+      "type": "string"
+    },
+    "Required": {
+      "type": "string"
+    },
+    "Validate": {
+      "type": "text"
+    }
+  }
+}

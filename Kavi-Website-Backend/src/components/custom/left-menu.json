@@ -25,6 +25,11 @@
     },
     "DisplayOrder": {
       "type": "integer"
+    },
+    "about_kavis": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::about-kavi.about-kavi"
     }
   }
 }
