@@ -27,6 +27,15 @@
         "videos",
         "audios"
       ]
+    },
+    "Copyright": {
+      "type": "string"
+    },
+    "PrivacyLabel": {
+      "type": "string"
+    },
+    "PrivacyPolicies": {
+      "type": "richtext"
     }
   }
 }
