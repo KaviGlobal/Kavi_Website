@@ -20,14 +20,23 @@
             <div class="py-3">
                 <div class="row">
                     <ng-container *ngFor="let item of recommendationData;let i = index">
-                        <div class="col-6 col-md-4" *ngIf="i < recommendationMetaData.Recommendation.MaxCount">
-                            <div class="pb-4">
-                                <app-card-layout [image]="item.attributes.Media.data[0].attributes.url"
+                        <div class="col-6 col-md-4" *ngIf = "i < recommendationMetaData.Recommendation.MaxCount">                
+                            
+                           <div class="pb-4" *ngIf = "item.attributes.Media.data">                            
+                               <app-card-layout [image] = "item.attributes.Media.data[0].attributes.url"
                                     [title]="item.attributes.Title" [description]="item.attributes.ShortContent"
                                     [moduleName]="pageType" [hyperlinkText]="'Read More'"
                                     [type]="'recommendation-card-layout'">
                                 </app-card-layout>
                             </div>
+                            <div class="pb-4" *ngIf = "!item.attributes.Media.data">                                 
+                                <app-card-layout 
+                                                [title]="item.attributes.Title" [description]="item.attributes.ShortContent"
+                                                [moduleName]="pageType" [hyperlinkText]="'Read More'"
+                                                [type]="'recommendation-card-layout'">
+                                            </app-card-layout>    
+                            </div>
+                        
                         </div>
                     </ng-container>
                 </div>

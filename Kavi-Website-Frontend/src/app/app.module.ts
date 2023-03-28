@@ -21,6 +21,9 @@ import { PageLoaderComponent } from './core/page-loader/page-loader.component';
 import { ServiceloaderComponent } from './core/page-loader/serviceloader/serviceloader.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { RightMenuDetailsComponent } from './views/right-menu-details/right-menu-details.component';
+//import { CustomPipePipe } from './custom-pipe.pipe';
+import { CustomPipePipe } from 'src/app/custom-pipe.pipe';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ import { RightMenuDetailsComponent } from './views/right-menu-details/right-menu
     PageLoaderComponent,
     ServiceloaderComponent,
     RightMenuDetailsComponent,
+    CustomPipePipe,
   ],
   imports: [
     BrowserModule,
@@ -46,12 +50,13 @@ import { RightMenuDetailsComponent } from './views/right-menu-details/right-menu
     ReactiveFormsModule,
     NgbModule,
     CommonModule,
+  //  EmbedVideoModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw',
     }),
     MarkdownModule.forRoot(),
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,CustomPipePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

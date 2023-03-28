@@ -13,6 +13,7 @@ export class RightMenuDetailsCardComponent implements OnInit {
   @Input() cardImage: any;
   @Input() cardContent:any;
   @Input() date:any;
+  @Input() videoUrl:any;
   // public formattedDate: string | null | undefined;
 
   constructor(

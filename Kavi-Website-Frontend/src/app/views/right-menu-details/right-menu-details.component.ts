@@ -29,7 +29,7 @@ export class RightMenuDetailsComponent implements OnInit {
     private rightMenuService: RightMenuService,
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
     this.loadPageData();
     this.routerEventSubscription = this.router.events.subscribe((evt: any) => {
       if ((evt instanceof NavigationEnd)) {
@@ -44,16 +44,18 @@ export class RightMenuDetailsComponent implements OnInit {
   }
   public loadPageData() {
     this.pageType = cloneDeep(this.activatedRoute.snapshot.paramMap.get('pageType'));
-    this.pageDetailsName = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.pageDetailsName = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id'));    
     if (this.pageType && this.pageDetailsName) {
       this.commonService.activeMenuName = cloneDeep(this.pageType);
-
       this.isDataLoaded = false;
+      console.log("hi from Offerings",this.pageType,
+    this.pageDetailsName
+    );   
       setTimeout(() => {
         this.pageData = [];
         this.pageFullContent = '';
         this.recommendationMetaData = [];
-        if (this.pageDetailsName) {
+        if (this.pageDetailsName) {          
           this.getDetailsData();
         }
         else {
@@ -73,14 +75,13 @@ export class RightMenuDetailsComponent implements OnInit {
       if (response.data && response.data.length > 0) {
         this.pageData = response.data;
         this.pageFullContent = response.data[0].attributes?.FullContent;
-        let pageData: any = cloneDeep(response.data[0]);
+        let pageData: any = cloneDeep(response.data[0]);        
         if (pageData.attributes && pageData.attributes.Tags && pageData.attributes.Tags.data && pageData.attributes.Tags.data.length > 0) {
-          let tagName: string = '';
+//          let tagName: string = '';       
+          let tagName: any = [];          
           pageData.attributes.Tags.data.forEach((item: any, index: number) => {
-            if (index === 0) {
-              tagName = item.attributes.Name;
-            }
-          });
+            tagName.push(item.attributes.Name)
+          });          
           if (tagName) {
             this.getRecommendationsByTag(tagName);
           }
@@ -89,14 +90,15 @@ export class RightMenuDetailsComponent implements OnInit {
       this.isDataLoaded = true;
     });
   }
-  getRecommendationsByTag(tagName: string) {
+  getRecommendationsByTag(tagName: any) {
     this.rightMenuService.getBlogViewer().then((viewerResp: any) => {
       if (viewerResp && viewerResp.data && viewerResp.data.attributes && viewerResp.data.attributes.Recommendation) {
         // 'data science'
-        this.recommendationMetaData = cloneDeep(viewerResp.data.attributes);
+        this.recommendationMetaData = cloneDeep(viewerResp.data.attributes);        
         this.rightMenuService.getRecommendationsByTag(this.pageType, tagName).then((response: any) => {
           if (response.data && response.data.length > 0) {
-            this.recommendationData = response.data;
+            this.recommendationData = response.data;       
+           
           }
         });
       }

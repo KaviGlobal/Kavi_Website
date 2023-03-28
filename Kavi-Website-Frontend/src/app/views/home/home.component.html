@@ -9,7 +9,9 @@
                     <div class="row">
                         <div class="col-12 col-lg-6">
                             <div class="top-content">
-                                <h3><span>{{this.homeData.attributes.HeroHeader[0].Title}}</span>
+                                <h3 *ngIf="this.homeData.attributes.HeroHeader[0].Title &&
+                                this.homeData.attributes.HeroHeader[0].Description
+                                "><span>{{this.homeData.attributes.HeroHeader[0].Title}}</span>
                                     {{this.homeData.attributes.HeroHeader[0].Description}}</h3>
                             </div>
                             <div class="partner-img-wrapper">
@@ -90,13 +92,39 @@
                     <div class="row">
                         <div class="col-6 col-md-3"
                             *ngFor="let item of homeData.attributes.OurClientDetail;let i = index">
-                            <div class="client-card-wrapper">
+                        <!--            <div class="client-card-wrapper">
                                 <div class="client-card">
                                     <div class="client-image">
                                         <img src="{{item.OurClientIcon.Media.data.attributes.url}}" alt="image" />
-                                    </div>
+                                        
+                                         <div class="flip-card">
+                                            <div class="flip-card-inner">
+                                             <div class="client-card-front">
+                                                <img src="{{item.OurClientIcon.Media.data.attributes.url}}" alt="image" />
+                                              </div>
+                                              <div class="client-card-back">
+                                                <p>{{item.OurClientDescription.Paragraph}}</p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                    </div> 
+                                   
                                     <p>{{item.OurClientDescription.Title}}</p>
-                                </div>
+                                </div> -->
+                               
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                      <div class="flip-card-front">
+                                        
+                                        <img src="{{item.OurClientIcon.Media.data.attributes.url}}" alt="image">
+                                        <p>{{item.OurClientDescription.Title}}</p>
+                                    </div>
+                                      <div class="flip-card-back">
+                                        <p>{{item.OurClientDescription.Paragraph}}</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
                             </div>
                         </div>
                     </div>
@@ -106,7 +134,8 @@
     </div>
     <div class="clients-carousel">
         <div class="container">
-            <h3>{{homeData.attributes.OurClientImagesTitle}}</h3>
+            <h3 *ngIf = "homeData.attributes">
+                {{homeData.attributes.OurClientImagesTitle}}</h3>
             <div class="row no-gutters">
                 <div class="col-12">
                     <ngb-carousel class="client-slider" *ngIf="clientImages.length">
@@ -115,11 +144,19 @@
                                 <div class="client-carousel-image-wrapper" *ngFor="let subItem of item ">
                                     <div class="client-carousel-image-container">
                                         <div class="client-carousel-image-content">
-                                            <img [src]="subItem.SliderMedia.Media.data.attributes.url"
+                                            <img *ngIf="subItem.SliderMedia.Media.data" [src]="subItem.SliderMedia.Media.data.attributes.url"
                                                 alt="Random first slide" class="" />
                                         </div>
                                     </div>
                                 </div>
+                         <!--       <div class="client-carousel-image-wrapper" >
+                                    <div class="client-carousel-image-container"> 
+                                        <div class="client-carousel-image-content">                                           
+                                            <img [src]="item.url"
+                                                alt="Random first slide" class="" />
+                                        </div>
+                                    </div>
+                                </div>-->
                             </ng-template>
                         </ng-container>
                     </ngb-carousel>
@@ -129,10 +166,10 @@
     </div>
     <div class="blog-section">
         <div class="container">
-            <h3>{{this.homeData.attributes.BlogsTitle}}</h3>
+            <h3 *ngIf = "homeData.attributes">{{this.homeData.attributes.BlogsTitle}}</h3>
             <div class="pt-4">
-                <div class="row">
-                    <ng-container *ngIf="homeData.attributes.News.data.length > 0">
+                <div class="row" *ngIf="homeData.attributes">
+                    <ng-container *ngIf="homeData.attributes.Blogs.data.length > 0">
                         <div class="col-12 col-md-4">
                             <div class="pt-2">
                                 <app-card-layout
@@ -173,7 +210,7 @@
         <div class="container">
             <h3 class="section-heading">News</h3>
             <div class="pt-3">
-                <div class="row news-section">
+                <div class="row news-section" *ngIf="homeData.attributes">
                     <div class="col-6 col-md-4" *ngFor="let item of homeData.attributes.News.data; let i = index">
                         <ng-container *ngIf="i < 4">
                             <app-card-layout [image]="item.attributes.Media.data[0].attributes.url"
@@ -215,9 +252,9 @@
     </div>
     <div class="success-story-wrapper pt-5">
         <div class="container">
-            <h3 class="section-heading">{{this.homeData.attributes.SuccessStoryTitle}}</h3>
+            <h3 class="section-heading" *ngIf="homeData.attributes">{{this.homeData.attributes.SuccessStoryTitle}}</h3>
             <div class="pt-4">
-                <div class="row">
+                <div class="row" *ngIf="homeData.attributes">
                     <div class="col-12" *ngFor="let item of homeData.attributes.SuccessStory.data; let i = index">
                         <ng-container *ngIf="i < 2">
                             <app-card-layout [image]="item.attributes.Media.data[0].attributes.url"
@@ -243,7 +280,7 @@
         </agm-map>
         <div class="map-contact-wrapper">
             <div class="map-contact-container ">
-                <div class="map-contact-content">
+                <div class="map-contact-content" *ngIf="homeData.attributes">
                     <h3 class="title">Contact Us</h3>
                     <p><i class="fas fa-map-marker-alt mr-2"></i>{{homeData.attributes.ContactUs.Address}}</p>
                     <p><i class="fas fa-phone-alt mr-2"></i>{{homeData.attributes.ContactUs.PhoneNumber}}</p>

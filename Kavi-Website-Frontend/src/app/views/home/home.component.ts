@@ -45,13 +45,13 @@ export class HomeComponent implements OnInit {
     this.document.body.classList.remove('home-page');
   }
 
-  public getHomePageData() {
+  public getHomePageData() {    
     this.homeService.getHomeData().then((response: any) => {
       if (response.data) {
         this.homeData = response.data;
         this.title = this.homeData.attributes.HeroHeader[0].Title;
         this.backgroundImg = this.homeData.attributes.HeroHeader[0].SliderMedia.Media.data.attributes.url;
-        this.partnerImg = this.homeData.attributes.HeroHeader;
+        this.partnerImg = this.homeData.attributes.HeroHeader;      
         this.getClientImages();
       }
       this.document.body.classList.add('home-page');
@@ -62,8 +62,9 @@ export class HomeComponent implements OnInit {
   getClientImages() {
     let temp: any = [];
     let items: any = [];
-    for (let index = 0; index < this.homeData.attributes.OurClientImages.length; index++) {
+    for (let index = 0; index < this.homeData.attributes.OurClientImages.length; index++) {     
       if (this.homeData.attributes.OurClientImages[index].Order % 4 === 0) {
+      //  console.log("index",index,this.homeData.attributes.OurClientImages,this.homeData.attributes.OurClientImages[index].Order);
         items.push(this.homeData.attributes.OurClientImages[index]);
         temp.push(items);
         items = [];
@@ -73,6 +74,7 @@ export class HomeComponent implements OnInit {
       }
     }
     this.clientImages = temp;
+   // console.log("this.clientImages",this.clientImages);
   }
 
   clickedMarker(label: string, index: number) {

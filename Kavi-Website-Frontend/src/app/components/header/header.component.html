@@ -5,10 +5,10 @@
         <img src="{{logoImage}}" alt="logo" class="logo">
       </div>
       <div class="nav-right">
-        <a>
+  <!--      <a>
           <i class="fas fa-search"></i>
-        </a>
-        <a>
+        </a>-->
+        <a href="tel:+1-847-387-6760">
           <i class="fas fa-phone-alt"></i>
         </a>
         <a (click)="toggleDiv()">
@@ -23,12 +23,19 @@
 <div id="empty-div" class="menu-container" [style.display]="showMenu ? 'block' : 'none'">
   <div class="container-fluid">
     <div class="pt-3">
+      <div class="close-btn text-right">
+        <span (click)="toggleDiv()">
+          <i class="fas fa-times"></i>
+        </span>
+      </div>
       <div class="row no-gutters">
         <div class="col-12 col-md-6">
+          
         </div>
         <div class="col-12 col-md-6">
+          
           <div class="row no-gutters align-items-center top-search-wrapper">
-            <div class="col-6">
+       <!--     <div class="col-6">
               <div class="top-search-field">
                 <input type="text" class="form-control form-control-sm" placeholder="Search" autocomplete="off">
                 <div class="mic-icon">
@@ -42,13 +49,13 @@
                   <i class="fas fa-search"></i>
                 </span>
               </div>
-            </div>
+            </div>-->
             <div class="col-1 text-right">
-              <div class="close-btn">
+      <!--        <div class="close-btn">
                 <span (click)="toggleDiv()">
                   <i class="fas fa-times"></i>
                 </span>
-              </div>
+              </div>-->
             </div>
 
           </div>
@@ -63,12 +70,26 @@
             <div class="col-6">
               <ul class="menu-items">
                 <li *ngFor="let menuItem of leftMenuCardOne">
-                  <a  [style.color]="menuItem.Styles === 'Orange' ? '#EA6B1E' : 'white'">{{menuItem.Label}}</a>
+                  <a class="menu-items-left" [style.color]="menuItem.Styles === 'Orange' ? '#EA6B1E' : 'white'">{{menuItem.Label}}</a>
                   <ul class="inner-menu-items"
                     *ngIf="menuItem.offerings && menuItem.offerings.data && menuItem.offerings.data.length > 0">
                     <ng-container *ngFor="let subSection of menuItem.offerings.data">
                       <li *ngIf="subSection.attributes && subSection.attributes.Name">
-                        <a>{{subSection.attributes.Name}}</a>
+                        <a [routerLink]="[subSection.attributes.Label]" *ngIf="subSection.attributes"
+                  (click)="makeOfferingsActive(menuItem,subSection.attributes.Label)">{{subSection.attributes.Name}}</a>
+                  
+                    <!-- <a>{{subSection.attributes.Name}} {{subSection.attributes.OfferingType}}</a>-->
+                    
+                      </li>
+                    </ng-container>
+                  </ul>
+                  <ul class="inner-menu-items"
+                    *ngIf="menuItem.aboutKavi && menuItem.aboutKavi.data && menuItem.aboutKavi.data.length > 0">
+                    <ng-container *ngFor="let subSection of menuItem.aboutKavi.data">
+                      <li *ngIf="subSection.attributes && subSection.attributes.Name">
+                        <a [routerLink]="[subSection.attributes.Label]" *ngIf="subSection.attributes"
+                  (click)="makeOfferingsActive(menuItem,subSection.attributes.Label)">{{subSection.attributes.Name}}</a>
+                  
                       </li>
                     </ng-container>
                   </ul>
@@ -78,12 +99,15 @@
             <div class="col-6">
               <ul class="menu-items">
                 <li *ngFor="let menuItem of leftMenuCardTwo">
-                  <a [style.color]="menuItem.Styles === 'Orange' ? '#EA6B1E' : 'white'">{{menuItem.Label}}</a>
+                  <a class="menu-items-left" [style.color]="menuItem.Styles === 'Orange' ? '#EA6B1E' : 'white'">{{menuItem.Label}}</a>
                   <ul class="inner-menu-items"
                     *ngIf="menuItem.offerings && menuItem.offerings.data && menuItem.offerings.data.length > 0">
                     <ng-container *ngFor="let subSection of menuItem.offerings.data">
                       <li *ngIf="subSection.attributes && subSection.attributes.Name">
-                        <a>{{subSection.attributes.Name}}</a>
+                      <!--  <a>{{subSection.attributes.Name}}</a>-->
+                        <a [routerLink]="[subSection.attributes.Label]" *ngIf="subSection.attributes"
+                        (click)="makeOfferingsActive(menuItem,subSection.attributes.Label)">{{subSection.attributes.Name}}</a>
+                        
                       </li>
                     </ng-container>
                   </ul>
@@ -109,15 +133,19 @@
       <div class="row">
         <div class="col-12 col-md-7">
           <div class="row">
+           
             <div class="col-6">
               <div class="pl-5">
-                <h6>Subscribe for Newsletter</h6>
+                
+                <h6>Subscribe for Newsletter</h6>                
                 <div class="news-letter-field">
-                  <input type="text" class="form-control form-control-sm" placeholder="Email Address" autocomplete="off" />
+                  <input type="email" class="form-control" #email1 placeholder="Email Address"
+                   />              
                   <div class="send-icon">
-                    <i class="fas fa-paper-plane"></i>
-                  </div>
+                    <i class="fas fa-paper-plane" (click)="emailSubscription(email1.value);"></i>
+                  </div>    
                 </div>
+                <p  *ngIf="isSubscribed" style ="padding-top:10px;font-size:smaller">Thank you for Subscribing!</p>
               </div>
             </div>
             <div class="col-6">
@@ -131,20 +159,39 @@
                 </div>
               </div>
             </div>
+
           </div>
         </div>
         <div class="col-12 col-md-5">
-          <div class="contactus-wrapper">
+          <div class="row">
+        <div class="col-6">
+          <div class="pl-4" >   
+            <a (click)="makeMenuActive('ContactUs')" routerLink="{{'/ContactUs'}}">
             <h6>Contact Us</h6>
+            </a>
             <div class="d-flex">
               <p class="mr-5"><i class="fas fa-phone-alt mr-2"></i>(847)
                 387-6760
               </p>
-              <p><i class="fas fa-envelope mr-2"></i>contact@kaviglobal.com
+              
+            </div>
+            <div class="d-flex">
+              <p><i class="fas fa-envelope mr-3" ></i>
+                <a style="font-size:small" href="mailto:contact@kaviglobal.com">contact@kaviglobal.com</a>
               </p>
             </div>
-          </div>
         </div>
+        </div>
+        <div class="col-6">
+          <div class="pl-4">
+            <a (click)="makeMenuActive('Careers')" routerLink="{{'/Careers'}}">            
+            <h6>Careers</h6>    
+            </a>  
+         </div>
+        </div>
+        </div>
+        </div>    
+
       </div>
     </div>
   </div>

@@ -38,7 +38,7 @@
 </div>
 <div *ngIf="type == 'news-card-layout' || type == 'recommendation-card-layout'">
     <div class="news-card-container" [ngClass]="{'recommendation-card-wrapper': type == 'recommendation-card-layout'}">
-        <div class="news-image-wrapper">
+        <div class="news-image-wrapper" *ngIf="image">
             <div class="news-image-container">
                 <img src="{{image}}" alt="image" />
             </div>
@@ -96,6 +96,29 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="type == 'personal-card-layout'">
+    <div class="news-card-container">
+        <div class="news-image-wrapper" *ngIf="image">
+            <div class="news-image-container">
+                <img src="{{image}}" alt="image" />
+            </div>
+        </div>
+        <div class="new-content" style="text-align:center">
+            <h3 style="text-align:center;padding-top:25px">{{title}}</h3>
+            <p class="mb-1" style="text-align:center; min-height: 70px;">{{description}}</p>
+            <a routerLink="{{'/' + moduleName + '/'+ title}}" *ngIf="moduleName">{{hyperlinkText}} <i
+                    class="fas fa-arrow-right arrow-icon ml-1"></i></a>
+        <!--    <div style="text-align:center;padding-right:15px">
+                <a href="javascript:void(0)" *ngIf="!moduleName">{{hyperlinkText}} <i
+                    class="fas fa-arrow-right arrow-icon ml-1"></i></a>
+            <a href="javascript:void(0)" *ngIf="!moduleName">{{hyperlinkText}} 
+                <i class="fab fa-linkedin"></i>
+            </a>
+            </div>  -->
+                  
         </div>
     </div>
 </div>

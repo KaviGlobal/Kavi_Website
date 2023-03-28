@@ -24,3 +24,141 @@ ngb-datepicker {
   color: #2b5084 !important;
   cursor: pointer;
 }
+.recommendation-section {
+  h3 {
+    color: #EA6B1E;
+    font-size: 24px;
+  }
+}
+.page-content {
+  padding-right: 70px;
+  ::ng-deep img {
+      max-width: 100% !important;
+  }
+}
+iframe {
+  width: 786px;
+  height: 600px;
+  border: 0;
+  overflow: hidden;
+}
+form{
+  h3 {
+    color: #2b5084;
+    font-size: 25px;
+  }
+}
+input[type=text],[type=number],textarea {
+  width: 50%;
+  padding: 10px;
+ // margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+.formStyles {
+  width: 50%;
+  padding: 10px;
+ // margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+.formStyles:focus {
+  border: 1px solid #EA6B1E;
+}
+
+input[type=text]:focus {
+  border: 1px solid #EA6B1E;
+}
+input[type=number]:focus {
+  border: 1px solid #EA6B1E;
+}
+textarea:focus {
+  border: 1px solid #EA6B1E;
+  }
+
+.mandatory-sign {
+  text-align: center;
+  i {
+    font-size: 40px;
+    opacity: 0.6;
+    color:red;
+  }
+}
+
+button{
+  background-color: #EA6B1E;
+  color: white;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight :500;
+}
+
+input[type=submit] {
+  background-color: #EA6B1E;
+  color: white;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight :500;
+}
+
+input[type=submit]:hover {
+  background-color: #EA6B1E;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.title {
+  color: #EA6B1E;
+  font-weight: 700px;
+}
+
+.modalFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.75rem;
+//  border-top: 0px solid #dee2e6;
+  border-bottom-right-radius: calc(0.3rem - 1px);
+  border-bottom-left-radius: calc(0.3rem - 1px);
+}
+/* demo shizzle only */
+body {
+  background: #eee;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+/*   outline: 1px solid #ccc; */
+}
+
+/* Still use global css (not utility css) for base typography etc? */
+p {
+  margin-bottom: 0.8em;
+}
+
+.top-content {
+  padding: 30px 0 30px;
+  color:#fff;
+  text-align: center;
+}

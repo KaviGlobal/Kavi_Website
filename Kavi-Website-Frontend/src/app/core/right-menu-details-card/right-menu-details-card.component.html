@@ -1,6 +1,7 @@
 <div class="right-menu-card">
     <h1>{{title}}</h1>
-    <h5 *ngIf="authorDetails.length !== 0">by {{authorDetails[0].attributes.Name}} | {{ date | date:'MMMM d, yyyy' }}</h5>
-    <img src={{cardImage}} alt="image" />
+    <h5 *ngIf="authorDetails && authorDetails.length !== 0">by {{authorDetails[0].attributes.Name}} | {{ date | date:'MMMM d, yyyy' }}</h5>
+    <img *ngIf="cardImage" src={{cardImage}} alt="image" />    
     <p>{{cardContent}}</p>
 </div>
+

@@ -6,5 +6,11 @@
   "RIGHT_MENU_VIEW_TYPE": "&filters[Title][$eq]=",
   "BLOG_VIEWER": "/blog-viewer?populate=deep,20",
   "RECOMMENDATION_BY_TAG": "/posts?populate=deep,20&filters[Type][$eq]=",
-  "RECOMMENDATION_BY_TAG_FILTER": "&filters[Tags][Name][$eq]="
+  "RECOMMENDATION_BY_TAG_FILTER": "&filters[Tags][Name][$eq]=",
+  "LEFT_MENU_TYPE": "/offerings?populate=deep,20&filters[Name][$eq]=",
+  "OFFERINGS_VIEWER": "/offering-viewer?populate=deep,20",
+  "EMAIL_SUBSCRIPTION" :"/subscribes",
+  "SEND_CONTACT_FORM"  : "/contact-forms",
+  "GET_CONTACT_FORM":"/contact-page?populate=deep,20",
+  "CAREERS"  : "/about-kavis?populate=deep,20&filters[Name][$eq]=Careers"
 }
