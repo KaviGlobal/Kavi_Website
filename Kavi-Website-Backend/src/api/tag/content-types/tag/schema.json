@@ -14,9 +14,9 @@
   "attributes": {
     "Name": {
       "type": "string"
-    },
+    },    
     "DisplayName": {
-      "type": "text"
+      "type": "string"
     },
     "TagGroup": {
       "type": "relation",
