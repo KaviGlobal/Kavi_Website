@@ -28,9 +28,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bottom-arrow-wrapper">
+<!--                    <div class="bottom-arrow-wrapper">
                         <i class="fas fa-angle-down"></i>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
@@ -66,8 +66,11 @@
                         <h5>
                             {{homeData.attributes.Analytics.PreviewText}}
                         </h5>
-                        <h5 class="analytics-more">{{homeData.attributes.Analytics.LinkLabel}}<i
-                                class="fas fa-arrow-right"></i></h5>
+                        <h5 class="analytics-more"><a [routerLink]="['/SearchTag=analytics']">
+                            {{homeData.attributes.Analytics.LinkLabel}}<i
+                                class="fas fa-arrow-right"></i>
+                            </a>
+                        </h5>
                     </div>
                     <div class="col-12 col-md-5">
                         <div class="analytics-image">
@@ -79,6 +82,136 @@
             </div>
         </div>
     </div>
+    
+    <div class="success-story-wrapper pt-5">
+        <div class="container">
+            <h3 class="section-heading" *ngIf="homeData.attributes">{{this.homeData.attributes.SuccessStoryTitle}}</h3>
+            <div class="pt-3">
+                <div class="" *ngIf="homeData.attributes">
+                    <div class="" *ngFor="let item of homeData.attributes.SuccessStory.data; let i = index">
+                        <ng-container *ngIf="i < 2">
+                            <app-card-layout [image]="item.attributes.Media.data[0].attributes.url"
+                                [title]="item.attributes.Title" [description]="item.attributes.ShortContent"
+                                [hyperlinkText]="hyperlinkText" moduleName="success_story"
+                                [slug]="item.attributes.Slug"
+                                [type]="i?'success-right-card-layout':'success-card-layout'"></app-card-layout>
+                        </ng-container>
+                    </div>    
+                    <div class="">
+                        <div class="read-more-section pt-2">
+                            <a class="pl-4" [routerLink]="['/success_story']">
+                                Read more on our Success Stories <i class="fas fa-arrow-right arrow-icon"></i>
+                            </a>
+                        </div>
+                    </div>                
+                </div>                 
+            </div>                       
+        </div>                
+    </div>
+    <div class="blog-section">
+        <div class="container">
+            <h3 *ngIf = "homeData.attributes">{{this.homeData.attributes.BlogsTitle}}</h3>
+            <div class="pt-4">
+                <div class="row" *ngIf="homeData.attributes">                    
+                    <ng-container>
+                        <!-- *ngFor="homeData.attributes.Blogs.data[0]; let j = index">
+                        -->
+                        <div class="col-12 col-md-4">
+                            <div class="pt-2" >
+                                <app-card-layout
+                                    [image]="homeData.attributes.Blogs.data[0].attributes.Media.data[0].attributes.url"
+                                    [title]="homeData.attributes.Blogs.data[0].attributes.Title"
+                                    [slug]="homeData.attributes.Blogs.data[0].attributes.Slug"
+                                    [description]="homeData.attributes.Blogs.data[0].attributes.ShortContent"
+                                    moduleName="blog" [hyperlinkText]="hyperlinkText" 
+                                    [type]="'top-image-layout'">
+                                </app-card-layout>
+                            
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-md-8" *ngIf="homeData.attributes.Blogs.data.length > 1">
+                            <ng-container *ngFor="let item of homeData.attributes.Blogs.data; let i = index">
+                                <ng-container *ngIf="i && i < 4">
+                                    <div class="" [ngClass]="{'pt-2': i === 1, 'pt-3': i !== 1}">
+                                        <app-card-layout [image]="item.attributes.Media.data[0].attributes.url"
+                                            [title]="item.attributes.Title" 
+                                            [slug]="item.attributes.Slug"
+                                            [description]="item.attributes.ShortContent"
+                                            moduleName="blog" [hyperlinkText]="hyperlinkText"
+                                            [type]="'left-image-layout'">
+                                        </app-card-layout>
+                                    </div>
+                                </ng-container>
+                            </ng-container>
+                        
+                <!--            <div class="">
+                                <div class="read-more-section">
+                                    <a class="" [routerLink]="['/blog']">
+                                        Read more on our Blogs <i class="fas fa-arrow-right arrow-icon"></i>
+                                    </a>
+                                </div>
+                            </div>-->
+                        </div>
+                    </ng-container>
+                    <div class="col-12">
+                        <div class="read-more-section pt-2">
+                            <a class="" [routerLink]="['/blog']">
+                                Read more on our Blogs <i class="fas fa-arrow-right arrow-icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="news-cont">
+        <div class="container">
+            <h3 class="section-heading">News</h3>
+            <div class="pt-3">
+                <div class="row news-section" *ngIf="homeData.attributes">
+                    <div class="col-6 col-md-4" *ngFor="let item of homeData.attributes.News.data; let i = index">
+                        <ng-container *ngIf="i < 4">
+                            <app-card-layout [image]="item.attributes.Media.data[0].attributes.url"
+                                [title]="item.attributes.Title" [description]="item.attributes.ShortContent"
+                                moduleName="news"
+                                [slug]="item.attributes.Slug"
+                                [hyperlinkText]="hyperlinkText" [type]="'news-card-layout'">
+                            </app-card-layout>
+                        </ng-container>
+                    </div>
+                    <div class="col-12">
+                        <div class="read-more-section pt-2">
+                            <a class="pl-4" [routerLink]="['/news']">
+                                Read more on our News <i class="fas fa-arrow-right arrow-icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <!--   <div class="container-fluid m-0 p-0 mt-4">
+        <div class="news-letter-wrapper">
+            <div class="container">
+                <div class="row m-0 p-0">
+                    <div class="col-12 col-md-6">
+                        <h3 class="mb-0">Subscribe for Newsletter</h3>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="news-letter-field">
+                            <input type="text" class="form-control" placeholder="Email Address" autocomplete="off" />
+                            <div class="send-icon">
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>-->
+
     <div class="clients-section">
         <div class="container">
             <h3>{{homeData.attributes.OurClientsTitle}}</h3>
@@ -164,109 +297,6 @@
             </div>
         </div>
     </div>
-    <div class="blog-section">
-        <div class="container">
-            <h3 *ngIf = "homeData.attributes">{{this.homeData.attributes.BlogsTitle}}</h3>
-            <div class="pt-4">
-                <div class="row" *ngIf="homeData.attributes">
-                    <ng-container *ngIf="homeData.attributes.Blogs.data.length > 0">
-                        <div class="col-12 col-md-4">
-                            <div class="pt-2">
-                                <app-card-layout
-                                    [image]="homeData.attributes.Blogs.data[0].attributes.Media.data[0].attributes.url"
-                                    [title]="homeData.attributes.Blogs.data[0].attributes.Title"
-                                    [description]="homeData.attributes.Blogs.data[0].attributes.ShortContent"
-                                    moduleName="blog" [hyperlinkText]="hyperlinkText" [type]="'top-image-layout'">
-                                </app-card-layout>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-8" *ngIf="homeData.attributes.News.data.length > 1">
-                            <ng-container *ngFor="let item of homeData.attributes.News.data; let i = index">
-                                <ng-container *ngIf="i && i < 4">
-                                    <div class="" [ngClass]="{'pt-2': i === 1, 'pt-3': i !== 1}">
-                                        <app-card-layout [image]="item.attributes.Media.data[0].attributes.url"
-                                            [title]="item.attributes.Title" [description]="item.attributes.ShortContent"
-                                            moduleName="blog" [hyperlinkText]="hyperlinkText"
-                                            [type]="'left-image-layout'">
-                                        </app-card-layout>
-                                    </div>
-                                </ng-container>
-                            </ng-container>
-
-                            <div class="">
-                                <div class="read-more-section">
-                                    <a class="" [routerLink]="['/blog']">
-                                        Read more on our Blogs <i class="fas fa-arrow-right arrow-icon"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </ng-container>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="news-cont">
-        <div class="container">
-            <h3 class="section-heading">News</h3>
-            <div class="pt-3">
-                <div class="row news-section" *ngIf="homeData.attributes">
-                    <div class="col-6 col-md-4" *ngFor="let item of homeData.attributes.News.data; let i = index">
-                        <ng-container *ngIf="i < 4">
-                            <app-card-layout [image]="item.attributes.Media.data[0].attributes.url"
-                                [title]="item.attributes.Title" [description]="item.attributes.ShortContent"
-                                [hyperlinkText]="hyperlinkText" [type]="'news-card-layout'">
-                            </app-card-layout>
-                        </ng-container>
-                    </div>
-                    <div class="col-12">
-                        <div class="read-more-section pt-2">
-                            <a class="pl-4" href="javascript:void(0)">
-                                Read more on our News <i class="fas fa-arrow-right arrow-icon"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid m-0 p-0 mt-4">
-        <div class="news-letter-wrapper">
-            <div class="container">
-                <div class="row m-0 p-0">
-                    <div class="col-12 col-md-6">
-                        <h3 class="mb-0">Subscribe for Newsletter</h3>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="news-letter-field">
-                            <input type="text" class="form-control" placeholder="Email Address" autocomplete="off" />
-                            <div class="send-icon">
-                                <i class="fas fa-paper-plane"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="success-story-wrapper pt-5">
-        <div class="container">
-            <h3 class="section-heading" *ngIf="homeData.attributes">{{this.homeData.attributes.SuccessStoryTitle}}</h3>
-            <div class="pt-4">
-                <div class="row" *ngIf="homeData.attributes">
-                    <div class="col-12" *ngFor="let item of homeData.attributes.SuccessStory.data; let i = index">
-                        <ng-container *ngIf="i < 2">
-                            <app-card-layout [image]="item.attributes.Media.data[0].attributes.url"
-                                [title]="item.attributes.Title" [description]="item.attributes.ShortContent"
-                                [hyperlinkText]="hyperlinkText" moduleName="success_story"
-                                [type]="i?'success-right-card-layout':'success-card-layout'"></app-card-layout>
-                        </ng-container>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="home-map-wrapper">
         <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [scrollwheel]="true"
             (mapClick)="mapClicked($event)">
@@ -283,8 +313,14 @@
                 <div class="map-contact-content" *ngIf="homeData.attributes">
                     <h3 class="title">Contact Us</h3>
                     <p><i class="fas fa-map-marker-alt mr-2"></i>{{homeData.attributes.ContactUs.Address}}</p>
-                    <p><i class="fas fa-phone-alt mr-2"></i>{{homeData.attributes.ContactUs.PhoneNumber}}</p>
                     <p><i class="fas fa-envelope mr-2"></i>{{homeData.attributes.ContactUs.Email}}</p>
+                    <p><i class="fas fa-phone-alt mr-2"></i>{{homeData.attributes.ContactUs.PhoneNumber}}</p>                    
+                    <div class="social-wrapper">                    
+                        <a href="https://www.linkedin.com/company/kavi-global/mycompany/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://twitter.com/KG4Analytics" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                        <a href="https://www.facebook.com/kaviglobal/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                        <a href="https://www.youtube.com/channel/UCEMWF8WAJuM5k32gkxGopBQ" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
             </div>
         </div>

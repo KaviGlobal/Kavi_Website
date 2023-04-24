@@ -1,6 +1,18 @@
 <div class="right-menu-card">
     <h1>{{title}}</h1>
-    <h5 *ngIf="authorDetails && authorDetails.length !== 0">by {{authorDetails[0].attributes.Name}} | {{ date | date:'MMMM d, yyyy' }}</h5>
+    <h5 *ngIf="authorDetails && authorDetails.length !== 0">by {{authorDetails[0].attributes.DisplayName}} | 
+        {{ date | date:'MMMM d, yyyy' }}
+        <!--<div *ngIf="tags && tags.length !== 0">-->            
+<!--        <div style="padding-top:5px" class="tab" > 
+            <div *ngFor="let tag of tags">
+                <b (click)="searchTag(tag?.attributes?.Name)">
+                            <a routerLink="{{'/SearchTag='+ tag?.attributes?.Name}}" >{{tag.attributes.DisplayName}}</a>
+                    {{tag.attributes.DisplayName}}
+                
+                </b>
+            </div>
+        </div>-->
+    </h5>
     <img *ngIf="cardImage" src={{cardImage}} alt="image" />    
     <p>{{cardContent}}</p>
 </div>

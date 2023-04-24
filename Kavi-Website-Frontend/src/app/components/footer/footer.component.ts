@@ -4,6 +4,8 @@ import { FooterService } from './footer.service';
 import { RightMenuService } from 'src/app/views/right-menu/right-menu.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RightMenuComponent} from 'src/app/views/right-menu/right-menu.component';
+import { CommonService } from 'src/app/services/common.service';
+import { Router, ActivatedRoute,  NavigationStart, NavigationEnd } from '@angular/router';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -23,6 +25,8 @@ export class FooterComponent implements OnInit {
     public footerService: FooterService,
     public config: NgbCarouselConfig,
     public rightMenuService: RightMenuService,
+    public commonService : CommonService,
+    public router: Router,
     public modalService: NgbModal
   ) {
     config.interval = 3000;
@@ -59,9 +63,12 @@ export class FooterComponent implements OnInit {
       centered: true,
       windowClass: 'dark-modal'
     });
-    modalRef.componentInstance.isPolicy = true;
+    
     modalRef.componentInstance.terms = terms;
-   // modalRef.componentInstance.RightMenuComponent = terms.FullContent;
+    modalRef.componentInstance.isPolicy = true;
+    this.commonService.activeMenuName = 'policy';
+  //  this.router.navigate(["/policy"]);
+//    modalRef.componentInstance.RightMenuComponent = terms.FullContent;
   }
   
 }

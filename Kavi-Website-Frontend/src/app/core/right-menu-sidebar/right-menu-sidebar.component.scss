@@ -1,5 +1,6 @@
 .page-right-menu-section {
-  padding: 50px 0 50px 30px;
+//  padding: 50px 0 50px 30px;
+  padding-top:10px;
   .title {
     font-family: "montserrat-regular";
     font-size: 1.2rem;
@@ -7,16 +8,17 @@
   }
   h5 {
     font-family: "montserrat-regular";
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     color: #224991;
   }
   ul {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: square;
+    padding: 0px 0px 0px 5px;
   }
   li > a {
     font-family: "montserrat-regular";
-    font-size: 1.2rem;
+    font-size: 0.75rem;
+    font-weight : 600;
     padding-bottom: 8px;
     color: #666;
     cursor: pointer;
@@ -36,3 +38,18 @@
 ngb-datepicker {
   border: none;
 }
+
+.tags{
+li > a {
+  font-family: "montserrat-regular";
+  font-size: 0.80rem;
+  font-weight : 600;
+  padding-bottom: 8px;
+  color: #EA6B1E;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 2;
+}
+}
+
+

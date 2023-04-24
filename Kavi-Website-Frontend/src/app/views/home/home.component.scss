@@ -148,6 +148,10 @@
           padding-left: 6px;
           font-size: 10px;
         }
+        a{
+          color: #ea6b1e;
+          font-weight: 600;
+        }
         &:hover {
           opacity: 1;
         }
@@ -590,4 +594,17 @@ agm-map {
     padding-top: 70px;
   }
 
+}
+.social-wrapper {
+  i {
+    font-size: 25px; 
+    margin-right: 10px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  a{
+    color:#fff;
+}
 }

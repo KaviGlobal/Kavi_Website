@@ -45,12 +45,11 @@ export class RightMenuDetailsComponent implements OnInit {
   public loadPageData() {
     this.pageType = cloneDeep(this.activatedRoute.snapshot.paramMap.get('pageType'));
     this.pageDetailsName = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id'));    
+    //console.log("gggg",)
     if (this.pageType && this.pageDetailsName) {
       this.commonService.activeMenuName = cloneDeep(this.pageType);
       this.isDataLoaded = false;
-      console.log("hi from Offerings",this.pageType,
-    this.pageDetailsName
-    );   
+  //    console.log("hi from Offerings",this.pageType,this.pageDetailsName);   
       setTimeout(() => {
         this.pageData = [];
         this.pageFullContent = '';

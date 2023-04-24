@@ -1,11 +1,36 @@
             <div class="page-right-menu-section">
-                <h5 class="title">Subscribe</h5>
+             <!--   <h5 class="title">Subscribe</h5>-->
+             
                 <app-subscribe-layout></app-subscribe-layout>
-                <h5 class="mt-5">Recent Posts</h5>
-                <ul class="mb-5">
-                    <li *ngFor="let item of data"><a>{{item.attributes.Title}}</a></li>
-                </ul>
-                <input type="search" placeholder="Search" autocomplete="off" />
+                <div *ngIf="data[0]?.length > 0">
+                    <div>
+                    <!--<h5 class="mt-5">Recent Posts</h5> -->
+                    <h5 class="mt-5">
+                    <b>Recent Posts </b> 
+    <!--               <i style="padding-left: 60px;" class="mt-5"
+                    (click)="backClicked()">Back</i>-->
+                    </h5>
+                    </div>
+                    <ul class="mb-5">
+                        <li *ngFor="let item of data[0]">
+                            <a routerLink="{{'/'+ item?.attributes?.Type + '/'+item?.attributes?.Slug}}" >{{item.attributes.Title}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div *ngIf="data[0]?.attributes?.Tags?.data?.length > 0">
+                    <div>                    
+                        <h5 class="mt-5">
+                        <b>Tags </b> 
+                        </h5>
+                    </div>
+                    <ul class="tags">
+                    <!--   <li><a >Analytics</a></li>-->
+                        <li class="tags" *ngFor="let item of data[0].attributes?.Tags?.data">
+                            <a routerLink="{{'/SearchTag='+ item?.attributes?.Name}}" >{{item.attributes.DisplayName}}</a>
+                        </li>
+                    </ul>   
+                </div>
+ <!--               <input type="search" placeholder="Search" autocomplete="off" />
                 <h5 class="mt-3">Categories</h5>
                 <ul>
                     <li><a >Analytics</a></li>
@@ -21,7 +46,9 @@
                     <li><a>Strategy</a></li>
                     <li><a>testimonial slider</a></li>
                 </ul>
-                <div class="mt-5">
+            -->               
+
+            <div class="mt-5">
                     <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
                 </div>
             </div>

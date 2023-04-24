@@ -1,9 +1,13 @@
 <div class="subscribe-card-container">
-    <img src="assets/images/envelop_img.png" alt="image" />
+    <!--<img src="assets/images/envelop_img.png" alt="image" />-->
     <h4>Subscribe to our blog!</h4>
     <p>Receive the latest news and updates from our team.</p>
-</div>
+    
 <div class="btn-container">
-    <input type="text" autocomplete="off" />
-    <button>SUBSCRIBE!</button>
+    <input type="email" class="form-control" #email1 placeholder="Email Address" autocomplete="off" />
+    <button (click)="emailSubscription(email1.value);">SUBSCRIBE!</button>
+    <p style="padding-top:20px; color:#fff" *ngIf="isSubscribed">Thank you for Subscribing!</p>
 </div>
+</div>
+
+

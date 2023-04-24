@@ -3,14 +3,18 @@
   "MENU": "/actual-menu?populate=deep,20",
   "HEADER_FOOTER": "/header-footer?populate=deep,20",
   "RIGHT_MENU_TYPE": "/posts?populate=deep,20&filters[Type][$eq]=",
-  "RIGHT_MENU_VIEW_TYPE": "&filters[Title][$eq]=",
+  "RIGHT_MENU_VIEW_TYPE": "&filters[Slug][$eq]=",
   "BLOG_VIEWER": "/blog-viewer?populate=deep,20",
   "RECOMMENDATION_BY_TAG": "/posts?populate=deep,20&filters[Type][$eq]=",
+  "GET_ANALYTICS":"/posts?populate=deep,20&filters[Tags][Name][$containsi]=Analytics",
   "RECOMMENDATION_BY_TAG_FILTER": "&filters[Tags][Name][$eq]=",
-  "LEFT_MENU_TYPE": "/offerings?populate=deep,20&filters[Name][$eq]=",
+  "LEFT_MENU_TYPE": "/offerings?populate=deep,20&filters[Label][$eq]=",
   "OFFERINGS_VIEWER": "/offering-viewer?populate=deep,20",
   "EMAIL_SUBSCRIPTION" :"/subscribes",
   "SEND_CONTACT_FORM"  : "/contact-forms",
   "GET_CONTACT_FORM":"/contact-page?populate=deep,20",
-  "CAREERS"  : "/about-kavis?populate=deep,20&filters[Name][$eq]=Careers"
+  "CAREERS"  : "/about-kavis?populate=deep,20&filters[Name][$eq]=Careers",
+  "GET_TAG" :"/posts?populate=deep,20&filters[Tags][DisplayName][$containsi]=",
+  "GET_TAG_LIST":"/tags?populate=deep,20"
+
 }

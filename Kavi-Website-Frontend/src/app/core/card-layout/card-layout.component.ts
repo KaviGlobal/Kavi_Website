@@ -15,6 +15,7 @@ export class CardLayoutComponent implements OnInit {
   @Input() layoutType: any;
   @Input() type: any;
   @Input() moduleName: any;
+  @Input() slug: any;
 
   constructor() { }
 

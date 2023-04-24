@@ -31,7 +31,7 @@ ngb-datepicker {
   }
 }
 .page-content {
-  padding-right: 70px;
+//  padding-right: 70px;
   ::ng-deep img {
       max-width: 100% !important;
   }
@@ -48,6 +48,90 @@ form{
     font-size: 25px;
   }
 }
+label{
+  padding:10px;
+}
+select {
+  display: inline-block;
+  height: 30px;
+  width: 150px;
+  outline: none;
+  color: #74646e;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+ // box-shadow: 1px 1px 2px #999;
+  background: #fff;
+}
+select:focus {
+  border: 2px solid #EA6B1E;
+}
+select:hover {
+//    color: #000000;
+    background: #fff;
+}
+select::after {
+  background-color: #000d42;
+}
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+  background-color: DodgerBlue;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+    
 input[type=text],[type=number],textarea {
   width: 50%;
   padding: 10px;
@@ -126,6 +210,7 @@ input[type=submit]:hover {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
+  max-width:90%;
 }
 
 .title {
@@ -161,4 +246,27 @@ p {
   padding: 30px 0 30px;
   color:#fff;
   text-align: center;
+}
+.tab {
+  overflow: hidden;       
+  background-color: #f1f1f1;
+  display: inline-flex;
+  margin-top:-15px;
+}
+
+/* Style the buttons inside the tab */
+.tab a {
+  background-color: #000d42;
+  color: #fff;
+  width: fit-content;
+  font-weight:800;
+  font-family: "montserrat-regular";
+  float: left;
+  border: 1px solid #fff;
+  outline: none;
+/*   pointer-events: none;*/
+  cursor: pointer;        
+  transition: 0.3s;
+  font-size: 13px;
+  padding: 5px 5px 5px 5px;
 }

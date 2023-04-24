@@ -3,11 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { RightMenuComponent } from './views/right-menu/right-menu.component';
 import { RightMenuDetailsComponent } from './views/right-menu-details/right-menu-details.component';
-
+import { RightMenuDetailsCardComponent } from './core/right-menu-details-card/right-menu-details-card.component';
 const routes: Routes = [  
   { path: '', component: HomeComponent },
   { path: ':id', component: RightMenuComponent },
   { path: ':pageType/:id', component: RightMenuDetailsComponent },
+ /* children: [
+    {path:  ':rightPageType', component:RightMenuDetailsCardComponent}
+//    {path:'ancient', component:AncientComponent},
+  ]}*/
 ];
 
 @NgModule({

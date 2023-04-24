@@ -24,7 +24,36 @@ export class RightMenuService {
       })
     });
   }
-  
+  public getAnalyticsData(): any {
+    return new Promise<any>((resolve, reject) => {
+      const endpoint =  appConfig.GET_ANALYTICS ;
+//      console.log("endpoint...",endpoint); 
+      this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+
+  }
+  public getTagList(): any {
+    return new Promise<any>((resolve, reject) => {
+      const endpoint =  appConfig.GET_TAG_LIST ;
+//      console.log("endpoint...",endpoint); 
+      this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+
+  }
   public submitContactForm(contactForm: any): any {
     return new Promise<any>((resolve, reject) => {
       const endpoint =  appConfig.SEND_CONTACT_FORM ;
@@ -61,6 +90,23 @@ export class RightMenuService {
       })
     });
   }
+
+  public findTag(tag: string): any {
+    return new Promise<any>((resolve, reject) => {
+      const endpoint =  appConfig.GET_TAG + tag+"&sort=Type";
+//      console.log("tag",tag); 
+      this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
+//        console.log("resp",resp);
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+  }
+  
   public getDetailsData(type: string, blogTitle: string): any {console.log(type,blogTitle)
     return new Promise<any>((resolve, reject) => {
       const endpoint =  appConfig.RIGHT_MENU_TYPE + type + appConfig.RIGHT_MENU_VIEW_TYPE + blogTitle;

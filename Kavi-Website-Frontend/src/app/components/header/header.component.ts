@@ -9,9 +9,11 @@ import {
 import { cloneDeep } from 'lodash';
 import { Router, ActivatedRoute,  NavigationStart, NavigationEnd } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT} from '@angular/common';
 import { Subscription } from 'rxjs';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RightMenuService } from 'src/app/views/right-menu/right-menu.service';
+import { HomeComponent} from 'src/app/views/home/home.component';
 //import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-header',
@@ -26,7 +28,7 @@ export class HeaderComponent implements OnInit {
   public isDataLoaded: boolean = false;
   public leftMenuCardOne: any = [];
   public leftMenuCardTwo: any = [];
-
+  public searchTagValue: any = [];
   public showMenu: boolean = false;
   public isScroll: boolean = false;
   private getMenuItem: Subscription | undefined;
@@ -34,11 +36,13 @@ export class HeaderComponent implements OnInit {
   constructor(
     public router: Router,
     public commonService: CommonService,
-    public rightMenuService: RightMenuService,
+    public rightMenuService: RightMenuService, 
+    public modalService: NgbModal,
     @Inject(DOCUMENT) private document: Document
   ) { }
 
   ngOnInit(): void {
+//    this.router.routeReuseStrategy.shouldReuseRoute = () => false; 
     this.document.body.classList.remove('hide-scroll');
     this.getMenuItem = this.commonService.getMenuItem.subscribe((menuItem: any) => {     
       this.makeMenuList();
@@ -62,6 +66,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public makeMenuList() {
+//    console.log("menulist",this.commonService.menuData);
     this.menuData = cloneDeep(this.commonService.menuData);
     let LeftMenu: any = cloneDeep(this.menuData?.LeftMenu);
     this.leftMenuCardOne = LeftMenu.filter((element: any) => element.Card === 'Card1');
@@ -69,19 +74,43 @@ export class HeaderComponent implements OnInit {
 //    console.log("menuData",this.menuData);
   }
 
-  public makeMenuActive(menuItem?: any) {console.log("menuItem",menuItem);
+  public makeMenuActive(menuItem?: any) {//console.log("menuItem",menuItem);
     this.showMenu = false;
     this.document.body.classList.remove('hide-scroll'); 
     if (menuItem) {
-      if(menuItem == 'ContactUs')
+      if(menuItem == 'ContactUs'){
       this.commonService.activeMenuName = 'ContactUs';
-      else if(menuItem == 'Careers')
-      this.commonService.activeMenuName = 'Careers';
-      else
-      this.commonService.activeMenuName = menuItem.Label;
       setTimeout(() => {
         this.commonService.routeChangeSubscription.next(true);        
       }, 100);
+      }
+      else if(menuItem == 'Careers'){
+  //    this.commonService.activeMenuName = 'Careers';
+      setTimeout(() => {
+        this.commonService.routeChangeSubscription.next(true);        
+      }, 100);
+      
+      }
+      else if(menuItem == 'SearchTag'){
+      this.commonService.activeMenuName = this.searchTagValue;
+      setTimeout(() => {
+        this.commonService.routeChangeSubscription.next(true);        
+      }, 100);
+      }
+      else if(menuItem == 'UserForm'){
+   //     this.commonService.activeMenuName = this.searchTagValue;
+        setTimeout(() => {
+          this.commonService.routeChangeSubscription.next(true);        
+        }, 100);
+        }
+      else{
+      this.commonService.activeMenuName = menuItem.Label;
+      this.makeMenuList();
+ //     console.log("activeMenuName",this.commonService.activeMenuName);  
+        setTimeout(() => {
+          this.commonService.routeChangeSubscription.next(true);        
+        }, 100);
+      }         
     }
     else {
       this.commonService.activeMenuName = '';
@@ -109,6 +138,7 @@ export class HeaderComponent implements OnInit {
     
   }
   public makeOfferingsActive(menuItem?: any,selectedMenu?: any) {
+  //  console.log("xxxx",menuItem,selectedMenu);
     this.showMenu = false;    
     this.document.body.classList.remove('hide-scroll');    
     if (menuItem.offerings.data && menuItem.offerings.data.length > 0 
@@ -139,6 +169,22 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(['/']);
     }
   }
+
+requestForm(){ 
+  this.makeMenuActive('UserForm'); 
+  this.router.navigate(["/UserForm"]); 
+}
+
+searchTag(searchText:any){ 
+ if(searchText.value == ''){
+ }
+ else{
+  this.searchTagValue = searchText.value;
+  this.makeMenuActive('SearchTag');  
+  searchText.value='';
+  this.router.navigate(["/SearchTag="+this.searchTagValue]);
+ }
+}
 
   toggleDiv() {
     this.showMenu = !this.showMenu;
