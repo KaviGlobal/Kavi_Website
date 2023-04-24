@@ -1,8 +1,17 @@
 <div *ngIf="!isDataLoaded && !isOfferingsLoaded && 
-!isContactUs && !isAboutUs && !isPolicy && !isCareers">    
+!isContactUs && !isAboutUs && !isPolicy && !isPersonal && !isCareers  
+&& !searchTag && !isUserForm">
     <app-page-loader></app-page-loader>
+</div> 
+<div *ngIf="(isPolicy || isPersonal) && !isUserForm">
+    <div class="container">
+        <markdown [data]="terms"> </markdown>
+        <div class="modalFooter">
+            <button type="button" id="closeModal"  (click)="onClose()">Close</button>
+            </div>
+    </div>        
 </div>
-<div *ngIf="isContactUs" class="page-container"> 
+<div *ngIf="isContactUs && !isUserForm" class="page-container"> 
     <div class="container">
         <h3 class="title">Contact Us</h3> 
     <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
@@ -37,26 +46,70 @@
  
     </div>
 </div>
-<div *ngIf="isDataLoaded" class="page-container"> 
+<div *ngIf="isUserForm" class="page-container"> 
+    <div class="container">
+      
+        <h3 class="title" style="padding:10px;">User Request Form</h3> 
+    <form [formGroup]="userForm" (ngSubmit)="submitUserForm()">
+        <div>
+            <label for="tags">Select Options :</label>
+            <select formControlName="tags">
+                <option value="null" disabled="true" [selected]="true">Select Options</option>                
+                <option *ngFor="let item of masterTagList" value="{{item.attributes?.Name}}">  {{item.attributes?.DisplayName}}  </option>
+              
+            </select>
+            </div>
+        <div>
+        <label for="role">Select Professional Type:</label>
+        <select formControlName="role">
+            <option value="null" disabled="true" [selected]="true">Professional Type</option>
+            <option>Technical Expert</option>
+            <option>Senior Executive</option>
+            <option>General User</option>
+        </select>
+        </div>
+        <div style="padding:10px;">   
+            <button id="userFormSubmit" type="submit" value="Submit" >Submit</button>
+        </div>        
+        </form>
+
+    </div>
+</div>
+<div *ngIf="isDataLoaded && !isUserForm" class="page-container"> 
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-8 col-lg-9 border-right"> 
                 <div class="page-content-section">
                     <div *ngFor="let item of pageData; let i = index">                      
                         <div class="pb-5" *ngIf ="item?.attributes?.ShortContent">
-                            <app-right-menu-details-card [title]="item?.attributes?.Title"
+                            <app-right-menu-details-card 
+                            [title]="item?.attributes?.Title"
+                            [authorDetails]="item?.attributes?.Authors?.data"                            
+                            [date]="item?.attributes?.PublishedOn">
+                            </app-right-menu-details-card>                            
+                            <div class="tab" *ngFor="let tag of item?.attributes?.Tags?.data">                                
+                                <a (click) = "callTag('/SearchTag='+ tag?.attributes?.Name)">
+                                    {{tag.attributes.DisplayName}}
+                                </a>                                                             
+                            </div>                  
+                        
+                            <app-right-menu-details-card 
                                 [cardImage]="item?.attributes?.CoverImage?.data?.attributes?.url"
                                 [cardContent]="item?.attributes?.ShortContent" 
-                                [authorDetails]="item?.attributes?.Authors?.data"
-                                [date]="item?.attributes?.PublishedOn">
+                               >
                             </app-right-menu-details-card>
-                            <a routerLink="{{'/'+ routePath + '/'+ item?.attributes?.Title}}" class="read-more">Read
+    <!--                        <a routerLink="{{'/'+ item?.attributes?.Type + '/'+ item?.attributes?.Slug}}" class="read-more">Read
                                 More...</a>
+    -->                        <a *ngIf="searchTag || pageDetailsName =='analytics'" routerLink="{{'/'+ routePath + '/'+ item?.attributes?.Type + '/'+ item?.attributes?.Slug}}" class="read-more">Read
+                                More...</a>
+                            <a *ngIf="!searchTag && pageDetailsName !='analytics'" routerLink="{{'/'+ routePath + '/'+ item?.attributes?.Slug}}" class="read-more">Read
+                                    More...</a>
                         </div>
                         <div class="pb-5" *ngIf ="item?.attributes?.ContentLink">                            
                             <app-right-menu-details-card [title]="item?.attributes?.Title"                            
                             [authorDetails]="item?.attributes?.Authors?.data"
                             [date]="item?.attributes?.PublishedOn"
+                            [tags]="item?.attributes?.Tags?.data"
                             >
                             </app-right-menu-details-card>   
                             <div class="container-fluid">  
@@ -64,10 +117,11 @@
                                 [src]="item?.attributes?.ContentLink.Url | customPipe" allow="encrypted-media" allowfullscreen=""></iframe>
                             </div>
                         </div>                
-                        <div class="pb-5" *ngIf ="item?.attributes?.Media?.data">                           
+                        <div class="pb-5" *ngIf ="item?.attributes?.Media?.data && isPublications">                           
                             <app-right-menu-details-card [title]="item?.attributes?.Title"                            
                             [authorDetails]="item?.attributes?.Authors?.data"
                             [date]="item?.attributes?.PublishedOn"
+                            [tags]="item?.attributes?.Tags?.data"
                             >
                             </app-right-menu-details-card>
                             <div class="container-fluid">  
@@ -75,27 +129,27 @@
                                 [src]="item?.attributes?.Media?.data[0].attributes.url | customPipe" allow="encrypted-media" allowfullscreen=""></iframe>
                                                          
                             </div>
-                        </div>                  
+                        </div>                 
                     </div>                    
                 </div>
             </div>
             <div class="col-12 col-md-4 col-lg-3 border-left">
-                <div class="pt-5">
-                    <app-right-menu-sidebar [data]="pageData"></app-right-menu-sidebar>
+                <div class="pt-5"><!--pageData-->
+                    <app-right-menu-sidebar [data]="rightPageData"></app-right-menu-sidebar>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div *ngIf="isOfferingsLoaded" class="page-container"> 
+<div *ngIf="isOfferingsLoaded && !isUserForm" class="page-container"> 
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-8 col-lg-9 border-right">
                 <div *ngFor="let item of pageData">
                     <div class="page-content py-4" >
-                        <div [innerHTML]="parseRichText(offeringsFullContent)"></div>
-                    <!--    <markdown [data]="parseRichText(offeringsFullContent)"> </markdown>-->                         
+                    <!--    <div [innerHTML]="parseRichText(offeringsFullContent)"></div> -->
+                        <markdown [data]="(offeringsFullContent)"> </markdown>                         
                     
                 </div>
                 </div>                
@@ -104,27 +158,29 @@
                 <app-right-menu-sidebar [data]="pageData"></app-right-menu-sidebar>
             </div>
             <div class="recommendation-section" *ngIf="recommendationMetaData && recommendationMetaData.length > 0">
-                <div *ngFor="let posts of recommendationMetaData">
-                    <div class="">
+                <div *ngFor="let posts of recommendationMetaData;let display = index">
+                    <div class="" *ngIf="isRecommendationDisplay[0]?.[posts.TypeFilter]" > 
                         <h3>{{posts.Title}}</h3>
                     </div>       
                     <div class="py-4">
                         <div class="row">
                             <ng-container *ngFor="let item of recommendationData;let i = index">                                
                                 <div class="col-6 col-md-4">
-                                    <div class="pb-4" *ngIf="item.attributes.Type == posts.TypeFilter">
+                                    <div class="pb-4" *ngIf="item.attributes.Type == posts.TypeFilter"> 
                                         <div *ngIf = "!item.attributes.CoverImage.data">
                                             <app-card-layout 
                                                 [title]="item.attributes.Title" [description]="item.attributes.ShortContent"
                                                 [moduleName]="posts.TypeFilter" [hyperlinkText]="posts.LinkLabel"
+                                                [slug]="item.attributes.Slug"
                                                 [type]="'recommendation-card-layout'">
                                             </app-card-layout>                                               
                                         </div> 
-                                        <div *ngIf = "item.attributes.CoverImage.data">                                                                                    
+                                        <div *ngIf = "item.attributes.CoverImage.data">                                                                                   
                                         <app-card-layout 
                                             [image] = "item.attributes.CoverImage.data.attributes.formats.thumbnail.url"
                                             [title]="item.attributes.Title" [description]="item.attributes.ShortContent"
                                             [moduleName]="posts.TypeFilter" [hyperlinkText]="posts.LinkLabel"
+                                            [slug]="item.attributes.Slug"
                                             [type]="'recommendation-card-layout'">
                                         </app-card-layout>                                               
                                         </div>
@@ -140,14 +196,12 @@
     </div>
 </div>
 
-<div *ngIf="isAboutUs || isCareers" class="page-container" style="padding-right: 0px;"> 
+<div *ngIf="(isAboutUs || isCareers) && !isUserForm" class="page-container" style="padding-right: 0px;"> 
     <div class="container" >        
         <div class="row">           
             <div class="col-12 col-md-8 col-lg-9 border-right" >
                 <div class="page-content py-4" *ngIf="pageData.length == 0">
-             <!--       <markdown [data]="(offeringsFullContent)"> </markdown>-->
-             <div [innerHTML]="parseRichText(offeringsFullContent)">
-             </div>         
+                    <markdown [data]="(offeringsFullContent)"> </markdown>         
             </div>               
             </div>
             <div class="col-12 col-md-4 col-lg-3 border-left" *ngIf="pageData.length == 0">
@@ -167,7 +221,7 @@
                    <div class="flex flex-wrap -m-3">   
                         <div class="w-full sm:w-1/2 md:w-1/3 flex flex-col p-3">
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden flex-1 flex flex-col">
-      
+     
                             <app-card-layout (click)="getTeamDetails(item.attributes)"
                             [image] = "item?.attributes?.Image?.Media?.data?.attributes?.url"
                             [title]="item?.attributes?.Name"                        
@@ -190,15 +244,13 @@
     </div>
       
 </div>
+
+<!--
 <div *ngIf="isPolicy" class="page-container"> 
     <div class="container">
-        <div class="row">
-            <div class="page-content py-4" style="padding-left:10px;padding-right:10px">
-                <markdown [data]="terms"> </markdown>                
-            </div>  
-            <div class="modalFooter">
+        <markdown [data]="terms"> </markdown>
+        <div class="modalFooter">
             <button type="button" id="closeModal"  (click)="onClose()">Close</button>
-            </div>         
-        </div>
+            </div>
     </div>
-</div>
+</div>-->
