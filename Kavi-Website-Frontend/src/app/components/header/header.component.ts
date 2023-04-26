@@ -91,18 +91,18 @@ export class HeaderComponent implements OnInit {
       }, 100);
       
       }
-      else if(menuItem == 'SearchTag'){
+      else if(menuItem == 'SearchTag' || menuItem == 'UserForm'){
       this.commonService.activeMenuName = this.searchTagValue;
       setTimeout(() => {
         this.commonService.routeChangeSubscription.next(true);        
       }, 100);
       }
-      else if(menuItem == 'UserForm'){
-   //     this.commonService.activeMenuName = this.searchTagValue;
+/*      else if(menuItem == 'UserForm'){
+        this.commonService.activeMenuName = this.searchTagValue;
         setTimeout(() => {
           this.commonService.routeChangeSubscription.next(true);        
         }, 100);
-        }
+        }*/
       else{
       this.commonService.activeMenuName = menuItem.Label;
       this.makeMenuList();

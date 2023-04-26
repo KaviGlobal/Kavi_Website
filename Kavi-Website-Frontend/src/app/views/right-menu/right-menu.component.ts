@@ -169,9 +169,10 @@ export class RightMenuComponent implements OnInit  {
   modalRef.componentInstance.isPersonal = true;
 }
   submitUserForm(){
-    console.log("xxxxx",this.userForm.value,this.userForm.value.role,this.userForm.value.tags);
+//    console.log("xxxxx",this.userForm.value,this.userForm.value.role,this.userForm.value.tags);
     let tag=this.userForm.value.tags;
     this.commonService.activeMenuName = '/SearchTag='+tag;
+  //  this.routePath = this.commonService.activeMenuName;
     this.isDataLoaded = false;
     this.loadPageData();
  }
@@ -219,7 +220,7 @@ export class RightMenuComponent implements OnInit  {
         this.routePath='';    
       });
     }*/
-//    console.log("routePath",this.routePath,this.commonService.activeMenuName);
+    console.log("routePath",this.routePath,this.commonService.activeMenuName);
      if(this.commonService.activeMenuName.includes("SearchTag")){
       this.rightMenuService.findTag((this.commonService.activeMenuName).split('=')[1]).then((response: any) => {
       if(response.data.length > 0){
@@ -228,7 +229,7 @@ export class RightMenuComponent implements OnInit  {
         this.isDataLoaded = true;
         this.isUserForm = false;
         this.routePath='';
-        console.log("routePath123",  this.searchTag ,this.isDataLoaded);
+        console.log("routePath123",  this.searchTag ,this.isDataLoaded,this.commonService.activeMenuName);
       }
       else{
         this.isDataLoaded = false;
@@ -338,7 +339,8 @@ else if (this.routePath && !this.commonService.activeMenuName.includes("SearchTa
             } 
 //            console.log("pageData",this.pageData);
             this.isDataLoaded = true;  
-            this.rightPageData = [];          
+            this.rightPageData = [];  
+            if(!this.isPublications )        
             this.rightPageData.push(this.pageData);          
           });   
         } 

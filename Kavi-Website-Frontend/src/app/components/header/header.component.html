@@ -14,7 +14,7 @@
             <i class='fas fa-home'></i>            
           </a>          
         </div>        
-      <a (click)="requestForm()" >
+      <a (click)="requestForm()" *ngIf="commonService.activeMenuName != 'UserForm'">
         <i class="fa fa-address-card"></i> 
       </a>
         <a href="tel:+1-847-387-6760">
