@@ -14,17 +14,33 @@
   "attributes": {
     "Name": {
       "type": "string"
-    },    
+    },
     "DisplayName": {
       "type": "string"
     },
-    "TagGroup": {
+    "Description": {
+      "type": "text"
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "tag_dimension": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tag-dimension.tag-dimension",
+      "inversedBy": "tags"
+    },
+    "tag_group": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::tag-group.tag-group"
     },
-    "ParentTag": {
-      "type": "string"
+    "parent_tag": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tag.tag"
     }
   }
 }

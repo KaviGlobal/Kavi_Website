@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "tag_groups",
+  "collectionName": "tag_dimensions",
   "info": {
-    "singularName": "tag-group",
-    "pluralName": "tag-groups",
-    "displayName": "Tag Group",
+    "singularName": "tag-dimension",
+    "pluralName": "tag-dimensions",
+    "displayName": "Tag Dimension",
     "description": ""
   },
   "options": {
@@ -26,10 +26,11 @@
       "repeatable": false,
       "component": "seo.seo"
     },
-    "tag_dimension": {
+    "tags": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::tag-dimension.tag-dimension"
+      "relation": "oneToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "tag_dimension"
     }
   }
 }
