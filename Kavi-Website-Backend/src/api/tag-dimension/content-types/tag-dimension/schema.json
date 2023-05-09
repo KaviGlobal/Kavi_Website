@@ -25,12 +25,6 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
-    },
-    "tags": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::tag.tag",
-      "mappedBy": "tag_dimension"
     }
   }
 }

@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * subscribe service
+ * client service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::subscribe.subscribe');
+module.exports = createCoreService('api::client.client');

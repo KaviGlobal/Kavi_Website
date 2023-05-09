@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * subscribe router
+ * person router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::subscribe.subscribe');
+module.exports = createCoreRouter('api::person.person');

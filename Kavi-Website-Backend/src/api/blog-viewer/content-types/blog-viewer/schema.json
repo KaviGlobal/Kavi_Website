@@ -36,6 +36,11 @@
       "type": "component",
       "repeatable": false,
       "component": "custom.recommendation"
+    },
+    "ContentAPI": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.content-link"
     }
   }
 }

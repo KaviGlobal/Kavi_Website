@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "ContactUs": {
-      "type": "component",
-      "repeatable": false,
-      "component": "custom.contact-us"
-    },
     "Form": {
       "type": "component",
       "repeatable": true,

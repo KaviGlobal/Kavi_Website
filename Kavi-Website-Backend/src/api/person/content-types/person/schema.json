@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "authors",
+  "collectionName": "people",
   "info": {
-    "singularName": "author",
-    "pluralName": "authors",
-    "displayName": "Author",
-    "description": ""
+    "singularName": "person",
+    "pluralName": "people",
+    "displayName": "People"
   },
   "options": {
     "draftAndPublish": true
