@@ -15,32 +15,27 @@
     "Title": {
       "type": "string"
     },
-    "AuthorName": {
+    "CoverImage": {
       "type": "string"
     },
-    "Date": {
+    "FullContent": {
       "type": "string"
     },
-    "Media": {
-      "type": "string"
-    },
-    "Content": {
-      "type": "string"
+    "Recommendations": {
+      "type": "component",
+      "repeatable": false,
+      "component": "posts.recommendation"
     },
     "Author": {
       "type": "component",
       "repeatable": false,
       "component": "custom.author"
     },
-    "Recommendation": {
-      "type": "component",
-      "repeatable": false,
-      "component": "custom.recommendation"
+    "PublishedDate": {
+      "type": "string"
     },
-    "ContentAPI": {
-      "type": "component",
-      "repeatable": false,
-      "component": "custom.content-link"
+    "Tags": {
+      "type": "text"
     }
   }
 }

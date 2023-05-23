@@ -43,8 +43,21 @@
       "repeatable": true,
       "component": "media.image"
     },
+    "ExternalLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.content-link"
+    },
+    "isDownloadable": {
+      "type": "boolean"
+    },
     "PublishedOn": {
       "type": "date"
+    },
+    "Publisher": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::publisher.publisher"
     },
     "Tags": {
       "type": "relation",
@@ -60,12 +73,6 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
-    },
-    "isDownloadable": {
-      "type": "boolean"
-    },
-    "Type": {
-      "type": "string"
     }
   }
 }

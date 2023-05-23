@@ -1,30 +1,27 @@
 {
-  "collectionName": "components_custom_recommendations",
+  "collectionName": "components_posts_clients",
   "info": {
-    "displayName": "ListForViewer",
+    "displayName": "Client",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "Title": {
+    "Slug": {
       "type": "string"
     },
-    "ItemMedia": {
+    "Name": {
       "type": "string"
     },
-    "ItemTitle": {
+    "Location": {
       "type": "string"
     },
-    "ItemContent": {
+    "Logo": {
       "type": "string"
     },
-    "LinkLabel": {
+    "Url": {
       "type": "string"
     },
-    "MaxCount": {
-      "type": "integer"
-    },
-    "TypeFilter": {
+    "Industry": {
       "type": "string"
     }
   }

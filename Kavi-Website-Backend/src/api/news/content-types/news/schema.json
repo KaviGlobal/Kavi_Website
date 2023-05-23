@@ -43,31 +43,28 @@
       "repeatable": true,
       "component": "media.image"
     },
-    "DateReleased": {
+    "ReleasedOn": {
       "type": "date"
+    },
+    "NewsMedia": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::news-media.news-media"
+    },
+    "ExternalLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.content-link"
     },
     "Tags": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::tag.tag"
     },
-    "Authors": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::person.person"
-    },
     "Seo": {
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
-    },
-    "PreRelease": {
-      "type": "richtext"
-    },
-    "MediaType": {
-      "type": "component",
-      "repeatable": true,
-      "component": "media.media-type"
     }
   }
 }

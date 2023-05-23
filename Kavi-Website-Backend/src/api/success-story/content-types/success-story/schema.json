@@ -43,28 +43,23 @@
       "repeatable": true,
       "component": "media.image"
     },
-    "YearDelivered": {
+    "DeliveredOn": {
       "type": "date"
+    },
+    "Client": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::client.client"
     },
     "Tags": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::tag.tag"
     },
-    "Authors": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::person.person"
-    },
     "Seo": {
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
-    },
-    "Client": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::client.client"
     }
   }
 }

@@ -31,6 +31,10 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::leadership-team.leadership-team"
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Name"
     }
   }
 }

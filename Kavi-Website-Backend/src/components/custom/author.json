@@ -6,16 +6,25 @@
   },
   "options": {},
   "attributes": {
-    "Image": {
+    "Slug": {
       "type": "string"
     },
     "Name": {
       "type": "string"
     },
+    "DisplayName": {
+      "type": "string"
+    },
     "Title": {
       "type": "string"
     },
-    "Bio": {
+    "Thumbnail": {
+      "type": "string"
+    },
+    "PreviewContent": {
+      "type": "string"
+    },
+    "Email": {
       "type": "string"
     },
     "MaxCount": {

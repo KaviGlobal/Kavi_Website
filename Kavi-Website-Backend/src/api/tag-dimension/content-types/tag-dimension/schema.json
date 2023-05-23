@@ -25,6 +25,10 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Name"
     }
   }
 }

@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_menu_menus",
+  "info": {
+    "displayName": "Menu",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "DisplayOrder": {
+      "type": "integer"
+    },
+    "IsTitle": {
+      "type": "boolean"
+    },
+    "Page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
+    }
+  }
+}

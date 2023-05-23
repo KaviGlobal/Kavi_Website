@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "list_viewers",
+  "info": {
+    "singularName": "list-viewer",
+    "pluralName": "list-viewers",
+    "displayName": "ListViewer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "MaxCount": {
+      "type": "integer"
+    },
+    "RecentList": {
+      "type": "component",
+      "repeatable": false,
+      "component": "posts.post-list"
+    },
+    "TagDimension": {
+      "type": "string"
+    },
+    "Tags": {
+      "type": "string"
+    },
+    "TagMaxCount": {
+      "type": "integer"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_posts_list_viewers",
+  "info": {
+    "displayName": "ListViewer"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    }
+  }
+}

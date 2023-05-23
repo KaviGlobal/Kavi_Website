@@ -4,7 +4,8 @@
   "info": {
     "singularName": "podcast",
     "pluralName": "podcasts",
-    "displayName": "Podcast"
+    "displayName": "Podcast",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -42,15 +43,25 @@
       "repeatable": true,
       "component": "media.image"
     },
-    "DataReleased": {
+    "BroadcastedOn": {
       "type": "date"
+    },
+    "PodcastPlatforms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::podcast-platform.podcast-platform"
+    },
+    "ExternalLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.content-link"
     },
     "Tags": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::tag.tag"
     },
-    "Authors": {
+    "Speakers": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::person.person"
@@ -59,11 +70,6 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
-    },
-    "Speakers": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::person.person"
     }
   }
 }

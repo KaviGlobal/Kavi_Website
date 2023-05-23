@@ -15,19 +15,44 @@
     "Title": {
       "type": "string"
     },
-    "Media": {
+    "CoverImage": {
       "type": "string"
     },
-    "Description": {
+    "PreviewContent": {
       "type": "string"
     },
-    "Content": {
+    "FullContent": {
       "type": "string"
     },
-    "Posts": {
+    "RelatedBlogs": {
       "type": "component",
-      "repeatable": true,
-      "component": "custom.recommendation"
+      "repeatable": false,
+      "component": "posts.recommendation"
+    },
+    "RelatedNews": {
+      "type": "component",
+      "repeatable": false,
+      "component": "posts.recommendation"
+    },
+    "RelatedSuccessStories": {
+      "type": "component",
+      "repeatable": false,
+      "component": "posts.recommendation"
+    },
+    "RelatedPresentation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "posts.recommendation"
+    },
+    "RelatedPublication": {
+      "type": "component",
+      "repeatable": false,
+      "component": "posts.recommendation"
+    },
+    "RelatedPodcast": {
+      "type": "component",
+      "repeatable": false,
+      "component": "posts.recommendation"
     }
   }
 }

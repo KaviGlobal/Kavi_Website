@@ -35,6 +35,10 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::tag-dimension.tag-dimension"
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Name"
     }
   }
 }
