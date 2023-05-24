@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "menus",
+  "collectionName": "menu_items",
   "info": {
-    "singularName": "menu",
-    "pluralName": "menus",
-    "displayName": "Menu",
+    "singularName": "menu-item",
+    "pluralName": "menu-items",
+    "displayName": "MenuItem",
     "description": ""
   },
   "options": {
@@ -13,10 +13,12 @@
   "pluginOptions": {},
   "attributes": {
     "Slug": {
-      "type": "uid",
-      "targetField": "Name"
+      "type": "uid"
     },
-    "Name": {
+    "Menu": {
+      "type": "string"
+    },
+    "ItemName": {
       "type": "string"
     },
     "DisplayName": {
@@ -28,10 +30,16 @@
     "DisplayOrder": {
       "type": "integer"
     },
-    "ParentMenu": {
+    "ParentItem": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::menu.menu"
+      "target": "api::menu-item.menu-item"
+    },
+    "Viewer": {
+      "type": "string"
+    },
+    "Parameter": {
+      "type": "json"
     },
     "Seo": {
       "type": "component",

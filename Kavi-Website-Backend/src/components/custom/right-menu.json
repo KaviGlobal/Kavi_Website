@@ -6,17 +6,17 @@
   },
   "options": {},
   "attributes": {
-    "Title": {
+    "Name": {
       "type": "string"
     },
     "Label": {
       "type": "string"
     },
-    "ContentLink": {
-      "type": "text"
-    },
     "DisplayOrder": {
       "type": "integer"
+    },
+    "ContentLink": {
+      "type": "string"
     }
   }
 }

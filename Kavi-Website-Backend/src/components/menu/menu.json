@@ -6,6 +6,9 @@
   },
   "options": {},
   "attributes": {
+    "Name": {
+      "type": "string"
+    },
     "Label": {
       "type": "string"
     },
@@ -15,10 +18,10 @@
     "IsTitle": {
       "type": "boolean"
     },
-    "Page": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::page.page"
+    "ContentLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.content-link"
     }
   }
 }
