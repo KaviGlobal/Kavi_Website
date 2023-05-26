@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_custom_about_kavis",
+  "info": {
+    "displayName": "AboutKavi"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "PreviewContent": {
+      "type": "string"
+    }
+  }
+}

@@ -12,54 +12,32 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "FooterSubscription": {
+    "Subscription": {
       "type": "component",
       "repeatable": false,
       "component": "custom.subscription"
     },
     "KaviLogo": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "AboutKavi": {
-      "type": "string"
-    },
-    "Sliders": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "ContactUs": {
       "type": "component",
-      "repeatable": true,
-      "component": "text.icon-text"
-    },
-    "FollowUs": {
-      "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "media.image"
     },
-    "Copyright": {
+    "AboutKaviTitle": {
+      "type": "text"
+    },
+    "Label": {
       "type": "string"
     },
-    "PrivacyLabel": {
-      "type": "string"
+    "SocialMedia": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.content-link"
     },
     "PrivacyPolicies": {
-      "type": "richtext"
+      "type": "string"
+    },
+    "AboutKaviPreviewContent": {
+      "type": "string"
     }
   }
 }

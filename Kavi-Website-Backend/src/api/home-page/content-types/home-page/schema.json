@@ -83,12 +83,6 @@
       "relation": "oneToMany",
       "target": "api::post.post"
     },
-    "Subscription": {
-      "displayName": "Subscription",
-      "type": "component",
-      "repeatable": false,
-      "component": "custom.subscription"
-    },
     "Seo": {
       "type": "component",
       "repeatable": false,
