@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menus",
+  "info": {
+    "singularName": "menu",
+    "pluralName": "menus",
+    "displayName": "Menu",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Slug": {
+      "type": "uid",
+      "targetField": "Name"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "DisplayName": {
+      "type": "string"
+    },
+    "IsTitle": {
+      "type": "boolean"
+    },
+    "DisplayOrder": {
+      "type": "integer"
+    },
+    "ParentMenu": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::menu.menu"
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}

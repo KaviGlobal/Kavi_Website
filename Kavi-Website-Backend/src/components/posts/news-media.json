@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_posts_news_medias",
+  "info": {
+    "displayName": "NewsMedia",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Slug": {
+      "type": "string"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Logo": {
+      "type": "string"
+    },
+    "Url": {
+      "type": "string"
+    }
+  }
+}

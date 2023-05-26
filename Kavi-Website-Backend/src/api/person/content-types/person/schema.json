@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "people",
+  "info": {
+    "singularName": "person",
+    "pluralName": "people",
+    "displayName": "People",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Slug": {
+      "type": "uid",
+      "targetField": "Name"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "DisplayName": {
+      "type": "string"
+    },
+    "Thumbnail": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
+    },
+    "CoverImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
+    },
+    "Media": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
+    },
+    "Team": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "Leadership": {
+      "type": "boolean"
+    },
+    "PreviewContent": {
+      "type": "richtext"
+    },
+    "FullContent": {
+      "type": "richtext"
+    },
+    "SocialMedia": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.content-link"
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": true,
+      "component": "seo.seo"
+    }
+  }
+}

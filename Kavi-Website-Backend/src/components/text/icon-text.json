@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_text_icon_texts",
+  "info": {
+    "displayName": "IconText",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Text": {
+      "type": "string"
+    },
+    "Alt": {
+      "type": "string"
+    }
+  }
+}

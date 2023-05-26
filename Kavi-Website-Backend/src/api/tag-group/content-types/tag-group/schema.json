@@ -15,10 +15,6 @@
     "Name": {
       "type": "string"
     },
-    "Slug": {
-      "type": "uid",
-      "targetField": "Name"
-    },
     "DisplayName": {
       "type": "string"
     },
@@ -30,10 +26,10 @@
       "repeatable": false,
       "component": "seo.seo"
     },
-    "parent_group": {
+    "tag_dimension": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::tag-group.tag-group"
+      "target": "api::tag-dimension.tag-dimension"
     }
   }
 }

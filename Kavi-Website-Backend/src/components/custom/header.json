@@ -16,6 +16,9 @@
       "type": "component",
       "repeatable": false,
       "component": "media.image"
+    },
+    "Title": {
+      "type": "string"
     }
   }
 }

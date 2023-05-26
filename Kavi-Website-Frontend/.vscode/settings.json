@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/f4d326b6-641e-4efb-9fc3-7a6c8a7a7559/resourceGroups/temp-poc-rg/providers/Microsoft.Web/sites/temp-web",
+    "appService.deploySubpath": "dist"
+}

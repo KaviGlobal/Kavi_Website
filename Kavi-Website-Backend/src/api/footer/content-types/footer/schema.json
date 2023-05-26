@@ -1,0 +1,65 @@
+{
+  "kind": "singleType",
+  "collectionName": "footers",
+  "info": {
+    "singularName": "footer",
+    "pluralName": "footers",
+    "displayName": "Footer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FooterSubscription": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.subscription"
+    },
+    "KaviLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "AboutKavi": {
+      "type": "string"
+    },
+    "Sliders": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "ContactUs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "text.icon-text"
+    },
+    "FollowUs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.image"
+    },
+    "Copyright": {
+      "type": "string"
+    },
+    "PrivacyLabel": {
+      "type": "string"
+    },
+    "PrivacyPolicies": {
+      "type": "richtext"
+    }
+  }
+}

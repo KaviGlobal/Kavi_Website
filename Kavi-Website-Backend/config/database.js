@@ -2,7 +2,7 @@ module.exports = ({ env }) => ({
   connection: {
     client: 'postgres',
     connection: {
-      host: env('DATABASE_HOST', 'kavi-strapi-app-db.postgres.database.azure.com'),
+      host: env('DATABASE_HOST', 'kavi-strapi-app-db2.postgres.database.azure.com'),
       port: env.int('DATABASE_PORT', 5432),
       database: env('DATABASE_NAME', 'strapi'),
       user: env('DATABASE_USERNAME', 'strapi'),

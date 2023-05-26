@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "blog_viewers",
+  "info": {
+    "singularName": "blog-viewer",
+    "pluralName": "blog-viewers",
+    "displayName": "BlogViewer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "CoverImage": {
+      "type": "string"
+    },
+    "FullContent": {
+      "type": "string"
+    },
+    "Recommendations": {
+      "type": "component",
+      "repeatable": false,
+      "component": "posts.recommendation"
+    },
+    "Author": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.author"
+    },
+    "PublishedDate": {
+      "type": "string"
+    },
+    "Tags": {
+      "type": "text"
+    }
+  }
+}

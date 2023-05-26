@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_posts_conferences",
+  "info": {
+    "displayName": "Conference",
+    "icon": "archive",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Slug": {
+      "type": "string"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Location": {
+      "type": "string"
+    },
+    "Logo": {
+      "type": "string"
+    },
+    "Url": {
+      "type": "string"
+    }
+  }
+}

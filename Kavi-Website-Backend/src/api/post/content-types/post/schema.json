@@ -30,7 +30,7 @@
         "audios"
       ]
     },
-    "Content": {
+    "ShortContent": {
       "type": "richtext"
     },
     "Media": {
@@ -50,11 +50,6 @@
     "ExpiresOn": {
       "type": "date"
     },
-    "tags": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::tag.tag"
-    },
     "Seo": {
       "type": "component",
       "repeatable": false,
@@ -67,16 +62,34 @@
         "news",
         "usecase",
         "success_story",
+        "publications",
+        "conferences",
+        "white_papers",
+        "magazines",
+        "podcasts_talks",
         "whitepaper"
       ]
     },
     "Summary": {
       "type": "text"
     },
+    "FullContent": {
+      "type": "richtext"
+    },
+    "Tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    },
     "Authors": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::author.author"
+    },
+    "ContentLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.content-link"
     }
   }
 }

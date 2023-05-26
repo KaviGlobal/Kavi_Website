@@ -4,7 +4,7 @@
   "info": {
     "singularName": "author",
     "pluralName": "authors",
-    "displayName": "authors",
+    "displayName": "Author",
     "description": ""
   },
   "options": {
@@ -25,12 +25,17 @@
       "type": "string"
     },
     "Bio": {
-      "type": "string"
+      "type": "text"
     },
     "Seo": {
       "type": "component",
       "repeatable": true,
       "component": "seo.seo"
+    },
+    "Image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
     }
   }
 }

@@ -15,20 +15,30 @@
     "Name": {
       "type": "string"
     },
+    "DisplayName": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "parent_tag": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tag.tag"
+    },
+    "tag_dimension": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tag-dimension.tag-dimension"
+    },
     "Slug": {
       "type": "uid",
       "targetField": "Name"
-    },
-    "DisplayName": {
-      "type": "text"
-    },
-    "tag_group": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::tag-group.tag-group"
-    },
-    "parent_tag": {
-      "type": "string"
     }
   }
 }

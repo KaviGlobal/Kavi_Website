@@ -1,0 +1,58 @@
+{
+  "kind": "singleType",
+  "collectionName": "offering_viewers",
+  "info": {
+    "singularName": "offering-viewer",
+    "pluralName": "offering-viewers",
+    "displayName": "OfferingViewer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "CoverImage": {
+      "type": "string"
+    },
+    "PreviewContent": {
+      "type": "string"
+    },
+    "FullContent": {
+      "type": "string"
+    },
+    "RelatedBlogs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "posts.recommendation"
+    },
+    "RelatedNews": {
+      "type": "component",
+      "repeatable": false,
+      "component": "posts.recommendation"
+    },
+    "RelatedSuccessStories": {
+      "type": "component",
+      "repeatable": false,
+      "component": "posts.recommendation"
+    },
+    "RelatedPresentation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "posts.recommendation"
+    },
+    "RelatedPublication": {
+      "type": "component",
+      "repeatable": false,
+      "component": "posts.recommendation"
+    },
+    "RelatedPodcast": {
+      "type": "component",
+      "repeatable": false,
+      "component": "posts.recommendation"
+    }
+  }
+}

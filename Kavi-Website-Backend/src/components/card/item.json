@@ -12,10 +12,10 @@
     "LinkLabel": {
       "type": "string"
     },
-    "Menu": {
+    "OfferingType": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::left-menu.left-menu"
+      "target": "api::offering.offering"
     },
     "OfferingMedia": {
       "type": "component",
@@ -24,18 +24,6 @@
     },
     "PreviewText": {
       "type": "richtext"
-    },
-    "Position": {
-      "type": "string"
-    },
-    "ImagePosition": {
-      "type": "string"
-    },
-    "CSSPosition": {
-      "type": "string"
-    },
-    "CSSTop": {
-      "type": "string"
     }
   }
 }
