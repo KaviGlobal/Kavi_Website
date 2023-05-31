@@ -17,27 +17,25 @@
       "repeatable": false,
       "component": "custom.subscription"
     },
-    "KaviLogo": {
+    "Logo": {
       "type": "component",
       "repeatable": false,
       "component": "media.image"
     },
-    "AboutKaviTitle": {
-      "type": "text"
+    "AboutUs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.footer"
     },
-    "Label": {
-      "type": "string"
-    },
+    "PrivacyPolicy": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.footer"
+    }, 
     "SocialMedia": {
       "type": "component",
       "repeatable": true,
       "component": "custom.content-link"
-    },
-    "PrivacyPolicies": {
-      "type": "string"
-    },
-    "AboutKaviPreviewContent": {
-      "type": "string"
     }
   }
 }

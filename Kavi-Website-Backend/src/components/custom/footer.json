@@ -6,40 +6,14 @@
   },
   "options": {},
   "attributes": {
-    "FooterSubscription": {
-      "type": "component",
-      "repeatable": false,
-      "component": "custom.subscription"
-    },
-    "KaviLogo": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "AboutKavi": {
+    "Slug": {
       "type": "string"
     },
-    "Sliders": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "Title": {
+      "type": "string"
     },
-    "ContactUs": {
-      "type": "component",
-      "repeatable": true,
-      "component": "text.icon-text"
+    "PreviewContent": {
+      "type": "string"
     }
   }
 }

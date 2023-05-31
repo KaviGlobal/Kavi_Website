@@ -8,6 +8,9 @@
   "attributes": {
     "Title": {
       "type": "string"
+    },
+    "Action": {
+      "type": "string"
     }
   }
 }
