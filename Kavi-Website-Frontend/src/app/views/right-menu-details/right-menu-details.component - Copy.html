@@ -4,18 +4,16 @@
 <div class="details-content">
     <div class="container" *ngIf="isDataLoaded">
         <div class="row">
-            <div class="col-12 col-md-8 col-lg-9 border-right"> 
+            <div class="col-12 col-md-8 col-lg-9 border-right">
                 <div class="page-content py-4" *ngIf="!isPeople">
                    <h2>{{pageData[0]?.attributes?.Title}}</h2>
-                  <!-- {{viewerData.Title | json}}-->
                     <div *ngIf="pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes">
                         <img [src]=[pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes.url]>
                     </div>
                     <div *ngIf="pageFullContent">
                     <markdown  [data]="pageFullContent"> </markdown>
-                    </div>
-
-                    <div *ngIf="pageData[0]?.attributes?.ExternalLink">                   
+                    </div>   
+                    <div *ngIf="pageData[0]?.attributes?.ExternalLink">                      
                         <div *ngIf="!pageData[0]?.attributes?.NewsMedia && pageData[0]?.attributes?.ExternalLink.length >=1">
                             <div *ngFor="let link of pageData[0]?.attributes?.ExternalLink ">                          
                                 <iframe allow="autoplay *; encrypted-media *; fullscreen *" 
@@ -23,12 +21,6 @@
                                 [src]="link.Url | customPipe"
                                 >
                                 </iframe>
-                            </div>
-                        </div>
-                        <div *ngIf="pageData[0]?.attributes?.NewsMedia && pageData[0]?.attributes?.ExternalLink.length >=1">
-                            <h6>External Link:</h6>
-                            <div *ngFor="let link of pageData[0]?.attributes?.ExternalLink"> 
-                               <a [href]="link.Url | customPipe" target="blank">{{link.Url}}</a>
                             </div>
                         </div>
                         <div *ngIf="pageData[0]?.attributes?.ExternalLink.Url">
@@ -59,15 +51,15 @@
                             </div> 
                         </div>                       
                     </div>
-                </div>           
+                </div>               
                 <div class="people-detail" *ngIf="isPeople">
                     <div class="container rounded bg-white mt-5 mb-5" *ngIf="isPeople">
                     <div class="row">
-                        <div class="col-md-4">                         
+                        <div class="col-md-4">                            
                             <div *ngIf="pageData?.CoverImage?.Media?.data?.attributes">
                                 <img [src]=[pageData?.CoverImage?.Media?.data?.attributes.url]>
                             </div>
-                            <div class="social-wrapper" *ngIf="pageData?.SocialMedia">  
+                            <div class="social-wrapper" *ngIf="pageData?.SocialMedia.length >= 1">  
                                 <div class="social-horizontal" *ngFor="let media of pageData?.SocialMedia">                              
                                     <a *ngIf="media?.Type == 'LinkedIn'" href={{media?.Url}} target="_blank"><i class="fab fa-linkedin"></i></a>  
                                     <a *ngIf="media?.Type == 'Twitter'" href={{media?.Url}} target="_blank"><i class="fab fa-twitter-square"></i></a>
@@ -123,53 +115,41 @@
                     [clients] = "pageData[0]?.attributes?.Client"
                     [conference] = "pageData[0]?.attributes?.Conference"
                     [publisher] = "pageData[0]?.attributes?.Publisher"
-                    [moduleName]="pageType" 
+                    [moduleName]="commonService.activeMenuName"
                     ></app-detail-viewer-right-pane> 
-                </div>  
-                <div *ngIf="isPeople || (pageType == 'publications' || pageType == 'presentations') ">
-                    <app-detail-viewer-right-pane
-                        [authorPost]="authorPost"
-                        [moduleName]="pageType"
-                    ></app-detail-viewer-right-pane>                   
-                </div>        
+                </div>
             </div>
         </div>
-        
-    <div>
-        <div class="recommendation-section" *ngIf="recommendationMetaData && recommendationMetaData.MaxCount && recommendationData && recommendationData.length > 0">
-            <div style="width:100%; height:2px; background: #dee2e6 ;margin-bottom:30px">
-            </div>
+        <div class="recommendation-section" *ngIf="recommendationMetaData.Recommendation && recommendationMetaData.Recommendation.MaxCount && recommendationData && recommendationData.length > 0">
             <div class="">
-                <h3 style="margin-top:20px">{{recommendationMetaData.Label}}</h3>
+                <h3>{{recommendationMetaData.Recommendation.Title}}</h3>
             </div>
-            
             <div class="py-3">
                 <div class="row">
                     <ng-container *ngFor="let item of recommendationData;let i = index">
-                        <div class="col-6 col-md-4" *ngIf = "i < recommendationMetaData.MaxCount">
-                           <div class="pb-4" *ngIf = "item.attributes.Thumbnail">                          
-                               <app-card-layout [image] = "item?.attributes?.Thumbnail?.Media?.data?.attributes?.url"
-                                    [title]="item.attributes.Title" [description]="item.attributes.PreviewContent"
+                        <div class="col-6 col-md-4" *ngIf = "i < recommendationMetaData.Recommendation.MaxCount">                
+                            
+                           <div class="pb-4" *ngIf = "item.attributes.Media.data">                          
+                               <app-card-layout [image] = "item.attributes.Media.data[0].attributes.url"
+                                    [title]="item.attributes.Title" [description]="item.attributes.ShortContent"
                                     [moduleName]="pageType" [hyperlinkText]="'Read More'"
                                     [slug] = "item.attributes.Slug"
                                     [type]="'recommendation-card-layout'">
                                 </app-card-layout>
                             </div>
-                            <div class="pb-4" *ngIf = "!item.attributes.Thumbnail">                                
+                            <div class="pb-4" *ngIf = "!item.attributes.Media.data">                                
                                 <app-card-layout 
-                                                [title]="item.attributes.Title" [description]="item.attributes.PreviewContent"
+                                                [title]="item.attributes.Title" [description]="item.attributes.ShortContent"
                                                 [moduleName]="pageType" [hyperlinkText]="'Read More'"
                                                 [slug] = "item.attributes.Slug"
                                                 [type]="'recommendation-card-layout'">
                                             </app-card-layout>    
                             </div>
-<!--                            <div style="width:100%; height:2px; background: #dee2e6 ;margin-bottom:30px">
-                            </div>-->
+                        
                         </div>
                     </ng-container>
                 </div>
             </div>
-        </div>
         </div>
     </div>
    

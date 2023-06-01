@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA ,NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +21,7 @@ import { PageLoaderComponent } from './core/page-loader/page-loader.component';
 import { ServiceloaderComponent } from './core/page-loader/serviceloader/serviceloader.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { RightMenuDetailsComponent } from './views/right-menu-details/right-menu-details.component';
+import { DetailViewerRightPaneComponent } from './core/detail-viewer-right-pane/detail-viewer-right-pane.component';
 //import { CustomPipePipe } from './custom-pipe.pipe';
 import { CustomPipePipe } from 'src/app/custom-pipe.pipe';
 
@@ -40,6 +41,7 @@ import { CustomPipePipe } from 'src/app/custom-pipe.pipe';
     ServiceloaderComponent,
     RightMenuDetailsComponent,
     CustomPipePipe,
+    DetailViewerRightPaneComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,5 +60,6 @@ import { CustomPipePipe } from 'src/app/custom-pipe.pipe';
   ],
   providers: [DatePipe,CustomPipePipe],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule {}

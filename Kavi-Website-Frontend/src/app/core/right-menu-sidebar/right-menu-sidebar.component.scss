@@ -12,19 +12,11 @@
     color: #224991;
   }
   ul {
-    list-style-type: square;
-    padding: 0px 0px 0px 5px;
+//    list-style-type: square;
+//    padding: 0px 0px 0px 5px;
+
   }
-  li > a {
-    font-family: "montserrat-regular";
-    font-size: 0.75rem;
-    font-weight : 600;
-    padding-bottom: 8px;
-    color: #666;
-    cursor: pointer;
-    text-decoration: none;
-    line-height: 2;
-  }
+  
   input {
     outline: none;
     border: 1px solid #ddd;
@@ -39,6 +31,7 @@ ngb-datepicker {
   border: none;
 }
 
+/*
 .tags{
 li > a {
   font-family: "montserrat-regular";
@@ -50,6 +43,57 @@ li > a {
   text-decoration: none;
   line-height: 2;
 }
+}*/
+
+.tab {
+  overflow: hidden;       
+//  background-color: #f1f1f1;
+//  display: inline-flex;
+  margin-top:3px;
+  margin-left:-5px;
+}  
+/* Style the buttons inside the tab */
+.tab a {
+  background-color: #000d42;
+  color: #fff;
+  width: fit-content;
+  font-weight:800;
+  font-family: "montserrat-regular";
+  float: left;
+  border: 5px solid #fff;
+  outline: none;
+/*   pointer-events: none;*/
+  cursor: pointer;        
+  transition: 0.3s;
+  font-size: 13px;
+  padding: 5px 5px 5px 5px;
 }
+.dimensionTab{
+  overflow: hidden;      
+//  background-color: #f1f1f1; 
+  margin-top: 10px;
+  background-color: #f1f1f1;
+ 
+  h5{
+    font-family: "open-sans-bold";
+    color: #224991;
+    font-size: 20px;
+    font-weight:800;
+    margin-top: 5px;
+    margin-Left: 5px;
+  }
+}
+p{
+  margin-top:20px;
+  text-align:Left;
+//  background-color: #f1f1f1;
+  a{
+    color:#EA6B1E;
+    font-weight:700;
+//    font-size:14px;
+  }
+}
+
+
 
 

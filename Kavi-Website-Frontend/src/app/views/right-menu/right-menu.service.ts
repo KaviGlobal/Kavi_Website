@@ -54,6 +54,20 @@ export class RightMenuService {
     });
 
   }
+public getTagListByName(tagName:any,menuName:any): any {
+    return new Promise<any>((resolve, reject) => {
+      const endpoint =  '/'+menuName+appConfig. GET_TAG_LIST_By_NAME+tagName;      
+      this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+
+  }
   public submitContactForm(contactForm: any): any {
     return new Promise<any>((resolve, reject) => {
       const endpoint =  appConfig.SEND_CONTACT_FORM ;
@@ -70,6 +84,7 @@ export class RightMenuService {
       })
     });
   }
+  
   public emailSubscription(email: string): any {
     return new Promise<any>((resolve, reject) => {
       const endpoint =  appConfig.EMAIL_SUBSCRIPTION ;
@@ -90,10 +105,9 @@ export class RightMenuService {
       })
     });
   }
-
-  public findTag(tag: string): any {
+  public getAuthorsPost(name:any,menuName:any):any{
     return new Promise<any>((resolve, reject) => {
-      const endpoint =  appConfig.GET_TAG + tag+"&sort=Type";
+      const endpoint = '/'+menuName+ appConfig.GET_AUTHORS_POST + name;
 //      console.log("tag",tag); 
       this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
 //        console.log("resp",resp);
@@ -106,10 +120,83 @@ export class RightMenuService {
       })
     });
   }
-  
+  public getPeopleViewer():any{   
+    return new Promise<any>((resolve, reject) => {
+      const endpoint =  appConfig.GET_PEOPLE_VIEWER ;      
+      this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
+//        console.log("resp",resp);
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+      
+  }
+  public getPeople(name:any):any{
+    return new Promise<any>((resolve, reject) => {
+      const endpoint =  appConfig.GET_PEOPLE + name;
+//      console.log("tag",tag); 
+      this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
+//        console.log("resp",resp);
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+  }
+  public findTag(tag: string): any {
+    return new Promise<any>((resolve, reject) => {
+      const endpoint =  appConfig.GET_TAG + tag+"&sort=Type";
+      console.log("tag",tag, endpoint); 
+      this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
+//        console.log("resp",resp);
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+  }
+  public getSpeakerList(type:string,authorName:string){
+    return new Promise<any>((resolve, reject) => {
+      //  const endpoint =  appConfig.RIGHT_MENU_TYPE + type + appConfig.RIGHT_MENU_VIEW_TYPE + blogTitle;
+        const endpoint =  '/'+ type + appConfig.GET_SPEAKER_LIST + authorName;
+        this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
+          if (resp) {
+            resolve(resp);
+          }
+          else {
+            resolve(false);
+          }
+        })
+      });
+  }
+  public getAuthorsPresentationsOrPublications(type:string,authorName:string){
+    return new Promise<any>((resolve, reject) => {
+      //  const endpoint =  appConfig.RIGHT_MENU_TYPE + type + appConfig.RIGHT_MENU_VIEW_TYPE + blogTitle;
+        const endpoint =  '/'+ type + appConfig.GET_AUTHORS_PRESENTATIONS_OR_PUBLICATIONS + authorName;
+        this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
+          if (resp) {
+            resolve(resp);
+          }
+          else {
+            resolve(false);
+          }
+        })
+      });
+  }
   public getDetailsData(type: string, blogTitle: string): any {console.log(type,blogTitle)
     return new Promise<any>((resolve, reject) => {
-      const endpoint =  appConfig.RIGHT_MENU_TYPE + type + appConfig.RIGHT_MENU_VIEW_TYPE + blogTitle;
+    //  const endpoint =  appConfig.RIGHT_MENU_TYPE + type + appConfig.RIGHT_MENU_VIEW_TYPE + blogTitle;
+      const endpoint =  '/'+ type + appConfig.RIGHT_MENU_VIEW_TYPE + blogTitle;
       this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
         if (resp) {
           resolve(resp);
@@ -174,7 +261,19 @@ export class RightMenuService {
       })
     });
   }
-  
+  public getMetaDataForListViewer(): any{
+    return new Promise<any>((resolve, reject) => {
+      const endpoint =  appConfig.GET_LIST_VIEWER;
+      this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+  }
   public getBlogViewer(): any {
     return new Promise<any>((resolve, reject) => {
       const endpoint =  appConfig.BLOG_VIEWER;
@@ -188,20 +287,34 @@ export class RightMenuService {
       })
     });
   }
-  
-  public getRecommendationsByTag(type: string, tagName: any): any {
+  public getViewer(viewer:any): any {
     return new Promise<any>((resolve, reject) => {
-      let endpoint =  appConfig.RECOMMENDATION_BY_TAG + type ;
-//      +appConfig.RECOMMENDATION_BY_TAG_FILTER ;
-      tagName.forEach((tag:any,index:any) => {     
-           
-        if(index=0)
-          endpoint = endpoint + "&filters[$or]["+index+"][Tags][Name][$eq]"+tag
+      const endpoint =  "/"+viewer+appConfig.VIEWER;
+      this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+  }
+
+  public getRecommendationsByTag(type: string, tagName: any,menuSlug:any): any {
+    return new Promise<any>((resolve, reject) => {
+      let endpoint =  "/"+type+appConfig.VIEWER ;
+      let tagFilter="";
+      tagName.forEach((tag:any,index:any) => { 
+          
+        if(index == 0)
+        tagFilter = tagFilter + "&filters[Tags][Slug][$in]["+index+"]="+tag.attributes.Slug;
         else
-          endpoint = endpoint + "&filters[$or]["+index+"][Tags][Name][$eq]="+tag;            
+        tagFilter = tagFilter + "&filters[Tags][Slug][$in]["+index+"]="+tag.attributes.Slug;
+//        console.log("tag",tag.attributes.Slug,index);         
       }); 
-      
- //     tagName;
+//      console.log("tag11",tagFilter);
+      endpoint = endpoint+tagFilter+"&filters[Slug][$ne]="+menuSlug;
       this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
         if (resp) {
           resolve(resp);

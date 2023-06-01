@@ -32,12 +32,15 @@ export class RightMenuComponent implements OnInit  {
   private getMenuItem: Subscription | undefined;
   public  offeringsFullContent: any = [];
   public recommendationMetaData: any = [];
+  public listMetaData: any = [];
   public recommendationData: any = [];
   public isRecommendationDisplay : any = [];
   public pageType: any = '';
+  public SearchTagMenu: any = '';
   public pageDetailsName: any = '';
   public isPersonal: boolean = false;
   public isPolicy: boolean = false;
+  public returnToDownload: boolean = false;
  // public terms: any = [];
   public formData:any = [];
   public contactForm = new FormGroup({});
@@ -50,7 +53,7 @@ export class RightMenuComponent implements OnInit  {
   public isCareers: boolean = false;
   public searchTag: boolean = false;
   public parsedRichText : any ='';
-  @Input() terms:any = [];
+  @Input() terms:any = [];  
   @Output() searchTagText:any = '';
   public masterTagList: any = [];
    constructor(
@@ -64,14 +67,20 @@ export class RightMenuComponent implements OnInit  {
   ) {    
   }
  
-  ngOnInit(): void {
+  ngOnInit(): void {    
     this.pageType = cloneDeep(this.activatedRoute.snapshot.paramMap.get('pageType'));
     this.pageDetailsName = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id')); 
     let routeConfig: any = this.activatedRoute.routeConfig;
-    this.commonService.activeMenuName = cloneDeep(routeConfig.path);   
- //   console.log("ctrl is here",this.pageDetailsName,this.routePath);
+//    console.log("ctrl is here",this.commonService.activeMenuName, this.pageDetailsName,routeConfig);
+    if(routeConfig && !this.pageDetailsName.includes("SearchTag") )
+      this.commonService.activeMenuName = cloneDeep(routeConfig.path);
+      this.SearchTagMenu ='';  
+        /*  else
+    this.commonService.activeMenuName =':id'*/
+//    console.log("ctrl is here111", this.commonService.activeMenuName,this.pageDetailsName,this.routePath,routeConfig.path);
     if(this.pageDetailsName && this.pageDetailsName.includes("SearchTag")){
-      this.commonService.activeMenuName = (this.pageDetailsName).split('=')[1];
+      console.log("this.pageDetailsName",this.pageDetailsName);
+  //    this.commonService.activeMenuName = (this.pageDetailsName).split('=')[1];
       this.routePath = this.commonService.activeMenuName;
       this.loadPageData();
     //  this.routePath='';
@@ -106,13 +115,57 @@ export class RightMenuComponent implements OnInit  {
     if (this.getMenuItem) {
       this.getMenuItem.unsubscribe();
     }    
-  }
- callTag(searchText:any){
+}
+downloadFile(filePath:any){ 
+  this.returnToDownload = true;  
+  const modalRef = this.modalService.open(RightMenuComponent, {
+    size: 'xl',
+    centered: true,
+    windowClass: 'dark-modal'   
+  });
+  modalRef.componentInstance.isContactUs = true;
+  this.rightMenuService.getContactForm().then((response: any) => {
+    //            console.log("response",response.data,response.data.attributes.Form,response.data.attributes.Form.length);
+    if (response.data.attributes.Form) {
+      modalRef.componentInstance.formData = response.data.attributes.Form;
+      response.data.attributes.Form.forEach((item: any) => {
+          modalRef.componentInstance.contactForm.addControl(item.Label,new FormControl(''));
+        });
+    }  
+  }); 
+  
+}
+saveFile(filePath:any){ 
+let url = filePath.split('#');
+console.log("filePath",url,filePath); 
+ var req = new XMLHttpRequest();
+            req.open("GET", url[0], true);
+            req.responseType = "blob";
+            req.onload = function () {
+                //Convert the Byte Data to BLOB object.
+                var blob = new Blob([req.response], { type: "application/octetstream" });
+ 
+                //Check the Browser type and download the File.
+             
+                    var url = window.URL || window.webkitURL;
+                    let link = url.createObjectURL(blob);
+                    var a = document.createElement("a");
+                    a.setAttribute("download", 'sample.pdf');
+                    a.setAttribute("href", link);
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                
+            };
+            req.send();
+}
+ 
+/* callTag(searchText:any){
 //  console.log("search",searchText);
     this.commonService.activeMenuName = searchText;
     this.routePath = this.commonService.activeMenuName;
     this.loadPageData();  
- }
+ }*/
   public getActiveMenu() {    
     if (this.commonService.menuData && this.commonService.menuData.RightMenu && this.commonService.menuData.RightMenu.length > 0) {
       this.commonService.menuData.RightMenu.forEach((item: any) => {
@@ -190,15 +243,17 @@ export class RightMenuComponent implements OnInit  {
           if(!valid)
           this.validateMessage = 'Error' ;   
         }        
-        console.log("success",item.Required,this.contactForm.value[item.Label].length,item.Type,item.Label);
+  //      console.log("success",item.Required,this.contactForm.value[item.Label].length,item.Type,item.Label);
       }
     });
     if(this.validateMessage != 'Error'){
       console.log("item",this.contactForm.value);
         this.validateMessage = 'Success' ;
-        this.rightMenuService.submitContactForm(this.contactForm.value).then((response: any) => {
-          
+        this.rightMenuService.submitContactForm(this.contactForm.value).then((response: any) => {          
           this.formSendMessage = 'The details has been Submitted. We will contact you shortly'
+          this.returnToDownload = true;                     
+          if(this.modalService.hasOpenModals())
+            this.modalService.dismissAll();          
         });
     }
     else{
@@ -210,26 +265,45 @@ export class RightMenuComponent implements OnInit  {
    
   loadPageData() {
     this.routePath = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id'));    
-    this.commonService.pageScrollToTop();    
-  /*  if(this.routePath == 'analytics'){      
-      this.rightMenuService.getAnalyticsData().then((response: any) => {
-        if (response.data && response.data.length > 0) {
-          this.pageData = response.data;   
-          this.isDataLoaded = true;          
-        }
-        this.routePath='';    
-      });
-    }*/
-    console.log("routePath",this.routePath,this.commonService.activeMenuName);
-     if(this.commonService.activeMenuName.includes("SearchTag")){
-      this.rightMenuService.findTag((this.commonService.activeMenuName).split('=')[1]).then((response: any) => {
+    this.commonService.pageScrollToTop(); 
+     if(this.commonService.activeMenuName.includes("SearchTag") || this.routePath.includes("SearchTag")){
+     let tagName = "";
+     if(this.commonService.activeMenuName.includes("SearchTag"))
+      tagName = this.commonService.activeMenuName;
+    else
+      tagName = (this.routePath).split('=')[1]      
+      if(this.commonService.activeMenuName == ":id"){
+        let menu=['blogs','newslist','success-stories', 'podcasts', 'publications' ,'presentations'];
+        let menuTaglist:any=[];
+        for(let item of menu) {         
+          this.rightMenuService.getTagListByName(tagName,item).then((response: any) => {
+            if(response.data.length > 0){
+              response.data[0].attributes.menuType = item;             
+              this.searchTag = true;
+              menuTaglist.push(response.data);
+              this.isDataLoaded = true;
+              this.isUserForm = false;
+              this.routePath='';
+              this.SearchTagMenu = this.commonService.activeMenuName;
+//              menuTaglist = response.data;
+            }
+          });
+        };
+        
+        this.pageData = menuTaglist;
+//        console.log("call",menuTaglist,this.pageData.length);
+        this.getRightPageData();
+      }
+      else if(this.commonService.activeMenuName != ":id"){
+      this.rightMenuService.getTagListByName(tagName,this.commonService.activeMenuName).then((response: any) => {
       if(response.data.length > 0){
         this.searchTag = true;
         this.pageData = response.data;
         this.isDataLoaded = true;
         this.isUserForm = false;
         this.routePath='';
-        console.log("routePath123",  this.searchTag ,this.isDataLoaded,this.commonService.activeMenuName);
+        this.SearchTagMenu = this.commonService.activeMenuName;
+//        console.log("routePath123",  this.searchTag ,this.isDataLoaded,this.commonService.activeMenuName);
       }
       else{
         this.isDataLoaded = false;
@@ -237,6 +311,7 @@ export class RightMenuComponent implements OnInit  {
         console.log("location",this._location.historyGo(-1));
       }       
     })
+  }
     
   }
 else if (this.routePath && !this.commonService.activeMenuName.includes("SearchTag")){
@@ -257,11 +332,13 @@ else if (this.routePath && !this.commonService.activeMenuName.includes("SearchTa
       this.activeMenuItem,this.activeMenuItem.ContentLink,this.activeMenuItem.OfferingType,
       !this.activeMenuItem.OfferingType);    
       */
+ //     this.activeMenuItem.ContentLink == null;
+//      console.log("hi",this.activeMenuItem.ContentLink,this.activeMenuItem.ContentLink);  
       if (this.routePath == 'UserForm'){
         this.isUserForm = true;  
         this.isDataLoaded = false;  
         this.rightMenuService.getTagList().then((response: any) => {
-                      console.log("response",response.data);
+//                      console.log("response",response.data);
           this.masterTagList = response.data;
         });      
         //https://kavi-strapi-app.azurewebsites.net/api/tags?populate=deep,20
@@ -292,7 +369,7 @@ else if (this.routePath && !this.commonService.activeMenuName.includes("SearchTa
           }
         });
       } 
-      else if(this.routePath.includes("SearchTag")){
+/*      else if(this.routePath.includes("SearchTag")){
           this.rightMenuService.findTag((this.routePath).split('=')[1]).then((response: any) => {
           if(response.data.length > 0){
             this.searchTag = true;
@@ -308,9 +385,37 @@ else if (this.routePath && !this.commonService.activeMenuName.includes("SearchTa
           }       
         })
         
+      }*/
+
+      else if (this.routePath == 'blogs' || this.routePath == 'newslist' ||
+      this.routePath == 'success-stories' || this.routePath == 'podcasts'
+      || this.routePath == 'publications' || this.routePath == 'presentations'){        
+        this.rightPageData = [];  
+        this.rightMenuService.getMetaDataForListViewer().then((response: any) => { 
+          this.listMetaData = response.data.attributes;
+          let apiPath ='https://kavi-strapi-app.azurewebsites.net/api/'+this.routePath+'?populate=deep,20';
+          this.rightMenuService.getRightMenuPageData(apiPath).then((response: any) => {
+            if (response.data && response.data.length > 0) {
+              this.pageData = response.data;
+              //commenting this for the UI to test all the content
+/*              response.data.forEach((item:any,index:number) =>{
+                if(index < this.listMetaData.MaxCount ){
+                  this.pageData.push(item)
+                }               
+              });*/
+            }
+//              console.log("tags",tags);
+            this.isDataLoaded = true;          
+//            if(!this.isPublications )            
+               
+              
+          });
+        });
+        this.getRightPageData()
+
       }
       else if (this.activeMenuItem && this.activeMenuItem.ContentLink && 
-        !this.activeMenuItem.OfferingType) {          
+        !this.activeMenuItem.OfferingType) {        
         if(this.activeMenuItem.ContentLink == "null" && this.activeMenuItem.leadershipTeams.data.length == 0){        
             this.offeringsFullContent = this.activeMenuItem.FullContent;           
             this.isAboutUs = true;
@@ -321,21 +426,24 @@ else if (this.routePath && !this.commonService.activeMenuName.includes("SearchTa
   //console.log("1111",this.activeMenuItem.leadershipTeams.data.length,this.activeMenuItem.FullContent)  ;       
           this.pageData = sort;
           this.isAboutUs = true;        
-        }         
-        else{          
+        }  
+               
+        else{    console.log("xxxx",this.activeMenuItem.ContentLink);       
           this.rightMenuService.getRightMenuPageData(this.activeMenuItem.ContentLink).then((response: any) => {
             if (response.data && response.data.length > 0) {
-              this.pageData = response.data;   
+              this.pageData = response.data;              
               let tags: any = [];
               this.pageData.forEach((item: any) => {
                 if (item.attributes && item.attributes.Tags && item.attributes.Tags.data && item.attributes.Tags.data.length > 0) {
-                  tags.push(item);
+        //          tags.push(item);
+                    tags.push(item.attributes.Tags.data);
+      //            console.log("yyy",item.attributes.Tags,item.attributes.Tags.data,item.attributes.Tags.data);//this.activeMenuItem.ContentLink);
                 }
                 if(item.attributes.ShortContent == null &&
                   item.attributes.ShortContent == null &&
                   item.attributes.Media.data !=null)
                   this.isPublications = true;
-              });
+              });             
             } 
 //            console.log("pageData",this.pageData);
             this.isDataLoaded = true;  
@@ -347,8 +455,7 @@ else if (this.routePath && !this.commonService.activeMenuName.includes("SearchTa
          
       }      
       else if (this.activeMenuItem && this.activeMenuItem.ContentLink && 
-        this.activeMenuItem.OfferingType){ 
-//        console.log("this.activeMenuItem.Name",this.activeMenuItem.Name,this.activeMenuItem) ; 
+        this.activeMenuItem.OfferingType){         
         this.rightMenuService.getOfferingsData(this.pageDetailsName,this.activeMenuItem.Label).then((response: any) => {
           if (response.data && response.data.length > 0) {            
           this.pageData = response.data;
@@ -363,7 +470,7 @@ else if (this.routePath && !this.commonService.activeMenuName.includes("SearchTa
               });
             }                       
           });
-          this.getRecommendationsByTag(tagName);          
+          this.getRecommendationsByTag(tagName,'slugName');          
           this.isOfferingsLoaded = true;
         }
              
@@ -381,8 +488,57 @@ else if (this.routePath && !this.commonService.activeMenuName.includes("SearchTa
       this.router.navigate(['']);
     }
   }
-
-  getRecommendationsByTag(tagName: any) {     
+  getRightPageData(){
+    let tags: any = [];
+    this.rightPageData = [];
+    this.getMetaDataForListViewer();
+    this.rightMenuService.getTagList().then((response: any) => {          //          
+      let responseLength = response.data.length;
+      if (response.data) {  
+        let i=0; 
+        let previous_dimension = '';
+        let current_dimension = '';
+        let tag_list:any=[];
+        for(let item of response.data) {
+//                  console.log("ii",item);
+//                    console.log(i,"ii",item.attributes.tag_dimension.data.attributes.DisplayName);
+            current_dimension = item.attributes.tag_dimension.data.attributes.DisplayName;
+            if(i==0){
+              previous_dimension = item.attributes.tag_dimension.data.attributes.DisplayName;
+//                      console.log("ii",item.attributes.tag_dimension.data.attributes.DisplayName);
+              tag_list.push({name:item.attributes.DisplayName,slug:item.attributes.Slug})              
+            }
+            if(i > 0){
+              if(current_dimension == previous_dimension){
+//                        console.log("ij",item.attributes.DisplayName);
+                previous_dimension = item.attributes.tag_dimension.data.attributes.DisplayName;
+//                               console.log("xxxx",tag_list.length,this.listMetaData.TagMaxCount);
+  //              if(tag_list.length < this.listMetaData.TagMaxCount)
+                tag_list.push({name:item.attributes.DisplayName,slug:item.attributes.Slug})
+              }
+              if(current_dimension != previous_dimension){ 
+                if(tag_list.length != 0)                      
+                  tags.push({dimension:current_dimension,tag:tag_list})
+                tag_list=[];
+                previous_dimension = current_dimension;
+              }
+              if(i == responseLength-1){
+                tags.push({dimension:current_dimension,tag:tag_list})                       
+              }
+            }                    
+          i++;
+        }           
+      }
+    });     
+    this.rightPageData.push(tags);
+  }
+  getMetaDataForListViewer(){    
+    this.rightMenuService.getMetaDataForListViewer().then((response: any) => { 
+      this.listMetaData = response.data.attributes;
+//      console.log(" this.listMetaData", this.listMetaData);
+    });
+  }
+  getRecommendationsByTag(tagName: any,slugName:any) {     
     this.rightMenuService.getOfferingsViewer().then((viewerResp: any) => {     
       if (viewerResp && viewerResp.data && viewerResp.data.attributes && viewerResp.data.attributes.Posts) {
         // 'data science'
@@ -392,7 +548,7 @@ else if (this.routePath && !this.commonService.activeMenuName.includes("SearchTa
         this.isRecommendationDisplay = [];
         let titleDisplay :any= {};
         this.recommendationMetaData.forEach((typeFilter: any) => {         
-          this.rightMenuService.getRecommendationsByTag(typeFilter.TypeFilter,tagName).then((response: any) => {
+          this.rightMenuService.getRecommendationsByTag(typeFilter.TypeFilter,tagName,'slugName').then((response: any) => {
             this.rightPageData.push(this.recommendationMetaData) ; 
 //          console.log("xxxx",response.data.length,typeFilter.TypeFilter);
            

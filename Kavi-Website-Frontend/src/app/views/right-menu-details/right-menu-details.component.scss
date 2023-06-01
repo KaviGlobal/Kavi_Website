@@ -2,6 +2,8 @@
     padding-right: 70px;
     ::ng-deep img {
         max-width: 100% !important;
+        margin-top:10px;
+        margin-bottom:30px;
     }
   }
   .recommendation-section {
@@ -9,4 +11,82 @@
       color: #EA6B1E;
       font-size: 24px;
     }
+  }
+  .container{
+    max-width:90%;
+    text-align: justify;
+  }
+  .people-detail{    
+    img{
+//      width:300px;
+//      height:400px
+    }
+    h2 {
+      color:#EA6B1E;
+      font-size: 45px;
+      font-weight:700;
+    }
+    h5 {
+      color:#224991;
+      //#747474;
+      font-size: 20px;
+      margin-bottom:30px;
+    }
+  }
+  .full-content{
+    text-align: justify;
+  //  margin-left: 50px;   
+  }
+  .modalFooter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0.75rem;
+  //  border-top: 0px solid #dee2e6;
+    border-bottom-right-radius: calc(0.3rem - 1px);
+    border-bottom-left-radius: calc(0.3rem - 1px);
+    button{
+      background-color: #EA6B1E;
+      color: white;
+      padding: 5px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight :500;
+    }
+  }
+  .social-horizontal{
+    display:inline;
+  }
+  .fileDownload{
+    font-weight: 700;
+    margin-top: 25px;
+    i {
+      font-size: 25px; 
+      margin-right: 10px;      
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    a{
+      color:#EA6B1E;
+  }
+  }
+  .social-wrapper {  
+    text-align: center;  
+    margin-top: 20px;
+    i {
+      font-size: 25px; 
+      margin-right: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    a{
+      color:#000d42;
+  }
   }

@@ -26,16 +26,33 @@
         color: #fff;
       }
     }
+    .nav-right-bars{
+      justify-content: space-around;
+      color: #fff;
+      
+    }
+  }
+}
+
+.nav-right-bars{
+  margin-right:15px;
+//  color:#fff;
+  font-size:20px; 
+  nav a {
+    color: #333;
+    text-decoration: none;
+    // margin-right: 20px;
   }
 }
 
 .nav-left {
   background: #fff;
-  padding: 10px;
+//  padding: 10px;
   cursor: pointer;  
   .logo {
     height: 45px;
-  }
+  //  margin-left:-10px;
+  }  
 }
 .nav-right {
   margin-left: auto;

@@ -66,7 +66,9 @@
                         <h5>
                             {{homeData.attributes.Analytics.PreviewText}}
                         </h5>
-                        <h5 class="analytics-more"><a [routerLink]="['/SearchTag=analytics']">
+                        <h5 class="analytics-more">
+                            <!--<a [routerLink]="['/SearchTag=analytics']">-->
+                            <a href="https://advana.kaviglobal.com/" target="_blank">
                             {{homeData.attributes.Analytics.LinkLabel}}<i
                                 class="fas fa-arrow-right"></i>
                             </a>
@@ -244,7 +246,7 @@
                                    
                                     <p>{{item.OurClientDescription.Title}}</p>
                                 </div> -->
-                               
+                               <!--Errror after data model changes
                                 <div class="flip-card">
                                     <div class="flip-card-inner">
                                       <div class="flip-card-front">
@@ -257,7 +259,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                  
+                                --> 
                             </div>
                         </div>
                     </div>
@@ -265,7 +267,7 @@
             </div>
         </div>
     </div>
-    <div class="clients-carousel">
+ <!--   <div class="clients-carousel">
         <div class="container">
             <h3 *ngIf = "homeData.attributes">
                 {{homeData.attributes.OurClientImagesTitle}}</h3>
@@ -281,7 +283,7 @@
                                                 alt="Random first slide" class="" />
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                          <!--       <div class="client-carousel-image-wrapper" >
                                     <div class="client-carousel-image-container"> 
                                         <div class="client-carousel-image-content">                                           
@@ -290,13 +292,13 @@
                                         </div>
                                     </div>
                                 </div>-->
-                            </ng-template>
+<!--                            </ng-template>
                         </ng-container>
                     </ngb-carousel>
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
     <div class="home-map-wrapper">
         <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [scrollwheel]="true"
             (mapClick)="mapClicked($event)">

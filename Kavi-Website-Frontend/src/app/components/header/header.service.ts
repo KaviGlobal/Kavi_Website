@@ -38,4 +38,17 @@ export class HeaderService {
       })
     });
   }
+  public getMenu(): any {
+    return new Promise<any>((resolve, reject) => {
+      const endpoint =  appConfig.MENU_LIST;
+      this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+  }
 }

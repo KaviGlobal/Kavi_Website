@@ -21,7 +21,7 @@ ngb-datepicker {
   font-family: "montserrat-regular";
   font-size: 1.1rem;
   line-height: 0.8;
-  color: #2b5084 !important;
+//  color: #2b5084 !important;
   cursor: pointer;
 }
 .recommendation-section {
@@ -37,11 +37,19 @@ ngb-datepicker {
   }
 }
 iframe {
-  width: 786px;
+//  width: 786px;
   height: 600px;
   border: 0;
   overflow: hidden;
+  margin-left:-14px;
 }
+object {
+  //  width: 786px;
+    height: 600px;
+    border: 0;
+    overflow: hidden;
+    margin-left:-14px;
+  }
 form{
   h3 {
     color: #2b5084;
@@ -208,8 +216,8 @@ input[type=submit]:hover {
 
 .container {
   border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
+//  background-color: #f2f2f2;
+//  padding: 20px;
   max-width:90%;
 }
 
