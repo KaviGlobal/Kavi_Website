@@ -15,10 +15,10 @@
     "Slug": {
       "type": "uid"
     },
-    "Menu": {
+    "ItemName": {
       "type": "string"
     },
-    "ItemName": {
+    "Menu": {
       "type": "string"
     },
     "DisplayName": {
@@ -30,11 +30,6 @@
     "DisplayOrder": {
       "type": "integer"
     },
-    "ParentItem": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::menu-item.menu-item"
-    },
     "Viewer": {
       "type": "string"
     },
@@ -45,6 +40,11 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "parent_item": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::menu-item.menu-item"
     }
   }
 }
