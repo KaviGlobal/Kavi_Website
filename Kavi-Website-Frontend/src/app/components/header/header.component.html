@@ -111,16 +111,23 @@
                     </ng-container>
                   </ul>
                 </li>        
-                <li *ngFor="let keyItem of keyList">
-                  <a class="menu-items-left" style ="color:#EA6B1E;margin-bottom:8px" href=""> {{keyItem}}</a>
+                <li *ngFor="let keyItem of keyList; let i = index">
+              <!--    <a class="menu-items-left" style ="color:#EA6B1E;margin-bottom:8px" href=""> {{keyItem}}</a>-->
                   <ul class="inner-menu-items" *ngIf="keyItem">
-                    <ng-container *ngFor="let menuItem of OfferingList">
-                      <li *ngFor="let subItem of menuItem[keyItem]">   
-                  <!--       <a href=""> {{subItem.attributes.DisplayName}} </a>-->
-                         <a [routerLink]="[subItem?.attributes?.Slug]" *ngIf="subItem?.attributes?.DisplayName"
-                         (click)="makeOfferingsActive(subItem,subItem?.attributes?.Slug,subItem?.attributes?.Menu)">{{subItem.attributes.DisplayName}}</a>
-                         <!-- (click)="makeOfferingsActive(menuItem,subSection.attributes.Label)"-->
-                      </li>
+                    <ng-container *ngFor="let menuItem of OfferingList">  
+                      <div *ngFor="let subItem of menuItem[keyItem];let j= index">           
+                        <div *ngIf="j==0 &&  menuItem[keyItem][0].attributes.parent_item.data.attributes.IsTitle">
+                          <a [routerLink]="[menuItem[keyItem][0].attributes.parent_item.data.attributes.Slug]"class="menu-items-left" style ="color:#EA6B1E;margin-bottom:8px"> {{keyItem}}</a>
+                        </div>
+                        <div *ngIf="j==0 && !menuItem[keyItem][0].attributes.parent_item.data.attributes.IsTitle">
+                          <a class="menu-items-left" style ="margin-bottom:8px" href=""> {{keyItem}}</a>
+                        </div>
+                        <li> 
+                          <a [routerLink]="[subItem?.attributes?.Slug]" *ngIf="subItem?.attributes?.DisplayName"
+                          (click)="makeOfferingsActive(subItem,subItem?.attributes?.Slug,subItem?.attributes?.Menu)">{{subItem.attributes.DisplayName}}</a>
+                          <!-- (click)="makeOfferingsActive(menuItem,subSection.attributes.Label)"-->
+                        </li>
+                      </div>
                     </ng-container>
                   </ul>                     
                 </li>
@@ -139,17 +146,17 @@
                     </ng-container>
                   </ul>
                 </li>
-                <li *ngFor="let menuItem of menuData[2]?.IndustryMenu">
-                  <div *ngIf="menuItem.attributes.IsTitle">
-                    <a class="menu-items-left" style ="color:#EA6B1E" href="">{{menuItem.attributes.DisplayName}}</a>
+                <li *ngFor="let menuItem of menuData[2]?.IndustryMenu; let k=index">
+                  <div *ngIf="k == 0">
+                    <a class="menu-items-left" style ="color:#EA6B1E">{{menuItem.attributes.Menu}}</a>
                   </div>
                   <div>
                     <ul class="inner-menu-items" *ngIf="!menuItem.attributes.IsTitle">
                       <ng-container>
                         <li>  
                            <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName"
+                           (click) = "makeOfferingsActive(menuItem,menuItem?.attributes?.Slug,menuItem?.attributes?.Menu)"
                           >{{menuItem.attributes.DisplayName}}</a>
-                           <!-- (click)="makeOfferingsActive(menuItem,subSection.attributes.Label)"-->
                         </li>
                       </ng-container>
                     </ul> 

@@ -204,7 +204,7 @@ public getTagListByName(tagName:any,menuName:any): any {
         })
       });
   }
-  public getDetailsData(type: string, blogTitle: string): any {console.log(type,blogTitle)
+  public getDetailsData(type: string, blogTitle: string): any {//console.log(type,blogTitle)
     return new Promise<any>((resolve, reject) => {
     //  const endpoint =  appConfig.RIGHT_MENU_TYPE + type + appConfig.RIGHT_MENU_VIEW_TYPE + blogTitle;
       const endpoint =  '/'+ type + appConfig.RIGHT_MENU_VIEW_TYPE + blogTitle;

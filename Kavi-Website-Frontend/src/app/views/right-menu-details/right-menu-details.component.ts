@@ -26,6 +26,7 @@ export class RightMenuDetailsComponent implements OnInit {
   public isPeople: boolean = false;
   public recommendationMetaData: any;
   public recommendationData: any = [];
+  public relatedTagData: any = [];
   public routerEventSubscription: Subscription | undefined;
   public externalLink: any;  
   public newsMedia: any;
@@ -226,7 +227,7 @@ export class RightMenuDetailsComponent implements OnInit {
      
   }
   getRelatedDataByTag(tagName:any){
-  let menu=['blogs','newslist','success-stories', 'podcasts', 'publications' ,'presentations'];
+    let menu=['blogs','newslist','success-stories', 'podcasts', 'publications' ,'presentations'];
           let menuTaglist:any=[];
           for(let item of menu) {         
             this.rightMenuService.getRelatedDataByTag(item,tagName).then((response: any) => {
@@ -240,7 +241,7 @@ export class RightMenuDetailsComponent implements OnInit {
   }
   getDetailsData() { //console.log("pageType",this.pageType,this.commonService.activeMenuData.attributes);
     
-    console.log("this.pageType, this.pageDetailsName",this.commonService.activeMenuData?.attributes?.Viewer);
+//    console.log("this.pageType, this.pageDetailsName",this.commonService.activeMenuData?.attributes?.Viewer);
     this.getViewer(this.commonService.activeMenuData?.attributes?.Viewer);
     this.rightMenuService.getDetailsData(this.pageType, this.pageDetailsName).then((response: any) => {
       if (response.data && response.data.length > 0) {
@@ -282,7 +283,7 @@ export class RightMenuDetailsComponent implements OnInit {
     this.viewerData = [];
     if(viewerName){
       this.rightMenuService.getViewer(viewerName).then((viewerResp: any) => {
-        this.viewerData.push(viewerResp.data.attributes);
+        this.viewerData.push(viewerResp.data.attributes);    
       });
     }
 //    console.log("this.viewerData",this.viewerData)   
@@ -290,14 +291,16 @@ export class RightMenuDetailsComponent implements OnInit {
   getRecommendations(tagName: any,menuSlug:any) {
     this.recommendationData = [];
     this.rightMenuService.getRecommendationsByTag(this.pageType, tagName,menuSlug).then((response: any) => {
+      console.log("response1",response);
       if (response.data && response.data.length > 0) {
-//        this.recommendationData.push(response.data);     
-        this.recommendationData=response.data;      
+        this.recommendationData.push(response.data);     
+//        this.recommendationData=response.data;      
       }      
     });  
-//    console.log("response.data",this.recommendationData[0],this.viewerData); 
+    console.log("response.data",this.recommendationData,this.viewerData); 
     this.recommendationMetaData =this.viewerData.Recommendations;
   }
+  /*
   getRecommendationsByTag(tagName: any) {
     this.rightMenuService.getBlogViewer().then((viewerResp: any) => {
       if (viewerResp && viewerResp.data && viewerResp.data.attributes && viewerResp.data.attributes.Recommendation) {
@@ -310,5 +313,5 @@ export class RightMenuDetailsComponent implements OnInit {
         });
       }
     });
-  }
+  }*/
 }

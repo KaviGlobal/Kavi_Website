@@ -106,13 +106,15 @@ export class AppComponent implements OnInit {
   }
   public groupBy(list:any, keyGetter:any) {
     const map = new Map();
+    let keyProperties :any [];
     let groupedData:any=[];
-    list.forEach((item:any) => {
-         const key = keyGetter(item);
-         const collection = map.get(key);
-         if (!collection) {
-             map.set(key, [item]);            
-         } else {
+    list.forEach((item:any,index:number) => {
+         const key = keyGetter(item);                   
+         const collection = map.get(key);         
+         if (!collection) {               
+             map.set(key, [item]);                      
+         }        
+         else {            
              collection.push(item);
          }         
     });
@@ -146,7 +148,7 @@ export class AppComponent implements OnInit {
         
       }*/
       this.commonService.menuData = menuData;
-//      console.log("xxxx",menuData[0].LeftMenu);
+    // console.log("xxxx",menuData[2].industryMenu);
       setTimeout(() => {
         this.commonService.getMenuItem.next(true);
       }, 100);
