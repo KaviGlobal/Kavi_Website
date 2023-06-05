@@ -24,7 +24,32 @@ export class HeaderService {
       })
     });
   }
-
+  public getHeaderData(): any {
+    return new Promise<any>((resolve, reject) => {
+      const endpoint =  appConfig.HEADER;
+      this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+  }
+  public getFooterData(): any {
+    return new Promise<any>((resolve, reject) => {
+      const endpoint =  appConfig.FOOTER;
+      this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+  }
   public getMenuList(): any {
     return new Promise<any>((resolve, reject) => {
       const endpoint =  appConfig.MENU;

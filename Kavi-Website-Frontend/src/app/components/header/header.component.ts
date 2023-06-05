@@ -71,7 +71,8 @@ export class HeaderComponent implements OnInit {
 
   public makeMenuList() {
 //    console.log("menulist",this.commonService.menuData);
-    this.menuData = cloneDeep(this.commonService.menuData);
+//    this.menuData = cloneDeep(this.commonService.menuData);
+      this.menuData = cloneDeep(this.commonService.menuData);
 /*    this.menuData={
       "data": {
         "id": 1,
@@ -820,7 +821,7 @@ export class HeaderComponent implements OnInit {
       }
     }
    */ 
-    let LeftMenu: any = cloneDeep(this.menuData?.LeftMenu);
+/*    let LeftMenu: any = cloneDeep(this.menuData?.LeftMenu);
     this.leftMenuCardOne = LeftMenu.filter((element: any) => element.Card === 'Card1');
     this.leftMenuCardTwo = LeftMenu.filter((element: any) => element.Card === 'Card2');
  /*   console.log("menuData",this.menuData);
@@ -835,13 +836,14 @@ export class HeaderComponent implements OnInit {
         [index]:item
       }
       menu.push(obj);
-    });
-    
+    });    
     this.keyList = keyItem;
     this.OfferingList = menu; 
+//    console.log("menu",menu);
   }
 
-  public makeMenuActive(menuItem?: any) {//console.log("menuItem",menuItem);
+  public makeMenuActive(menuItem?: any) {
+//    console.log("menuItem",menuItem);
     this.showMenu = false;
     this.document.body.classList.remove('hide-scroll'); 
     if (menuItem) {
@@ -871,7 +873,9 @@ export class HeaderComponent implements OnInit {
         }, 100);
         }*/
       else{
-      this.commonService.activeMenuName = menuItem.Label;      
+        this.commonService.activeMenuName = menuItem?.attributes?.Parameter?.type;  
+        this.commonService.activeMenuData =  menuItem;
+  //    this.commonService.activeMenuName = menuItem.Label;      
       this.makeMenuList();
  //     console.log("activeMenuName",this.commonService.activeMenuName);  
         setTimeout(() => {
@@ -904,11 +908,11 @@ export class HeaderComponent implements OnInit {
     console.log(valid);
     
   }
-  public makeOfferingsActive(menuItem?: any,selectedMenu?: any) {
-  //  console.log("xxxx",menuItem,selectedMenu);
+  public makeOfferingsActive(menuItem?: any,selectedMenu?: any,menuType?:any) {
+//console.log("xxxx",menuItem,menuType);
     this.showMenu = false;    
     this.document.body.classList.remove('hide-scroll');    
-    if (menuItem.offerings.data && menuItem.offerings.data.length > 0 
+/*    if (menuItem?.offerings?.data && menuItem?.offerings?.data?.length > 0 
     ) {    
       menuItem.offerings.data.forEach((item: any) => {
         if(item.attributes['Label'] == selectedMenu){
@@ -920,7 +924,7 @@ export class HeaderComponent implements OnInit {
       });
       
     }
-    else if (menuItem.aboutKavi.data && menuItem.aboutKavi.data.length > 0)
+    else if (menuItem?.aboutKavi?.data && menuItem?.aboutKavi?.data?.length > 0)
     {    
       menuItem.aboutKavi.data.forEach((item: any) => {
         if(item.attributes['Label'] == selectedMenu){
@@ -930,6 +934,12 @@ export class HeaderComponent implements OnInit {
       }, 100);
         }
       });      
+    }*/
+    if(menuItem?.attributes?.Parameter?.type){
+      this.commonService.activeMenuName = selectedMenu;
+      this.commonService.activeMenuData = menuItem;
+      this.makeMenuActive(menuItem);
+      this.router.navigate(["/"+menuItem?.attributes?.Parameter?.type+"/"+selectedMenu]);
     }
     else {
       this.commonService.activeMenuName = '';

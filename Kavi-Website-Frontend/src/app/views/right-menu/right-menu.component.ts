@@ -262,59 +262,93 @@ console.log("filePath",url,filePath);
     this.isDataLoaded = false; 
     this.isOfferingsLoaded = false;
    }
-   
+   getOfferingData(offering:any){
+/*    this.rightMenuService.getOfferingViewer(apiUrl).then((response: any) => { 
+      this.listMetaData = response.data.attributes;
+//      console.log(" this.listMetaData", this.listMetaData);
+    });
+    this.rightMenuService.getOfferingData(apiUrl).then((response: any) => { 
+      this.listMetaData = response.data.attributes;
+//      console.log(" this.listMetaData", this.listMetaData);
+    });*/
+  
+   }
   loadPageData() {
     this.routePath = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id'));    
-    this.commonService.pageScrollToTop(); 
-     if(this.commonService.activeMenuName.includes("SearchTag") || this.routePath.includes("SearchTag")){
-     let tagName = "";
-     if(this.commonService.activeMenuName.includes("SearchTag"))
-      tagName = this.commonService.activeMenuName;
-    else
-      tagName = (this.routePath).split('=')[1]      
-      if(this.commonService.activeMenuName == ":id"){
-        let menu=['blogs','newslist','success-stories', 'podcasts', 'publications' ,'presentations'];
-        let menuTaglist:any=[];
-        for(let item of menu) {         
-          this.rightMenuService.getTagListByName(tagName,item).then((response: any) => {
+    this.commonService.pageScrollToTop();
+    let tagName = "";
+    if(this.commonService.activeMenuName.includes("SearchTag") || this.routePath.includes("SearchTag")){
+      let tagName = "";
+      if(this.commonService.activeMenuName.includes("SearchTag"))
+        tagName = this.commonService.activeMenuName;
+        else
+        tagName = (this.routePath).split('=')[1] ;  
+//        console.log("ttttt",this.commonService.activeMenuName,this.routePath,tagName);   
+        if(this.routePath.includes("SearchTag")){
+//          let menu=['blogs','newslist','success-stories', 'podcasts', 'publications' ,'presentations'];
+          let menu =  this.commonService.menuData[1].RightMenu;
+          let menuTaglist:any=[];
+          for(let item of menu) {  //console.log("eeee",item.attributes.Parameter.type);       
+            this.rightMenuService.getTagListByName(tagName,item.attributes.Parameter.type).then((response: any) => {
+              if(response.data.length > 0){
+                response.data[0].attributes.menuType = item.attributes.Parameter.type;             
+                this.searchTag = true;
+                menuTaglist.push(response.data);
+                this.isDataLoaded = true;
+                this.isUserForm = false;
+                this.routePath='';
+                this.SearchTagMenu = this.commonService.activeMenuName;
+  //              menuTaglist = response.data;
+              }
+              this.pageData = menuTaglist;
+              //        console.log("call",menuTaglist,this.pageData.length);
+              this.getRightPageData();
+            });
+         }} 
+/*        if(this.commonService.activeMenuName == ":id"){
+          let menu=['blogs','newslist','success-stories', 'podcasts', 'publications' ,'presentations'];
+          let menuTaglist:any=[];
+          for(let item of menu) {         
+            this.rightMenuService.getTagListByName(tagName,item).then((response: any) => {
+              if(response.data.length > 0){
+                response.data[0].attributes.menuType = item;             
+                this.searchTag = true;
+                menuTaglist.push(response.data);
+                this.isDataLoaded = true;
+                this.isUserForm = false;
+                this.routePath='';
+                this.SearchTagMenu = this.commonService.activeMenuName;
+  //              menuTaglist = response.data;
+              }
+            });
+          };
+          
+          this.pageData = menuTaglist;
+  //        console.log("call",menuTaglist,this.pageData.length);
+          this.getRightPageData();
+        }
+        else if(this.commonService.activeMenuName != ":id"){   
+            this.rightMenuService.getTagListByName(tagName,this.commonService.activeMenuName).then((response: any) => {
             if(response.data.length > 0){
-              response.data[0].attributes.menuType = item;             
-              this.searchTag = true;
-              menuTaglist.push(response.data);
+              this.searchTag = true;        
+              this.pageData = response.data;   
+              response.data[0].attributes.menuType = this.commonService.activeMenuName;       
               this.isDataLoaded = true;
               this.isUserForm = false;
               this.routePath='';
-              this.SearchTagMenu = this.commonService.activeMenuName;
-//              menuTaglist = response.data;
+              this.SearchTagMenu = '';
+              this.getRightPageData();
+      //        console.log("routePath123",  this.searchTag ,this.isDataLoaded,this.commonService.activeMenuName);
             }
-          });
-        };
-        
-        this.pageData = menuTaglist;
-//        console.log("call",menuTaglist,this.pageData.length);
-        this.getRightPageData();
-      }
-      else if(this.commonService.activeMenuName != ":id"){
-      this.rightMenuService.getTagListByName(tagName,this.commonService.activeMenuName).then((response: any) => {
-      if(response.data.length > 0){
-        this.searchTag = true;
-        this.pageData = response.data;
-        this.isDataLoaded = true;
-        this.isUserForm = false;
-        this.routePath='';
-        this.SearchTagMenu = this.commonService.activeMenuName;
-//        console.log("routePath123",  this.searchTag ,this.isDataLoaded,this.commonService.activeMenuName);
-      }
-      else{
-        this.isDataLoaded = false;
-        this.searchTag = false;   
-        console.log("location",this._location.historyGo(-1));
-      }       
-    })
-  }
-    
-  }
-else if (this.routePath && !this.commonService.activeMenuName.includes("SearchTag")){
+            else{
+              this.isDataLoaded = false;
+              this.searchTag = false;   
+              console.log("location",this._location.historyGo(-1));
+            }       
+          })
+        }    */
+    }
+    else if (this.routePath && !this.commonService.activeMenuName.includes("SearchTag")){
 //      console.log("xxxx123",this.commonService.activeMenuName);
       this.getActiveMenu();     
       this.commonService.activeMenuName = cloneDeep(this.routePath);      
@@ -391,10 +425,13 @@ else if (this.routePath && !this.commonService.activeMenuName.includes("SearchTa
       this.routePath == 'success-stories' || this.routePath == 'podcasts'
       || this.routePath == 'publications' || this.routePath == 'presentations'){        
         this.rightPageData = [];  
+        let menu =  this.commonService.menuData[1].RightMenu;
+/*        let menuTaglist:any=[];
+        for(let item of menu) {  //console.log("eeee",item.attributes.Parameter.type);       
+          this.rightMenuService.getTagListByName(tagName,item.attributes.Parameter.type)*/
         this.rightMenuService.getMetaDataForListViewer().then((response: any) => { 
           this.listMetaData = response.data.attributes;
-          let apiPath ='https://kavi-strapi-app.azurewebsites.net/api/'+this.routePath+'?populate=deep,20';
-          this.rightMenuService.getRightMenuPageData(apiPath).then((response: any) => {
+         this.rightMenuService.getRightMenuPageData(this.routePath).then((response: any) => {
             if (response.data && response.data.length > 0) {
               this.pageData = response.data;
               //commenting this for the UI to test all the content
@@ -406,9 +443,7 @@ else if (this.routePath && !this.commonService.activeMenuName.includes("SearchTa
             }
 //              console.log("tags",tags);
             this.isDataLoaded = true;          
-//            if(!this.isPublications )            
-               
-              
+       
           });
         });
         this.getRightPageData()
@@ -483,7 +518,7 @@ else if (this.routePath && !this.commonService.activeMenuName.includes("SearchTa
       this.isAboutUs = false;
       this.isDataLoaded = true;      
     }     
-  }
+    }
     else {
       this.router.navigate(['']);
     }

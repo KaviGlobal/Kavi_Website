@@ -14,7 +14,7 @@ export class CommonService {
   public getMenuItem = new Subject();
   public routeChangeSubscription = new Subject();
   public menuData: any = {};
-
+  public activeMenuData: any = {};
   constructor() { }
 
   public checkValidAuth() {

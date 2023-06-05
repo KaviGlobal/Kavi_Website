@@ -83,10 +83,10 @@
 <div *ngIf="isDataLoaded && !isUserForm" class="page-container"> 
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-8 col-lg-9 border-right"> 
+            <div class="col-12 col-md-8 col-lg-9 border-right">
                 <!--To display the list of Tags based on Master Tag List click event -->
-                <div class="page-content-section" *ngIf = !routePath>
-                    <div *ngFor="let menu of pageData;">                      
+                <div class="page-content-section" *ngIf = "SearchTagMenu == ':id'">
+                    <div *ngFor="let menu of pageData;">                    
                         <div *ngFor="let item of menu;let i = index">
                             <div class="pb-5" >
                                     <app-right-menu-details-card 
@@ -100,73 +100,17 @@
                                         [cardContent]="item?.attributes?.PreviewContent" 
                                     >
                                     </app-right-menu-details-card>                     
-                                <a *ngIf="searchTag" routerLink="{{'/'+menu[0].attributes.menuType+'/'+ item?.attributes?.Slug}}" class="read-more">Read
+                                <a routerLink="{{'/'+menu[0].attributes.menuType+'/'+ item?.attributes?.Slug}}" class="read-more">Read
                                         More...</a> 
+                <!--                <a *ngIf="!searchTag" routerLink="{{'/'+menu[0].attributes.menuType+'/'+ item?.attributes?.Slug}}" class="read-more">Read
+                                            More...sssss</a> -->
                                 </div>
                         </div>
                     </div>
                     
                 </div>
-                <div class="page-content-section" *ngIf = routePath>
-                   
+                <div class="page-content-section" *ngIf = !SearchTagMenu>           
                     <div *ngFor="let item of pageData; let i = index">
-                                          
-                    <!-- 
-                        <div class="pb-5" *ngIf ="item?.attributes?.ShortContent">
-                            <app-right-menu-details-card 
-                            [title]="item?.attributes?.Title"
-                            [authorDetails]="item?.attributes?.Authors?.data"                            
-                            [date]="item?.attributes?.PublishedOn">
-                            </app-right-menu-details-card>                            
-                            <div class="tab" *ngFor="let tag of item?.attributes?.Tags?.data">                                
-                                <a (click) = "callTag('/SearchTag='+ tag?.attributes?.Name)">
-                                    {{tag.attributes.DisplayName}}
-                                </a>                                                             
-                            </div>                  
-                        
-                            <app-right-menu-details-card 
-                                [cardImage]="item?.attributes?.CoverImage?.data?.attributes?.url"
-                                [cardContent]="item?.attributes?.ShortContent" 
-                               >
-                            </app-right-menu-details-card>
-                           <a *ngIf="searchTag || pageDetailsName =='analytics'" routerLink="{{'/'+ routePath + '/'+ item?.attributes?.Type + '/'+ item?.attributes?.Slug}}" class="read-more">Read
-                                More...</a>
-                            <a *ngIf="!searchTag && pageDetailsName !='analytics'" routerLink="{{'/'+ routePath + '/'+ item?.attributes?.Slug}}" class="read-more">Read
-                                    More...</a>
-                        </div>
-                        
-                        <div class="pb-5" *ngIf ="item?.attributes?.ContentLink">                            
-                            <app-right-menu-details-card [title]="item?.attributes?.Title"                            
-                            [authorDetails]="item?.attributes?.Authors?.data"
-                            [date]="item?.attributes?.PublishedOn"
-                            [tags]="item?.attributes?.Tags?.data"
-                            >
-                            </app-right-menu-details-card> 
-                            <div class="container-fluid" style="margin-left:-15px">
-                            <a href="{{item?.attributes?.ContentLink.Url}}" target="_blank">{{item?.attributes?.ContentLink.Url}}</a> 
-                            </div>
-                        </div> 
-                        -->
-                            <!-- 
-                            <div class="container-fluid">  
-                                <iframe class="embed-responsive-item"  width="100%" height="425"  frameborder="0" 
-                                [src]="item?.attributes?.ContentLink.Url | customPipe" allow="encrypted-media" allowfullscreen=""></iframe>
-                            </div>-->
-            <!--                           
-                        <div class="pb-5" *ngIf ="item?.attributes?.Media?.data && isPublications">                          
-                            <app-right-menu-details-card [title]="item?.attributes?.Title"                            
-                            [authorDetails]="item?.attributes?.Authors?.data"
-                            [date]="item?.attributes?.PublishedOn"
-                            [tags]="item?.attributes?.Tags?.data">
-                            </app-right-menu-details-card>                            
-                            <div class="container-fluid">  
-                                <iframe class="embed-responsive-item"  width="100%" height="425"  frameborder="0" 
-                                [src]="item?.attributes?.Media?.data[0].attributes.url | customPipe" allow="encrypted-media" allowfullscreen=""></iframe>
-                                                       
-                            </div>
-                            
-                        </div> -->   
-                        
                         <div class="pb-5" >
                             <app-right-menu-details-card 
                             [title]="item?.attributes?.Title"

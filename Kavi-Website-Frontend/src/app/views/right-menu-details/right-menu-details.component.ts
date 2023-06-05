@@ -39,7 +39,7 @@ export class RightMenuDetailsComponent implements OnInit {
     private sanitizer: DomSanitizer
   ) { }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {//    console.log("sss",this.commonService.activeMenuData);
     this.loadPageData();
     this.routerEventSubscription = this.router.events.subscribe((evt: any) => {
       if ((evt instanceof NavigationEnd)) {
@@ -225,9 +225,23 @@ export class RightMenuDetailsComponent implements OnInit {
     });
      
   }
-  getDetailsData() {
-    this.getViewer(this.pageType);  
-//    console.log("this.pageType, this.pageDetailsName",this.pageType, this.pageDetailsName);
+  getRelatedDataByTag(tagName:any){
+  let menu=['blogs','newslist','success-stories', 'podcasts', 'publications' ,'presentations'];
+          let menuTaglist:any=[];
+          for(let item of menu) {         
+            this.rightMenuService.getRelatedDataByTag(item,tagName).then((response: any) => {
+              if(response.data.length > 0){
+                response.data[0].attributes.menuType = item;             
+//                this.searchTag = true;
+                menuTaglist.push(response.data);
+              }
+            })
+          }
+  }
+  getDetailsData() { //console.log("pageType",this.pageType,this.commonService.activeMenuData.attributes);
+    
+    console.log("this.pageType, this.pageDetailsName",this.commonService.activeMenuData?.attributes?.Viewer);
+    this.getViewer(this.commonService.activeMenuData?.attributes?.Viewer);
     this.rightMenuService.getDetailsData(this.pageType, this.pageDetailsName).then((response: any) => {
       if (response.data && response.data.length > 0) {
         this.pageData = response.data;        
@@ -242,13 +256,12 @@ export class RightMenuDetailsComponent implements OnInit {
         if (pageData.attributes && pageData.attributes.Tags && pageData.attributes.Tags.data && pageData.attributes.Tags.data.length > 0) {
           let tagName: any = [];   
           tagName = pageData.attributes.Tags.data ; 
-          if (tagName) {
+          if (tagName) {           
             this.getRecommendations(tagName,response.data[0].attributes?.Slug);
 //            this.getRecommendationsByTag(tagName);
           }
         }
-        if(this.pageType == 'podcasts'){
-         
+        if(this.pageType == 'podcasts'){         
           this.rightMenuService.getSpeakerList(this.pageType,  pageData[0]?.attributes?.Speakers?.data[0].attributes.Slug).then((response: any) => {
           this.authorPost = response.data;
           });
@@ -261,41 +274,28 @@ export class RightMenuDetailsComponent implements OnInit {
       }
       this.isDataLoaded = true;
     });
+    if(this.pageType == "pages"){
+      this.getRelatedDataByTag(this.pageDetailsName);
+    }
   }
-  getViewer(page:any) {
-    let viewer :any;
-    if(page == 'blogs'){
-      viewer = "blog-viewer";
-    }
-    if(page == 'newslist'){
-      viewer = "news-viewer";
-    }
-    if(page == 'success-stories'){
-      viewer = "success-story-viewer";
-    }
-    if(page == 'presentations'){
-      viewer = "presentation-viewer";
-    }
-    if(page == 'publications'){
-      viewer = "publication-viewer";
-    }
-    if(page == 'podcasts'){
-      viewer = "podcast-viewer";
-    } 
-    if(viewer){//console.log("viewer",viewer);
-      this.rightMenuService.getViewer(viewer).then((viewerResp: any) => {
-        this.viewerData = viewerResp.data.attributes;
+  getViewer(viewerName:any) {
+    this.viewerData = [];
+    if(viewerName){
+      this.rightMenuService.getViewer(viewerName).then((viewerResp: any) => {
+        this.viewerData.push(viewerResp.data.attributes);
       });
     }
+//    console.log("this.viewerData",this.viewerData)   
   }
   getRecommendations(tagName: any,menuSlug:any) {
+    this.recommendationData = [];
     this.rightMenuService.getRecommendationsByTag(this.pageType, tagName,menuSlug).then((response: any) => {
       if (response.data && response.data.length > 0) {
-        this.recommendationData = response.data;       
-      }     
-//      console.log("rcd",response);
-    });
-   
+//        this.recommendationData.push(response.data);     
+        this.recommendationData=response.data;      
+      }      
+    });  
+//    console.log("response.data",this.recommendationData[0],this.viewerData); 
     this.recommendationMetaData =this.viewerData.Recommendations;
   }
   getRecommendationsByTag(tagName: any) {

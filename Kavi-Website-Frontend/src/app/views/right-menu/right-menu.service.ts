@@ -12,9 +12,10 @@ export class RightMenuService {
   ) { }
 
 
-  public getRightMenuPageData(apiUrl: string): any {
+  public getRightMenuPageData(menuType: string): any {
     return new Promise<any>((resolve, reject) => {
-      this.apicallService.apiCall(apiUrl, '', 'get', '', '').then((resp: any) => {
+      const endpoint =  '/'+menuType+appConfig.VIEWER;     
+      this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
         if (resp) {
           resolve(resp);
         }
@@ -23,6 +24,16 @@ export class RightMenuService {
         }
       })
     });
+    /*return new Promise<any>((resolve, reject) => {
+      this.apicallService.apiCall(apiUrl, '', 'get', '', '').then((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });*/
   }
   public getAnalyticsData(): any {
     return new Promise<any>((resolve, reject) => {
@@ -56,7 +67,7 @@ export class RightMenuService {
   }
 public getTagListByName(tagName:any,menuName:any): any {
     return new Promise<any>((resolve, reject) => {
-      const endpoint =  '/'+menuName+appConfig. GET_TAG_LIST_By_NAME+tagName;      
+      const endpoint =  '/'+menuName+appConfig. GET_TAG_LIST_BY_NAME+tagName;      
       this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
         if (resp) {
           resolve(resp);
@@ -300,7 +311,19 @@ public getTagListByName(tagName:any,menuName:any): any {
       })
     });
   }
-
+  public getRelatedDataByTag(pagetype: any, tagName: any,){
+    return new Promise<any>((resolve, reject) => {
+      const endpoint =  "/"+pagetype+appConfig.GET_RELATED_TAGS+tagName;      
+      this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+  }
   public getRecommendationsByTag(type: string, tagName: any,menuSlug:any): any {
     return new Promise<any>((resolve, reject) => {
       let endpoint =  "/"+type+appConfig.VIEWER ;

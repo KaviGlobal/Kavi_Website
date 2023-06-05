@@ -11,7 +11,8 @@ import { CommonService } from './services/common.service';
 export class AppComponent implements OnInit {
   title = 'kaviGlobal';
   public headerFooterData: any;
-  public logoImage: string = 'https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/KG_Logo_final_29535fe51f.png';
+  public headerData: any;
+  public logoImage: string = '';//https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/KG_Logo_final_29535fe51f.png';
   public images: any = [];
   public footerData: any;
   public isDataLoaded: boolean = false;
@@ -24,7 +25,41 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getHeaderFooterData();
+//    this.getHeaderFooterData();
+    this.getHeaderData();
+    this.getFooterData();
+  }
+  public getHeaderData() {
+    this.headerService.getHeaderData().then((response: any) => {
+      if (response && response.data) {
+        this.headerData = cloneDeep(response.data);
+   /*     this.headerFooterData.attributes.headerfooter.Sliders.data.forEach((element: any) => {
+          this.images.push(element.attributes.url);
+        });*/
+        if (this.headerData.attributes && this.headerData.attributes?.Logo?.Media?.data?.attributes?.url) {
+          this.logoImage = cloneDeep(this.headerData.attributes?.Logo?.Media?.data?.attributes?.url);
+        }
+      }
+//      this.getMenuList();
+      this.getMenu();
+    });
+  }
+  public getFooterData() {
+    this.headerService.getFooterData().then((response: any) => {
+      if (response && response.data) {
+        this.headerFooterData = cloneDeep(response.data);
+   /*     this.headerFooterData.attributes.headerfooter.Sliders.data.forEach((element: any) => {
+          this.images.push(element.attributes.url);
+        });*/
+        if (this.headerFooterData.attributes && this.headerFooterData.attributes.headerfooter && this.headerFooterData.attributes.headerfooter.KaviLogo &&
+          this.headerFooterData.attributes.headerfooter.KaviLogo.data && this.headerFooterData.attributes.headerfooter.KaviLogo.data.attributes &&
+          this.headerFooterData.attributes.headerfooter.KaviLogo.data.attributes.url) {
+          this.logoImage = cloneDeep(this.headerFooterData.attributes.headerfooter.KaviLogo.data.attributes.url);
+        }
+      }
+//      this.getMenuList();
+      this.getMenu();
+    });
   }
   public getHeaderFooterData() {
     this.headerService.getHeaderFooterData().then((response: any) => {
@@ -39,8 +74,8 @@ export class AppComponent implements OnInit {
           this.logoImage = cloneDeep(this.headerFooterData.attributes.headerfooter.KaviLogo.data.attributes.url);
         }
       }
-      this.getMenuList();
-//      this.getMenu();
+//      this.getMenuList();
+      this.getMenu();
     });
   }
   public getMenuList() {
@@ -76,15 +111,11 @@ export class AppComponent implements OnInit {
          const key = keyGetter(item);
          const collection = map.get(key);
          if (!collection) {
-             map.set(key, [item]);
-            
+             map.set(key, [item]);            
          } else {
              collection.push(item);
          }         
     });
-    console.log("groupedData",groupedData);
-    console.log("map",map);
-    
     return map;
 }
   public getMenu() {
@@ -93,21 +124,23 @@ export class AppComponent implements OnInit {
       let rightMenu:any = [];
       let industryMenu:any = [];
       let menuData:any = [];
+      let aboutUs:any=[];
 //      console.log("response",response);
       if (response && response.data) { 
         leftMenu = response.data.filter((element: any) => (element.attributes.Menu == "Offering"));
         rightMenu = response.data.filter((element: any) => (element.attributes.Menu == "Type"));
         industryMenu = response.data.filter((element: any) => (element.attributes.Menu == "Industry"));
+        aboutUs = response.data.filter((element: any) => (element.attributes.Menu == "About Us"));
         leftMenu.sort(this.sortByDisplayOrder); 
         rightMenu.sort(this.sortByDisplayOrder); 
         industryMenu.sort(this.sortByDisplayOrder);     
 //        menuData.push({LeftMenu :leftMenu});        
       } 
       let groupedMenu = this.groupBy(leftMenu, (item:any) => item?.attributes?.parent_item?.data?.attributes?.DisplayName);
-
       menuData.push({LeftMenu :groupedMenu});
       menuData.push({RightMenu :rightMenu});
       menuData.push({IndustryMenu :industryMenu});
+      menuData.push({AboutUs :aboutUs});
       /*      for(let menu of menuData[0].LeftMenu) {
         console.log("xxxx",menu?.attributes?.ParentItem?.data?.attributes?.DisplayName);
         

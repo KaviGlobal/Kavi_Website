@@ -1,8 +1,10 @@
 {
   "HOME": "/home-page?populate=deep,20",
   "MENU": "/actual-menu?populate=deep,20",
+  "HEADER": "/header?populate=deep,20",
+  "FOOTER": "/footer?populate=deep,20",
   "HEADER_FOOTER": "/header-footer?populate=deep,20",
-  "RIGHT_MENU_TYPE": "/posts?populate=deep,20&filters[Type][$eq]=",
+  "RIGHT_MENU_TYPE": "/posts?populate=deep,20&flate=deep,ilters[Type][$eq]=",
   "RIGHT_MENU_VIEW_TYPE": "?populate=deep,20&filters[Slug][$eq]=",
   "BLOG_VIEWER": "/blog-viewer?populate=deep,20",
   "VIEWER": "?populate=deep,20",
@@ -17,12 +19,15 @@
   "CAREERS"  : "/about-kavis?populate=deep,20&filters[Name][$eq]=Careers",
   "GET_TAG" :"/posts?populate=deep,20&filters[Tags][DisplayName][$containsi]=",
   "GET_TAG_LIST":"/tags?populate=deep,20&sort=tag_dimension.Name",
-  "GET_TAG_LIST_By_NAME":"?populate=deep,20&filters[Tags][Slug][$eq]=",
+  "GET_TAG_LIST_BY_NAME":"?populate=deep,20&filters[Tags][Slug][$eq]=",
   "GET_PEOPLE" : "/people?populate=deep,20&filters[Slug][$eq]=",
   "GET_AUTHORS_POST"  : "?populate=deep,20?filters[Authors][Slug][$eq]=",
   "GET_PEOPLE_VIEWER":"/people-viewer?populate=deep,20",
   "GET_LIST_VIEWER" : "/list-viewer?populate=deep,20",
   "GET_AUTHORS_PRESENTATIONS_OR_PUBLICATIONS" : "?populate=deep,20&filters[Authors][Slug][$eq]=",
   "GET_SPEAKER_LIST"  : "?populate=deep,20&filters[Speakers][Slug][$eq]=",
-  "MENU_LIST": "/menu-items?populate=deep,20"
+  "MENU_LIST": "/menu-items?populate=deep,20",
+  "GET_RELATED_TAGS":"?populate=deep,20&filters[Tags][Slug][$eq]=",
+  "GET_PAGE_DATA" : "?populate=deep,20"
+ 
 }
