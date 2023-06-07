@@ -33,7 +33,7 @@
     "Offerings": {
       "type": "component",
       "repeatable": true,
-      "component": "card.item"
+      "component": "custom.offering"
     },
     "Analytics": {
       "type": "component",

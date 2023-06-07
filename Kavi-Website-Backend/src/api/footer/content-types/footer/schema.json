@@ -22,22 +22,20 @@
       "repeatable": false,
       "component": "media.image"
     },
-    "AboutKaviTitle": {
-      "type": "text"
-    },
-    "Label": {
-      "type": "string"
-    },
     "SocialMedia": {
       "type": "component",
       "repeatable": true,
       "component": "custom.content-link"
     },
-    "PrivacyPolicies": {
-      "type": "string"
+    "AboutKavi": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.about-kavi"
     },
-    "AboutKaviPreviewContent": {
-      "type": "string"
+    "PrivacyPolicy": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.privacy-policy"
     }
   }
 }
