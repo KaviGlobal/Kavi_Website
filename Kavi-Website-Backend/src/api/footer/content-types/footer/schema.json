@@ -17,15 +17,29 @@
       "repeatable": false,
       "component": "custom.subscription"
     },
-    "KaviLogo": {
+    "Logo": {
       "type": "component",
       "repeatable": false,
       "component": "media.image"
     },
+<<<<<<< HEAD
+=======
+    "AboutUs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.footer"
+    },
+    "PrivacyPolicy": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.footer"
+    }, 
+>>>>>>> a0bef82e7b21edd6adb599d1bfe46b49ed105d68
     "SocialMedia": {
       "type": "component",
       "repeatable": true,
       "component": "custom.content-link"
+<<<<<<< HEAD
     },
     "AboutKavi": {
       "type": "component",
@@ -36,6 +50,8 @@
       "type": "component",
       "repeatable": false,
       "component": "custom.privacy-policy"
+=======
+>>>>>>> a0bef82e7b21edd6adb599d1bfe46b49ed105d68
     }
   }
 }
