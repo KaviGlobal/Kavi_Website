@@ -12,9 +12,9 @@ export class RightMenuService {
   ) { }
 
 
-  public getRightMenuPageData(menuType: string): any {
+  public getRightMenuPageData(menuType: string, parameter: string): any {
     return new Promise<any>((resolve, reject) => {
-      const endpoint =  '/'+menuType+appConfig.VIEWER;     
+      const endpoint =  '/'+menuType+appConfig.VIEWER+parameter;     
       this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
         if (resp) {
           resolve(resp);

@@ -431,7 +431,18 @@ console.log("filePath",url,filePath);
           this.rightMenuService.getTagListByName(tagName,item.attributes.Parameter.type)*/
         this.rightMenuService.getMetaDataForListViewer().then((response: any) => { 
           this.listMetaData = response.data.attributes;
-         this.rightMenuService.getRightMenuPageData(this.routePath).then((response: any) => {
+          let key, parameter = '';
+          for(let item of menu) {
+            if(item.attributes.Parameter.type == this.routePath){
+              for(let i = 0 ; i < Object.keys(item.attributes.Parameter.parameter).length; i++){
+                key = Object.keys(item.attributes.Parameter.parameter)[i]
+                if(item.attributes.Parameter.parameter[key] != ''){
+                  parameter = parameter.concat("&", key.concat("=", item.attributes.Parameter.parameter[key]))
+                }
+              }
+            }
+          }
+         this.rightMenuService.getRightMenuPageData(this.routePath, parameter).then((response: any) => {
             if (response.data && response.data.length > 0) {
               this.pageData = response.data;
               //commenting this for the UI to test all the content
@@ -463,8 +474,20 @@ console.log("filePath",url,filePath);
           this.isAboutUs = true;        
         }  
                
-        else{    console.log("xxxx",this.activeMenuItem.ContentLink);       
-          this.rightMenuService.getRightMenuPageData(this.activeMenuItem.ContentLink).then((response: any) => {
+        else{    console.log("xxxx",this.activeMenuItem.ContentLink);
+        let menu =  this.commonService.menuData[1].RightMenu;
+          let key, parameter = '';
+          for(let item of menu) {
+            if(item.attributes.Parameter.type == this.routePath){
+              for(let i = 0 ; i < Object.keys(item.attributes.Parameter.parameter).length; i++){
+                key = Object.keys(item.attributes.Parameter.parameter)[i]
+                if(item.attributes.Parameter.parameter[key] != ''){
+                  parameter = parameter.concat("&", key.concat("=", item.attributes.Parameter.parameter[key]))
+                }
+              }
+            }
+          }    
+          this.rightMenuService.getRightMenuPageData(this.activeMenuItem.ContentLink, parameter).then((response: any) => {
             if (response.data && response.data.length > 0) {
               this.pageData = response.data;              
               let tags: any = [];
