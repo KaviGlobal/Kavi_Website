@@ -94,7 +94,7 @@
                         <ng-container *ngIf="i < 2">
                             <app-card-layout [image]="item.attributes.Thumbnail.Media.data.attributes.url"
                                 [title]="item.attributes.Title" [description]="item.attributes.PreviewContent"
-                                [hyperlinkText]="hyperlinkText" moduleName="success_story"
+                                [hyperlinkText]="hyperlinkText" moduleName="success-stories"
                                 [slug]="item.attributes.Slug"
                                 [type]="i?'success-right-card-layout':'success-card-layout'"></app-card-layout>
                         </ng-container>
@@ -125,7 +125,7 @@
                                     [title]="homeData.attributes.Blogs.data[0].attributes.Title"
                                     [slug]="homeData.attributes.Blogs.data[0].attributes.Slug"
                                     [description]="homeData.attributes.Blogs.data[0].attributes.PreviewContent"
-                                    moduleName="blog" [hyperlinkText]="hyperlinkText" 
+                                    moduleName="blogs" [hyperlinkText]="hyperlinkText" 
                                     [type]="'top-image-layout'">
                                 </app-card-layout>
                             
@@ -140,7 +140,7 @@
                                             [title]="item.attributes.Title" 
                                             [slug]="item.attributes.Slug"
                                             [description]="item.attributes.PreviewContent"
-                                            moduleName="blog" [hyperlinkText]="hyperlinkText"
+                                            moduleName="blogs" [hyperlinkText]="hyperlinkText"
                                             [type]="'left-image-layout'">
                                         </app-card-layout>
                                     </div>
@@ -176,7 +176,7 @@
                         <ng-container *ngIf="i < 4">
                             <app-card-layout [image]="item.attributes.Thumbnail.Media.data.attributes.url"
                                 [title]="item.attributes.Title" [description]="item.attributes.PreviewContent"
-                                moduleName="news"
+                                moduleName="newslist"
                                 [slug]="item.attributes.Slug"
                                 [hyperlinkText]="hyperlinkText" [type]="'news-card-layout'">
                             </app-card-layout>
@@ -310,7 +310,7 @@
                 </agm-info-window>
             </agm-marker>
         </agm-map>
-        <div class="map-contact-wrapper">
+        <!-- <div class="map-contact-wrapper">
             <div class="map-contact-container ">
                 <div class="map-contact-content" *ngIf="homeData.attributes">
                     <h3 class="title">Contact Us</h3>
@@ -325,5 +325,5 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
