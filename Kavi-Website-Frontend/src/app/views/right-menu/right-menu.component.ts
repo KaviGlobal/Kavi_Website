@@ -526,7 +526,7 @@ console.log("filePath",url,filePath);
   getRightPageData(){
     let tags: any = [];
     this.rightPageData = [];
-    this.getMetaDataForListViewer();
+    // this.getMetaDataForListViewer();
     this.rightMenuService.getTagList().then((response: any) => {          //          
       let responseLength = response.data.length;
       if (response.data) {  

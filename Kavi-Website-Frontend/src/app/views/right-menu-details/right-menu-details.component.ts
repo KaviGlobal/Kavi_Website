@@ -243,6 +243,15 @@ export class RightMenuDetailsComponent implements OnInit {
     
 //    console.log("this.pageType, this.pageDetailsName",this.commonService.activeMenuData?.attributes?.Viewer);
     this.getViewer(this.commonService.activeMenuData?.attributes?.Viewer);
+    // this.commonService.menuData.forEach((Menuitem:any) =>{
+    //   if(Menuitem.RightMenu){
+    //     Menuitem.RightMenu.forEach((item:any) =>{
+    //       if(item.attributes.Parameter.type == this.pageType)
+    //       console.log("kkk", item.attributes!.Viewer);
+    //       this.getViewer(item.attributes!.Viewer);
+    //     });
+    //   }
+    // })
     this.rightMenuService.getDetailsData(this.pageType, this.pageDetailsName).then((response: any) => {
       if (response.data && response.data.length > 0) {
         this.pageData = response.data;        
@@ -283,7 +292,7 @@ export class RightMenuDetailsComponent implements OnInit {
     this.viewerData = [];
     if(viewerName){
       this.rightMenuService.getViewer(viewerName).then((viewerResp: any) => {
-        this.viewerData.push(viewerResp.data.attributes);    
+        this.viewerData = viewerResp.data.attributes;    
       });
     }
 //    console.log("this.viewerData",this.viewerData)   
@@ -293,8 +302,8 @@ export class RightMenuDetailsComponent implements OnInit {
     this.rightMenuService.getRecommendationsByTag(this.pageType, tagName,menuSlug).then((response: any) => {
       console.log("response1",response);
       if (response.data && response.data.length > 0) {
-        this.recommendationData.push(response.data);     
-//        this.recommendationData=response.data;      
+        // this.recommendationData.push(response.data);     
+       this.recommendationData=response.data;
       }      
     });  
     console.log("response.data",this.recommendationData,this.viewerData); 
