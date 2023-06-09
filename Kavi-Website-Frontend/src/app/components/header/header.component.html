@@ -100,7 +100,7 @@
                      </li>
                     </ng-container>
                   </ul>
-                  <ul class="inner-menu-items"
+            <!--      <ul class="inner-menu-items"
                     *ngIf="menuItem.aboutKavi && menuItem.aboutKavi.data && menuItem.aboutKavi.data.length > 0">
                     <ng-container *ngFor="let subSection of menuItem.aboutKavi.data">
                       <li *ngIf="subSection.attributes && subSection.attributes.Name">
@@ -109,7 +109,7 @@
                   
                       </li>
                     </ng-container>
-                  </ul>
+                  </ul>-->
                 </li>        
                 <li *ngFor="let keyItem of keyList; let i = index">
               <!--    <a class="menu-items-left" style ="color:#EA6B1E;margin-bottom:8px" href=""> {{keyItem}}</a>-->
@@ -117,7 +117,9 @@
                     <ng-container *ngFor="let menuItem of OfferingList">  
                       <div *ngFor="let subItem of menuItem[keyItem];let j= index">           
                         <div *ngIf="j==0 &&  menuItem[keyItem][0].attributes.parent_item.data.attributes.IsTitle">
-                          <a [routerLink]="[menuItem[keyItem][0].attributes.parent_item.data.attributes.Slug]"class="menu-items-left" style ="color:#EA6B1E;margin-bottom:8px"> {{keyItem}}</a>
+                          <a [routerLink]="['/'+menuItem[keyItem][0].attributes.parent_item.data.attributes.Parameter.type+'/'+menuItem[keyItem][0].attributes.parent_item.data.attributes.Slug]"
+                          (click)="makeOfferingsActive(menuItem,menuItem[keyItem][0].attributes.parent_item.data.attributes.Slug,menuItem[keyItem][0].attributes.parent_item.data.attributes.Parameter)"
+                          class="menu-items-left" style ="color:#EA6B1E;margin-bottom:8px"> {{keyItem}}</a>
                         </div>
                         <div *ngIf="j==0 && !menuItem[keyItem][0].attributes.parent_item.data.attributes.IsTitle">
                           <a class="menu-items-left" style ="margin-bottom:8px" href=""> {{keyItem}}</a>

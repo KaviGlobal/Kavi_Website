@@ -162,7 +162,6 @@ export class HeaderComponent implements OnInit {
     
   }
   public makeOfferingsActive(menuItem?: any,selectedMenu?: any,menuType?:any) {
-//console.log("xxxx",menuItem,menuType);
     this.showMenu = false;    
     this.document.body.classList.remove('hide-scroll');    
 /*    if (menuItem?.offerings?.data && menuItem?.offerings?.data?.length > 0 
@@ -188,11 +187,18 @@ export class HeaderComponent implements OnInit {
         }
       });      
     }*/
-    if(menuItem?.attributes?.Parameter?.type){
+   
+    if(menuItem?.attributes?.Parameter?.type && !menuType.type){
       this.commonService.activeMenuName = selectedMenu;
       this.commonService.activeMenuData = menuItem;
       this.makeMenuActive(menuItem);
       this.router.navigate(["/"+menuItem?.attributes?.Parameter?.type+"/"+selectedMenu]);
+    }
+    else if(menuType.type && !menuItem?.attributes?.Parameter?.type){
+      this.commonService.activeMenuName = selectedMenu;
+      this.commonService.activeMenuData = menuItem;
+      this.makeMenuActive(menuItem);
+      this.router.navigate(["/"+menuType.type+"/"+selectedMenu]);
     }
     else {
       this.commonService.activeMenuName = '';
