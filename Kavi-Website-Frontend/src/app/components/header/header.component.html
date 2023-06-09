@@ -163,8 +163,26 @@
                   </div>                           
 
                 </li>
+                <li *ngFor="let menuItem of menuData[3]?.AboutUs; let k=index">
+                  <div *ngIf="k == 0">
+                    <a class="menu-items-left" style ="color:#EA6B1E">{{menuItem.attributes.Menu}}</a>
+                  </div>
+                  <div>
+                    <ul class="inner-menu-items" *ngIf="!menuItem.attributes.IsTitle">
+                      <ng-container>
+                        <li>  
+                           <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName"
+                           (click) = "makeOfferingsActive(menuItem,menuItem?.attributes?.Slug,menuItem?.attributes?.Menu)"
+                          >{{menuItem.attributes.DisplayName}}</a>
+                        </li>
+                      </ng-container>
+                    </ul> 
+                  </div>                           
+
+                </li>
               </ul>
             </div>
+            
           </div>
         </div>
         <div class="col-12 col-sm-5 menu-items-right-col">

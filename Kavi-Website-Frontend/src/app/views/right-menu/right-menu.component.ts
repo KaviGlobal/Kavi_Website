@@ -301,10 +301,11 @@ console.log("filePath",url,filePath);
   //              menuTaglist = response.data;
               }
               this.pageData = menuTaglist;
-              //        console.log("call",menuTaglist,this.pageData.length);
-              this.getRightPageData();
+              //        console.log("call",menuTaglist,this.pageData.length);              
             });
-         }} 
+          }
+          this.getRightPageData();
+        } 
 /*        if(this.commonService.activeMenuName == ":id"){
           let menu=['blogs','newslist','success-stories', 'podcasts', 'publications' ,'presentations'];
           let menuTaglist:any=[];
