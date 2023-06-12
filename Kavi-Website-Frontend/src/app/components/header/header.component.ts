@@ -30,6 +30,8 @@ export class HeaderComponent implements OnInit {
   public leftMenuCardTwo: any = [];
   public keyList: any = [];
   public OfferingList: any = [];
+  public IndustrykeyList: any = [];
+  public IndustryList: any = [];
   public searchTagValue: any = [];
   public showMenu: boolean = false;
   public isScroll: boolean = false;
@@ -83,6 +85,9 @@ export class HeaderComponent implements OnInit {
    let menu :any=[];
    let keyItem :any=[];
    let keyData :any=[];
+   let Industrymenus :any=[];
+   let IndustrykeyItem :any=[];
+   let IndustrykeyData :any=[];
     this.menuData[0]?.LeftMenu.forEach((item: any,index:number,key:Object) => {
       keyItem.push(index);   
       keyData.push(item);  
@@ -90,13 +95,22 @@ export class HeaderComponent implements OnInit {
         [index]:item
       }
       menu.push(obj);
-    });    
+    });
     this.keyList = keyItem;
     this.OfferingList = menu;
+    this.menuData[2]?.IndustryMenu.forEach((item: any,index:number,key:Object) => {
+      IndustrykeyItem.push(index);   
+      IndustrykeyData.push(item);  
+      var obj={
+        [index]:item
+      }
+      Industrymenus.push(obj);
+    });
+    this.IndustrykeyList = IndustrykeyItem;
+    this.IndustryList = Industrymenus;
   }
 
   public makeMenuActive(menuItem?: any) {
-//    console.log("menuItem",menuItem);
     this.showMenu = false;
     this.document.body.classList.remove('hide-scroll'); 
     if (menuItem) {
@@ -187,7 +201,6 @@ export class HeaderComponent implements OnInit {
         }
       });      
     }*/
-   
     if(menuItem?.attributes?.Parameter?.type && !menuType.type){
       this.commonService.activeMenuName = selectedMenu;
       this.commonService.activeMenuData = menuItem;
