@@ -9,7 +9,7 @@
 </div> 
 <div *ngIf="(isPolicy || isPersonal) && !isUserForm">
     <div class="container">
-        <markdown [data]="terms"> </markdown>
+        <markdown [data]="terms[0]"> </markdown>
         <div class="modalFooter">
             <button type="button" id="closeModal"  (click)="onClose()">Close</button>
             </div>

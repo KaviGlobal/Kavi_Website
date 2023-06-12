@@ -278,18 +278,40 @@ console.log("filePath",url,filePath);
     this.commonService.pageScrollToTop();
     let tagName = "";
     if(this.commonService.activeMenuName.includes("SearchTag") || this.routePath.includes("SearchTag")){
-      let tagName = "";
+      let tagName = "";      
       if(this.commonService.activeMenuName.includes("SearchTag"))
         tagName = this.commonService.activeMenuName;
-        else
+      else
         tagName = (this.routePath).split('=')[1] ;  
 //        console.log("ttttt",this.commonService.activeMenuName,this.routePath,tagName);   
         if(this.routePath.includes("SearchTag")){
-//          let menu=['blogs','newslist','success-stories', 'podcasts', 'publications' ,'presentations'];
           let menu =  this.commonService.menuData[1].RightMenu;
-          let menuTaglist:any=[];
+          let menuTaglist:any=[];          
+          this.rightMenuService.getMetaDataForListViewer().then((response: any) => { 
+            this.listMetaData = response.data.attributes;
+     //       console.log("zzzz11",this.listMetaData);
+            for(let item of menu) {  //console.log("eeee",item.attributes.Parameter.type);       
+                  this.rightMenuService.getTagListByName(tagName,item.attributes.Parameter.type,this.listMetaData.MaxCount).then((response: any) => {
+              //      this.rightMenuService.getTagListByName(tagName,item.attributes.Parameter.type,20).then((response: any) => {
+                    if(response.data.length > 0){
+                      response.data[0].attributes.menuType = item.attributes.Parameter.type;             
+                      this.searchTag = true;
+                      menuTaglist.push(response.data);
+                      this.isDataLoaded = true;
+                      this.isUserForm = false;
+                      this.routePath='';
+                      this.SearchTagMenu = this.commonService.activeMenuName;
+        //              menuTaglist = response.data;
+                    }
+                    this.pageData = menuTaglist;
+                    //        console.log("call",menuTaglist,this.pageData.length);              
+                  });
+                }
+          });
+//          console.log("zzzz",this.listMetaData);
           for(let item of menu) {  //console.log("eeee",item.attributes.Parameter.type);       
-            this.rightMenuService.getTagListByName(tagName,item.attributes.Parameter.type).then((response: any) => {
+        //    this.rightMenuService.getTagListByName(tagName,item.attributes.Parameter.type,this.listMetaData.MaxCount).then((response: any) => {
+              this.rightMenuService.getTagListByName(tagName,item.attributes.Parameter.type,20).then((response: any) => {
               if(response.data.length > 0){
                 response.data[0].attributes.menuType = item.attributes.Parameter.type;             
                 this.searchTag = true;
@@ -443,7 +465,7 @@ console.log("filePath",url,filePath);
               }
             }
           }
-         this.rightMenuService.getRightMenuPageData(this.routePath, parameter).then((response: any) => {
+         this.rightMenuService.getRightMenuPageData(this.routePath, parameter,this.listMetaData.MaxCount).then((response: any) => {
             if (response.data && response.data.length > 0) {
               this.pageData = response.data;
               //commenting this for the UI to test all the content
@@ -488,7 +510,7 @@ console.log("filePath",url,filePath);
               }
             }
           }    
-          this.rightMenuService.getRightMenuPageData(this.activeMenuItem.ContentLink, parameter).then((response: any) => {
+          this.rightMenuService.getRightMenuPageData(this.activeMenuItem.ContentLink, parameter,this.listMetaData.MaxCount).then((response: any) => {
             if (response.data && response.data.length > 0) {
               this.pageData = response.data;              
               let tags: any = [];

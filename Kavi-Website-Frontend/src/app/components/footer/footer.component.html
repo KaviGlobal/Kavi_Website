@@ -21,26 +21,27 @@
                       </div>
                       <p  *ngIf="isSubscribed">Thank you for Subscribing!</p>
                     
-     <!--           <div class="py-3">
+                <div class="py-3">
                     <div class="logo-wrapper">
                         <img src="{{logoImage}}" alt="logo">
                     </div>
-                </div>-->
+                </div>
                 <p class="description">
+                    {{this.aboutUs[0]}}
         <!--            {{footerData.attributes.headerfooter.AboutKavi}}-->
                 </p>
-                
-                <div class="policy-terms ">
-                    <p class="footer-desc ft-menu" (click)="policyTerms(footerData.attributes.PrivacyPolicies);">{{footerData.attributes.PrivacyLabel}}</p>
-                <!--    <p class="footer-desc ft-menu">Terms & Conditions</p>-->                
+                <p class="footer-desc ft-menu" (click)="policyTerms();">Privacy Policy</p>
+ <!--               <div class="policy-terms ">
+                    <p class="footer-desc ft-menu" (click)="policyTerms();">Privacy Policy</p>
+                    <p class="footer-desc ft-menu">Terms & Conditions</p>                
                 </div>
-         
+            -->
                 <p class="footer-desc">{{footerData.attributes.Copyright}}
                     <!--<span class="custom">Privacy Policy</span>-->
                 </p>
             </div>
             <div class="col-12 col-md-6">
-                <div class="pt-2" *ngIf="images">
+<!--                <div class="pt-2" *ngIf="images">
                     <ngb-carousel class="footer-carousel">
                         <ng-container *ngFor="let imgItem of images">
                             <ng-template ngbSlide>
@@ -53,7 +54,7 @@
                         </ng-container>
                     </ngb-carousel>
 
-                </div>
+                </div>-->
                 <div class="social-wrapper">                    
                     <a href="https://www.linkedin.com/company/kavi-global/mycompany/" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://twitter.com/KG4Analytics" target="_blank"><i class="fab fa-twitter-square"></i></a>

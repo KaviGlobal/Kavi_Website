@@ -300,7 +300,7 @@ export class RightMenuDetailsComponent implements OnInit {
   getRecommendations(tagName: any,menuSlug:any) {
     this.recommendationData = [];
     this.rightMenuService.getRecommendationsByTag(this.pageType, tagName,menuSlug).then((response: any) => {
-      console.log("response1",response);
+//      console.log("response1",response);
       if (response.data && response.data.length > 0) {
         // this.recommendationData.push(response.data);     
        this.recommendationData=response.data;

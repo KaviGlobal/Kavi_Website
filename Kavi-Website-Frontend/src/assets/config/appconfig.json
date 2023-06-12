@@ -28,6 +28,7 @@
   "GET_SPEAKER_LIST"  : "?populate=deep,20&filters[Speakers][Slug][$eq]=",
   "MENU_LIST": "/menu-items?populate=deep,20",
   "GET_RELATED_TAGS":"?populate=deep,20&filters[Tags][Slug][$eq]=",
-  "GET_PAGE_DATA" : "?populate=deep,20"
- 
+  "GET_PAGE_DATA" : "?populate=deep,20",
+  "GET_POLICY_DATA" : "/pages?populate=deep,20&filters[Slug][$eq]=privacy-policy",
+  "GET_ABOUT_US"  :"/pages?populate=deep,20&filters[Slug][$eq]=what-we-do"
 }

@@ -15,12 +15,14 @@ import { Router, ActivatedRoute,  NavigationStart, NavigationEnd } from '@angula
 export class FooterComponent implements OnInit {
 
   @Input() images: any = [];
-  @Input() footerData: any;
+  @Input() footerData: any = [];
   @Input() isDataLoaded: boolean = false;
   @Input() sliderImages: any = [];
   @Input() logoImage: string = '';
   public currentYear: any = '';
   public isSubscribed:  boolean = false;
+  public terms :any=[];
+  public aboutUs :any = [];
   constructor(
     public footerService: FooterService,
     public config: NgbCarouselConfig,
@@ -37,6 +39,7 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentYear = new Date().getFullYear(); 
+    this.getAboutUs();
   }
   public emailSubscription(email:any){    
     let emailValidation = new RegExp("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$");
@@ -57,14 +60,31 @@ export class FooterComponent implements OnInit {
     }
     console.log(valid);    
   }
-  public policyTerms(terms: any){  
+  public getAboutUs(){
+    this.rightMenuService.getAboutUs().then((response: any) => {
+//      console.log("this.terms123",response.data,response.data[0].attributes.FullContent); 
+      if(response.data){                
+        this.aboutUs.push(response.data[0].attributes.PreviewContent);
+      }
+     })     
+  }
+  public getPolicyData(){
+    this.rightMenuService.getPolicyData().then((response: any) => {
+//      console.log("this.terms123",response.data,response.data[0].attributes.FullContent); 
+      if(response.data){                
+        this.terms.push(response.data[0].attributes.FullContent);
+      }
+     })     
+  }
+  public policyTerms(){  
+    this.getPolicyData();    
     const modalRef = this.modalService.open(RightMenuComponent, {
       size: 'xl',
       centered: true,
       windowClass: 'dark-modal'
-    });
-    
-    modalRef.componentInstance.terms = terms;
+    });    
+//    console.log("this.terms",this.terms,this.terms[0]);
+    modalRef.componentInstance.terms = this.terms;    
     modalRef.componentInstance.isPolicy = true;
     this.commonService.activeMenuName = 'policy';
   //  this.router.navigate(["/policy"]);

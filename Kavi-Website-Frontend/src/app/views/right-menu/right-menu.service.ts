@@ -12,9 +12,9 @@ export class RightMenuService {
   ) { }
 
 
-  public getRightMenuPageData(menuType: string, parameter: string): any {
+  public getRightMenuPageData(menuType: string, parameter: string,listCount:number): any {
     return new Promise<any>((resolve, reject) => {
-      const endpoint =  '/'+menuType+appConfig.VIEWER+parameter;     
+      const endpoint =  '/'+menuType+appConfig.VIEWER+parameter+"&pagination[pageSize]="+listCount;     
       this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
         if (resp) {
           resolve(resp);
@@ -65,9 +65,9 @@ export class RightMenuService {
     });
 
   }
-public getTagListByName(tagName:any,menuName:any): any {
+public getTagListByName(tagName:any,menuName:any,listCount:number): any {
     return new Promise<any>((resolve, reject) => {
-      const endpoint =  '/'+menuName+appConfig. GET_TAG_LIST_BY_NAME+tagName;      
+      const endpoint =  '/'+menuName+appConfig. GET_TAG_LIST_BY_NAME+tagName+"&pagination[pageSize]="+listCount;      
       this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
         if (resp) {
           resolve(resp);
@@ -314,6 +314,32 @@ public getTagListByName(tagName:any,menuName:any): any {
   public getRelatedDataByTag(pagetype: any, tagName: any,){
     return new Promise<any>((resolve, reject) => {
       const endpoint =  "/"+pagetype+appConfig.GET_RELATED_TAGS+tagName;      
+      this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+  }
+  public getPolicyData(){
+    return new Promise<any>((resolve, reject) => {
+      const endpoint =  appConfig.GET_POLICY_DATA;      
+      this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+  }
+  public getAboutUs(){
+    return new Promise<any>((resolve, reject) => {
+      const endpoint =  appConfig.GET_ABOUT_US;      
       this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
         if (resp) {
           resolve(resp);
