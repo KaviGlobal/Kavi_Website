@@ -65,7 +65,7 @@
     "Blogs": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::post.post"
+      "target": "api::blog.blog"
     },
     "NewsTitle": {
       "type": "string"
@@ -73,7 +73,7 @@
     "News": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::post.post"
+      "target": "api::news.news"
     },
     "SuccessStoryTitle": {
       "type": "string"
@@ -81,7 +81,7 @@
     "SuccessStory": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::post.post"
+      "target": "api::success-story.success-story"
     },
     "Seo": {
       "type": "component",
