@@ -83,9 +83,25 @@
 
     <div class="pt-5">
       <div class="row no-gutters">
-        <div class="col-12 col-sm-7">
+        <div class="col-12 col-sm-12">
           <div class="row">
-            <div class="col-6">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <ul class="menu-items">
+                <ng-container>
+                  <li *ngFor="let menuItem of menuData[3]?.AboutUs; let k=index">
+                    <div *ngIf="k == 0">
+                      <a class="menu-items-left" style ="color:#EA6B1E;margin-bottom: 8px;">{{menuItem.attributes.Menu}}</a>
+                    </div>
+                    <div class="inner-menu-items" *ngIf="!menuItem.attributes?.IsTitle">
+                        <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName"
+                        (click) = "makeOfferingsActive(menuItem,menuItem?.attributes?.Slug,menuItem?.attributes?.Parameter?.type)"
+                      >{{menuItem.attributes.DisplayName}}</a>
+                    </div>
+                  </li>
+                </ng-container>
+              </ul>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
               <ul class="menu-items">
                 <li *ngFor="let menuItem of leftMenuCardOne">
                   <a class="menu-items-left" [style.color]="menuItem.Styles === 'Orange' ? '#EA6B1E' : 'white'">{{menuItem.Label}}</a>
@@ -136,7 +152,7 @@
                 </li>
               </ul>
             </div>
-            <div class="col-6">
+            <div class="col-md-3 col-sm-6 col-xs-12">
               <ul class="menu-items">
                 <li *ngFor="let menuItem of leftMenuCardTwo">
                   <a class="menu-items-left" [style.color]="menuItem.Styles === 'Orange' ? '#EA6B1E' : 'white'">{{menuItem.Label}}</a>
@@ -184,57 +200,39 @@
                     </div>                           
                   </div>
                 </li> -->
-                <!-- <li *ngFor="let menuItem of menuData[3]?.AboutUs; let k=index">
-                  <div *ngIf="k == 0">
-                    <a class="menu-items-left" style ="color:#EA6B1E">{{menuItem.attributes.Menu}}</a>
-                  </div>
-                  <div>
-                    <ul class="inner-menu-items" *ngIf="!menuItem.IsTitle">
-                      <ng-container>
-                        <li>  
-                           <a [routerLink]="[menuItem?.Slug]" *ngIf="menuItem?.DisplayName"
-                           (click) = "makeOfferingsActive(menuItem,menuItem?.Slug,menuItem?.Menu)"
-                          >{{menuItem.attributes.DisplayName}}</a>
-                        </li>
-                      </ng-container>
-                    </ul> 
-                  </div>                           
-
-                </li> -->
               </ul>
             </div>
-            
+            <div class="col-md-3 col-sm-6 col-xs-12 menu-items-right-col">
+              <ul class="menu-items-right">
+                <!-- <ng-container *ngFor="let menuItem of menuData.RightMenu">
+                  <li *ngIf="menuItem.DisplayName">
+              <!--      <a [routerLink]="[menuItem.Url]" *ngIf="menuItem.Url"
+                      (click)="makeMenuActive(menuItem)">{{menuItem.Label}}</a> -- 
+                      {{menuItem.DisplayName }}                 
+                      <a routerLink="/blogs" *ngIf="menuItem.DisplayName == 'Blog'"
+                      (click)="makeMenuActive(menuItem)">{{menuItem.DisplayName}}</a>
+                      <a routerLink="/newslist" *ngIf="menuItem.DisplayName == 'News'"
+                      (click)="makeMenuActive(menuItem)">{{menuItem.DisplayName}}</a>
+                      <a routerLink="/success-stories" *ngIf="menuItem.DisplayName == 'Success Stories'"
+                      (click)="makeMenuActive(menuItem)">{{menuItem.DisplayName}}</a>
+                      <a routerLink="/presentations" *ngIf="menuItem.DisplayName == 'White Paper'"
+                      (click)="makeMenuActive(menuItem)">Presentations</a>
+                      <a routerLink="/publications" *ngIf="menuItem.DisplayName == 'Publications'"
+                      (click)="makeMenuActive(menuItem)">{{menuItem.DisplayName}}</a>
+                      <a routerLink="/podcasts" *ngIf="menuItem.DisplayName == 'Podcasts'"
+                      (click)="makeMenuActive(menuItem)">{{menuItem.DisplayName}}</a>
+    <!--                <a href="javascript:void(0)" *ngIf="!menuItem.Url">{{menuItem.Label}}</a>--
+                  </li>
+                </ng-container> -->
+                <ng-container *ngFor="let menuItem of menuData[1]?.RightMenu">        
+                  <li *ngIf="menuItem?.attributes?.Parameter">                                 
+                      <a routerLink="/{{menuItem?.attributes?.Parameter?.type}}" 
+                      (click)="makeMenuActive(menuItem)">{{menuItem.attributes.DisplayName}}</a>
+                  </li>
+                </ng-container>            
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="col-12 col-sm-5 menu-items-right-col">
-          <ul class="menu-items-right">
-            <!-- <ng-container *ngFor="let menuItem of menuData.RightMenu">
-              <li *ngIf="menuItem.DisplayName">
-          <!--      <a [routerLink]="[menuItem.Url]" *ngIf="menuItem.Url"
-                  (click)="makeMenuActive(menuItem)">{{menuItem.Label}}</a> -- 
-                  {{menuItem.DisplayName }}                 
-                  <a routerLink="/blogs" *ngIf="menuItem.DisplayName == 'Blog'"
-                  (click)="makeMenuActive(menuItem)">{{menuItem.DisplayName}}</a>
-                  <a routerLink="/newslist" *ngIf="menuItem.DisplayName == 'News'"
-                  (click)="makeMenuActive(menuItem)">{{menuItem.DisplayName}}</a>
-                  <a routerLink="/success-stories" *ngIf="menuItem.DisplayName == 'Success Stories'"
-                  (click)="makeMenuActive(menuItem)">{{menuItem.DisplayName}}</a>
-                  <a routerLink="/presentations" *ngIf="menuItem.DisplayName == 'White Paper'"
-                  (click)="makeMenuActive(menuItem)">Presentations</a>
-                  <a routerLink="/publications" *ngIf="menuItem.DisplayName == 'Publications'"
-                  (click)="makeMenuActive(menuItem)">{{menuItem.DisplayName}}</a>
-                  <a routerLink="/podcasts" *ngIf="menuItem.DisplayName == 'Podcasts'"
-                  (click)="makeMenuActive(menuItem)">{{menuItem.DisplayName}}</a>
-<!--                <a href="javascript:void(0)" *ngIf="!menuItem.Url">{{menuItem.Label}}</a>--
-              </li>
-            </ng-container> -->
-            <ng-container *ngFor="let menuItem of menuData[1]?.RightMenu">        
-              <li *ngIf="menuItem?.attributes?.Parameter">                                 
-                  <a routerLink="/{{menuItem?.attributes?.Parameter?.type}}" 
-                  (click)="makeMenuActive(menuItem)">{{menuItem.attributes.DisplayName}}</a>
-              </li>
-            </ng-container>            
-          </ul>
         </div>
       </div>
     </div>

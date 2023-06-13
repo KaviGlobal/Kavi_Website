@@ -204,10 +204,15 @@ public getTagListByName(tagName:any,menuName:any,listCount:number): any {
         })
       });
   }
-  public getDetailsData(type: string, blogTitle: string): any {//console.log(type,blogTitle)
+  public getDetailsData(type: string, blogTitle: string, filter : string): any {//console.log(type,blogTitle)
     return new Promise<any>((resolve, reject) => {
     //  const endpoint =  appConfig.RIGHT_MENU_TYPE + type + appConfig.RIGHT_MENU_VIEW_TYPE + blogTitle;
-      const endpoint =  '/'+ type + appConfig.RIGHT_MENU_VIEW_TYPE + blogTitle;
+      if(filter != undefined && filter != ''){  
+        filter = '&filters' + filter;
+      } else {
+        filter = '';
+      }
+      const endpoint =  '/'+ type + appConfig.VIEWER + filter;
       this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
         if (resp) {
           resolve(resp);

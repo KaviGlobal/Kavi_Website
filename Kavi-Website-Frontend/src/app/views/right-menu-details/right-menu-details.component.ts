@@ -69,7 +69,7 @@ export class RightMenuDetailsComponent implements OnInit {
           this.recommendationMetaData = [];
 //          console.log(this.pageType,this.pageDetailsName,this.commonService.activeMenuName);
 
-          if (this.pageDetailsName && this.pageType != 'people' && this.pageType != 'tag') {          
+          if (this.pageDetailsName && this.pageType != 'people' && this.pageType != 'tag') {
             this.getDetailsData();
           }
           if(this.pageType == 'people'){       
@@ -252,7 +252,7 @@ export class RightMenuDetailsComponent implements OnInit {
     //     });
     //   }
     // })
-    this.rightMenuService.getDetailsData(this.pageType, this.pageDetailsName).then((response: any) => {
+    this.rightMenuService.getDetailsData(this.pageType, this.pageDetailsName, this.commonService.activeMenuData?.attributes?.Parameter?.parameter?.filter).then((response: any) => {
       if (response.data && response.data.length > 0) {
         this.pageData = response.data;        
         this.isPeople = false;
