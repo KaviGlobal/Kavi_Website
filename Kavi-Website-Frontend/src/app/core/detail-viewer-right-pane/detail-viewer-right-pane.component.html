@@ -25,7 +25,7 @@
 
 </div>
 
-<div class="publish-data" *ngIf="!authorPost">
+<div class="publish-data" *ngIf="!authorPost && moduleName != 'pages'">
     <div class="tab" *ngFor="let tag of tags?.data">
         <a (click)="searchTag(tag?.attributes?.Slug)">{{tag.attributes.DisplayName}}</a>
     <!--   <a routerLink="{{'/tag/'+tag?.attributes?.tag_dimension?.data?.attributes?.Name}}">{{tag.attributes.DisplayName}}</a>
