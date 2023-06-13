@@ -482,8 +482,13 @@ console.log("filePath",url,filePath);
         });
         this.getRightPageData()
 
-      }
-      else if (this.activeMenuItem && this.activeMenuItem.ContentLink && 
+      } else if (this.routePath == 'our-leadership-team'){
+        this.rightMenuService.getDetailsData(this.commonService.activeMenuData?.attributes?.Parameter?.type, this.pageDetailsName, this.commonService.activeMenuData?.attributes?.Parameter?.parameter?.filter).then((response: any) => {
+          var sort = sortBy(response.data, ["id"]);
+          this.pageData = sort;
+          this.rightPageData.push(this.pageData);
+        })
+      } else if (this.activeMenuItem && this.activeMenuItem.ContentLink && 
         !this.activeMenuItem.OfferingType) {        
         if(this.activeMenuItem.ContentLink == "null" && this.activeMenuItem.leadershipTeams.data.length == 0){        
             this.offeringsFullContent = this.activeMenuItem.FullContent;           

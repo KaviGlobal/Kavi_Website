@@ -93,9 +93,17 @@
                       <a class="menu-items-left" style ="color:#EA6B1E;margin-bottom: 8px;">{{menuItem.attributes.Menu}}</a>
                     </div>
                     <div class="inner-menu-items" *ngIf="!menuItem.attributes?.IsTitle">
-                        <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName"
+                        <!-- <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName"
                         (click) = "makeOfferingsActive(menuItem,menuItem?.attributes?.Slug,menuItem?.attributes?.Parameter?.type)"
-                      >{{menuItem.attributes.DisplayName}}</a>
+                      >{{menuItem.attributes.DisplayName}}</a> -->
+
+                      <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName && menuItem?.attributes?.Slug != 'our-leadership-team'"
+                      (click) = "makeOfferingsActive(menuItem,menuItem?.attributes?.Slug,menuItem?.attributes?.Parameter?.type)"
+                    >{{menuItem.attributes.DisplayName}}</a>
+                    <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName && menuItem?.attributes?.Slug == 'our-leadership-team'"
+                      (click) = "makeMenuActive(menuItem)"
+                    >{{menuItem.attributes.DisplayName}}</a>
+
                     </div>
                   </li>
                 </ng-container>

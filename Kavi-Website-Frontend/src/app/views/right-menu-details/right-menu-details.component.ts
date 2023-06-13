@@ -72,8 +72,12 @@ export class RightMenuDetailsComponent implements OnInit {
           if (this.pageDetailsName && this.pageType != 'people' && this.pageType != 'tag') {
             this.getDetailsData();
           }
-          if(this.pageType == 'people'){       
-            this.getAuthorData();
+          if(this.pageType == 'people'){    
+            if(this.pageDetailsName.includes("leadership")) {
+              this.getDetailsData();
+            } else { 
+              this.getAuthorData();
+            }
           }
           else {
             this.isDataLoaded = true;

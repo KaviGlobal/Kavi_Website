@@ -92,7 +92,7 @@
                 <div class="" *ngIf="homeData.attributes">
                     <div class="" *ngFor="let item of homeData.attributes.SuccessStory.data; let i = index">
                         <ng-container *ngIf="i < 2">
-                            <app-card-layout [image]="item.attributes.Thumbnail.Media.data.attributes.url"
+                            <app-card-layout [image]="item.attributes?.Thumbnail?.Media?.data?.attributes?.url"
                                 [title]="item.attributes.Title" [description]="item.attributes.PreviewContent"
                                 [hyperlinkText]="hyperlinkText" moduleName="success-stories"
                                 [slug]="item.attributes.Slug"
@@ -136,7 +136,7 @@
                             <ng-container *ngFor="let item of homeData.attributes.Blogs.data; let i = index">
                                 <ng-container *ngIf="i && i < 4">
                                     <div class="" [ngClass]="{'pt-2': i === 1, 'pt-3': i !== 1}">
-                                        <app-card-layout [image]="item.attributes.Thumbnail.Media.data.attributes.url"
+                                        <app-card-layout [image]="item.attributes?.Thumbnail?.Media?.data?.attributes?.url"
                                             [title]="item.attributes.Title" 
                                             [slug]="item.attributes.Slug"
                                             [description]="item.attributes.PreviewContent"
@@ -174,7 +174,7 @@
                 <div class="row news-section" *ngIf="homeData.attributes">
                     <div class="col-6 col-md-4" *ngFor="let item of homeData.attributes.News.data; let i = index">
                         <ng-container *ngIf="i < 4">
-                            <app-card-layout [image]="item.attributes.Thumbnail.Media.data.attributes.url"
+                            <app-card-layout [image]="item.attributes?.Thumbnail?.Media?.data?.attributes?.url"
                                 [title]="item.attributes.Title" [description]="item.attributes.PreviewContent"
                                 moduleName="newslist"
                                 [slug]="item.attributes.Slug"
