@@ -486,8 +486,8 @@ console.log("filePath",url,filePath);
         this.rightMenuService.getDetailsData(this.commonService.activeMenuData?.attributes?.Parameter?.type, this.pageDetailsName, this.commonService.activeMenuData?.attributes?.Parameter?.parameter?.filter).then((response: any) => {
           var sort = sortBy(response.data, ["id"]);
           this.pageData = sort;
-          this.rightPageData.push(this.pageData);
-        })
+        })        
+          this.isAboutUs = true;
       } else if (this.activeMenuItem && this.activeMenuItem.ContentLink && 
         !this.activeMenuItem.OfferingType) {        
         if(this.activeMenuItem.ContentLink == "null" && this.activeMenuItem.leadershipTeams.data.length == 0){        
@@ -573,6 +573,9 @@ console.log("filePath",url,filePath);
     else {
       this.router.navigate(['']);
     }
+  }
+  searchAuthor(authorName:any){  
+    this.router.navigate(['/people/'+ authorName]);
   }
   getRightPageData(){
     let tags: any = [];
