@@ -90,3 +90,66 @@
       color:#000d42;
   }
   }
+
+  .right-menu-card {
+    h1{
+        font-size: 1.6rem;
+        font-family: "montserrat-regular";
+        font-size: 900;
+        color:#000d42;
+    //    color: #224991;
+    /*    margin-bottom: 25px;*/
+    }
+    h5{
+    //    color: #666;  
+        color:#EA6B1E;
+        font-weight:600;
+        font-family: "montserrat-regular";
+        font-size: 0.9rem;
+        margin-bottom: -5px;
+    }
+    p{
+        color: #666;
+        width: 90%;
+        font-family: "montserrat-regular";
+        font-size: 1.1rem;
+        line-height: 1.6;
+        text-align: justify;
+    }
+    img{
+        width: 90%;
+        margin-bottom: 30px;
+    }
+    
+    b{        
+        background-color:#000d42;
+        color: #fff;
+        width: 90%;
+        font-family: "montserrat-regular";
+        font-size: 0.9rem;        
+    }
+    .tab {
+        overflow: hidden;       
+        background-color: #f1f1f1;
+      }
+      
+      /* Style the buttons inside the tab */
+      .tab b {
+        background-color: #000d42;
+        color: #fff;
+        width: fit-content;
+        font-weight:800;
+        font-family: "montserrat-regular";
+        float: left;
+        border: 1px solid #fff;
+        outline: none;
+     /*   pointer-events: none;*/
+        cursor: pointer;        
+        transition: 0.3s;
+        font-size: 13px;
+        padding: 5px 5px 5px 5px;
+      }
+      .tab a {        
+        color: #fff;
+      }
+}

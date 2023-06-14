@@ -456,12 +456,12 @@ console.log("filePath",url,filePath);
           this.listMetaData = response.data.attributes;
           let key, parameter = '';
           for(let item of menu) {
-            if(item.attributes.Parameter.type == this.routePath){
-              for(let i = 0 ; i < Object.keys(item.attributes.Parameter.parameter).length; i++){
-                key = Object.keys(item.attributes.Parameter.parameter)[i]
-                if(item.attributes.Parameter.parameter[key] != ''){
-                  parameter = parameter.concat("&", key.concat("=", item.attributes.Parameter.parameter[key]))
-                }
+            if(item.attributes?.Parameter?.type == this.routePath){
+              for(let i = 0 ; i < Object.keys(item.attributes?.Parameter?.parameter).length; i++){
+                key = Object.keys(item.attributes?.Parameter?.parameter)[i]
+                if(item.attributes?.Parameter?.parameter[key] != ''){
+                  parameter = parameter.concat("&", key.concat("=", item.attributes?.Parameter?.parameter[key]));
+                  }
               }
             }
           }
@@ -506,15 +506,15 @@ console.log("filePath",url,filePath);
         let menu =  this.commonService.menuData[1].RightMenu;
           let key, parameter = '';
           for(let item of menu) {
-            if(item.attributes.Parameter.type == this.routePath){
-              for(let i = 0 ; i < Object.keys(item.attributes.Parameter.parameter).length; i++){
-                key = Object.keys(item.attributes.Parameter.parameter)[i]
-                if(item.attributes.Parameter.parameter[key] != ''){
-                  parameter = parameter.concat("&", key.concat("=", item.attributes.Parameter.parameter[key]))
-                }
+            if(item.attributes?.Parameter?.type == this.routePath){
+              for(let i = 0 ; i < Object.keys(item.attributes?.Parameter?.parameter).length; i++){
+                key = Object.keys(item.attributes?.Parameter?.parameter)[i]
+                if(item.attributes?.Parameter?.parameter[key] != ''){
+                  parameter = parameter.concat("&", key.concat("=", item.attributes?.Parameter?.parameter[key]))
+                  }
               }
             }
-          }    
+          }  
           this.rightMenuService.getRightMenuPageData(this.activeMenuItem.ContentLink, parameter,this.listMetaData.MaxCount).then((response: any) => {
             if (response.data && response.data.length > 0) {
               this.pageData = response.data;              
@@ -657,7 +657,7 @@ console.log("filePath",url,filePath);
                   i++;
               });         
             } 
-            this.isRecommendationDisplay.push(titleDisplay);                             
+            this.isRecommendationDisplay.push(titleDisplay);
           });
         }); 
         titleDisplay = {};

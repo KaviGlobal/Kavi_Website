@@ -316,9 +316,14 @@ public getTagListByName(tagName:any,menuName:any,listCount:number): any {
       })
     });
   }
-  public getRelatedDataByTag(pagetype: any, tagName: any,){
+  public getRelatedDataByTag(pagetype: any, tagName: any, relatedmax:any){
     return new Promise<any>((resolve, reject) => {
-      const endpoint =  "/"+pagetype+appConfig.GET_RELATED_TAGS+tagName;      
+      if(relatedmax != undefined && relatedmax != '' && relatedmax > 0){  
+        relatedmax = '&pagination[pageSize]=' + relatedmax;
+      } else {
+        relatedmax = '';
+      }
+      const endpoint =  "/"+pagetype+appConfig.GET_RELATED_TAGS+tagName + relatedmax;      
       this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
         if (resp) {
           resolve(resp);

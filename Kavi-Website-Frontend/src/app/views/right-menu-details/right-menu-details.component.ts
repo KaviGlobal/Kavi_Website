@@ -14,6 +14,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class RightMenuDetailsComponent implements OnInit {
 
+  public rightPageRelatedData: any =[];
   public pageType: any = '';
   public pageDetailsName: any = '';
   public viewerData:any=[];
@@ -230,18 +231,52 @@ export class RightMenuDetailsComponent implements OnInit {
     });
      
   }
-  getRelatedDataByTag(tagName:any){
+  getRelatedDataByTag(tagName:any, viewer:any){
     let menu=['blogs','newslist','success-stories', 'podcasts', 'publications' ,'presentations'];
-          let menuTaglist:any=[];
-          for(let item of menu) {         
-            this.rightMenuService.getRelatedDataByTag(item,tagName).then((response: any) => {
-              if(response.data.length > 0){
-                response.data[0].attributes.menuType = item;             
-//                this.searchTag = true;
-                menuTaglist.push(response.data);
-              }
-            })
+    let menuTaglist:any=[];
+    let relatedMeta:any;
+    this.rightPageRelatedData = [];
+    
+    for(let item of menu) { 
+      if(item == 'blogs'){
+        relatedMeta = viewer.RelatedBlogs;
+      } else if(item == 'newslist'){
+        relatedMeta = viewer.RelatedNews;
+      } else if(item == 'success-stories'){
+        relatedMeta = viewer.RelatedSuccessStories;
+      } else if(item == 'podcasts'){
+        relatedMeta = viewer.RelatedPodcast;
+      } else if(item == 'publications'){
+        relatedMeta = viewer.RelatedPublication;
+      } else if(item == 'presentations'){
+        relatedMeta = viewer.RelatedPresentation;
+      }
+      this.rightMenuService.getRelatedDataByTag(item,tagName,relatedMeta?.MaxCount).then((response: any) => {
+        if(response.data.length > 0){
+          if(item == 'blogs'){
+            relatedMeta = viewer.RelatedBlogs;
+          } else if(item == 'newslist'){
+            relatedMeta = viewer.RelatedNews;
+          } else if(item == 'success-stories'){
+            relatedMeta = viewer.RelatedSuccessStories;
+          } else if(item == 'podcasts'){
+            relatedMeta = viewer.RelatedPodcast;
+          } else if(item == 'publications'){
+            relatedMeta = viewer.RelatedPublication;
+          } else if(item == 'presentations'){
+            relatedMeta = viewer.RelatedPresentation;
           }
+          response.data[0].attributes.menuType = item;
+          console.log("ppp", item, relatedMeta.Label);
+          response.data[0].attributes.relatedMeta = relatedMeta;
+//                this.searchTag = true;
+          menuTaglist.push(response.data);
+        }
+      })
+    }
+    this.pageData = menuTaglist
+    this.rightPageRelatedData = this.pageData;
+    console.log("jlj", this.rightPageRelatedData);
   }
   getDetailsData() { //console.log("pageType",this.pageType,this.commonService.activeMenuData.attributes);
     
@@ -288,18 +323,21 @@ export class RightMenuDetailsComponent implements OnInit {
       }
       this.isDataLoaded = true;
     });
-    if(this.pageType == "pages"){
-      this.getRelatedDataByTag(this.pageDetailsName);
-    }
+    // if(this.pageType == "pages"){
+    //   this.getRelatedDataByTag(this.pageDetailsName);
+    // }
   }
   getViewer(viewerName:any) {
     this.viewerData = [];
     if(viewerName){
       this.rightMenuService.getViewer(viewerName).then((viewerResp: any) => {
         this.viewerData = viewerResp.data.attributes;    
+        if(this.pageType == "pages"){
+          this.getRelatedDataByTag(this.pageDetailsName, this.viewerData);
+        }
       });
     }
-//    console.log("this.viewerData",this.viewerData)   
+  //  console.log("this.viewerData",this.viewerData)   
   }
   getRecommendations(tagName: any,menuSlug:any) {
     this.recommendationData = [];
@@ -312,6 +350,7 @@ export class RightMenuDetailsComponent implements OnInit {
     });  
     console.log("response.data",this.recommendationData,this.viewerData); 
     this.recommendationMetaData =this.viewerData.Recommendations;
+    console.log("recommendationMetaData", this.viewerData);
   }
   /*
   getRecommendationsByTag(tagName: any) {
