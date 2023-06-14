@@ -201,11 +201,12 @@ export class HeaderComponent implements OnInit {
         }
       });      
     }*/
-    if(menuItem?.attributes?.Parameter?.type && !menuType.type){
+    
+    if(menuItem.attributes?.Parameter?.type && !menuType.type){
       this.commonService.activeMenuName = selectedMenu;
       this.commonService.activeMenuData = menuItem;
       this.makeMenuActive(menuItem);
-      this.router.navigate(["/"+menuItem?.attributes?.Parameter?.type+"/"+selectedMenu]);
+      this.router.navigate(["/"+menuItem.attributes?.Parameter?.type+"/"+selectedMenu]);
     }
     else if(menuType.type && !menuItem?.attributes?.Parameter?.type){
       this.commonService.activeMenuName = selectedMenu;

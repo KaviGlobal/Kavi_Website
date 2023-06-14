@@ -272,7 +272,6 @@ export class RightMenuDetailsComponent implements OnInit {
             relatedMeta = viewer.RelatedPresentation;
           }
           response.data[0].attributes.menuType = item;
-          console.log("ppp", item, relatedMeta.Label);
           response.data[0].attributes.relatedMeta = relatedMeta;
 //                this.searchTag = true;
           menuTaglist.push(response.data);
@@ -281,7 +280,6 @@ export class RightMenuDetailsComponent implements OnInit {
     }
     this.pageData = menuTaglist
     this.rightPageRelatedData = this.pageData;
-    console.log("jlj", this.rightPageRelatedData);
   }
   getDetailsData() { //console.log("pageType",this.pageType,this.commonService.activeMenuData.attributes);
     
@@ -346,8 +344,9 @@ export class RightMenuDetailsComponent implements OnInit {
     this.viewerData = [];
     if(viewerName){
       this.rightMenuService.getViewer(viewerName).then((viewerResp: any) => {
-        this.viewerData = viewerResp.data.attributes;    
-        if(this.pageType == "pages"){
+        this.viewerData = viewerResp.data.attributes;
+        this.rightPageRelatedData = [];
+        if(this.pageType == "pages" && viewerName == "offering-viewer"){
           this.getRelatedDataByTag(this.pageDetailsName, this.viewerData);
         }
       });
@@ -363,9 +362,7 @@ export class RightMenuDetailsComponent implements OnInit {
        this.recommendationData=response.data;
       }      
     });  
-    console.log("response.data",this.recommendationData,this.viewerData); 
     this.recommendationMetaData =this.viewerData.Recommendations;
-    console.log("recommendationMetaData", this.viewerData);
   }
   /*
   getRecommendationsByTag(tagName: any) {

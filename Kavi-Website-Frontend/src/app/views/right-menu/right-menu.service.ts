@@ -207,7 +207,7 @@ public getTagListByName(tagName:any,menuName:any,listCount:number): any {
   public getDetailsData(type: string, blogTitle: string, filter : string): any {//console.log(type,blogTitle)
     return new Promise<any>((resolve, reject) => {
     //  const endpoint =  appConfig.RIGHT_MENU_TYPE + type + appConfig.RIGHT_MENU_VIEW_TYPE + blogTitle;
-      if(filter != undefined && filter != ''){  
+    if(filter != undefined && filter != ''){  
         filter = '&filters' + filter;
       } else {
         filter = '';
