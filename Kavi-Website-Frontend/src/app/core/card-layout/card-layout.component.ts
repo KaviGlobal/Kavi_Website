@@ -16,7 +16,10 @@ export class CardLayoutComponent implements OnInit {
   @Input() type: any;
   @Input() moduleName: any;
   @Input() slug: any;
-
+  @Input() url:any;
+  @Input() location:any;
+  @Input() revenue:any;
+  @Input() employees:any;
   constructor() { }
 
   ngOnInit(): void {

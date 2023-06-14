@@ -25,6 +25,8 @@ export class RightMenuDetailsComponent implements OnInit {
   public publishDate:any;
   public isDataLoaded: boolean = false;
   public isPeople: boolean = false;
+  public isClient: boolean = false;
+  public isPartner: boolean = false;
   public recommendationMetaData: any;
   public recommendationData: any = [];
   public relatedTagData: any = [];
@@ -68,7 +70,7 @@ export class RightMenuDetailsComponent implements OnInit {
           this.pageFullContent = '';
           this.authors = [];
           this.recommendationMetaData = [];
-//          console.log(this.pageType,this.pageDetailsName,this.commonService.activeMenuName);
+          console.log(this.pageType,this.pageDetailsName,this.commonService.activeMenuName);
 
           if (this.pageDetailsName && this.pageType != 'people' && this.pageType != 'tag') {
             this.getDetailsData();
@@ -79,6 +81,9 @@ export class RightMenuDetailsComponent implements OnInit {
             } else { 
               this.getAuthorData();
             }
+          }
+          if(this.pageType == 'clients'){    
+            this.getDetailsData();
           }
           else {
             this.isDataLoaded = true;
@@ -281,7 +286,9 @@ export class RightMenuDetailsComponent implements OnInit {
   getDetailsData() { //console.log("pageType",this.pageType,this.commonService.activeMenuData.attributes);
     
 //    console.log("this.pageType, this.pageDetailsName",this.commonService.activeMenuData?.attributes?.Viewer);
-    this.getViewer(this.commonService.activeMenuData?.attributes?.Viewer);
+//  console.log("ffff",this.commonService.activeMenuData?.attributes?.Viewer);
+  if(this.commonService.activeMenuData?.attributes?.Viewer)
+      this.getViewer(this.commonService.activeMenuData?.attributes?.Viewer);
     // this.commonService.menuData.forEach((Menuitem:any) =>{
     //   if(Menuitem.RightMenu){
     //     Menuitem.RightMenu.forEach((item:any) =>{
@@ -314,6 +321,14 @@ export class RightMenuDetailsComponent implements OnInit {
           this.rightMenuService.getSpeakerList(this.pageType,  pageData[0]?.attributes?.Speakers?.data[0].attributes.Slug).then((response: any) => {
           this.authorPost = response.data;
           });
+        }
+        if(this.pageType == 'clients'){
+          this.isClient = true;
+//          console.log("this.pageData",this.pageData);
+        }
+        if(this.pageType == 'partners'){
+          this.isPartner = true;
+//          console.log("this.pageData",this.pageData);
         }
         if(this.pageType == 'publications' || this.pageType == 'presentations'){
          this.rightMenuService.getAuthorsPresentationsOrPublications(this.pageType, this.authors.data[0].attributes.Slug).then((response: any) => {
