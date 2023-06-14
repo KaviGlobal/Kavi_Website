@@ -143,7 +143,7 @@
                       <div *ngFor="let subItem of menuItem[keyItem];let j= index">           
                         <div *ngIf="j==0 &&  menuItem[keyItem][0].attributes.parent_item.data.attributes.IsTitle">
                           <a [routerLink]="['/'+menuItem[keyItem][0].attributes.parent_item.data.attributes.Parameter.type+'/'+menuItem[keyItem][0].attributes.parent_item.data.attributes.Slug]"
-                          (click)="makeOfferingsActive(menuItem[keyItem][0].attributes.parent_item.data,menuItem[keyItem][0].attributes.parent_item.data.attributes.Slug,menuItem[keyItem][0].attributes.parent_item.data.attributes.Parameter)"
+                          (click)="makeOfferingsActive(menuItem[keyItem][0].attributes.parent_item.data,menuItem[keyItem][0].attributes.parent_item.data.attributes.Slug,menuItem[keyItem][0].attributes.Menu)"
                           class="menu-items-left" style ="color:#EA6B1E;margin-bottom:8px"> {{keyItem}}</a>
                         </div>
                         <div *ngIf="j==0 && !menuItem[keyItem][0].attributes.parent_item.data.attributes.IsTitle">
