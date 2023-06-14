@@ -251,7 +251,8 @@ export class RightMenuDetailsComponent implements OnInit {
   getDetailsData() { //console.log("pageType",this.pageType,this.commonService.activeMenuData.attributes);
     
 //    console.log("this.pageType, this.pageDetailsName",this.commonService.activeMenuData?.attributes?.Viewer);
-    if(this.commonService.activeMenuData?.attributes?.Viewer)
+//  console.log("ffff",this.commonService.activeMenuData?.attributes?.Viewer);
+  if(this.commonService.activeMenuData?.attributes?.Viewer)
       this.getViewer(this.commonService.activeMenuData?.attributes?.Viewer);
     // this.commonService.menuData.forEach((Menuitem:any) =>{
     //   if(Menuitem.RightMenu){
