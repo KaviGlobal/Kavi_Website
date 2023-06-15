@@ -70,7 +70,7 @@ export class RightMenuDetailsComponent implements OnInit {
           this.pageFullContent = '';
           this.authors = [];
           this.recommendationMetaData = [];
-          console.log(this.pageType,this.pageDetailsName,this.commonService.activeMenuName);
+//          console.log(this.pageType,this.pageDetailsName,this.commonService.activeMenuName);
 
           if (this.pageDetailsName && this.pageType != 'people' && this.pageType != 'tag') {
             this.getDetailsData();
@@ -281,22 +281,22 @@ export class RightMenuDetailsComponent implements OnInit {
     this.pageData = menuTaglist
     this.rightPageRelatedData = this.pageData;
   }
-  getDetailsData() { //console.log("pageType",this.pageType,this.commonService.activeMenuData.attributes);
-    
-//    console.log("this.pageType, this.pageDetailsName",this.commonService.activeMenuData?.attributes?.Viewer);
-//  console.log("ffff",this.commonService.activeMenuData?.attributes?.Viewer);
-  if(this.commonService.activeMenuData?.attributes?.Viewer)
-      this.getViewer(this.commonService.activeMenuData?.attributes?.Viewer);
-    // this.commonService.menuData.forEach((Menuitem:any) =>{
-    //   if(Menuitem.RightMenu){
-    //     Menuitem.RightMenu.forEach((item:any) =>{
-    //       if(item.attributes.Parameter.type == this.pageType)
-    //       console.log("kkk", item.attributes!.Viewer);
-    //       this.getViewer(item.attributes!.Viewer);
-    //     });
-    //   }
-    // })
-    this.rightMenuService.getDetailsData(this.pageType, this.pageDetailsName, this.commonService.activeMenuData?.attributes?.Parameter?.parameter?.filter).then((response: any) => {
+  getDetailsData() { 
+//    console.log("ffff",this.pageType,this.commonService.activeMenuData?.attributes?.Slug,this.commonService.activeMenuName,this.commonService.activeMenuData?.attributes?.Viewer);
+//  if(this.commonService.activeMenuData?.attributes?.Viewer && (this.commonService.activeMenuData?.attributes?.Slug == this.commonService.activeMenuName))
+    let filter :any=[];
+    if(this.commonService.activeMenuName = "pages" && this.commonService.activeMenuData?.attributes?.Viewer){
+        filter = this.commonService.activeMenuData?.attributes?.Parameter?.parameter?.filter;
+        this.getViewer(this.commonService.activeMenuData?.attributes?.Viewer);
+      }    
+    if(this.pageType != "pages" && 
+      (this.commonService.activeMenuName == "offering-viewer" || this.commonService.activeMenuName == "page-viewer")){
+      filter = null;
+    }
+    if(this.pageType == "clients" || this.pageType =="partners"){
+      filter = null;
+    }
+   this.rightMenuService.getDetailsData(this.pageType, this.pageDetailsName, filter).then((response: any) => {
       if (response.data && response.data.length > 0) {
         this.pageData = response.data;        
         this.isPeople = false;
@@ -346,12 +346,12 @@ export class RightMenuDetailsComponent implements OnInit {
       this.rightMenuService.getViewer(viewerName).then((viewerResp: any) => {
         this.viewerData = viewerResp.data.attributes;
         this.rightPageRelatedData = [];
-        if(this.pageType == "pages" && viewerName == "offering-viewer"){
+        if(this.pageType == "pages"){
           this.getRelatedDataByTag(this.pageDetailsName, this.viewerData);
         }
       });
     }
-  //  console.log("this.viewerData",this.viewerData)   
+//    console.log("this.viewerData",this.viewerData)   
   }
   getRecommendations(tagName: any,menuSlug:any) {
     this.recommendationData = [];
