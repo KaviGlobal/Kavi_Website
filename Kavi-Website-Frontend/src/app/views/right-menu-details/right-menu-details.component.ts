@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,Input, } from '@angular/core';
 import { ActivatedRoute, Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { RightMenuService } from '../right-menu/right-menu.service';
 import { cloneDeep } from 'lodash';
@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CustomPipePipe } from 'src/app/custom-pipe.pipe';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-right-menu-details',
   templateUrl: './right-menu-details.component.html',
@@ -14,7 +15,9 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class RightMenuDetailsComponent implements OnInit {
 
-  public rightPageRelatedData: any =[];
+  public rightPageRelatedData: any =[];  
+  public rightPageData: any =[];
+  public listMetaData:any = [];  
   public pageType: any = '';
   public pageDetailsName: any = '';
   public viewerData:any=[];
@@ -62,6 +65,12 @@ export class RightMenuDetailsComponent implements OnInit {
       this.pageDetailsName = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id'));  
 
       if (this.pageType && this.pageDetailsName && !this.pageType.includes("SearchTag")) {
+        if(this.pageType != "pages"){
+          let menuItemAttributes = this.commonService.menuData[1].RightMenu.filter((element: any) => (element.attributes.Parameter.type == this.pageType));
+          if(menuItemAttributes[0]){
+            this.commonService.activeMenuData = menuItemAttributes[0];
+          }
+        }
         this.commonService.activeMenuName = cloneDeep(this.pageType);
         this.isDataLoaded = false;
     //    console.log("hi from Offerings",this.pageType,this.pageDetailsName);   
@@ -334,11 +343,63 @@ export class RightMenuDetailsComponent implements OnInit {
           });
          } 
       }
+      this.getMetaDataForListViewer();
+      this.getTagList();
       this.isDataLoaded = true;
     });
     // if(this.pageType == "pages"){
     //   this.getRelatedDataByTag(this.pageDetailsName);
     // }
+  }
+  getTagList(){
+    let tags: any = [];
+    this.rightPageData = [];
+    // this.getMetaDataForListViewer();
+    this.rightMenuService.getTagList().then((response: any) => {          //          
+      let responseLength = response.data.length;
+      if (response.data) {  
+        let i=0; 
+        let previous_dimension = '';
+        let current_dimension = '';
+        let tag_list:any=[];
+        for(let item of response.data) {
+//                  console.log("ii",item);
+//                    console.log(i,"ii",item.attributes.tag_dimension.data.attributes.DisplayName);
+            current_dimension = item.attributes.tag_dimension.data.attributes.DisplayName;
+            if(i==0){
+              previous_dimension = item.attributes.tag_dimension.data.attributes.DisplayName;
+//                      console.log("ii",item.attributes.tag_dimension.data.attributes.DisplayName);
+              tag_list.push({name:item.attributes.DisplayName,slug:item.attributes.Slug})              
+            }
+            if(i > 0){
+              if(current_dimension == previous_dimension){
+//                        console.log("ij",item.attributes.DisplayName);
+                previous_dimension = item.attributes.tag_dimension.data.attributes.DisplayName;
+//                               console.log("xxxx",tag_list.length,this.listMetaData.TagMaxCount);
+  //              if(tag_list.length < this.listMetaData.TagMaxCount)
+                tag_list.push({name:item.attributes.DisplayName,slug:item.attributes.Slug})
+              }
+              if(current_dimension != previous_dimension){ 
+                if(tag_list.length != 0)                      
+                  tags.push({dimension:current_dimension,tag:tag_list})
+                tag_list=[];
+                previous_dimension = current_dimension;
+              }
+              if(i == responseLength-1){
+                tags.push({dimension:current_dimension,tag:tag_list})                       
+              }
+            }                    
+          i++;
+        }           
+      }
+    });     
+    this.rightPageData.push(tags);
+  }
+  getMetaDataForListViewer(){    
+    this.rightMenuService.getMetaDataForListViewer().then((response: any) => { 
+      this.listMetaData = response.data.attributes;
+//      console.log(" this.listMetaData", this.listMetaData);
+    });
   }
   getViewer(viewerName:any) {
     this.viewerData = [];

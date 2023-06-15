@@ -74,7 +74,7 @@ export class HeaderComponent implements OnInit {
   public makeMenuList() {
 //    console.log("menulist",this.commonService.menuData);
 //    this.menuData = cloneDeep(this.commonService.menuData);
-      this.menuData = cloneDeep(this.commonService.menuData);
+      this.menuData = cloneDeep(this.commonService.menuData);      
 /*    let LeftMenu: any = cloneDeep(this.menuData?.LeftMenu);
     this.leftMenuCardOne = LeftMenu.filter((element: any) => element.Card === 'Card1');
     this.leftMenuCardTwo = LeftMenu.filter((element: any) => element.Card === 'Card2');

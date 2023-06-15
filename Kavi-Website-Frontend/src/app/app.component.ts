@@ -129,8 +129,8 @@ export class AppComponent implements OnInit {
       let aboutUs:any=[];
       
       if (response && response.data) { 
-        response.data.forEach((element:any,index:number) => {
-        if (element.attributes.IsTitle == false && element.attributes.parent_item.data != null){
+        response.data.forEach((element:any,index:number) => { 
+        if (element.attributes.IsTitle == false && element.attributes.parent_item.data != null){          
           leftMenu.push(element);
         } else if(element.attributes.IsTitle == false && element.attributes.parent_item.data == null && element.attributes.Menu != 'Type'){
           if(element.attributes.Menu == "About Us"){
@@ -151,9 +151,9 @@ export class AppComponent implements OnInit {
         rightMenu.sort(this.sortByDisplayOrder);
         industryMenu.sort(this.sortByDisplayOrder);  
 //        menuData.push({LeftMenu :leftMenu});        
-      } 
+      }  
       let groupedMenu = this.groupBy(leftMenu, (item:any) => item?.attributes.parent_item?.data?.attributes?.DisplayName);
-      let groupindustryMenu = this.groupBy(industryMenu, (item:any) => item?.attributes?.Menu);
+      let groupindustryMenu = this.groupBy(industryMenu, (item:any) => item?.attributes?.Menu);     
       menuData.push({LeftMenu :groupedMenu});
       menuData.push({RightMenu :rightMenu});
       menuData.push({IndustryMenu :groupindustryMenu});

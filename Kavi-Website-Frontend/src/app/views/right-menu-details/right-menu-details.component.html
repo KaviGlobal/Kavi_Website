@@ -154,9 +154,15 @@
                         [authorPost]="authorPost"
                         [moduleName]="pageType"
                     ></app-detail-viewer-right-pane>                   
-                </div>     
-                  
+                </div> 
+                <div class="pt-5" *ngIf="pageType == 'pages'">
+                    <app-right-menu-sidebar [data1]="rightPageData"
+                    [module]="pageType"
+                    [metaViewer]="listMetaData"
+                    ></app-right-menu-sidebar>
+                </div>
             </div>
+       
         </div>
         <div class="recommendation-section" *ngIf="rightPageRelatedData.length > 0">
             <div *ngFor="let relatedData of rightPageRelatedData">

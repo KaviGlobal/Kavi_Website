@@ -79,7 +79,7 @@ export class RightMenuComponent implements OnInit  {
     this.commonService.activeMenuName =':id'*/
 //    console.log("ctrl is here111", this.commonService.activeMenuName,this.pageDetailsName,this.routePath,routeConfig.path);
     if(this.pageDetailsName && this.pageDetailsName.includes("SearchTag")){
-      console.log("this.pageDetailsName",this.pageDetailsName);
+//      console.log("this.pageDetailsName",this.pageDetailsName);
   //    this.commonService.activeMenuName = (this.pageDetailsName).split('=')[1];
       this.routePath = this.commonService.activeMenuName;
       this.loadPageData();
@@ -294,7 +294,8 @@ console.log("filePath",url,filePath);
                   this.rightMenuService.getTagListByName(tagName,item.attributes.Parameter.type,this.listMetaData.MaxCount).then((response: any) => {
               //      this.rightMenuService.getTagListByName(tagName,item.attributes.Parameter.type,20).then((response: any) => {
                     if(response.data.length > 0){
-                      response.data[0].attributes.menuType = item.attributes.Parameter.type;             
+                      response.data[0].attributes.menuType = item.attributes.Parameter.type; 
+                      response.data[0].attributes.menuLabel = item.attributes.DisplayName;                                 
                       this.searchTag = true;
                       menuTaglist.push(response.data);
                       this.isDataLoaded = true;
@@ -309,7 +310,7 @@ console.log("filePath",url,filePath);
                 }
           });
 //          console.log("zzzz",this.listMetaData);
-          for(let item of menu) {  //console.log("eeee",item.attributes.Parameter.type);       
+/*          for(let item of menu) {  //console.log("eeee",item.attributes.Parameter.type);       
         //    this.rightMenuService.getTagListByName(tagName,item.attributes.Parameter.type,this.listMetaData.MaxCount).then((response: any) => {
               this.rightMenuService.getTagListByName(tagName,item.attributes.Parameter.type,20).then((response: any) => {
               if(response.data.length > 0){
@@ -325,7 +326,7 @@ console.log("filePath",url,filePath);
               this.pageData = menuTaglist;
               //        console.log("call",menuTaglist,this.pageData.length);              
             });
-          }
+          }*/
           this.getRightPageData();
         } 
 /*        if(this.commonService.activeMenuName == ":id"){

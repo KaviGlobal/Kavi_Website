@@ -1,15 +1,17 @@
-import { CUSTOM_ELEMENTS_SCHEMA,Inject, EventEmitter ,Component, Input, Output,OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, EventEmitter,Input,Output,OnInit, ViewChild} from '@angular/core';
 import { NgbDateStruct, NgbCalendar, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { Location} from '@angular/common';
 import { ActivatedRoute, Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 import { cloneDeep } from 'lodash';
 import { RightMenuComponent} from 'src/app/views/right-menu/right-menu.component';
+import { RightMenuDetailsComponent } from 'src/app/views/right-menu-details/right-menu-details.component';
 import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-right-menu-sidebar',
   templateUrl: './right-menu-sidebar.component.html',
-  styleUrls: ['./right-menu-sidebar.component.scss']
+  styleUrls: ['./right-menu-sidebar.component.scss'],
+  providers: [ RightMenuComponent, RightMenuDetailsComponent]
 })
 export class RightMenuSidebarComponent implements OnInit {
 
@@ -29,7 +31,8 @@ export class RightMenuSidebarComponent implements OnInit {
     public router: Router,
     public activatedRoute: ActivatedRoute,
     private commonService: CommonService,
-    public rightPaneDetails: RightMenuComponent
+    public rightPaneDetails: RightMenuComponent,
+    public tagDetails: RightMenuDetailsComponent,    
   ) {
     this.router.events.subscribe((event) => {
     if (event instanceof NavigationEnd) {
@@ -42,7 +45,6 @@ export class RightMenuSidebarComponent implements OnInit {
     this.model = this.calendar.getToday();    
     let routeConfig: any = this.activatedRoute.routeConfig;
     this.commonService.activeMenuName = this.module;
-    
 //console.log("routeConfig",routeConfig,cloneDeep(routeConfig.path),this.commonService.activeMenuName);
 //    this.commonService.activeMenuName = cloneDeep(routeConfig.path); 
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
