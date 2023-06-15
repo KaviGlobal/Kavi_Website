@@ -86,8 +86,9 @@
             <div class="col-12 col-md-8 col-lg-9 border-right">
                 <!--To display the list of Tags based on Master Tag List click event -->
                 <div class="page-content-section" *ngIf = "SearchTagMenu == ':id'">
-                    <div *ngFor="let menu of pageData;">                    
-                        <div *ngFor="let item of menu;let i = index">
+                    <div *ngFor="let menu of pageData;"> 
+                        <h3 class="title">{{menu[0].attributes.menuLabel}} </h3>
+                        <div *ngFor="let item of menu;let i = index"> 
                             <div class="pb-5" >
                                     <app-right-menu-details-card 
                                     [title]="item?.attributes?.Title"
