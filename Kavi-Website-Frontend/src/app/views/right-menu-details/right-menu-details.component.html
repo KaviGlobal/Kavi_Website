@@ -1,7 +1,7 @@
 <div *ngIf="!isPageLoaded">
     <app-page-loader></app-page-loader>
 </div>
-<div class="details-content">
+<div class="details-content" *ngIf="isPageLoaded">
     <div class="container" *ngIf="isDataLoaded && !isClient && !isPartner">
         <div class="row">
             <div class="col-12 col-md-8 col-lg-9 border-right"> 

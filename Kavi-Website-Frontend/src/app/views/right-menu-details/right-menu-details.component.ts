@@ -142,8 +142,7 @@ export class RightMenuDetailsComponent implements OnInit {
   getAuthorData(){
   this.authorPost = [];
   this.rightMenuService.getPeopleViewer().then((peopleViewerResp: any) => {    
-    if (peopleViewerResp.data && peopleViewerResp.data.attributes) {  
-      this.isPageLoaded = true;
+    if (peopleViewerResp.data && peopleViewerResp.data.attributes) {
         if(peopleViewerResp.data.attributes.BlogContribution)   {
           let menuName = peopleViewerResp.data.attributes.BlogContribution.Label.toLowerCase();           
           this.rightMenuService.getAuthorsPost(this.pageDetailsName,menuName).then((response: any) => {  
@@ -311,7 +310,6 @@ export class RightMenuDetailsComponent implements OnInit {
       if (response.data && response.data.length > 0) {
         this.pageData = response.data;        
         this.isPeople = false;
-        this.isPageLoaded = true;
         this.pageFullContent = response.data[0].attributes?.FullContent;
         this.authors = response.data[0].attributes?.Authors;
         this.tags = response.data[0].attributes?.Tags;
@@ -389,7 +387,8 @@ export class RightMenuDetailsComponent implements OnInit {
                 previous_dimension = current_dimension;
               }
               if(i == responseLength-1){
-                tags.push({dimension:current_dimension,tag:tag_list})                       
+                tags.push({dimension:current_dimension,tag:tag_list})     
+                this.isPageLoaded = true;                  
               }
             }                    
           i++;

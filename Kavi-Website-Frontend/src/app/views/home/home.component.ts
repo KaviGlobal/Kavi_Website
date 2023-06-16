@@ -54,7 +54,6 @@ export class HomeComponent implements OnInit {
             this.homeData.rightmenu = [];
             for (let index = 0; index < items.RightMenu.length; index++) {
               this.homeData.rightmenu.push(items.RightMenu[index]);
-              console.log("ppp", items.RightMenu[index]?.attributes?.Parameter?.type, this.homeData);
             }
           }
         });
