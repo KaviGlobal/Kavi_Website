@@ -49,6 +49,15 @@ export class HomeComponent implements OnInit {
     this.homeService.getHomeData().then((response: any) => {
       if (response.data) {
         this.homeData = response.data;
+        this.commonService.menuData.forEach((items: any) => {
+          if(items.RightMenu){
+            this.homeData.rightmenu = [];
+            for (let index = 0; index < items.RightMenu.length; index++) {
+              this.homeData.rightmenu.push(items.RightMenu[index]);
+              console.log("ppp", items.RightMenu[index]?.attributes?.Parameter?.type, this.homeData);
+            }
+          }
+        });
         this.title = this.homeData.attributes.HeroHeader[0].Title;
         this.backgroundImg = this.homeData.attributes.HeroHeader[0].SliderMedia.Media.data.attributes.url;
         this.partnerImg = this.homeData.attributes.HeroHeader;      
@@ -87,6 +96,18 @@ export class HomeComponent implements OnInit {
       lng: $event.coords.lng,
       draggable: false
     });
+  }
+
+  public makeMenuActive(menuItem?: any) {
+    console.log("plp", menuItem);
+    if (menuItem) {
+      
+      this.commonService.activeMenuName = menuItem?.attributes?.Parameter?.type;  
+      this.commonService.activeMenuData =  menuItem;
+      setTimeout(() => {
+        this.commonService.routeChangeSubscription.next(true);        
+      }, 100);
+    }
   }
 
   markerDragEnd(m: marker | undefined, $event: any) {
