@@ -9,6 +9,18 @@
       font-family: "montserrat-regular";
     }  
   }
+.pageBorder{
+  border: 2px solid #fff;  
+  border-radius: 25px;
+  background-image: linear-gradient(180deg, rgba(174, 223, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
+//  background-color:#rgb(203, 220, 247);
+}
+.border-right {
+  border-right: 1px solid #fff !important;
+}
+.border-left {
+  border-left: 1px solid #fff !important;
+}
   .recommendation-section {
     h3 {
       color: #EA6B1E;
