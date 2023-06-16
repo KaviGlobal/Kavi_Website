@@ -27,6 +27,7 @@ export class RightMenuDetailsComponent implements OnInit {
   public tags:any;
   public publishDate:any;
   public isDataLoaded: boolean = false;
+  public isPageLoaded: boolean = false;
   public isPeople: boolean = false;
   public isClient: boolean = false;
   public isPartner: boolean = false;
@@ -309,6 +310,7 @@ export class RightMenuDetailsComponent implements OnInit {
       if (response.data && response.data.length > 0) {
         this.pageData = response.data;        
         this.isPeople = false;
+        this.isPageLoaded = true;
         this.pageFullContent = response.data[0].attributes?.FullContent;
         this.authors = response.data[0].attributes?.Authors;
         this.tags = response.data[0].attributes?.Tags;

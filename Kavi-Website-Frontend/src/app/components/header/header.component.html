@@ -8,7 +8,7 @@
         <img src="{{logoImage}}" alt="logo" class="logo">
       </div>
       <div class="nav-right">
-        <div style="padding-top:5px;" *ngIf="commonService.activeMenuName">
+        <!-- <div style="padding-top:5px;" *ngIf="commonService.activeMenuName">
           <input type="text" #searchText placeholder="Search Text" autocomplete="on"/>
           <a  (click)="searchTag(searchText)">
             <i class="fas fa-search"></i> 
@@ -16,7 +16,7 @@
           <a routerLink="/" >
             <i class='fas fa-home'></i>            
           </a>          
-        </div>
+        </div> -->
           <!-- <a (click)="requestForm()" *ngIf="commonService.activeMenuName != 'UserForm'">
         <i class="fa fa-address-card"></i> 
       </a>       -->
@@ -40,51 +40,12 @@
 
 <div id="empty-div" class="menu-container" [style.display]="showMenu ? 'block' : 'none'">
   <div class="container-fluid">
-    <div class="pt-3">
-      <div class="close-btn text-right">
-        <span (click)="toggleDiv()">
-          <i class="fas fa-times"></i>
-        </span>
-      </div>
-      <div class="row no-gutters">
-        <div class="col-12 col-md-6">
-          
-        </div>
-        <div class="col-12 col-md-6">
-          
-          <div class="row no-gutters align-items-center top-search-wrapper">
-       <!--     <div class="col-6">
-              <div class="top-search-field">
-                <input type="text" class="form-control form-control-sm" placeholder="Search" autocomplete="off">
-                <div class="mic-icon">
-                  <i class="fas fa-microphone"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col-5">
-              <div class="pl-3 search-btn">
-                <span>
-                  <i class="fas fa-search"></i>
-                </span>
-              </div>
-            </div>-->
-            <div class="col-1 text-right">
-      <!--        <div class="close-btn">
-                <span (click)="toggleDiv()">
-                  <i class="fas fa-times"></i>
-                </span>
-              </div>-->
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="pt-5">
       <div class="row no-gutters">
         <div class="col-12 col-sm-12">
           <div class="row">
+
             <div class="col-md-3 col-sm-6 col-xs-12">
               <ul class="menu-items">
                 <ng-container>
@@ -93,51 +54,21 @@
                       <a class="menu-items-left" style ="color:#EA6B1E;margin-bottom: 8px;">{{menuItem.attributes.Menu}}</a>
                     </div>
                     <div class="inner-menu-items" *ngIf="!menuItem.attributes?.IsTitle">
-                        <!-- <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName"
-                        (click) = "makeOfferingsActive(menuItem,menuItem?.attributes?.Slug,menuItem?.attributes?.Parameter?.type)"
-                      >{{menuItem.attributes.DisplayName}}</a> -->
-
                       <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName && menuItem?.attributes?.Slug != 'our-leadership-team'"
                       (click) = "makeOfferingsActive(menuItem,menuItem?.attributes?.Slug,menuItem?.attributes?.Parameter?.type)"
-                    >{{menuItem.attributes.DisplayName}}</a>
-                    <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName && menuItem?.attributes?.Slug == 'our-leadership-team'"
-                      (click) = "makeMenuActive(menuItem)"
-                    >{{menuItem.attributes.DisplayName}}</a>
-
+                      >{{menuItem.attributes.DisplayName}}</a>
+                      <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName && menuItem?.attributes?.Slug == 'our-leadership-team'"
+                        (click) = "makeMenuActive(menuItem)"
+                      >{{menuItem.attributes.DisplayName}}</a>
                     </div>
                   </li>
                 </ng-container>
               </ul>
             </div>
+
             <div class="col-md-3 col-sm-6 col-xs-12">
               <ul class="menu-items">
-                <li *ngFor="let menuItem of leftMenuCardOne">
-                  <a class="menu-items-left" [style.color]="menuItem.Styles === 'Orange' ? '#EA6B1E' : 'white'">{{menuItem.Label}}</a>
-                  <ul class="inner-menu-items"
-                    *ngIf="menuItem.offerings && menuItem.offerings.data && menuItem.offerings.data.length > 0">
-                    <ng-container *ngFor="let subSection of menuItem.offerings.data">
-                      <li *ngIf="subSection.attributes && subSection.attributes.Name">
-                        <a [routerLink]="[subSection.attributes.Label]" *ngIf="subSection.attributes"
-                  (click)="makeOfferingsActive(menuItem,subSection.attributes.Label)">{{subSection.attributes.Name}}</a>
-                  
-                    <!-- <a>{{subSection.attributes.Name}} {{subSection.attributes.OfferingType}}</a>-->
-                    
-                     </li>
-                    </ng-container>
-                  </ul>
-            <!--      <ul class="inner-menu-items"
-                    *ngIf="menuItem.aboutKavi && menuItem.aboutKavi.data && menuItem.aboutKavi.data.length > 0">
-                    <ng-container *ngFor="let subSection of menuItem.aboutKavi.data">
-                      <li *ngIf="subSection.attributes && subSection.attributes.Name">
-                        <a [routerLink]="[subSection.attributes.Label]" *ngIf="subSection.attributes"
-                  (click)="makeOfferingsActive(menuItem,subSection.attributes.Label)">{{subSection.attributes.Name}}</a>
-                  
-                      </li>
-                    </ng-container>
-                  </ul>-->
-                </li>        
                 <li *ngFor="let keyItem of keyList; let i = index">
-              <!--    <a class="menu-items-left" style ="color:#EA6B1E;margin-bottom:8px" href=""> {{keyItem}}</a>-->
                   <ul class="inner-menu-items" *ngIf="keyItem">
                     <ng-container *ngFor="let menuItem of OfferingList">  
                       <div *ngFor="let subItem of menuItem[keyItem];let j= index">           
@@ -152,7 +83,6 @@
                         <li> 
                           <a [routerLink]="[subItem?.attributes?.Slug]" *ngIf="subItem?.attributes?.DisplayName"
                           (click)="makeOfferingsActive(subItem,subItem?.attributes?.Slug,subItem?.attributes?.Menu)">{{subItem.attributes.DisplayName}}</a>
-                          <!-- (click)="makeOfferingsActive(menuItem,subSection.attributes.Label)"-->
                         </li>
                       </div>
                     </ng-container>
@@ -160,19 +90,9 @@
                 </li>
               </ul>
             </div>
+
             <div class="col-md-3 col-sm-6 col-xs-12">
               <ul class="menu-items">
-                <li *ngFor="let menuItem of leftMenuCardTwo">
-                  <a class="menu-items-left" [style.color]="menuItem.Styles === 'Orange' ? '#EA6B1E' : 'white'">{{menuItem.Label}}</a>
-                  <ul class="inner-menu-items"
-                    *ngIf="menuItem.offerings && menuItem.offerings.data && menuItem.offerings.data.length > 0">
-                    <ng-container *ngFor="let subSection of menuItem.offerings.data">
-                      <li *ngIf="subSection.attributes && subSection.attributes.Name">
-                        <a>{{subSection.attributes.Name}}</a>
-                   </li>
-                    </ng-container>
-                  </ul>
-                </li>
                 <li *ngFor="let IndustrykeyItem of IndustrykeyList; let i = index">
                   <ul class="inner-menu-items" *ngIf="IndustrykeyItem">
                     <ng-container *ngFor="let menuItem of IndustryList">
@@ -190,48 +110,11 @@
                     </ng-container>
                   </ul>                     
                 </li>
-                <!-- <li *ngFor="let menuItems of menuData[2]?.IndustryMenu; let l=index">
-                  <div li *ngFor="let menuItem of menuItems; let k=index">
-                    <div *ngIf="k == 0">
-                      <a class="menu-items-left" style ="color:#EA6B1E">{{menuItem.Menu}}</a>
-                    </div>
-                    <div>
-                      <ul class="inner-menu-items" *ngIf="!menuItem.IsTitle">
-                        <ng-container>
-                          <li>  
-                            <a [routerLink]="[menuItem?.Slug]" *ngIf="menuItem?.DisplayName"
-                            (click) = "makeOfferingsActive(menuItem,menuItem?.Slug,menuItem?.Menu)"
-                            >{{menuItem.DisplayName}}</a>
-                          </li>
-                        </ng-container>
-                      </ul> 
-                    </div>                           
-                  </div>
-                </li> -->
               </ul>
             </div>
+
             <div class="col-md-3 col-sm-6 col-xs-12 menu-items-right-col">
               <ul class="menu-items-right">
-                <!-- <ng-container *ngFor="let menuItem of menuData.RightMenu">
-                  <li *ngIf="menuItem.DisplayName">
-              <!--      <a [routerLink]="[menuItem.Url]" *ngIf="menuItem.Url"
-                      (click)="makeMenuActive(menuItem)">{{menuItem.Label}}</a> -- 
-                      {{menuItem.DisplayName }}                 
-                      <a routerLink="/blogs" *ngIf="menuItem.DisplayName == 'Blog'"
-                      (click)="makeMenuActive(menuItem)">{{menuItem.DisplayName}}</a>
-                      <a routerLink="/newslist" *ngIf="menuItem.DisplayName == 'News'"
-                      (click)="makeMenuActive(menuItem)">{{menuItem.DisplayName}}</a>
-                      <a routerLink="/success-stories" *ngIf="menuItem.DisplayName == 'Success Stories'"
-                      (click)="makeMenuActive(menuItem)">{{menuItem.DisplayName}}</a>
-                      <a routerLink="/presentations" *ngIf="menuItem.DisplayName == 'White Paper'"
-                      (click)="makeMenuActive(menuItem)">Presentations</a>
-                      <a routerLink="/publications" *ngIf="menuItem.DisplayName == 'Publications'"
-                      (click)="makeMenuActive(menuItem)">{{menuItem.DisplayName}}</a>
-                      <a routerLink="/podcasts" *ngIf="menuItem.DisplayName == 'Podcasts'"
-                      (click)="makeMenuActive(menuItem)">{{menuItem.DisplayName}}</a>
-    <!--                <a href="javascript:void(0)" *ngIf="!menuItem.Url">{{menuItem.Label}}</a>--
-                  </li>
-                </ng-container> -->
                 <ng-container *ngFor="let menuItem of menuData[1]?.RightMenu">        
                   <li *ngIf="menuItem?.attributes?.Parameter">                                 
                       <a routerLink="/{{menuItem?.attributes?.Parameter?.type}}" 
@@ -240,18 +123,18 @@
                 </ng-container>            
               </ul>
             </div>
+
           </div>
         </div>
       </div>
     </div>
+
     <div class="pt-4">
       <div class="row">
         <div class="col-12 col-md-7">
           <div class="row">
-           
             <div class="col-6">
               <div class="pl-5">
-                
                 <h6>Subscribe for Newsletter</h6>                
                 <div class="news-letter-field">
                   <input type="email" class="form-control" #email1 placeholder="Email Address"
@@ -266,12 +149,6 @@
             <div class="col-6">
               <div class="pl-5">
                 <h6>Follow Us</h6>
-              <!--  <div class="d-flex align-items-center social-wrapper">
-                  <i class="fab fa-facebook-square"></i>
-                  <i class="fab fa-linkedin"></i>
-                  <i class="fab fa-twitter-square"></i>
-                  <i class="fab fa-youtube"></i>
-                </div>-->
                 <div class="d-flex align-items-center social-wrapper">                    
                   <a href="https://www.linkedin.com/company/kavi-global/mycompany/" target="_blank"><i class="fab fa-linkedin"></i></a>
                   <a href="https://twitter.com/KG4Analytics" target="_blank"><i class="fab fa-twitter-square"></i></a>
@@ -280,39 +157,36 @@
               </div>
               </div>
             </div>
-
           </div>
         </div>
         <div class="col-12 col-md-5">
           <div class="row">
-        <div class="col-6">
-          <div class="pl-4" >   
-            <a (click)="makeMenuActive('ContactUs')" routerLink="{{'/ContactUs'}}">
-            <h6>Contact Us</h6>
-            </a>
-            <div class="d-flex">
-              <p class="mr-5"><i class="fas fa-phone-alt mr-2"></i>(847)
-                387-6760
-              </p>
-              
+            <div class="col-6">
+              <div class="pl-4" >   
+                <a (click)="makeMenuActive('ContactUs')" routerLink="{{'/ContactUs'}}">
+                <h6>Contact Us</h6>
+                </a>
+                <div class="d-flex">
+                  <p class="mr-5"><i class="fas fa-phone-alt mr-2"></i>(847)
+                    387-6760
+                  </p>
+                </div>
+                <div class="d-flex">
+                  <p><i class="fas fa-envelope mr-3" ></i>
+                    <a style="font-size:small" href="mailto:contact@kaviglobal.com">contact@kaviglobal.com</a>
+                  </p>
+                </div>
             </div>
-            <div class="d-flex">
-              <p><i class="fas fa-envelope mr-3" ></i>
-                <a style="font-size:small" href="mailto:contact@kaviglobal.com">contact@kaviglobal.com</a>
-              </p>
             </div>
+            <div class="col-6">
+              <div class="pl-4">
+                <a (click)="makeMenuActive('Careers')" routerLink="{{'/Careers'}}">            
+                <h6>Careers</h6>    
+                </a>  
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
-        <div class="col-6">
-          <div class="pl-4">
-            <a (click)="makeMenuActive('Careers')" routerLink="{{'/Careers'}}">            
-            <h6>Careers</h6>    
-            </a>  
-         </div>
-        </div>
-        </div>
-        </div>    
-
       </div>
     </div>
   </div>
