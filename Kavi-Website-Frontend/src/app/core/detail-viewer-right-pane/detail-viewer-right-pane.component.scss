@@ -1,4 +1,10 @@
- 
+.pageContainer{
+    margin-top:10px;
+    border: 2px solid #fff;  
+    border-radius: 25px;
+    background-image: linear-gradient(180deg, rgba(174, 223, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
+    
+}
 .right-menu-card {    
   border: 2px solid #fff;  
   border-radius: 25px;
@@ -96,7 +102,7 @@
     margin-top:30px;
 //    padding: 5px 5px 5px 5px;
     h6{
-        padding: 5px 5px 5px 5px;
+        padding: 5px 5px 5px 15px;
         margin-top:30px;  
     }
     
@@ -106,6 +112,7 @@
     background-color: #f1f1f1;
     display: inline-flex;
     margin-top:-15px;
+    margin-left:10px;
   }  
   /* Style the buttons inside the tab */
   .tab a {
@@ -147,7 +154,7 @@
   .news-link{    
     margin-top:10px;
     margin-bottom: 20px;
-    padding: 5px 5px 5px 5px;    
+    padding: 5px 5px 5px 15px;    
     width: 300px;  
     height: auto;  
     img{
@@ -240,7 +247,7 @@
         border: none;
         border-radius: 15px;
         padding: 8px;
-        background-color: rgba(155, 155, 155, 0.25);;
+    //    background-color: rgba(155, 155, 155, 0.25);;
         position: relative;
         height:max-content;
  //       height: 370px;
@@ -304,6 +311,7 @@
             margin-top: 10px;
             width: 70%;
             margin-left: 15%;
+            border-radius:50%;
      }
     a{
         font-size: 20px;
