@@ -143,6 +143,7 @@ export class RightMenuDetailsComponent implements OnInit {
   this.authorPost = [];
   this.rightMenuService.getPeopleViewer().then((peopleViewerResp: any) => {    
     if (peopleViewerResp.data && peopleViewerResp.data.attributes) {  
+      this.isPageLoaded = true;
         if(peopleViewerResp.data.attributes.BlogContribution)   {
           let menuName = peopleViewerResp.data.attributes.BlogContribution.Label.toLowerCase();           
           this.rightMenuService.getAuthorsPost(this.pageDetailsName,menuName).then((response: any) => {  
