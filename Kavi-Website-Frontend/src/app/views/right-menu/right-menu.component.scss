@@ -9,6 +9,9 @@
   .list-wrapper {
     display: flex;
   }
+  * {
+    font-family: "montserrat-regular";
+  }  
 }
 .divider {
   border-right: 2px solid rgba(141, 141, 141, 0.6);

@@ -11,7 +11,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-right-menu-details',
   templateUrl: './right-menu-details.component.html',
-  styleUrls: ['./right-menu-details.component.scss']
+  styleUrls: ['./right-menu-details.component.scss'],
 })
 export class RightMenuDetailsComponent implements OnInit {
 

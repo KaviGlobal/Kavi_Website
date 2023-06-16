@@ -1,3 +1,6 @@
+* {
+  font-family: "montserrat-regular";
+}  
 .page-right-menu-section {
 //  padding: 50px 0 50px 30px;
   padding-top:10px;
@@ -51,6 +54,7 @@ li > a {
 //  display: inline-flex;
   margin-top:3px;
   margin-left:-5px;
+  font-family: "montserrat-regular";
 }  
 /* Style the buttons inside the tab */
 .tab a {
@@ -73,9 +77,8 @@ li > a {
 //  background-color: #f1f1f1; 
   margin-top: 10px;
   background-color: #f1f1f1;
- 
-  h5{
-    font-family: "open-sans-bold";
+  font-family: "montserrat-regular";
+  h5{   
     color: #224991;
     font-size: 20px;
     font-weight:800;
