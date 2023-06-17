@@ -2,9 +2,9 @@
     <app-page-loader></app-page-loader>
 </div>
 <div class="details-content" *ngIf="isPageLoaded">
-    <div class="container" *ngIf="isDataLoaded && !isClient && !isPartner">
+    <div class="container pad_400" *ngIf="isDataLoaded && !isClient && !isPartner">
         <div class="row">
-            <div class="col-12 col-md-8 col-lg-9 border-right"> 
+            <div class="col-12 col-md-12 col-lg-12 border-right"> 
                 <div class="page-content py-4" *ngIf="!isPeople">
                 <div class="centered">
                    <h2>{{pageData[0]?.attributes?.Title}}</h2>
@@ -138,7 +138,7 @@
                     </div>
                 </div> -->
             </div>
-            <div class="col-12 col-md-4 col-lg-3 border-left">
+            <div class="right_fixed">
             <!--    <app-right-menu-sidebar [data]="pageData"></app-right-menu-sidebar>-->
                 <div *ngIf="!isPeople">
                     <app-detail-viewer-right-pane  [authorDetails]="authors"

@@ -4,11 +4,10 @@
 .page-right-menu-section {
 //  padding: 50px 0 50px 30px;
   border: 2px solid #fff;  
-  border-radius: 25px;
+  border-radius: 20px;
   background-image: linear-gradient(180deg, rgba(174, 223, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
 //  background-color:#rgb(203, 220, 247);
-
-  padding-top:10px;
+  padding:10px 15px;
   .title {
     font-family: "montserrat-regular";
     font-size: 1.2rem;
@@ -68,14 +67,14 @@ li > a {
   width: fit-content;
   font-weight:800;
   font-family: "montserrat-regular";
-  float: left;
-  border: 5px solid; 
-  border-radius:15px;
+  float: left; 
+  border-radius:7px;
   outline: none;
   cursor: pointer;        
   transition: 0.3s;
   font-size: 13px;
-  padding: 5px 5px 5px 5px;
+  padding: 5px 10px;
+  margin: 0px 8px 10px 0px;
 }
 .dimensionTab{
   overflow: hidden;      
@@ -102,7 +101,13 @@ p{
 //    font-size:14px;
   }
 }
-
-
+.page-right-section{
+  position: fixed;
+    top: 110px;
+    width: 380px;
+    bottom: 10px;
+    overflow: auto;
+    right: 100px;
+}
 
 
