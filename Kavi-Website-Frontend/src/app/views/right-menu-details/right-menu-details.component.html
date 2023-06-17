@@ -6,10 +6,13 @@
         <div class="row">
             <div class="col-12 col-md-8 col-lg-9 border-right"> 
                 <div class="page-content py-4" *ngIf="!isPeople">
-                   <h2>{{pageData[0]?.attributes?.Title}}</h2>
-                  <!-- {{viewerData.Title | json}}-->
+                <div class="centered">
+                  <!-- <h2>{{pageData[0]?.attributes?.Title}}</h2>
+                   {{viewerData.Title | json}}-->
                     <div *ngIf="pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes">
                         <img [src]=[pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes.url]>
+                        <div class="centered">{{pageData[0]?.attributes?.Title}}</div>
+                    </div>
                     </div>
                     <div *ngIf="pageFullContent">
                     <markdown  [data]="pageFullContent"> </markdown>
@@ -58,7 +61,7 @@
                                 <i class="fa fa-download" aria-hidden="true"></i> Download File</a> 
                             </div> 
                         </div>                       
-                    </div>
+                    </div>                   
                 </div>           
                 <div class="people-detail" *ngIf="isPeople">
                     <div class="container rounded bg-white mt-5 mb-5" *ngIf="isPeople">
@@ -235,7 +238,7 @@
 <!--          cccc {{this.viewerData[0] | json}}-->
         </div>
 </div>
-<div class="container" *ngIf="isDataLoaded && (isClient || isPartner)" style="background-color:#224991;margin-bottom:0.5px">
+<div class="container" *ngIf="isDataLoaded && (isClient || isPartner)" style="margin-bottom:0.5px">
     <div class="top-content">      
      <!--  <h3>Our Clients</h3>-->
     </div>

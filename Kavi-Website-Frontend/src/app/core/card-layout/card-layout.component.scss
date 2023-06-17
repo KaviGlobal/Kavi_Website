@@ -7,9 +7,9 @@ img {
 }
 h3 {
   font-family: "montserrat-regular";
-  color: #224991;
+  color: #EA6B1E;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 900;
   padding-top: 5px;
   text-align: start;
 }
@@ -42,6 +42,7 @@ a {
 }
 
 .news-card-container {  
+  width:300px;
   border: 2px solid #fff;  
 //  border-radius: 25px;
   background-image: linear-gradient(180deg, rgba(174, 223, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
@@ -64,11 +65,15 @@ a {
     }
   }
   .client-image-wrapper {
+    background-color: white;
+    border-radius: 15px;
+    margin-left: 45px;
+    margin-top: 25px;
     height: 150px;
-    width:300px;
+    width: 200px;
     text-align: center;
     overflow: hidden;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  //  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,7 +86,7 @@ a {
     }
   }
   .new-content {
-    padding: 20px 20px 10px 20px;
+    padding: 0px 20px 10px 20px;
     text-align:justify;
 //    min-height: 105px;
   }

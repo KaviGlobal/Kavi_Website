@@ -10,11 +10,19 @@
     }  
     h2 {
       color:#EA6B1E;
-      font-size: 1.7rem;
+      font-size: 1.5rem;
       font-weight:700;
     }
   }
-
+  .centered {
+      position: relative;
+    color: #EA6B1E;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.rounded-lg {
+  border-radius: 2rem !important;
+}
 .pageBorder{
   border: 2px solid #fff;  
   border-radius: 25px;
