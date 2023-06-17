@@ -7,11 +7,11 @@
             <div class="col-12 col-md-8 col-lg-9 border-right"> 
                 <div class="page-content py-4" *ngIf="!isPeople">
                 <div class="centered">
-                  <!-- <h2>{{pageData[0]?.attributes?.Title}}</h2>
-                   {{viewerData.Title | json}}-->
+                   <h2>{{pageData[0]?.attributes?.Title}}</h2>
+                <!--   {{viewerData.Title | json}}-->
                     <div *ngIf="pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes">
                         <img [src]=[pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes.url]>
-                        <div class="centered">{{pageData[0]?.attributes?.Title}}</div>
+                    <!--    <div class="centered">{{pageData[0]?.attributes?.Title}}</div>-->
                     </div>
                     </div>
                     <div *ngIf="pageFullContent">
