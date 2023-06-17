@@ -71,6 +71,30 @@ export class RightMenuDetailsComponent implements OnInit {
           if(menuItemAttributes[0]){
             this.commonService.activeMenuData = menuItemAttributes[0];
           }
+        } else if(this.pageType == "pages"){
+          let activeMenuAttributes;
+          this.commonService.menuData[0]?.LeftMenu.forEach((items:any,index:number) =>{ 
+            items.forEach((item:any,index:number) =>{ 
+              if(item.attributes.Slug == this.pageDetailsName){
+                activeMenuAttributes = item;
+              }
+            }) 
+          });
+          this.commonService.menuData[2]?.IndustryMenu.forEach((items:any,index:number) =>{ 
+            items.forEach((item:any,index:number) =>{ 
+              if(item.attributes.Slug == this.pageDetailsName){
+                activeMenuAttributes = item;
+              }
+            }) 
+          });
+          this.commonService.menuData[3]?.AboutUs.forEach((item:any,index:number) =>{ 
+              if(item.attributes.Slug == this.pageDetailsName){
+                activeMenuAttributes = item;
+              }
+          });
+          if(activeMenuAttributes){
+            this.commonService.activeMenuData = activeMenuAttributes;
+          }
         }
         this.commonService.activeMenuName = cloneDeep(this.pageType);
         this.isDataLoaded = false;
