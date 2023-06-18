@@ -6,14 +6,15 @@
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12 border-right"> 
                 <div class="page-content py-4" *ngIf="!isPeople">
-                <div class="centered">
+                <!-- <div class="centered">
                    <h2>{{pageData[0]?.attributes?.Title}}</h2>
-                <!--   {{viewerData.Title | json}}-->
+                <!--   {{viewerData.Title | json}}--
                     <div *ngIf="pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes">
                         <img [src]=[pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes.url]>
-                    <!--    <div class="centered">{{pageData[0]?.attributes?.Title}}</div>-->
+                    <!--    <div class="centered">{{pageData[0]?.attributes?.Title}}</div>--
                     </div>
-                    </div>
+                    </div> -->
+                    <h2 style = "background-image:url('{{pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes?.url}}')">{{pageData[0]?.attributes?.Title}}</h2>
                     <div *ngIf="pageFullContent">
                     <markdown  [data]="pageFullContent"> </markdown>
                     </div>

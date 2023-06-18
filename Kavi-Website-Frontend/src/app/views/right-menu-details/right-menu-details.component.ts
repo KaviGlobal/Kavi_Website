@@ -312,8 +312,7 @@ export class RightMenuDetailsComponent implements OnInit {
         }
       })
     }
-    this.pageData = menuTaglist
-    this.rightPageRelatedData = this.pageData;
+    this.rightPageRelatedData = menuTaglist;
   }
   getDetailsData() { 
 //    console.log("ffff",this.pageType,this.commonService.activeMenuData?.attributes?.Slug,this.commonService.activeMenuName,this.commonService.activeMenuData?.attributes?.Viewer);
