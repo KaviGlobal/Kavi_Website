@@ -30,6 +30,7 @@
 .rounded-lg {
   border-radius: 2rem !important;
 }
+.client_block{max-width: 300px;margin: auto;}
 .pageBorder{
   border: 2px solid #fff;  
   border-radius: 25px;
@@ -208,10 +209,11 @@
       font-weight: 700;
       background-repeat: no-repeat;
       background-size: cover;
-      padding: 110px 20px;
+      padding: 50px 20px;
       background-position: center;
       text-align: center;
-      margin-bottom: 25px;
+      margin-bottom: 45px;
       border-radius: 20px;
+      font-family: "montserrat-regular";
   }     
 }

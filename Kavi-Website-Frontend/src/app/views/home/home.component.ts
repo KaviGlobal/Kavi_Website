@@ -63,6 +63,10 @@ export class HomeComponent implements OnInit {
         this.getClientImages();
       }
       this.document.body.classList.add('home-page');
+      var header = this.document.getElementById("header_block");
+      if(header != null){
+        header.classList.remove('our_page');
+      }
       this.isDataLoaded = true;
     });
   }

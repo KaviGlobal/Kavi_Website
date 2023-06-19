@@ -37,7 +37,7 @@
     </div>
 </div>
 <div *ngIf="type == 'news-card-layout' || type == 'recommendation-card-layout'">
-    <div class="news-card-container" [ngClass]="{'recommendation-card-wrapper': type == 'recommendation-card-layout'}">
+    <div class="news-card-container recommendation_block" [ngClass]="{'recommendation-card-wrapper': type == 'recommendation-card-layout'}">
         <div class="news-image-wrapper" *ngIf="image">
             <div class="news-image-container">
                 <img src="{{image}}" alt="image" />
@@ -122,7 +122,7 @@
         </div>
     </div>
 </div>
-<div *ngIf="type == 'client-card-layout'">
+<div *ngIf="type == 'client-card-layout'" class="client_block">
     <div class="news-card-container">
         <div class="client-image-wrapper" *ngIf="image">
             <div class="news-image-container">
