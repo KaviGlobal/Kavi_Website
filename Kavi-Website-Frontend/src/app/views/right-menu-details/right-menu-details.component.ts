@@ -1,4 +1,4 @@
-import { Component, OnInit,Output,Input, } from '@angular/core';
+import { Component, OnInit,Output,Input, Inject } from '@angular/core';
 import { ActivatedRoute, Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { RightMenuService } from '../right-menu/right-menu.service';
 import { cloneDeep } from 'lodash';
@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CustomPipePipe } from 'src/app/custom-pipe.pipe';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-right-menu-details',
@@ -44,7 +45,8 @@ export class RightMenuDetailsComponent implements OnInit {
     public commonService: CommonService,
     private rightMenuService: RightMenuService,
     public modalService: NgbModal,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    @Inject(DOCUMENT) private document: Document
   ) { }
 
   ngOnInit(): void {//    console.log("sss",this.commonService.activeMenuData);
@@ -70,6 +72,13 @@ export class RightMenuDetailsComponent implements OnInit {
           let menuItemAttributes = this.commonService.menuData[1].RightMenu.filter((element: any) => (element.attributes.Parameter.type == this.pageType));
           if(menuItemAttributes[0]){
             this.commonService.activeMenuData = menuItemAttributes[0];
+          }
+          if(this.pageType == "clients"){
+            this.isClient = true;
+            this.isPartner = false;
+          } else if(this.pageType == "partners"){
+            this.isClient = false;
+            this.isPartner = true;
           }
         } else if(this.pageType == "pages"){
           let activeMenuAttributes;
@@ -331,6 +340,8 @@ export class RightMenuDetailsComponent implements OnInit {
     }
    this.rightMenuService.getDetailsData(this.pageType, this.pageDetailsName, filter).then((response: any) => {
       if (response.data && response.data.length > 0) {
+        this.isPartner = false;
+        this.isClient = false;
         this.pageData = response.data;        
         this.isPeople = false;
         this.pageFullContent = response.data[0].attributes?.FullContent;
@@ -355,10 +366,22 @@ export class RightMenuDetailsComponent implements OnInit {
         }
         if(this.pageType == 'clients'){
           this.isClient = true;
+          this.isPartner = false;
+          this.isPageLoaded = true; 
+          var element = this.document.getElementById("header_block");
+          if(element != null){
+            element.classList.add('our_page');
+          }
 //          console.log("this.pageData",this.pageData);
         }
         if(this.pageType == 'partners'){
           this.isPartner = true;
+          this.isClient = false;
+          this.isPageLoaded = true; 
+          var element = this.document.getElementById("header_block");
+          if(element != null){
+            element.classList.add('our_page');
+          }
 //          console.log("this.pageData",this.pageData);
         }
         if(this.pageType == 'publications' || this.pageType == 'presentations'){
@@ -368,7 +391,9 @@ export class RightMenuDetailsComponent implements OnInit {
          } 
       }
       this.getMetaDataForListViewer();
-      this.getTagList();
+      if(this.pageType != 'partners' && this.pageType != 'clients'){
+        this.getTagList();
+      }
       this.isDataLoaded = true;
     });
     // if(this.pageType == "pages"){

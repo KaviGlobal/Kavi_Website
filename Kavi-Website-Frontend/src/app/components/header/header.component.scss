@@ -14,12 +14,28 @@
   background: #fff;
   box-shadow: 0 0.5px 0.5px 0 rgb(0 0 0 / 20%);
   &.home-header {
+    &.our_page {
+      box-shadow: 0 0.5px 0.5px 0 rgba(0, 0, 0, 0.2);
+      .nav-right-bars {
+        color: #333;
+      }
+      .nav-right a{
+        color: #333;
+      }
+    }
     box-shadow: none;
     background: transparent;
+
     &.isScroll {
       background: #000e42;
       // background-image: url("../../../assets/images/Group 2007.png");
       box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%);
+      .nav-right-bars {
+        color: #fff;
+      }
+      .nav-right a{
+        color: #fff;
+      }
     }
     .nav-right {
       justify-content: space-around;

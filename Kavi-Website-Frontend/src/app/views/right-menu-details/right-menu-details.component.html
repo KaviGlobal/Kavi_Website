@@ -239,10 +239,9 @@
 <!--          cccc {{this.viewerData[0] | json}}-->
         </div>
 </div>
-<div class="container" *ngIf="isDataLoaded && (isClient || isPartner)" style="margin-bottom:0.5px">
-    <div class="top-content">      
-     <!--  <h3>Our Clients</h3>-->
-    </div>
+<div class="container" *ngIf="isDataLoaded && (isClient || isPartner)" style="margin:30px auto 0.5px">
+    <div *ngIf="isClient" class="our_page"><h2 style = "background-image:url('https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/Title_Covers_Our_Clients_4ebf595b29.jpg?updated_at=2023-06-18T11:52:52.005Z')">Our Clients</h2></div>
+    <div *ngIf="isPartner" class="our_page"><h2 style = "background-image:url('https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/Title_Covers_Our_Partners_a1804b5183.jpg?updated_at=2023-06-18T11:52:52.601Z')">Our Partners</h2></div>
     <div class="row">          
         <div *ngFor="let item of pageData; let i = index"> 
             <div class="pb-5" style="min-height: 70px;padding-left: 15px;">

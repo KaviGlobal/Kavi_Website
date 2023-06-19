@@ -226,10 +226,8 @@
         </div>        
     </div>
     -->
-    <div class="container" *ngIf="pageData.length > 0" style="background-color:#224991">
-        <div class="top-content">
-            <h3>Our Team</h3>
-        </div>
+    <div class="container" *ngIf="pageData.length > 0" style="margin:30px auto;">
+        <div class="our_page"><h2 style = "background-image:url('https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/Title_Covers_Our_Clients_4ebf595b29.jpg?updated_at=2023-06-18T11:52:52.005Z')">Our Team</h2></div>
         <div class="row">          
             <div *ngFor="let item of pageData; let i = index"> 
                 <div class="pb-5" style="min-height: 70px;padding-left: 40px;">
