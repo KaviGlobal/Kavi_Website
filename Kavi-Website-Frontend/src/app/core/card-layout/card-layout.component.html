@@ -43,9 +43,11 @@
                 <img src="{{image}}" alt="image" />
             </div>
         </div>
-        <div class="new-content">
-            <h3>{{title}}</h3>
-            <p class="mb-1">{{description}}</p>
+        <div class="new-content read_more_block">
+            <div class="read_hight">
+                <h3>{{title}}</h3>
+                <p class="mb-1">{{description}}</p>
+            </div>
             <a routerLink="{{'/' + moduleName + '/'+ slug}}" *ngIf="moduleName">{{hyperlinkText}} <i
                     class="fas fa-arrow-right arrow-icon ml-1"></i></a>
             <a href="javascript:void(0)" *ngIf="!moduleName">{{hyperlinkText}} <i
@@ -99,7 +101,7 @@
         </div>
     </div>
 </div>
-<div *ngIf="type == 'personal-card-layout'">
+<div *ngIf="type == 'personal-card-layout'" class="client_block leadership_team">
     <div class="news-card-container">
         <div class="news-image-wrapper" *ngIf="image">
             <div class="news-image-container">
@@ -132,13 +134,11 @@
         <div class="new-content">            
             <a href="{{url}}" target="blank">
                 <span>
-                <h3 style="text-align:left;width:200px;margin-top:20px">              
-                    {{title}}</h3>
-                <i class="fa fa-globe" style="font-size:20px;float:right;margin-top:-25px;margin-right:25px"></i>
-                                
+                    <i class="fa fa-globe" style="font-size:20px;float:right;margin-top:10px;"></i>
+                    <h3 style="text-align:left;width:220px;margin-top:20px">{{title}}</h3>   
                 </span>
             </a>           
-            <p class="mb-1" style="text-align:left; min-height: 30px;width:200px;color: #224991;">{{description}}</p>
+            <p class="mb-1" style="text-align:left; min-height: 30px;color: #224991;">{{description}}</p>
                          
         </div>
     </div>

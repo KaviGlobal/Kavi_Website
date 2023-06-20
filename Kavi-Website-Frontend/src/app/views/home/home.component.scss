@@ -1,6 +1,10 @@
-* {
+.home-page {
   font-family: "montserrat-regular";
-}  
+} 
+.home-page .fa-arrow-right {
+  position: relative;
+  top: 1px;
+}
 
 .banner-wrapper {
   min-height: 100vh;
@@ -362,6 +366,8 @@
     display: block;
     i {
       padding-left: 6px;
+      top: 2px;
+      position: relative;
     }
   }
   h3 {
