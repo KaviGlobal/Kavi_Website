@@ -14,7 +14,6 @@ export class RightMenuService {
 
   public getRightMenuPageData(menuType: string, parameter: string,listCount:number): any {
     return new Promise<any>((resolve, reject) => {
-      console.log("1234")
       const endpoint =  '/'+menuType+appConfig.VIEWER+parameter+"&pagination[pageSize]="+listCount;     
       this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
         if (resp) {
@@ -68,7 +67,6 @@ export class RightMenuService {
   }
 public getTagListByName(tagName:any,menuName:any,listCount:number): any {
     return new Promise<any>((resolve, reject) => {
-      console.log("kkkl")
       const endpoint =  '/'+menuName+appConfig. GET_TAG_LIST_BY_NAME+tagName+"&pagination[pageSize]="+listCount;      
       this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
         if (resp) {
@@ -329,7 +327,6 @@ public getTagListByName(tagName:any,menuName:any,listCount:number): any {
   }
   public getRelatedDataByTag(pagetype: any, tagName: any, relatedmax:any){
     return new Promise<any>((resolve, reject) => {
-      console.log("ffff")
       if(relatedmax != undefined && relatedmax != '' && relatedmax > 0){  
         relatedmax = '&pagination[pageSize]=' + relatedmax;
       } else {

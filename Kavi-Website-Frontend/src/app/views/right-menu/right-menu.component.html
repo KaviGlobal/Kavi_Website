@@ -110,8 +110,8 @@
                     </div>
                     
                 </div>
-                <div class="page-content-section" *ngIf = !SearchTagMenu>           
-                    <div *ngFor="let item of pageData; let i = index">
+                <div class="page-content-section" *ngIf =" !SearchTagMenu && pageData.length > 0">           
+                    <div *ngFor="let item of pageData; let i = index;">
                         <div class="pb-5" >
                             <app-right-menu-details-card 
                             [title]="item?.attributes?.Title"
@@ -227,7 +227,7 @@
     </div>
     -->
     <div class="container" *ngIf="pageData.length > 0" style="margin:30px auto;">
-        <div class="our_page"><h2 style = "background-image:url('https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/Title_Covers_Our_Clients_4ebf595b29.jpg?updated_at=2023-06-18T11:52:52.005Z')">Our Team</h2></div>
+        <div class="our_page"><h2 style = "background-image:url('https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/Leaderships2x_4a4b985cf5.png?updated_at=2023-06-20T13:16:36.909Z')">Our Team</h2></div>
         <div class="row">          
             <div *ngFor="let item of pageData; let i = index" class="col-lg-3 col-md-4 col-sm-6 col-xs-12"> 
                 <div class="pb-5" style="min-height: 70px;">
