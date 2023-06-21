@@ -12,6 +12,7 @@
     color: #a2a6b8;
     font-family: "open-sans-regular";
     padding: 20px 0px;
+    font-weight: 600;
     h6 {
         color: #EA6B1E;
         font-size: 20px;
@@ -102,10 +103,10 @@
   }
 
 .news-letter-field {  
-    width: 100%;
+    width: 80%;
     position: relative;
     display: flex;
-    margin-top: 15px;
+    margin: 15px auto 0;
     .form-control {
       border-radius: 0;
       border-color: #fff !important;

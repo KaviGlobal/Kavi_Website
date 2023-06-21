@@ -10,38 +10,36 @@
         <h6>{{subItem.attributes.DisplayName | json}}</h6>
     </div>
 </div>   -->
-        <div>
-            <div *ngFor="let item of TagKeys; let i = index">
-                <div class="dimensionTab">
-                    <h5>{{item}}</h5>
-                    <div *ngFor="let item1 of tagValues; let j = index">
-                        <div *ngIf="i == j">
-                            <div *ngFor="let subitem of item1; let k = index">
-                                {{subitem.attributes.DisplayName | json}}
-                            </div>
-                          
+        <div *ngFor="let item of TagKeys; let i = index">
+            <div class="dimensionTab">
+                <h5>{{item}}</h5>
+                <div *ngFor="let item1 of tagValues; let j = index">
+                    <div *ngIf="i == j" class="tab">
+                        <div *ngFor="let subitem of item1; let k = index">
+                            <a routerLink="{{'/SearchTag='+subitem.attributes.Slug}}">{{subitem.attributes.DisplayName}}</a>
                         </div>
+                        
                     </div>
-                    </div>
-                    <!--        <div *ngFor="let itemValue of data1[0].values();let j=index"> 
-                         <div*ngIf="i == j">
-                            <div class="tab">{{itemValue | json}}
-                                <div *ngFor="let subItem of itemValue;;let k=index">
-                                    <div *ngIf="(!showAllTags) && (k < metaViewer.TagMaxCount)">
+                </div>
+                </div>
+                <!--        <div *ngFor="let itemValue of data1[0].values();let j=index"> 
+                        <div*ngIf="i == j">
+                        <div class="tab">{{itemValue | json}}
+                            <div *ngFor="let subItem of itemValue;;let k=index">
+                                <div *ngIf="(!showAllTags) && (k < metaViewer.TagMaxCount)">
+                                    <a routerLink="{{'/SearchTag='+subItem.attributes.Slug}}">{{subItem.attributes.DisplayName}}</a>    
+                                </div>  
+                                <div *ngIf="(showAllTags)"> 
+                                    <div>                              
                                         <a routerLink="{{'/SearchTag='+subItem.attributes.Slug}}">{{subItem.attributes.DisplayName}}</a>    
                                     </div>  
-                                    <div *ngIf="(showAllTags)"> 
-                                        <div>                              
-                                            <a routerLink="{{'/SearchTag='+subItem.attributes.Slug}}">{{subItem.attributes.DisplayName}}</a>    
-                                        </div>  
-                                    </div>                      
-                                 </div>
-                            </div>
+                                </div>                      
+                                </div>
                         </div>
                     </div>
-                -->
                 </div>
-            </div>-->
+            -->
+            </div>
             <div *ngIf="!showAllTags" (click)="showAllTagsForDimension()">
                 <p><a>Read More...</a></p>
             </div>
