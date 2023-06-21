@@ -4,11 +4,11 @@
 <div *ngIf="!isDataLoaded && !isOfferingsLoaded
 && !isContactUs && !isAboutUs && !isPolicy && !isPersonal 
 && !isCareers  && !isPublications
-&& !searchTag && !isUserForm">
+&& !searchTag && !isUserForm && !isEmptyDataList">
     <app-page-loader></app-page-loader>
 </div> 
 <div *ngIf="(isPolicy || isPersonal) && !isUserForm">
-    <div class="privacy_policy_block">
+    <div class="container">
         <markdown [data]="terms[0]"> </markdown>
         <div class="modalFooter">
             <button type="button" id="closeModal"  (click)="onClose()">Close</button>
@@ -49,6 +49,11 @@
 
       </form>
  
+    </div>
+</div>
+<div *ngIf="isEmptyDataList" class="page-container"> 
+    <div class="container py-5">
+        <h2> No data available for the selected Tag</h2>
     </div>
 </div>
 <div *ngIf="isUserForm" class="page-container"> 

@@ -22,7 +22,7 @@ export class RightMenuComponent implements OnInit  {
   public pageData: any = [];  
   public rightPageData: any =[];
   public isDataLoaded: boolean = false;
-  
+  public isEmptyDataList: boolean = false;
   public isOfferingsLoaded: boolean = false; 
   public isAboutUs: boolean = false; 
   public isContactUs: boolean = false;
@@ -289,8 +289,7 @@ console.log("filePath",url,filePath);
           let menuTaglist:any=[];          
           this.rightMenuService.getMetaDataForListViewer().then((response: any) => { 
             this.listMetaData = response.data.attributes;
-     //       console.log("zzzz11",this.listMetaData);
-            for(let item of menu) {  //console.log("eeee",item.attributes.Parameter.type);       
+            for(let item of menu) {         
                   this.rightMenuService.getTagListByName(tagName,item.attributes.Parameter.type,this.listMetaData.MaxCount).then((response: any) => {
               //      this.rightMenuService.getTagListByName(tagName,item.attributes.Parameter.type,20).then((response: any) => {
                     if(response.data.length > 0){
@@ -303,6 +302,12 @@ console.log("filePath",url,filePath);
                       this.routePath='';
                       this.SearchTagMenu = this.commonService.activeMenuName;
         //              menuTaglist = response.data;
+                    }
+                    if(response.data.length == 0){
+                      this.isDataLoaded = false;
+                      this.isEmptyDataList = true;
+                      this.routePath='';
+                      this.SearchTagMenu = this.commonService.activeMenuName;        //           
                     }
                     this.pageData = menuTaglist;
                     //        console.log("call",menuTaglist,this.pageData.length);              
