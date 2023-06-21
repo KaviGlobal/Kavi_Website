@@ -3,14 +3,14 @@
     max-width: 100%;
     background-color: #000d42;
     // padding: 40px 0;
-    z-index: 999999;
+    z-index: 999;
     position: relative;
     text-align: center;
     
 }
 .footer-bg-container {
     color: #a2a6b8;
-    font-family: "open-sans-regular";
+    font-family: "montserrat-regular";
     padding: 20px 0px;
     font-weight: 600;
     h6 {
@@ -24,6 +24,10 @@
     }
     a{
         color: #a2a6b8;
+    }
+    .privacy_policy{
+        cursor: pointer;
+        color: #EA6B1E;
     }
 }
 .logo-wrapper {
