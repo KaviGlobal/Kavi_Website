@@ -1,5 +1,66 @@
 <div class="container-fluid footer-container">
-    <div class="container footer-bg-container">
+    <div class="footer-bg-container">
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <div>
+              <h6>About Us</h6>
+              <p align="justify">{{this.aboutUs[0]}}
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-9">
+            <div class="row">
+              <div class="col-4">
+                <div>
+                  <h6>Subscribe for Newsletter</h6>                
+                  <div class="news-letter-field">
+                    <input type="email" class="form-control" #email1 placeholder="Email Address"
+                     />              
+                    <div class="send-icon">
+                      <i class="fas fa-paper-plane" (click)="emailSubscription(email1.value);"></i>
+                    </div>    
+                  </div>
+                  <p  *ngIf="isSubscribed" style ="padding-top:10px;font-size:smaller">Thank you for Subscribing!</p>
+                </div>
+              </div>
+              <div class="col-3">
+                <div >   
+                    <a routerLink="{{'/ContactUs'}}">
+                    <h6>Contact Us</h6>
+                    </a>
+                    <div style="display: inline-block;">
+                      <p align="left"><i class="fas fa-phone-alt mr-2"></i>(847)
+                          387-6760
+                      </p>
+                      <p align="left"><i class="fas fa-envelope mr-2" ></i>
+                          <a style="font-size:small" href="mailto:contact@kaviglobal.com">contact@kaviglobal.com</a>
+                      </p>
+                    </div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div>
+                  <h6>Follow Us</h6>
+                  <div class="d-flex align-items-center social-wrapper">                    
+                    <a href="https://www.linkedin.com/company/kavi-global/mycompany/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/KG4Analytics" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                    <a href="https://www.facebook.com/kaviglobal/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                    <a href="https://www.youtube.com/channel/UCEMWF8WAJuM5k32gkxGopBQ" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+                </div>
+              </div>
+              <div class="col-2">
+                <div>
+                  <h6>Legal</h6>
+                  <a routerLink="{{'/Careers'}}">Careers</a>
+                  <p (click)="policyTerms();">Privacy Policy</p>  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- <div class="container footer-bg-container">
         <div class="row">
             <div class="col-12 col-md-6">
                 <h6>Subscribe for Newsletter</h6>
@@ -11,7 +72,7 @@
                         <i class="fas fa-paper-plane"></i>
                     </div>
                 </div>
-                    -->
+                    --
                     <div class="news-letter-field">
                         <input type="email" class="form-control" #email1 placeholder="Email Address"
                          />              
@@ -28,7 +89,7 @@
                 </div>
                 <p class="description">
                     {{this.aboutUs[0]}}
-        <!--            {{footerData.attributes.headerfooter.AboutKavi}}-->
+        <!--            {{footerData.attributes.headerfooter.AboutKavi}}--
                 </p>
                 <p class="footer-desc ft-menu" (click)="policyTerms();">Privacy Policy</p>
  <!--               <div class="policy-terms ">
@@ -38,7 +99,7 @@
             -->
         <!--        <p class="footer-desc">{{footerData.attributes.Copyright}}-->
                     <!--<span class="custom">Privacy Policy</span>-->
-         <!--       </p>-->
+         <!--       </p>--
             </div>
             <div class="col-12 col-md-6">
 <!--                <div class="pt-2" *ngIf="images">
@@ -54,7 +115,7 @@
                         </ng-container>
                     </ngb-carousel>
 
-                </div>-->
+                </div>--
                 <div class="social-wrapper">                    
                     <a href="https://www.linkedin.com/company/kavi-global/mycompany/" target="_blank"><i class="fab fa-linkedin"></i></a>
                     <a href="https://twitter.com/KG4Analytics" target="_blank"><i class="fab fa-twitter-square"></i></a>
@@ -64,5 +125,5 @@
             </div>
 
         </div>
-    </div>
+    </div> -->
 </div>
