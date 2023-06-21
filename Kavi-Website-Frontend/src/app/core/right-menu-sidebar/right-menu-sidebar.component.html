@@ -16,7 +16,9 @@
                 <div *ngFor="let item1 of tagValues; let j = index">
                     <div *ngIf="i == j" class="tab">
                         <div *ngFor="let subitem of item1; let k = index">
-                            <a routerLink="{{'/SearchTag='+subitem.attributes.Slug}}">{{subitem.attributes.DisplayName}}</a>
+                            <div *ngIf="(!showAllTags) && (k < metaViewer.TagMaxCount)">
+                                <a routerLink="{{'/SearchTag='+subitem.attributes.Slug}}">{{subitem.attributes.DisplayName}}</a>
+                            </div>
                         </div>
                         
                     </div>

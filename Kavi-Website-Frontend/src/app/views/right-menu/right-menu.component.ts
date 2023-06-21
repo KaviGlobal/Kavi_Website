@@ -1,4 +1,4 @@
-import { Component, OnInit,Output,Input,Pipe, PipeTransform } from '@angular/core';
+import { Component, OnInit,Output,Input,Pipe, PipeTransform, Inject } from '@angular/core';
 import { ActivatedRoute, Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 import { cloneDeep, indexOf,sortBy } from 'lodash';
@@ -10,6 +10,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Location} from '@angular/common';
 import {marked} from 'marked';
+import { DOCUMENT } from '@angular/common';
+
 @Component({
   selector: 'app-right-menu',
   templateUrl: './right-menu.component.html',
@@ -55,6 +57,7 @@ export class RightMenuComponent implements OnInit  {
   public parsedRichText : any ='';
   @Input() terms:any = [];  
   @Output() searchTagText:any = '';
+  
   public masterTagList: any = [];
    constructor(
     private router: Router,
@@ -63,7 +66,8 @@ export class RightMenuComponent implements OnInit  {
     private rightMenuService: RightMenuService,
     private sanitizer: DomSanitizer,
     public modalService: NgbModal,
-    private _location: Location
+    private _location: Location,
+    @Inject(DOCUMENT) private document: Document
   ) {    
   }
  
@@ -307,7 +311,11 @@ console.log("filePath",url,filePath);
                       this.isDataLoaded = false;
                       this.isEmptyDataList = true;
                       this.routePath='';
-                      this.SearchTagMenu = this.commonService.activeMenuName;        //           
+                      this.SearchTagMenu = this.commonService.activeMenuName;
+                      var element = this.document.getElementById("header_block");
+                      if(element != null){
+                        element.classList.add('our_page');
+                      }       //           
                     }
                     this.pageData = menuTaglist;
                     //        console.log("call",menuTaglist,this.pageData.length);              
