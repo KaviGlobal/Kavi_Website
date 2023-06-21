@@ -14,10 +14,14 @@
             <div *ngFor="let item of TagKeys; let i = index">
                 <div class="dimensionTab">
                     <h5>{{item}}</h5>
-                    <div *ngFor="let item1 of TagValues; let j = index">
-                        <div *ngIf="i == j">{{item1 | json}}
+                    <div *ngFor="let item1 of tagValues; let j = index">
+                        <div *ngIf="i == j">
+                            <div *ngFor="let subitem of item1; let k = index">
+                                {{subitem.attributes.DisplayName | json}}
+                            </div>
+                          
                         </div>
-                        </div>
+                    </div>
                     </div>
                     <!--        <div *ngFor="let itemValue of data1[0].values();let j=index"> 
                          <div*ngIf="i == j">
@@ -37,7 +41,7 @@
                     </div>
                 -->
                 </div>
-            </div>
+            </div>-->
             <div *ngIf="!showAllTags" (click)="showAllTagsForDimension()">
                 <p><a>Read More...</a></p>
             </div>
