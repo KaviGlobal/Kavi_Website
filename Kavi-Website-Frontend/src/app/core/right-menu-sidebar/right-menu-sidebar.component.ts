@@ -22,6 +22,7 @@ export class RightMenuSidebarComponent implements OnInit {
   @Input() metaViewer:any=[];
   @Output() searchTagName:any= '';
   private history: string[] = []; 
+  public tagValues: any[] = []; 
   public routerEventSubscription: Subscription | undefined;
   public showAllTags: boolean=false;
   public showTagsForDimension : string = '';
@@ -50,14 +51,17 @@ export class RightMenuSidebarComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
   get TagKeys(){
+    this.tagValues = Array.from(this.data1[0].values());
     return Array.from(this.data1[0].keys());
+   // console.log("hhhhh",this.data1[0]);
   }
-  get TagValues(){
+ /* get TagValues(){
     let result:any = []
     result = Array.from(this.data1[0].values());
+    console.log("hhhhh",result.length);
     return Array.from(result);
 //    return Array.from(this.data1[0].values());  
-  }
+  }*/
   showAllTagsForDimension(){
     this.showAllTags = true;
 //    this.showTagsForDimension = dimension;
