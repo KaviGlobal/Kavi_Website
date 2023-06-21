@@ -39,6 +39,7 @@ export class RightMenuDetailsComponent implements OnInit {
   public externalLink: any;  
   public newsMedia: any;
   public authorPost: any;
+  public partnerValues:any=[];
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -323,6 +324,11 @@ export class RightMenuDetailsComponent implements OnInit {
     }
     this.rightPageRelatedData = menuTaglist;
   }
+  get partnerKeys(){
+    this.partnerValues = Array.from(this.pageData[0].values());
+    return Array.from(this.pageData[0].keys());
+   // console.log("hhhhh",this.data1[0]);
+  }
   getDetailsData() { 
 //    console.log("ffff",this.pageType,this.commonService.activeMenuData?.attributes?.Slug,this.commonService.activeMenuName,this.commonService.activeMenuData?.attributes?.Viewer);
 //  if(this.commonService.activeMenuData?.attributes?.Viewer && (this.commonService.activeMenuData?.attributes?.Slug == this.commonService.activeMenuName))
@@ -375,6 +381,10 @@ export class RightMenuDetailsComponent implements OnInit {
 //          console.log("this.pageData",this.pageData);
         }
         if(this.pageType == 'partners'){
+ //         this.pageData = response.data;     
+          let partner_group = this.groupBy(response.data, (item:any) => item?.attributes?.Type);
+          this.pageData = [];
+          this.pageData.push(partner_group);
           this.isPartner = true;
           this.isClient = false;
           this.isPageLoaded = true; 
@@ -382,7 +392,7 @@ export class RightMenuDetailsComponent implements OnInit {
           if(element != null){
             element.classList.add('our_page');
           }
-//          console.log("this.pageData",this.pageData);
+          console.log("this.pageData",this.pageData);
         }
         if(this.pageType == 'publications' || this.pageType == 'presentations'){
          this.rightMenuService.getAuthorsPresentationsOrPublications(this.pageType, this.authors.data[0].attributes.Slug).then((response: any) => {
