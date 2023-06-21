@@ -584,44 +584,27 @@ console.log("filePath",url,filePath);
     // this.getMetaDataForListViewer();
     this.rightMenuService.getTagList().then((response: any) => {          //          
       let responseLength = response.data.length;
-      if (response.data) {  
-        let i=0; 
-        let previous_dimension = '';
-        let current_dimension = '';
-        let tag_list:any=[];
-        for(let item of response.data) {
-//                  console.log("ii",item);
-//                    console.log(i,"ii",item.attributes.tag_dimension.data.attributes.DisplayName);
-            current_dimension = item.attributes.tag_dimension.data.attributes.DisplayName;
-            if(i==0){
-              previous_dimension = item.attributes.tag_dimension.data.attributes.DisplayName;
-//                      console.log("ii",item.attributes.tag_dimension.data.attributes.DisplayName);
-              tag_list.push({name:item.attributes.DisplayName,slug:item.attributes.Slug})              
-            }
-            if(i > 0){
-              if(current_dimension == previous_dimension){
-//                        console.log("ij",item.attributes.DisplayName);
-                previous_dimension = item.attributes.tag_dimension.data.attributes.DisplayName;
-//                               console.log("xxxx",tag_list.length,this.listMetaData.TagMaxCount);
-  //              if(tag_list.length < this.listMetaData.TagMaxCount)
-                tag_list.push({name:item.attributes.DisplayName,slug:item.attributes.Slug})
-              }
-              if(current_dimension != previous_dimension){ 
-                if(tag_list.length != 0)                      
-                  tags.push({dimension:current_dimension,tag:tag_list})
-                tag_list=[];
-                previous_dimension = current_dimension;
-              }
-              if(i == responseLength-1){
-                tags.push({dimension:current_dimension,tag:tag_list})                       
-              }
-            }                    
-          i++;
-        }           
-      }
+      let dimension_tag = this.groupBy(response.data, (item:any) => item?.attributes?.tag_dimension.data.attributes.DisplayName);
+      this.rightPageData.push(dimension_tag);
     });     
-    this.rightPageData.push(tags);
+  //  this.rightPageData.push(tags);
   }
+  public groupBy(list:any, keyGetter:any) {
+    const map = new Map();
+    let keyProperties :any [];
+    let groupedData:any=[];
+    list.forEach((item:any,index:number) => {
+         const key = keyGetter(item);                   
+         const collection = map.get(key);         
+         if (!collection) {               
+             map.set(key, [item]);                      
+         }        
+         else {            
+             collection.push(item);
+         }         
+    });
+    return map;
+}
   getMetaDataForListViewer(){    
     this.rightMenuService.getMetaDataForListViewer().then((response: any) => { 
       this.listMetaData = response.data.attributes;

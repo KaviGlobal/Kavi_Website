@@ -406,6 +406,12 @@ export class RightMenuDetailsComponent implements OnInit {
     // this.getMetaDataForListViewer();
     this.rightMenuService.getTagList().then((response: any) => {          //          
       let responseLength = response.data.length;
+//      console.log("aaaaa",response);
+//      let dimension_tag = this.groupBy(response.data, (item:any) => item?.attributes?.Name);      
+      let dimension_tag = this.groupBy(response.data, (item:any) => item?.attributes?.tag_dimension.data.attributes.DisplayName);
+      this.rightPageData.push(dimension_tag);
+//      this.rightPageData.push(dimension_tag);
+//      console.log("sssss",dimension_tag);
       if (response.data) {  
         let i=0; 
         let previous_dimension = '';
@@ -441,10 +447,25 @@ export class RightMenuDetailsComponent implements OnInit {
             }                    
           i++;
         }           
-      }
-    });     
-    this.rightPageData.push(tags);
+      }      
+    });
   }
+  public groupBy(list:any, keyGetter:any) {
+    const map = new Map();
+    let keyProperties :any [];
+    let groupedData:any=[];
+    list.forEach((item:any,index:number) => {
+         const key = keyGetter(item);                   
+         const collection = map.get(key);         
+         if (!collection) {               
+             map.set(key, [item]);                      
+         }        
+         else {            
+             collection.push(item);
+         }         
+    });
+    return map;
+}
   getMetaDataForListViewer(){    
     this.rightMenuService.getMetaDataForListViewer().then((response: any) => { 
       this.listMetaData = response.data.attributes;

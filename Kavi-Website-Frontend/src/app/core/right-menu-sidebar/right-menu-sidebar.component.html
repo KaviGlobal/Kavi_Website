@@ -1,42 +1,58 @@
 <div class="page-right-section">
-<div class="page-right-menu-section">
-             <!--   <h5 class="title">Subscribe</h5>-->        
-<!--               <app-subscribe-layout></app-subscribe-layout>-->     
-                <div>
-                    <div *ngFor="let item of data1[0]; let i = index"> 
-                        <div class="dimensionTab">                        
-                            <h5>{{data1[0][i].dimension}}</h5>
+    <div class="page-right-menu-section">
+        <!--   <h5 class="title">Subscribe</h5>-->
+        <!--               <app-subscribe-layout></app-subscribe-layout>-->
+        <!-- 
+<div *ngFor="let item of data1[0].keys(),let i=index">                                            
+    <h5>{{item}}</h5>
+    <div *ngFor="let itemValue of data1[0].values()">{{itemValue}}
+        <div *ngFor="let subItem of itemValue">
+        <h6>{{subItem.attributes.DisplayName | json}}</h6>
+    </div>
+</div>   -->
+        <div>
+            <div *ngFor="let item of TagKeys; let i = index">
+                <div class="dimensionTab">
+                    <h5>{{item}}</h5>
+                    <div *ngFor="let item1 of TagValues; let j = index">
+                        <div *ngIf="i == j">{{item1 | json}}
                         </div>
-                        <div class="tab">
-                            <div *ngFor="let tag of data1[0][i].tag,let i=index"> 
-                        <!--        <a (click)="searchTag(tag.slug)">{{tag.name}}</a>  -->                       
-                                <div *ngIf="(!showAllTags) && (i < metaViewer.TagMaxCount)">
-                                <a routerLink="{{'/SearchTag='+tag.slug}}">{{tag.name}}</a>    
-                                </div>  
-                                <div *ngIf="(showAllTags)"> 
-                                    <div>                              
-                                    <a routerLink="{{'/SearchTag='+tag.slug}}">{{tag.name}}</a>    
-                                    </div>  
-                                </div>           
-                            </div>  
-                        </div>                         
+                        </div>
                     </div>
+                    <!--        <div *ngFor="let itemValue of data1[0].values();let j=index"> 
+                         <div*ngIf="i == j">
+                            <div class="tab">{{itemValue | json}}
+                                <div *ngFor="let subItem of itemValue;;let k=index">
+                                    <div *ngIf="(!showAllTags) && (k < metaViewer.TagMaxCount)">
+                                        <a routerLink="{{'/SearchTag='+subItem.attributes.Slug}}">{{subItem.attributes.DisplayName}}</a>    
+                                    </div>  
+                                    <div *ngIf="(showAllTags)"> 
+                                        <div>                              
+                                            <a routerLink="{{'/SearchTag='+subItem.attributes.Slug}}">{{subItem.attributes.DisplayName}}</a>    
+                                        </div>  
+                                    </div>                      
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                -->
                 </div>
-                <div *ngIf="!showAllTags" (click)="showAllTagsForDimension()">
-                    <p><a>Read More...</a></p>
-                </div>        
-                <!--
+            </div>
+            <div *ngIf="!showAllTags" (click)="showAllTagsForDimension()">
+                <p><a>Read More...</a></p>
+            </div>
+            <!--
             <div class="mt-5">
                 <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
                 </div>-->
-            </div>
-            <!--
+        </div>
+        <!--
             <div style = "margin-left:-10px;margin-top:20px">
                 <iframe width="314" height="300" allow="microphone;" 
                 src="https://console.dialogflow.com/api-client/demo/embedded/d840b880-0e4a-4922-a8dc-9399bf28ada5">
                 </iframe>
             </div>-->
-            <!--
+        <!--
             <div style = "margin-left:-10px;margin-top:20px">
                 <df-messenger
                     intent="WELCOME"
@@ -46,4 +62,4 @@
                 >
                 </df-messenger>
             </div>-->
-</div>
+    </div>

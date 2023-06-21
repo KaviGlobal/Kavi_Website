@@ -49,6 +49,15 @@ export class RightMenuSidebarComponent implements OnInit {
 //    this.commonService.activeMenuName = cloneDeep(routeConfig.path); 
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
+  get TagKeys(){
+    return Array.from(this.data1[0].keys());
+  }
+  get TagValues(){
+    let result:any = []
+    result = Array.from(this.data1[0].values());
+    return Array.from(result);
+//    return Array.from(this.data1[0].values());  
+  }
   showAllTagsForDimension(){
     this.showAllTags = true;
 //    this.showTagsForDimension = dimension;
