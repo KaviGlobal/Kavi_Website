@@ -152,13 +152,14 @@
                     [moduleName]="pageType" 
                     ></app-detail-viewer-right-pane> 
                 </div>  
+                
                 <div *ngIf="isPeople || (pageType == 'publications' || pageType == 'presentations') ">
                     <app-detail-viewer-right-pane
                         [authorPost]="authorPost"
                         [moduleName]="pageType"
                     ></app-detail-viewer-right-pane>                   
                 </div> 
-                <div class="pt-5">  <!-- *ngIf="pageType == 'pages'" -->
+                <div class="pt-5" *ngIf="pageType == 'pages'">
                     <app-right-menu-sidebar [data1]="rightPageData"
                     [module]="pageType"
                     [metaViewer]="listMetaData"
