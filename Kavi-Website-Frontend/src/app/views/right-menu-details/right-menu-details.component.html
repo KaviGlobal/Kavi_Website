@@ -13,7 +13,7 @@
                         <!--    <div class="centered">{{pageData[0]?.attributes?.Title}}</div>-->
                         </div>
                     </div>
-                    <h2 *ngIf="pageType == 'pages'" style = "background-image:url('{{pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes?.url}}')">{{pageData[0]?.attributes?.Title}}</h2>
+                    <h2 class="heading_cover" *ngIf="pageType == 'pages'" style = "background-image:url('{{pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes?.url}}')">{{pageData[0]?.attributes?.Title}}</h2>
                     <div *ngIf="pageFullContent">
                     <markdown  [data]="pageFullContent"> </markdown>
                     </div>

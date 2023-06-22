@@ -277,6 +277,7 @@ export class RightMenuDetailsComponent implements OnInit {
       }      
       this.isPeople = true;
       this.isDataLoaded = true;
+      this.isPageLoaded = true;
     });
      
   }

@@ -13,7 +13,7 @@
         font-size: 1.6rem;
         font-family: "montserrat-regular";
         font-size: 900;
-        color: #224991;
+        color: #234A91;
     /*    margin-bottom: 25px;*/
     }
     h5{
@@ -24,7 +24,7 @@
     }
     p{
         color: #666;
-        width: 90%;
+        // width: 90%;
         font-family: "montserrat-regular";
         font-size: 1.1rem;
         line-height: 1.6;
@@ -157,17 +157,17 @@
     padding: 5px 5px 5px 15px;    
     width: 300px;  
     height: auto;  
-    img{
-    //    height: 300px;
-        text-align: center;
-        overflow: hidden;
- //       box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left:50px;
-        width : 40%;
-    }
+//     img{
+//     //    height: 300px;
+//         text-align: center;
+//         overflow: hidden;
+//  //       box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         margin-left:50px;
+//         width : 40%;
+//     }
     a{
         font-size:14p    
    
@@ -192,19 +192,19 @@
         margin-top:20px;
         margin-bottom:10px;
     }
-    img{
-        //    height: 300px;
-            text-align: center;
-            overflow: hidden;
- //           box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left:30%;
-            margin-bottom: 10px;
-            margin-top: 20px;
-     //       width:90%;
-     }
+//     img{
+//         //    height: 300px;
+//             text-align: center;
+//             overflow: hidden;
+//  //           box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             margin-left:30%;
+//             margin-bottom: 10px;
+//             margin-top: 20px;
+//      //       width:90%;
+//      }
     a{
         font-size: 17px;
         color:#EA6B1E;
@@ -299,6 +299,7 @@
         margin-top:20px;
         margin-bottom:10px;
         color:#EA6B1E;
+        cursor: pointer;
     }
     img{
         //    height: 300px;
@@ -322,5 +323,23 @@
     }   
     p{
         margin-top: 20px;
+    }
+}
+.image_card {
+    .image_box {
+    padding: 25px 15px 0;
+    display: flex;
+    justify-content: center;
+        .image_sub_box{
+            width: 200px;
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 150px;
+            display: flex;
+        }
+        img{
+            width: 100%;
+        }
     }
 }

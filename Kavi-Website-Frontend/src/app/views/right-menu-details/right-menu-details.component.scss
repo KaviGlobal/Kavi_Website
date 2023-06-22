@@ -14,11 +14,14 @@
       font-weight: 700;
       background-repeat: no-repeat;
       background-size: cover;
-      padding: 70px 20px;
+      padding: 10px 20px 20px;
       background-position: center;
       text-align: center;
       margin-bottom: 25px;
       border-radius: 20px;
+    }
+    h2.heading_cover {
+      padding: 70px 20px;
     }
   }
   .centered {
@@ -133,7 +136,7 @@
         font-size: 1.6rem;
         font-family: "montserrat-regular";
         font-size: 900;
-        color:#000d42;
+        color:#234A91;
     //    color: #224991;
     /*    margin-bottom: 25px;*/
     }
@@ -147,7 +150,7 @@
     }
     p{
         color: #666;
-        width: 90%;
+        // width: 90%;
         font-family: "montserrat-regular";
         font-size: 1.1rem;
         line-height: 1.6;
@@ -199,7 +202,7 @@
     width: 380px;
     bottom: 10px;
     overflow: auto;
-    right: 100px;
+    right: 20px;
 }
 .our_page {
   // padding: 0px 20px;
@@ -216,4 +219,16 @@
       border-radius: 20px;
       font-family: "montserrat-regular";
   }     
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-button {
+  background: #ccc
+}
+::-webkit-scrollbar-track-piece {
+  background: #888
+}
+::-webkit-scrollbar-thumb {
+  background: #eee
 }
