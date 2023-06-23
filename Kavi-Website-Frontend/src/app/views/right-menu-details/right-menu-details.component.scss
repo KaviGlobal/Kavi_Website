@@ -1,10 +1,10 @@
 .page-content {
     // padding-right: 70px;    
-    ::ng-deep img {
-        max-width: 100% !important;
-        margin-top:10px;
-        margin-bottom:30px;
-    }  
+    // ::ng-deep img {
+    //     max-width: 100% !important;
+    //     margin-top:10px;
+    //     margin-bottom:30px;
+    // }  
     * {
       font-family: "montserrat-regular";
     }  
@@ -219,6 +219,18 @@
       border-radius: 20px;
       font-family: "montserrat-regular";
   }     
+}
+markdown ::ng-deep  {
+  h4 {
+    color:#EA6B1E;
+  }
+  p{
+    img {
+      max-width: 100% !important;
+      margin-top:10px;
+      margin-bottom:30px;
+    }
+  } 
 }
 ::-webkit-scrollbar {
   width: 10px;

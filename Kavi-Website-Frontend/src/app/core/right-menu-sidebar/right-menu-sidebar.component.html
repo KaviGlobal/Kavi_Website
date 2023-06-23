@@ -19,6 +19,9 @@
                             <div *ngIf="(!showAllTags) && (k < metaViewer.TagMaxCount)">
                                 <a routerLink="{{'/SearchTag='+subitem.attributes.Slug}}">{{subitem.attributes.DisplayName}}</a>
                             </div>
+                            <div *ngIf="(showAllTags)">
+                                <a routerLink="{{'/SearchTag='+subitem.attributes.Slug}}">{{subitem.attributes.DisplayName}}</a>
+                            </div>
                         </div>
                         
                     </div>

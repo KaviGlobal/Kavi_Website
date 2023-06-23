@@ -61,10 +61,9 @@
     <div class="container d-flex justify-content-center align-items-center">             
         <div class="card">
             <div class="user text-center image_card">
-                <div class="image_box">
+                <div class="image_box" *ngIf="clients?.data?.attributes?.Logo?.Media?.data?.attributes?.url">
                     <div class="image_sub_box">
-                        <img *ngIf="clients?.data?.attributes?.Logo?.Media?.data?.attributes?.url" 
-                        src="{{clients?.data?.attributes?.Logo?.Media?.data?.attributes?.url}}"
+                        <img src="{{clients?.data?.attributes?.Logo?.Media?.data?.attributes?.url}}"
                         title={{clients?.data?.attributes?.Logo?.Media?.data?.attributes?.name}}>
                     </div>
                 </div>
@@ -151,10 +150,9 @@
                     </li>
                 </ul> -->     
                 <div *ngFor="let cast of podcasts?.data">
-                        <div class="image_box">
+                        <div class="image_box" *ngIf="cast?.attributes?.Logo?.Media?.data?.attributes?.url" >
                             <div class="image_sub_box">
-                                <img *ngIf="cast?.attributes?.Logo?.Media?.data?.attributes?.url" 
-                                src="{{cast.attributes?.Logo?.Media?.data?.attributes?.url}}"
+                                <img src="{{cast.attributes?.Logo?.Media?.data?.attributes?.url}}"
                                 title={{cast?.attributes?.Logo?.Media?.data?.attributes?.name}}>
                             </div>
                         </div>
@@ -175,10 +173,9 @@
     <div class="container d-flex justify-content-center align-items-center">             
         <div class="card">
             <div class="user text-center image_card">
-                <div class="image_box">
+                <div class="image_box" *ngIf="conference?.data?.attributes?.Logo?.Media?.data?.attributes?.url">
                     <div class="image_sub_box">
-                        <img *ngIf="conference?.data?.attributes?.Logo?.Media?.data?.attributes?.url" 
-                        src="{{conference?.data?.attributes?.Logo?.Media?.data?.attributes?.url}}"
+                        <img  src="{{conference?.data?.attributes?.Logo?.Media?.data?.attributes?.url}}"
                         title={{conference?.data?.attributes?.Logo?.Media?.data?.attributes?.name}}>
                     </div>
                 </div>
@@ -195,10 +192,9 @@
     <div class="container d-flex justify-content-center align-items-center">             
         <div class="card">
             <div class="user text-center image_card">
-                <div class="image_box">
+                <div class="image_box" *ngIf="publisher?.data?.attributes?.Logo?.Media?.data?.attributes?.url">
                     <div class="image_sub_box"> 
-                        <img *ngIf="publisher?.data?.attributes?.Logo?.Media?.data?.attributes?.url" 
-                        src="{{publisher?.data?.attributes?.Logo?.Media?.data?.attributes?.url}}"
+                        <img src="{{publisher?.data?.attributes?.Logo?.Media?.data?.attributes?.url}}"
                         title={{publisher?.data?.attributes?.Logo?.Media?.data?.attributes?.name}}>
                     </div>
                 </div>

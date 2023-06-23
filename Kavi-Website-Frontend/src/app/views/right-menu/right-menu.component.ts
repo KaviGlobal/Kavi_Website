@@ -290,13 +290,17 @@ console.log("filePath",url,filePath);
 //        console.log("ttttt",this.commonService.activeMenuName,this.routePath,tagName);   
         if(this.routePath.includes("SearchTag")){
           let menu =  this.commonService.menuData[1].RightMenu;
-          let menuTaglist:any=[];          
+          let menuTaglist:any=[];
+          let i = 0, j = 0;
           this.rightMenuService.getMetaDataForListViewer().then((response: any) => { 
             this.listMetaData = response.data.attributes;
-            for(let item of menu) {         
+            for(let item of menu) {
+              
                   this.rightMenuService.getTagListByName(tagName,item.attributes.Parameter.type,this.listMetaData.MaxCount).then((response: any) => {
               //      this.rightMenuService.getTagListByName(tagName,item.attributes.Parameter.type,20).then((response: any) => {
+                    j++; 
                     if(response.data.length > 0){
+                      i++;
                       response.data[0].attributes.menuType = item.attributes.Parameter.type; 
                       response.data[0].attributes.menuLabel = item.attributes.DisplayName;                                 
                       this.searchTag = true;
@@ -307,17 +311,15 @@ console.log("filePath",url,filePath);
                       this.SearchTagMenu = this.commonService.activeMenuName;
         //              menuTaglist = response.data;
                     }
-                    if(response.data.length == 0){
+                    if (i == 0 && j == menu.length){
                       this.isDataLoaded = false;
                       this.isEmptyDataList = true;
-                      this.routePath='';
-                      this.SearchTagMenu = this.commonService.activeMenuName;
-                      var element = this.document.getElementById("header_block");
-                      if(element != null){
-                        element.classList.add('our_page');
-                      }       //           
                     }
                     this.pageData = menuTaglist;
+                    var element = this.document.getElementById("header_block");
+                      if(element != null){
+                        element.classList.add('our_page');
+                      }
                     //        console.log("call",menuTaglist,this.pageData.length);              
                   });
                 }
