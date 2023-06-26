@@ -29,7 +29,8 @@ export class RightMenuComponent implements OnInit  {
   public isAboutUs: boolean = false; 
   public isContactUs: boolean = false;
   public isUserForm: boolean = false;
-  public isPublications: boolean = false;  
+  public isPublications: boolean = false;
+  public isLeadership: boolean = false; 
   public routeChangeSubscription: Subscription | undefined;
   private getMenuItem: Subscription | undefined;
   public  offeringsFullContent: any = [];
@@ -99,6 +100,13 @@ export class RightMenuComponent implements OnInit  {
 //      console.log("menu---",this.commonService.getMenuItem);
       this.loadPageData();
      
+    } else if (this.pageDetailsName == 'our-leadership-team'){
+      this.commonService.menuData[3]?.AboutUs.forEach((items:any,index:number) =>{ 
+          if(items.attributes.Slug == this.pageDetailsName){
+            this.commonService.activeMenuData = items;
+            this.loadPageData();
+          }
+      });      
     }
     else{       
       this.getMenuItem = this.commonService.getMenuItem.subscribe((menuItem: any) => {   
@@ -110,7 +118,7 @@ export class RightMenuComponent implements OnInit  {
         this.loadPageData();
         //console.log("routeChangeSubscription",menuItem);
       });    
-    }   
+    }
   }
   ngOnDestroy(): void {
     if (this.routeChangeSubscription) {
@@ -314,6 +322,7 @@ console.log("filePath",url,filePath);
                     if (i == 0 && j == menu.length){
                       this.isDataLoaded = false;
                       this.isEmptyDataList = true;
+                      this.isLeadership = true;
                     }
                     this.pageData = menuTaglist;
                     var element = this.document.getElementById("header_block");
@@ -322,6 +331,7 @@ console.log("filePath",url,filePath);
                       }
                     //        console.log("call",menuTaglist,this.pageData.length);              
                   });
+                 
                 }
           });
 //          console.log("zzzz",this.listMetaData);
@@ -396,6 +406,7 @@ console.log("filePath",url,filePath);
       this.isUserForm = false;
       this.isAboutUs = false;
       this.isCareers = false;
+      this.isLeadership = false;
       this.isOfferingsLoaded = false;
       this.isPublications = false;
       this.pageData = [];
@@ -500,10 +511,13 @@ console.log("filePath",url,filePath);
 
       } else if (this.routePath == 'our-leadership-team'){
         this.rightMenuService.getDetailsData(this.commonService.activeMenuData?.attributes?.Parameter?.type, this.pageDetailsName, this.commonService.activeMenuData?.attributes?.Parameter?.parameter?.filter).then((response: any) => {
-          var sort = sortBy(response.data, ["id"]);
-          this.pageData = sort;
-        })        
-          this.isAboutUs = true;
+          if (response.data && response.data.length > 0) {
+            var sort = sortBy(response.data, ["id"]);
+            this.pageData = sort;
+            this.isLeadership = true;
+            this.isAboutUs = true;
+          }
+        })
       } else if (this.activeMenuItem && this.activeMenuItem.ContentLink && 
         !this.activeMenuItem.OfferingType) {        
         if(this.activeMenuItem.ContentLink == "null" && this.activeMenuItem.leadershipTeams.data.length == 0){        
@@ -583,7 +597,8 @@ console.log("filePath",url,filePath);
       this.isContactUs = false;
       this.isCareers = false;
       this.isAboutUs = false;
-      this.isDataLoaded = true;      
+      this.isDataLoaded = true;
+      this.isLeadership = false;
     }     
     }
     else {

@@ -223,6 +223,7 @@
 markdown ::ng-deep  {
   h4 {
     color:#EA6B1E;
+    font-weight: 900;
   }
   p{
     img {
@@ -230,6 +231,9 @@ markdown ::ng-deep  {
       margin-top:10px;
       margin-bottom:30px;
     }
+  }
+  img {
+    max-width: 100%;
   } 
 }
 ::-webkit-scrollbar {
