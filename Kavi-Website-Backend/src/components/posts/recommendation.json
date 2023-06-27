@@ -20,12 +20,12 @@
     "TypeFilter": {
       "type": "enumeration",
       "enum": [
-        "Blog",
-        "News",
-        "Success Story",
-        "Presentation",
-        "Publication",
-        "Podcast"
+        "blogs",
+        "newslist",
+        "success-stories",
+        "presentations",
+        "publications",
+        "podcasts"
       ]
     }
   }
