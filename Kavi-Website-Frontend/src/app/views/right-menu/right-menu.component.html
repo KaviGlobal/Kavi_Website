@@ -91,9 +91,38 @@
             <div class="col-12 col-md-8 col-lg-9 border-right">
                 <!--To display the list of Tags based on Master Tag List click event -->
                 <div class="page-content-section" *ngIf = "SearchTagMenu == ':id'">
+                    <div class="centered">
+                        <h2>{{tagName}}</h2>
+                    </div>
                     <div *ngFor="let menu of pageData;"> 
+                        
                         <h3 class="title">{{menu[0].attributes.menuLabel}} </h3>
-                        <div *ngFor="let item of menu;let i = index"> 
+                        <div class="py-3">
+                            <div class="row">
+                                <ng-container *ngFor="let item of menu ;let i = index">
+                                    <div class="col-6 col-md-4">
+                                       <div class="pb-4" *ngIf = "item.attributes?.Thumbnail">                          
+                                           <app-card-layout [image] = "item?.attributes?.Thumbnail?.Media?.data?.attributes?.url"
+                                                [title]="item.attributes?.Title" [description]="item.attributes?.PreviewContent"
+                                                [moduleName]="menu[0].attributes.menuType" [hyperlinkText]="'Read More'"
+                                                [slug] = "item.attributes?.Slug"
+                                                [type]="'recommendation-card-layout'">
+                                            </app-card-layout>
+                                        </div>
+                                        <div class="pb-4" *ngIf = "!item.attributes.Thumbnail">                                
+                                            <app-card-layout 
+                                                [title]="item.attributes?.Title" [description]="item.attributes?.PreviewContent"
+                                                [moduleName]="menu[0].attributes.menuType" [hyperlinkText]="'Read More'"
+                                                [slug] = "item.attributes?.Slug"
+                                                [type]="'recommendation-card-layout'">
+                                            </app-card-layout>    
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <!-- <div *ngFor="let item of menu;let i = index"> 
                             <div class="pb-5" >
                                     <app-right-menu-details-card 
                                     [title]="item?.attributes?.Title"
@@ -109,9 +138,9 @@
                                 <a routerLink="{{'/'+menu[0].attributes.menuType+'/'+ item?.attributes?.Slug}}" class="read-more">Read
                                         More...</a> 
                 <!--                <a *ngIf="!searchTag" routerLink="{{'/'+menu[0].attributes.menuType+'/'+ item?.attributes?.Slug}}" class="read-more">Read
-                                            More...sssss</a> -->
+                                            More...sssss</a> --
                                 </div>
-                        </div>
+                        </div> -->
                     </div>
                     
                 </div>

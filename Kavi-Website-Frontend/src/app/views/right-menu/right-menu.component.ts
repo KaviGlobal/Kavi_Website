@@ -20,6 +20,7 @@ import { DOCUMENT } from '@angular/common';
 
 export class RightMenuComponent implements OnInit  {
   public routePath: any = '';  
+  public tagName: any = '';  
   public activeMenuItem: any = {};
   public pageData: any = [];  
   public rightPageData: any =[];
@@ -324,6 +325,7 @@ console.log("filePath",url,filePath);
                       this.isEmptyDataList = true;
                       this.isLeadership = true;
                     }
+                    this.tagName = tagName;
                     this.pageData = menuTaglist;
                     var element = this.document.getElementById("header_block");
                       if(element != null){

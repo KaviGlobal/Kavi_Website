@@ -153,7 +153,7 @@
                     ></app-detail-viewer-right-pane> 
                 </div>  
                 <!-- <div *ngIf="isPeople || (pageType == 'publications' || pageType == 'presentations') "> -->
-                <div *ngIf="isPeople || (pageType != 'publications' && pageType != 'presentations') ">
+                <div *ngIf="isPeople">
                     <app-detail-viewer-right-pane
                         [authorPost]="authorPost"
                         [moduleName]="pageType"

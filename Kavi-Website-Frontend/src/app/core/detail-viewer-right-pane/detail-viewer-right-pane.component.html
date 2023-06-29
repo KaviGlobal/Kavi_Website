@@ -31,7 +31,7 @@
     <!--   <a routerLink="{{'/tag/'+tag?.attributes?.tag_dimension?.data?.attributes?.Name}}">{{tag.attributes.DisplayName}}</a>
            <a> {{tag.attributes.DisplayName}} </a>  -->                                             
     </div> 
-    <h6>
+    <h6 *ngIf="publishDate">
         Published Date : {{ publishDate | date:'MMMM d, yyyy' }} 
     </h6>   
     <div *ngIf="clients?.data?.attributes">
@@ -107,13 +107,11 @@
             title={{media?.attributes?.Logo?.Media?.data?.attributes?.name}}>
         </a>
     </div> -->
-<div>
 <!--<div class="news-link" *ngIf="newsMedia?.data">
     <a href="{{newsMedia?.data[0].attributes?.Url}}" target="blank">
         <i class="fas fa-external-link-alt" style="margin-right:5px;"></i> {{newsMedia?.data[0].attributes?.Name}}</a>
         <h6>Type : {{newsMedia?.data[0].attributes?.Type}}</h6>
 </div> -->
-</div>
 <div class="news-link" *ngIf="newsMedia?.data">
     <div class="container d-flex justify-content-center align-items-center">             
         <div class="card">
