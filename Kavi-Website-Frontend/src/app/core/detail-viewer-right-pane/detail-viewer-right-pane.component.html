@@ -26,6 +26,7 @@
 </div>
 
 <div class="publish-data" *ngIf="!authorPost && moduleName != 'pages'">
+    <h6 *ngIf="tags?.data">Tags:</h6> 
     <div class="tab" *ngFor="let tag of tags?.data">
         <a (click)="searchTag(tag?.attributes?.Slug)">{{tag.attributes.DisplayName}}</a>
     <!--   <a routerLink="{{'/tag/'+tag?.attributes?.tag_dimension?.data?.attributes?.Name}}">{{tag.attributes.DisplayName}}</a>
@@ -34,15 +35,14 @@
     <h6 *ngIf="publishDate">
         Published Date : {{ publishDate | date:'MMMM d, yyyy' }} 
     </h6>   
-    <div *ngIf="clients?.data?.attributes">
-        <h6>Clients:</h6> 
-    </div> 
+    
     <!--
     <h6 style="float:right">
         <a routerLink="/blogs">Back to List</a>
     </h6>-->
 </div>
-<div class="clients" *ngIf="clients?.data?.attributes">
+<div class="clients" *ngIf="clients?.data?.attributes && !clients?.data?.isEnabled">
+    <h6>Clients:</h6> 
 <!--   
     <div> 
         <img *ngIf="clients?.data?.attributes?.Logo?.Media?.data?.attributes?.url" 

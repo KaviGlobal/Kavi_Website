@@ -88,15 +88,15 @@
 <div *ngIf="isDataLoaded && !isUserForm" class="page-container"> 
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-8 col-lg-9 border-right">
+            <div class="col-12 col-md-12 col-lg-12 border-right">
                 <!--To display the list of Tags based on Master Tag List click event -->
                 <div class="page-content-section" *ngIf = "SearchTagMenu == ':id'">
                     <div class="centered">
-                        <h2>{{tagName}}</h2>
+                        <h2>{{tagName}} Related Post</h2>
                     </div>
                     <div *ngFor="let menu of pageData;"> 
                         
-                        <h3 class="title">{{menu[0].attributes.menuLabel}} </h3>
+                        <h3 class="title">{{menu[0].attributes.menuLabel}}</h3>
                         <div class="py-3">
                             <div class="row">
                                 <ng-container *ngFor="let item of menu ;let i = index">
@@ -175,16 +175,16 @@
                 </div>
 
             </div>
-            <div class="col-12 col-md-4 col-lg-3 border-left">
-                <div class="pt-5"><!--pageData-->
+            <!-- <div class="col-12 col-md-4 col-lg-3 border-left">
+                <div class="pt-5"><!--pageData--
                     <app-right-menu-sidebar [data1]="rightPageData"
                     [module]="routePath"
                     [metaViewer]="listMetaData"></app-right-menu-sidebar>
 <!--                   <app-detail-viewer-right-pane
                    [data1]="rightPageData"
-                    [module]="pageType"></app-detail-viewer-right-pane>-->
+                    [module]="pageType"></app-detail-viewer-right-pane>--
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
