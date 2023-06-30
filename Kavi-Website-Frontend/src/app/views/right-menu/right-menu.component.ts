@@ -173,12 +173,12 @@ console.log("filePath",url,filePath);
             req.send();
 }
  
-/* callTag(searchText:any){
-//  console.log("search",searchText);
+callTag(searchText:any){
+ console.log("search",searchText);
     this.commonService.activeMenuName = searchText;
     this.routePath = this.commonService.activeMenuName;
     this.loadPageData();  
- }*/
+ }
   public getActiveMenu() {    
     if (this.commonService.menuData && this.commonService.menuData.RightMenu && this.commonService.menuData.RightMenu.length > 0) {
       this.commonService.menuData.RightMenu.forEach((item: any) => {
@@ -317,7 +317,8 @@ console.log("filePath",url,filePath);
                       this.isDataLoaded = true;
                       this.isUserForm = false;
                       this.routePath='';
-                      this.SearchTagMenu = this.commonService.activeMenuName;
+                      this.SearchTagMenu = ':id';
+                      // this.SearchTagMenu = this.commonService.activeMenuName;
         //              menuTaglist = response.data;
                     }
                     if (i == 0 && j == menu.length){

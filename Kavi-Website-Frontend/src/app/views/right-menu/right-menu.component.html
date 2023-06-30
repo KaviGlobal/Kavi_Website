@@ -94,13 +94,12 @@
                     <div class="centered">
                         <h2>{{tagName}} Related Post</h2>
                     </div>
-                    <div *ngFor="let menu of pageData;"> 
-                        
-                        <h3 class="title">{{menu[0].attributes.menuLabel}}</h3>
+                    <div *ngFor="let menu of pageData;">
+                        <!-- <h3 class="title">{{menu[0]?.attributes?.menuLabel}}</h3> -->
                         <div class="py-3">
                             <div class="row">
                                 <ng-container *ngFor="let item of menu ;let i = index">
-                                    <div class="col-6 col-md-4">
+                                    <div class="col-sm-6 col-md-4 col-xs-12">
                                        <div class="pb-4" *ngIf = "item.attributes?.Thumbnail">                          
                                            <app-card-layout [image] = "item?.attributes?.Thumbnail?.Media?.data?.attributes?.url"
                                                 [title]="item.attributes?.Title" [description]="item.attributes?.PreviewContent"
@@ -152,16 +151,15 @@
                             [authorDetails]="item?.attributes?.Authors?.data"                            
                             [date]="item?.attributes?.PublishedOn">
                             </app-right-menu-details-card>   
-                            <!--                         
+                                                    
                             <div class="tab" *ngFor="let tag of item?.attributes?.Tags?.data">                                
-                                <a (click) = "callTag('/SearchTag='+ tag?.attributes?.Name)">
+                                <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug)">
                                     {{tag.attributes.DisplayName}}
                                 </a>                                                             
-                            </div>  -->          
-                   
+                            </div> 
                             <app-right-menu-details-card 
                                 [cardImage]="item?.attributes?.Thumbnail?.Media?.data?.attributes.url"
-                                [cardContent]="item?.attributes?.PreviewContent" 
+                                [cardContent]="item?.attributes?.PreviewContent"
                                >
                             </app-right-menu-details-card>                           
                            <a *ngIf="searchTag || pageDetailsName =='analytics'" routerLink="{{'/'+SearchTagMenu+'/'+ item?.attributes?.Slug}}" class="read-more">Read
