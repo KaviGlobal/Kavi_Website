@@ -100,7 +100,7 @@
 .cost-wrapper {
   padding: 30px 0;
   .cost-card-col {
-    border-left: 1px solid #000;
+    // border-left: 1px solid #000;
     &:first-child {
       border: none;
     }
@@ -511,7 +511,7 @@ agm-map {
 }
 .home-map-wrapper {
   height: 300px; 
-  margin-top: 48px;
+  // margin-top: 48px;
   position: relative;
   .map-contact-wrapper {
     top: 130px;
@@ -622,4 +622,12 @@ agm-map {
   a{
     color:#fff;
 }
+}
+
+@media only screen and (min-width: 992px) {
+  .cost-wrapper {
+    .cost-card-col {
+      border-left: 1px solid #000;
+    }
+  }
 }

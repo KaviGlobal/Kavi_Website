@@ -118,7 +118,7 @@
                     <ng-container>
                         <!-- *ngFor="homeData.attributes.Blogs.data[0]; let j = index">
                         -->
-                        <div class="col-12 col-md-4">
+                        <!-- <div class="col-12 col-md-4">
                             <div class="pt-2" >
                                 <app-card-layout
                                     [image]="homeData.attributes.Blogs.data[0].attributes.Thumbnail.Media.data.attributes.url"
@@ -130,21 +130,21 @@
                                 </app-card-layout>
                             
                             </div>
-                        </div>
+                        </div> -->
                         
-                        <div class="col-12 col-md-8" *ngIf="homeData.attributes.Blogs.data.length > 1">
+                        <ng-container *ngIf="homeData.attributes.Blogs.data.length > 1">
                             <ng-container *ngFor="let item of homeData.attributes.Blogs.data; let i = index">
-                                <ng-container *ngIf="i && i < 4">
-                                    <div class="" [ngClass]="{'pt-2': i === 1, 'pt-3': i !== 1}">
+                                <!-- <ng-container *ngIf="i && i < 4"> -->
+                                    <div class="col-12 col-md-4" > <!-- [ngClass]="{'pt-2': i === 1, 'pt-3': i !== 1}" -->
                                         <app-card-layout [image]="item.attributes?.Thumbnail?.Media?.data?.attributes?.url"
                                             [title]="item.attributes.Title" 
                                             [slug]="item.attributes.Slug"
                                             [description]="item.attributes.PreviewContent"
                                             moduleName="blogs" [hyperlinkText]="hyperlinkText"
-                                            [type]="'left-image-layout'">
+                                            [type]="'top-image-layout'">
                                         </app-card-layout>
                                     </div>
-                                </ng-container>
+                                <!-- </ng-container> -->
                             </ng-container>
                         
                 <!--            <div class="">
@@ -154,7 +154,7 @@
                                     </a>
                                 </div>
                             </div>-->
-                        </div>
+                        </ng-container>
                     </ng-container>
                     <div class="col-12">
                         <div class="read-more-section pt-2">
@@ -172,7 +172,7 @@
             <h3 class="section-heading">News</h3>
             <div class="pt-3">
                 <div class="row news-section" *ngIf="homeData.attributes">
-                    <div class="col-6 col-md-4" *ngFor="let item of homeData.attributes.News.data; let i = index">
+                    <div class="col-12 col-md-4" *ngFor="let item of homeData.attributes.News.data; let i = index">
                         <ng-container *ngIf="i < 4">
                             <app-card-layout [image]="item.attributes?.Thumbnail?.Media?.data?.attributes?.url"
                                 [title]="item.attributes.Title" [description]="item.attributes.PreviewContent"

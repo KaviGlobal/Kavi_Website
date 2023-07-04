@@ -100,13 +100,20 @@ p{
 //    font-size:14px;
   }
 }
-.page-right-section{
-  position: fixed;
-    top: 110px;
-    width: 380px;
-    bottom: 10px;
-    overflow: auto;
-    right: 20px;
+@media only screen and (max-width: 991px) {
+  .page-right-section{
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .page-right-section{
+    position: fixed;
+      top: 110px;
+      width: 380px;
+      bottom: 10px;
+      overflow: auto;
+      right: 20px;
+  }
 }
 ::-webkit-scrollbar {
   width: 10px;

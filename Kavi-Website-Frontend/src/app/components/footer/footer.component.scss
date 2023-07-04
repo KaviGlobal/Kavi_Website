@@ -10,7 +10,7 @@
 .footer-bg-container {
     color: #a2a6b8;
     font-family: "montserrat-regular";
-    padding: 20px 0px;
+    padding: 20px 0px 0px;
     font-weight: 600;
     font-size: 13px;
     h6 {
@@ -132,6 +132,12 @@
         font:#fff;
     }
 }
+@media only screen and (min-width: 992px) {
+    .footer_aboutus{
+        width: 90%;margin: auto;
+    }
+}
+
 ::ng-deep .footer-carousel.carousel.slide {
     padding: 0 50px;
     .carousel-indicators {
