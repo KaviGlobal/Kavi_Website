@@ -174,9 +174,8 @@ console.log("filePath",url,filePath);
 }
  
 callTag(searchText:any){
- console.log("search",searchText);
-    this.commonService.activeMenuName = searchText;
-    this.routePath = this.commonService.activeMenuName;
+    this.commonService.activeMenuName = this.commonService.activeMenuName;
+    this.routePath = searchText;
     this.loadPageData();  
  }
   public getActiveMenu() {    
@@ -287,7 +286,7 @@ callTag(searchText:any){
   
    }
   loadPageData() {
-    this.routePath = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id'));    
+    this.routePath = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id')); 
     this.commonService.pageScrollToTop();
     let tagName = "";
     if(this.commonService.activeMenuName.includes("SearchTag") || this.routePath.includes("SearchTag")){

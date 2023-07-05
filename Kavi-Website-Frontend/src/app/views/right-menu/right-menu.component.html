@@ -153,9 +153,10 @@
                             </app-right-menu-details-card>   
                                                     
                             <div class="tab" *ngFor="let tag of item?.attributes?.Tags?.data">                                
-                                <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug)">
+                                <!-- <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug)">
                                     {{tag.attributes.DisplayName}}
-                                </a>                                                             
+                                </a> -->
+                                <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug)" routerLink="{{'/SearchTag='+tag?.attributes?.Slug}}">{{tag.attributes.DisplayName}}</a>                                                      
                             </div> 
                             <app-right-menu-details-card 
                                 [cardImage]="item?.attributes?.Thumbnail?.Media?.data?.attributes.url"

@@ -231,6 +231,11 @@ markdown ::ng-deep  {
   a{
     word-break: break-word;
   }
+  table ul {
+      list-style-type: none;
+      padding: 15px;
+      margin: 0;
+  }
 }
 @media only screen and (max-width: 991px) {
   .right_fixed{
