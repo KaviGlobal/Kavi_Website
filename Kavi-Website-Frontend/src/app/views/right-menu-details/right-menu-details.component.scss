@@ -237,6 +237,11 @@ markdown ::ng-deep  {
       margin: 0;
   }
 }
+.right_fixed{
+  border: 2px solid #fff;  
+  border-radius: 20px;
+  background-image: linear-gradient(180deg, rgba(174, 223, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
+}
 @media only screen and (max-width: 991px) {
   .right_fixed{
     width: 100%;

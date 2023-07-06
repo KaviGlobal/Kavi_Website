@@ -109,6 +109,12 @@ export class RightMenuComponent implements OnInit  {
           }
       });      
     }
+    else if (this.pageDetailsName == 'blogs' || this.pageDetailsName == 'newslist' ||
+      this.pageDetailsName == 'success-stories' || this.pageDetailsName == 'podcasts'
+      || this.pageDetailsName == 'publications' || this.pageDetailsName == 'presentations'){  
+        console.log("come")
+        this.loadPageData();
+    }
     else{       
       this.getMenuItem = this.commonService.getMenuItem.subscribe((menuItem: any) => {   
         this.loadPageData();
