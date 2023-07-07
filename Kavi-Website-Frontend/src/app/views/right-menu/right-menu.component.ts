@@ -108,12 +108,11 @@ export class RightMenuComponent implements OnInit  {
             this.loadPageData();
           }
       });      
-    }
-    else if (this.pageDetailsName == 'blogs' || this.pageDetailsName == 'newslist' ||
-      this.pageDetailsName == 'success-stories' || this.pageDetailsName == 'podcasts'
-      || this.pageDetailsName == 'publications' || this.pageDetailsName == 'presentations'){  
-        console.log("come")
-        this.loadPageData();
+    // }
+    // else if (this.pageDetailsName == 'blogs' || this.pageDetailsName == 'newslist' ||
+    //   this.pageDetailsName == 'success-stories' || this.pageDetailsName == 'podcasts'
+    //   || this.pageDetailsName == 'publications' || this.pageDetailsName == 'presentations'){  
+    //     this.loadPageData();
     }
     else{       
       this.getMenuItem = this.commonService.getMenuItem.subscribe((menuItem: any) => {   
