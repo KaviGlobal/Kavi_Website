@@ -99,11 +99,12 @@
     }
 }
 .publish-data{
-    margin-top:30px;
+    padding: 30px 0px 0px 10px;
+    // margin-top:30px;
 //    padding: 5px 5px 5px 5px;
     h6{
         padding: 5px 5px 5px 15px;
-        margin-top:30px;  
+        // margin-top:30px;  
     }
     
 }
@@ -153,9 +154,9 @@
 }
   .news-link{    
     margin-top:10px;
-    margin-bottom: 20px;
-    padding: 5px 5px 5px 15px;    
-    width: 300px;  
+    // margin-bottom: 20px;
+    padding: 5px 5px 5px 25px;    
+    // width: 300px;  
     height: auto;  
 //     img{
 //     //    height: 300px;
@@ -327,7 +328,7 @@
 }
 .image_card {
     .image_box {
-    padding: 25px 15px 0;
+    padding: 0px 15px 25px;
     display: flex;
     justify-content: center;
         .image_sub_box{

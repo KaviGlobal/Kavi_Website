@@ -8,7 +8,7 @@
     <app-page-loader></app-page-loader>
 </div> 
 <div *ngIf="(isPolicy || isPersonal) && !isUserForm">
-    <div class="container">
+    <div class="container pt-5">
         <markdown [data]="terms[0]"> </markdown>
         <div class="modalFooter">
             <button type="button" id="closeModal"  (click)="onClose()">Close</button>
