@@ -70,7 +70,8 @@
     color: #ea6b1e;
     font-size: 1.8rem;
     text-align: center;
-    font-weight: 900;
+    padding-bottom:20px;
+    // font-weight: 900;
   }
 
   h2 {
@@ -136,7 +137,7 @@
   padding: 50px 0;
   h1 {
     font-family: "montserrat-regular";
-    font-size: 30px;
+    font-size: 1.8rem;
     padding-bottom: 20px;
     text-align: center;
   }  
@@ -161,6 +162,7 @@
         a{
           color: #ea6b1e;
           font-weight: 600;
+          font-size: 1.1rem;
         }
         &:hover {
           opacity: 1;
@@ -195,7 +197,7 @@
     font-family: "montserrat-regular";
     color: #ea6b1e;
     font-size: 1.8rem;
-    font-weight: 900;
+    // font-weight: 900;
     margin-bottom: 25px;
   }
   p {
@@ -204,7 +206,7 @@
     line-height: 1.6;
     margin: 0;
     text-align: center;
-    color: #131313;
+    color: #333333;
     span {
       line-height: 2.5;
     }
@@ -259,10 +261,10 @@
   h3 {
     font-family: "montserrat-regular";
     color: #ea6b1e;
-    font-size: 35px;
+    font-size: 1.8rem;
     // padding-top: 25px;
     text-align: center;
-    font-weight: 900;
+    // font-weight: 900;
   }
 }
 
@@ -275,7 +277,7 @@
     color: #ea6b1e;
     font-size: 1.8rem;
     padding-bottom: 25px;
-    font-weight: 900;
+    // font-weight: 900;
   }
   ::ng-deep .client-slider {
     padding-bottom: 50px;
@@ -361,13 +363,13 @@
 // }
 .image-container {
   width: 355px;
-  background-color: #131313;
+  background-color: #333333;
 }
 .read-more-section {
   a {
     background-color: rgba(#9b9b9b, 0.25);
     padding: 15px 20px;
-    font-size: 20px;
+    font-size: 1.1rem;
     color: #0D2C3D;
     font-weight: 500;
     display: block;
@@ -390,9 +392,9 @@
 .section-heading {
   font-family: "montserrat-regular";
   color: #ea6b1e;
-  font-size: 35px;
+  font-size: 1.8rem;
   text-align: center;
-  font-weight: 900;
+  // font-weight: 900;
   margin-bottom: 25px
 }
 

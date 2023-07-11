@@ -127,11 +127,16 @@ export class AppComponent implements OnInit {
       let industryMenu:any = [];
       let menuData:any = [];
       let aboutUs:any=[];
+      let softwareMenu:any=[];
       
       if (response && response.data) { 
         response.data.forEach((element:any,index:number) => { 
         if (element.attributes.IsTitle == false && element.attributes.parent_item.data != null){          
-          leftMenu.push(element);
+          if(element?.attributes.parent_item?.data?.attributes?.DisplayName == "Software"){
+            softwareMenu.push(element);
+          } else {
+            leftMenu.push(element);
+          }
         } else if(element.attributes.IsTitle == false && element.attributes.parent_item.data == null && element.attributes.Menu != 'Type'){
           if(element.attributes.Menu == "About Us"){
             aboutUs.push(element);
@@ -149,15 +154,17 @@ export class AppComponent implements OnInit {
         aboutUs.sort(this.sortByDisplayOrder);
         leftMenu.sort(this.sortByDisplayOrder);
         rightMenu.sort(this.sortByDisplayOrder);
-        industryMenu.sort(this.sortByDisplayOrder);  
+        industryMenu.sort(this.sortByDisplayOrder);
+        softwareMenu.sort(this.sortByDisplayOrder); 
 //        menuData.push({LeftMenu :leftMenu});        
       }  
-      let groupedMenu = this.groupBy(leftMenu, (item:any) => item?.attributes.parent_item?.data?.attributes?.DisplayName);
+      // let groupedMenu = this.groupBy(leftMenu, (item:any) => item?.attributes.parent_item?.data?.attributes?.DisplayName);
       let groupindustryMenu = this.groupBy(industryMenu, (item:any) => item?.attributes?.Menu);     
-      menuData.push({LeftMenu :groupedMenu});
+      menuData.push({LeftMenu :leftMenu});
       menuData.push({RightMenu :rightMenu});
       menuData.push({IndustryMenu :groupindustryMenu});
       menuData.push({AboutUs :aboutUs});
+      menuData.push({SoftwareMenu :softwareMenu});
       /*      for(let menu of menuData[0].LeftMenu) {
         console.log("xxxx",menu?.attributes?.ParentItem?.data?.attributes?.DisplayName);
         

@@ -84,11 +84,11 @@ export class RightMenuDetailsComponent implements OnInit {
         } else if(this.pageType == "pages"){
           let activeMenuAttributes;
           this.commonService.menuData[0]?.LeftMenu.forEach((items:any,index:number) =>{ 
-            items.forEach((item:any,index:number) =>{ 
-              if(item.attributes.Slug == this.pageDetailsName){
-                activeMenuAttributes = item;
+            // items.forEach((item:any,index:number) =>{ 
+              if(items.attributes.Slug == this.pageDetailsName){
+                activeMenuAttributes = items;
               }
-            }) 
+            // }) 
           });
           this.commonService.menuData[2]?.IndustryMenu.forEach((items:any,index:number) =>{ 
             items.forEach((item:any,index:number) =>{ 

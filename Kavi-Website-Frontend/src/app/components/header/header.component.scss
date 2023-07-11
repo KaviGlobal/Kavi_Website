@@ -24,28 +24,29 @@
       }
     }
     box-shadow: none;
-    background: transparent;
+    background: rgb(255 255 255 / 90%);
 
     &.isScroll {
-      background: #000e42;
+      background: rgb(255 255 255 / 90%);
+      // background: #000e42;
       // background-image: url("../../../assets/images/Group 2007.png");
       box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%);
       .nav-right-bars {
-        color: #fff;
+        color: #224991;
       }
       .nav-right a{
-        color: #fff;
+        color: #224991;
       }
     }
     .nav-right {
       justify-content: space-around;
       a {
-        color: #fff;
+        color: #224991;
       }
     }
     .nav-right-bars{
       justify-content: space-around;
-      color: #fff;
+      color: #224991;
       
     }
   }
@@ -79,7 +80,7 @@
     padding: 4px;
     margin-left: 14px;
     font-size: 20px;
-    color: #000d42;
+    color: #333;
     cursor: pointer;
     &:hover {
       opacity: 0.6;
@@ -191,6 +192,8 @@ nav a {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  font-size: 24px;
+  font-weight: 600;
  /* a {
   //  font-size: 1.6rem;
   }*/
@@ -207,7 +210,7 @@ nav a {
 }
 
 h6 {
-  color: #ea6b1e;
+  color: #EA6B1E;
   font-size: 1rem;
   font-family: "montserrat-regular";
   font-weight: 600;
@@ -215,7 +218,7 @@ h6 {
 a {
   // color: #234A91;
   color: #fff;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-family: "montserrat-regular";
 //  font-weight: 800;
 }
@@ -305,5 +308,9 @@ a {
   padding-bottom: 0px;
   margin-bottom: -7px;
   font-size: small;
+}
+.close-btn {
+  margin-top: 8px;
+  cursor: pointer;
 }
 
