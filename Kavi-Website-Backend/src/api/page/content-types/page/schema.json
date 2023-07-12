@@ -47,6 +47,14 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "ExternalLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.content-link"
+    },
+    "isDownloadable": {
+      "type": "boolean"
     }
   }
 }
