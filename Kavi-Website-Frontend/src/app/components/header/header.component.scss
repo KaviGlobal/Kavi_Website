@@ -35,13 +35,13 @@
         color: #224991;
       }
       .nav-right a{
-        color: #224991;
+        color: #000d42;
       }
     }
     .nav-right {
       justify-content: space-around;
       a {
-        color: #224991;
+        color: #000d42;
       }
     }
     .nav-right-bars{
@@ -192,8 +192,11 @@ nav a {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  font-size: 24px;
-  font-weight: 600;
+  // font-size: 24px;
+  // font-weight: 600;
+  a {
+    font-size: 24px;
+  }
  /* a {
   //  font-size: 1.6rem;
   }*/
