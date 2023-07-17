@@ -84,7 +84,45 @@
             </div>
         </div>
     </div>
-    
+    <div class="demo-section">
+        <div class="container">
+            <h3>Schedule a free 30-minute consultation</h3>
+            <div class="pt-4">
+                <div class="row">                    
+                    <ng-container>
+                        <form [formGroup]="demoSection" (ngSubmit)="sendDemoRequest()">
+                            <div>       
+                                                        
+                                    <input class="formStyles" type="text" placeholder = "FirstName *" formControlName="firstName">                                  
+                                 
+                                    <input class="formStyles" type="text" placeholder = "LastName *"  formControlName="lastName">
+                                 
+                                    <input class="formStyles" type="text" placeholder = "Email *" formControlName="email">
+                                  
+                                    <input class="formStyles" type="number" placeholder = "Phone" formControlName="phone">
+                                
+                                    <textarea class="formStyles" style="width:82%; height:60px" formControlName="message" placeholder="Message.." cols="45" rows="8" aria-required="true"></textarea>
+                                    
+                            </div> 
+                            <div *ngIf="!validateStatus && validateMessage.length > 0" style="padding-bottom: 20px;">
+                                <span style="color: red; font-size:13px;">
+                                    {{validateMessage}}
+                                </span>
+                            </div>
+                            <button id="submit" type="submit" >Send</button>                             
+                           
+                            <div *ngIf="validateStatus" style="padding-bottom: 20px;">
+                                <span style="color: Green; font-size:13px;">
+                                    {{validateMessage}}
+                                </span>
+                            </div>
+                    
+                          </form>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="success-story-wrapper pt-5">
         <div class="container">
             <h3 class="section-heading" *ngIf="homeData.attributes">{{this.homeData.attributes.SuccessStoryTitle}}</h3>

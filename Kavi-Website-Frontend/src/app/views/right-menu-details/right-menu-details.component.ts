@@ -142,8 +142,14 @@ export class RightMenuDetailsComponent implements OnInit {
 
   }
   public getUserInfo(){
-
+/*    const modalRef = this.modalService.open('', {
+      size: 'xl',
+      centered: true,
+      windowClass: 'dark-modal'
+    }); 
+    modalRef.componentInstance.title = ' title:';*/  
   }
+
   public downloadFile(fileUrl:any,fileName:any){   
     this.getUserInfo();
     var req = new XMLHttpRequest();

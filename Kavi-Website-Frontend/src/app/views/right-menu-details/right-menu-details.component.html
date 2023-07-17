@@ -1,6 +1,30 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 <div *ngIf="!isPageLoaded">
     <app-page-loader></app-page-loader>
 </div>
+<div class="icon-bar">
+    <a href="https://www.facebook.com/kaviglobal/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a> 
+    <a href="https://twitter.com/KG4Analytics" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a> 
+    <a href="https://www.linkedin.com/company/kavi-global/mycompany/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
+    <a href="https://www.youtube.com/channel/UCEMWF8WAJuM5k32gkxGopBQ" target="_blank" class="youtube"><i class="fa fa-youtube"></i></a> 
+</div>
+<ng-template #mymodal let-modal>  
+    <div class="modal-header">  
+      <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>  
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">  
+        <span aria-hidden="true">?</span>  
+      </button>  
+    </div>  
+    <div class="modal-body">  
+      This is example from Javatpoint.com  
+    </div>  
+    <div class="modal-footer">  
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>  
+    </div>  
+  </ng-template>  
 <div class="details-content" *ngIf="isPageLoaded">
     <div class="container pad_400" *ngIf="isDataLoaded && !isClient && !isPartner">
         <div class="row">
@@ -58,7 +82,7 @@
                             </iframe>
                             <div class="fileDownload" *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.mime && pageData[0]?.attributes?.isDownloadable">                            
                                 <a (click)="downloadFile(pageData[0]?.attributes?.Media[0].Media.data.attributes.url,pageData[0]?.attributes?.Slug)"   >
-                                <i class="fa fa-download" aria-hidden="true"></i> Download File</a> 
+                                <i class="fa fa-download" aria-hidden="true"></i> Download File</a>                                 
                             </div> 
                         </div>                       
                     </div>                   
