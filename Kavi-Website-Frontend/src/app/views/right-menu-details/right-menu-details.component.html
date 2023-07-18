@@ -11,20 +11,52 @@
     <a href="https://www.linkedin.com/company/kavi-global/mycompany/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
     <a href="https://www.youtube.com/channel/UCEMWF8WAJuM5k32gkxGopBQ" target="_blank" class="youtube"><i class="fa fa-youtube"></i></a> 
 </div>
-<ng-template #mymodal let-modal>  
-    <div class="modal-header">  
-      <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>  
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">  
-        <span aria-hidden="true">?</span>  
-      </button>  
-    </div>  
-    <div class="modal-body">  
-      This is example from Javatpoint.com  
-    </div>  
-    <div class="modal-footer">  
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>  
-    </div>  
-  </ng-template>  
+<ng-template #mymodal let-modal>
+    <div class="modal-header">     
+      <h3 class="title" style="width:25%">Fill the Form</h3>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="row fillForm">                    
+            <ng-container>
+                <form [formGroup]="demoSection" (ngSubmit)="sendDemoRequest()">                    
+                    <div>    
+                                                
+                            <input class="formStyles" type="text" placeholder = "FirstName *" formControlName="firstName">                                  
+                         
+                            <input class="formStyles" type="text" placeholder = "LastName *"  formControlName="lastName">
+                         
+                            <input class="formStyles" type="text" placeholder = "Email *" formControlName="email">
+                          
+                            <input class="formStyles" type="number" placeholder = "Phone" formControlName="phone">
+                        
+                            <textarea class="formStyles" style="width:82%; height:60px" formControlName="message" placeholder="Message.." cols="45" rows="8" aria-required="true"></textarea>
+                            
+                    </div> 
+                    <div *ngIf="!validateStatus && validateMessage.length > 0" style="padding-bottom: 20px;">
+                        <span style="color: red; font-size:13px;">
+                            {{validateMessage}}
+                        </span>
+                    </div>
+                    <button id="submit" type="submit" >Send</button>                             
+                   
+                    <div *ngIf="validateStatus" style="padding-bottom: 20px;">
+                        <span style="color: Green; font-size:13px;">
+                            {{validateMessage}}
+                        </span>
+                    </div>
+            
+                  </form>
+            </ng-container>
+        </div>
+    </div>
+    <!--
+    <div class="modal-footer">
+      <button type="button" class="btn contactFormSend" (click)="modal.close('Save click')">Send</button>
+    </div>-->
+  </ng-template> 
 <div class="details-content" *ngIf="isPageLoaded">
     <div class="container pad_400" *ngIf="isDataLoaded && !isClient && !isPartner">
         <div class="row">
@@ -81,8 +113,10 @@
                             >
                             </iframe>
                             <div class="fileDownload" *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.mime && pageData[0]?.attributes?.isDownloadable">                            
-                                <a (click)="downloadFile(pageData[0]?.attributes?.Media[0].Media.data.attributes.url,pageData[0]?.attributes?.Slug)"   >
-                                <i class="fa fa-download" aria-hidden="true"></i> Download File</a>                                 
+                              <!--  <a (click)="downloadFile(pageData[0]?.attributes?.Media[0].Media.data.attributes.url,pageData[0]?.attributes?.Slug)"   >
+                                <i class="fa fa-download" aria-hidden="true"></i> Download File</a> -->
+                                <a (click)="open(mymodal,pageData[0]?.attributes?.Media[0].Media.data.attributes.url,pageData[0]?.attributes?.Slug)">
+                                    <i class="fa fa-download" aria-hidden="true"></i>Download File</a>                                
                             </div> 
                         </div>                       
                     </div>                   

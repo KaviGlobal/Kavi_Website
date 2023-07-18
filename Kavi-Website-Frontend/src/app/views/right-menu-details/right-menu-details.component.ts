@@ -4,11 +4,13 @@ import { RightMenuService } from '../right-menu/right-menu.service';
 import { cloneDeep } from 'lodash';
 import { CommonService } from 'src/app/services/common.service';
 import { Subscription } from 'rxjs';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+//import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CustomPipePipe } from 'src/app/custom-pipe.pipe';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
-
+import { NgModule } from '@angular/core';
+import {NgbModal, ModalDismissReasons, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
+import { FormControl, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-right-menu-details',
   templateUrl: './right-menu-details.component.html',
@@ -40,6 +42,18 @@ export class RightMenuDetailsComponent implements OnInit {
   public newsMedia: any;
   public authorPost: any;
   public partnerValues:any=[];
+  public title = 'ng-bootstrap-modal-demo';
+  public closeResult: string = '';
+  public modalOptions:NgbModalOptions;
+  public validateStatus: boolean = false;
+  public validateMessage: String = '';
+  demoSection = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    phone: new FormControl(''),
+    email: new FormControl(''),
+    message:new FormControl('')
+  });
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -48,7 +62,13 @@ export class RightMenuDetailsComponent implements OnInit {
     public modalService: NgbModal,
     private sanitizer: DomSanitizer,
     @Inject(DOCUMENT) private document: Document
-  ) { }
+  ) {this.modalOptions = {
+    backdrop:'static',
+    backdropClass:'customBackdrop',
+    size: 'xl',
+    centered: true,
+    windowClass: 'dark-modal'
+  } }
 
   ngOnInit(): void {//    console.log("sss",this.commonService.activeMenuData);
     this.loadPageData();
@@ -150,8 +170,44 @@ export class RightMenuDetailsComponent implements OnInit {
     modalRef.componentInstance.title = ' title:';*/  
   }
 
+  open(content:any,fileUrl:any,fileName:any) {
+    this.modalService.open(content, this.modalOptions).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {     
+      this.closeResult = `Dismissed ${
+        this.getDismissReason(reason)}`;
+        if(this.validateStatus){
+          this.downloadFile(fileUrl,fileName);
+        }
+    });
+  }
+  public sendDemoRequest(){
+    console.log("demoSection",this.demoSection);
+    if(!this.demoSection.value.firstName || !this.demoSection.value.lastName || !this.demoSection.value.email){
+      //error display
+      this.validateStatus = false;
+      this.validateMessage = "Please fill the required fields";   
+    }
+    else{
+      //success call api
+      this.validateStatus = true;
+      this.validateMessage = "Thank you for contacting us. Our team will get in touch with you shortly.";
+      this.onClose();
+    }
+   
+   }
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
+
   public downloadFile(fileUrl:any,fileName:any){   
-    this.getUserInfo();
+//    this.getUserInfo();
     var req = new XMLHttpRequest();
             req.open("GET", fileUrl, true);
             req.responseType = "blob";
