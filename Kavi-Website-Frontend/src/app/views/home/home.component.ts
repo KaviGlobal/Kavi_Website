@@ -5,6 +5,7 @@ import { cloneDeep } from 'lodash';
 import { ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 import {  HostListener} from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 // declare const google: any;
 @Component({
@@ -24,10 +25,18 @@ export class HomeComponent implements OnInit {
   public title: any;
   public isDataLoaded: boolean = false;
   public partnerImg: any;
+  public validateStatus: boolean = false;
+  public validateMessage: String = '';
   zoom: number = 16;
   lat: number = 42.135230;
   lng: number = -88.133640;
-
+  demoSection = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    phone: new FormControl(''),
+    email: new FormControl(''),
+    message:new FormControl('')
+  });
   constructor(
     private activatedRoute: ActivatedRoute,
     public commonService: CommonService,
@@ -46,6 +55,7 @@ export class HomeComponent implements OnInit {
   ngOnDestroy(): void {
     this.document.body.classList.remove('home-page');
   }
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
       if (document.documentElement.scrollTop > document.getElementById('achievements_section')!.offsetTop - 200) {
@@ -93,6 +103,22 @@ export class HomeComponent implements OnInit {
         document.getElementById('clients_carousel_block')!.classList.remove("fade-up-animate");
       } 
   }
+
+ public sendDemoRequest(){
+  console.log("demoSection",this.demoSection);
+  if(!this.demoSection.value.firstName || !this.demoSection.value.lastName || !this.demoSection.value.email){
+    //error display
+    this.validateStatus = false;
+    this.validateMessage = "Please fill the required fields";   
+  }
+  else{
+    //success call api
+    this.validateStatus = true;
+    this.validateMessage = "Thank you for contacting us. Our team will get in touch with you shortly.";
+  }
+ 
+ }
+
   public getHomePageData() {    
     this.homeService.getHomeData().then((response: any) => {
       if (response.data) {

@@ -33,6 +33,84 @@
 .rounded-lg {
   border-radius: 20px !important;
 }
+.title {
+  color: #EA6B1E;
+  font-size:1.4rem;
+  font-weight: 700px;
+  margin-bottom:10px
+}
+.close {
+  background-color: #EA6B1E;
+  color: #fff;
+  outline:none;
+}
+.contactFormSend{
+  background-color: #EA6B1E;
+  color: white;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight :500;
+}
+
+.formStyles {
+  //  width: 50%;
+  //  padding: 10px;
+    width : 40%;
+    height:30px;
+    padding:25px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    margin-right: 15px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+  }
+  .formStyles:focus {
+    border: 1px solid #EA6B1E;
+  }
+  
+  input[type=text]:focus {
+    border: 1px solid #EA6B1E;
+  }
+  input[type=number]:focus {
+    border: 1px solid #EA6B1E;
+  }
+  textarea:focus {
+    border: 1px solid #EA6B1E;
+   
+    } 
+    
+    input[type=submit] {
+      background-color: #EA6B1E;
+      color: white;
+      padding: 5px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight :500;
+    }
+    
+    input[type=submit]:hover {
+      background-color: #EA6B1E;
+    }
+    button{
+      background-color: #EA6B1E;
+      color: white;
+      padding: 5px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight :500;
+    }
+  .fillForm{
+    margin-left: 20px;
+  }
 .client_block{
   // max-width: 300px;
   margin: auto;}
@@ -217,6 +295,16 @@
 }
 markdown ::ng-deep  {
   font-size: 1.1em;
+  summary{
+    //  color: #fff;
+     color: #234a91;
+      font-size: 20px;
+      margin-bottom:10px;    
+    }
+    details{
+      background-color: #f6f6f6;
+      padding:15px;
+    }
   h4 {
     color:#EA6B1E;
     font-weight: 900;
@@ -278,4 +366,50 @@ markdown ::ng-deep  {
 }
 ::-webkit-scrollbar-thumb {
   background: #eee
+}
+
+.icon-bar {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+.facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.google {
+  background: #dd4b39;
+  color: white;
+}
+
+.linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.youtube {
+  background: #bb0000;
+  color: white;
 }
