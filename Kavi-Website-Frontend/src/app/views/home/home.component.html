@@ -2,7 +2,7 @@
     <app-page-loader></app-page-loader>
 </div>
 <div class="cont" *ngIf="isDataLoaded">
-    <div class="banner-wrapper" [ngStyle]="{'background-image': 'url(' + backgroundImg + ')'}">
+    <div id="home_banner" class="banner-wrapper" [ngStyle]="{'background-image': 'url(' + backgroundImg + ')'}">
         <div class="banner-container">
             <div class="container-fluid">
                 <div class="container">
@@ -35,13 +35,13 @@
             </div>
         </div>
     </div>
-    <div class="achievements-section">
+    <div id="achievements_section" class="achievements-section">
         <div class="container">
             <div class="description-section">
                 <h3 class="mb-2">{{homeData.attributes.Achievements.Title}}</h3>
-                <p>{{homeData.attributes.Achievements.Paragraph}}</p>
+                <p id="achievements_section_desc" class="aos-init fade-down">{{homeData.attributes.Achievements.Paragraph}}</p>
             </div>
-            <div class="cost-wrapper">
+            <div id="achievements_section_count" class="cost-wrapper aos-init fade-down">
                 <div class="row"
                     *ngIf="homeData.attributes && homeData.attributes.AchievementMetrics && homeData.attributes.AchievementMetrics.length > 0">
                     <div class="col-12 col-lg-4 cost-card-col"
@@ -57,10 +57,10 @@
             </div>
         </div>
     </div>
-    <div class="analytics-section">
+    <div id="analytics_section" class="analytics-section">
         <div class="container">
             <h1 class="">{{homeData.attributes.Analytics.Title}}</h1>
-            <div class="analytics-content">
+            <div id="analytics_section_block" class="analytics-content aos-init fade-up">
                 <div class="row no-gutters align-items-center">
                     <div class="col-12 col-md-7">
                         <h5>
@@ -85,10 +85,10 @@
         </div>
     </div>
     
-    <div class="success-story-wrapper pt-5">
+    <div id="success_story" class="success-story-wrapper pt-5">
         <div class="container">
             <h3 class="section-heading" *ngIf="homeData.attributes">{{this.homeData.attributes.SuccessStoryTitle}}</h3>
-            <div class="pt-3">
+            <div id="success_story_block" class="pt-3 fade-up aos-init">
                 <div class="" *ngIf="homeData.attributes">
                     <div class="" *ngFor="let item of homeData.attributes.SuccessStory.data; let i = index">
                         <ng-container *ngIf="i < 2">
@@ -110,11 +110,11 @@
             </div>                       
         </div>                
     </div>
-    <div class="blog-section">
+    <div id="blog_section" class="blog-section">
         <div class="container">
             <h3 *ngIf = "homeData.attributes">{{this.homeData.attributes.BlogsTitle}}</h3>
             <div class="pt-4">
-                <div class="row" *ngIf="homeData.attributes">                    
+                <div id="blog_section_block" class="row fade-up aos-init" *ngIf="homeData.attributes">                    
                     <ng-container>
                         <!-- *ngFor="homeData.attributes.Blogs.data[0]; let j = index">
                         -->
@@ -167,11 +167,11 @@
             </div>
         </div>
     </div>
-    <div class="news-cont">
+    <div id="news_cont" class="news-cont">
         <div class="container">
             <h3 class="section-heading">News</h3>
             <div class="pt-3">
-                <div class="row news-section" *ngIf="homeData.attributes">
+                <div id="news_cont_block" class="row news-section fade-up aos-init" *ngIf="homeData.attributes">
                     <div class="col-12 col-md-4" *ngFor="let item of homeData.attributes.News.data; let i = index">
                         <ng-container *ngIf="i < 4">
                             <app-card-layout [image]="item.attributes?.Thumbnail?.Media?.data?.attributes?.url"
@@ -214,10 +214,10 @@
         </div>
     </div>-->
 
-    <div class="clients-section">
+    <div id="clients_section" class="clients-section">
         <div class="container">
             <h3>{{homeData.attributes.OurClientsTitle}}</h3>
-            <div class="">
+            <div id="clients_section_block" class="fade-up aos-init">
                 <div class="client-content">
                     <p>
                         {{homeData.attributes.OurClientsParagraph}}
@@ -267,11 +267,11 @@
             </div>
         </div>
     </div>
-   <div class="clients-carousel">
+   <div id="clients_carousel" class="clients-carousel">
         <div class="container">
             <h3 *ngIf = "homeData.attributes">
                 {{homeData.attributes.OurClientImagesTitle}}</h3>
-            <div class="row no-gutters">
+            <div id="clients_carousel_block" class="fade-up aos-init row no-gutters">
                 <div class="col-12">
                     <ngb-carousel class="client-slider" *ngIf="clientImages.length">
                         <ng-container *ngFor="let item of clientImages;let i = index">

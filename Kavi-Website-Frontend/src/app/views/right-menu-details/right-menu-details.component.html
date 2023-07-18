@@ -22,7 +22,7 @@
                         <div *ngIf="!pageData[0]?.attributes?.NewsMedia && pageData[0]?.attributes?.ExternalLink.length >=1">
                             <div *ngFor="let link of pageData[0]?.attributes?.ExternalLink ">                          
                                 <iframe allow="autoplay *; encrypted-media *; fullscreen *" 
-                                frameborder="0" width="100%" height="200" 
+                                frameborder="0" width="100%" height="500" 
                                 [src]="link.Url | customPipe"
                                 >
                                 </iframe>

@@ -103,6 +103,7 @@ export class HeaderComponent implements OnInit {
 
   public makeMenuActive(menuItem?: any) {
     this.showMenu = false;
+    document.getElementById('menu_block')!.classList.remove("menu-container-open");
     this.document.body.classList.remove('hide-scroll'); 
     if (menuItem) {
       if(menuItem == 'ContactUs'){
@@ -167,7 +168,8 @@ export class HeaderComponent implements OnInit {
     
   }
   public makeOfferingsActive(menuItem?: any,selectedMenu?: any,menuType?:any) {
-    this.showMenu = false;    
+    this.showMenu = false;
+    document.getElementById('menu_block')!.classList.remove("menu-container-open");    
     this.document.body.classList.remove('hide-scroll');    
 /*    if (menuItem?.offerings?.data && menuItem?.offerings?.data?.length > 0 
     ) {    
@@ -229,9 +231,13 @@ searchTag(searchText:any){
 
   toggleDiv() {
     this.showMenu = !this.showMenu;
-    this.document.body.classList.remove('hide-scroll');
+    // this.document.body.classList.remove('hide-scroll');
+    // if (this.showMenu) {
+    //   this.document.body.classList.add('hide-scroll');
+    // }
+    document.getElementById('menu_block')!.classList.remove("menu-container-open");
     if (this.showMenu) {
-      this.document.body.classList.add('hide-scroll');
+      document.getElementById('menu_block')!.classList.add("menu-container-open");
     }
   }
 

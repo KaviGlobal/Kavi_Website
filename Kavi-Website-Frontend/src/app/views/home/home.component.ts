@@ -4,14 +4,16 @@ import { HomeService } from "../home/home.service";
 import { cloneDeep } from 'lodash';
 import { ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
-
+import {  HostListener} from '@angular/core';
 
 // declare const google: any;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  // HostListener('window:scroll')
 })
+
 export class HomeComponent implements OnInit {
 
   public homeData: any = [];
@@ -44,7 +46,53 @@ export class HomeComponent implements OnInit {
   ngOnDestroy(): void {
     this.document.body.classList.remove('home-page');
   }
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+      if (document.documentElement.scrollTop > document.getElementById('achievements_section')!.offsetTop - 200) {
+        document.getElementById('achievements_section_desc')!.classList.add("fade-down-animate");
+        setTimeout(() => {  document.getElementById('achievements_section_count')!.classList.add("fade-down-animate"); }, 500);
 
+      } else {
+        document.getElementById('achievements_section_desc')!.classList.remove("fade-down-animate");
+        document.getElementById('achievements_section_count')!.classList.remove("fade-down-animate");
+      }
+
+      if (document.documentElement.scrollTop > document.getElementById('analytics_section')!.offsetTop - 200) {
+        document.getElementById('analytics_section_block')!.classList.add("fade-up-animate");
+      } else {
+        document.getElementById('analytics_section_block')!.classList.remove("fade-up-animate");
+      }
+
+      if (document.documentElement.scrollTop > document.getElementById('success_story')!.offsetTop - 300) {
+        document.getElementById('success_story_block')!.classList.add("fade-up-animate");
+      } else {
+        document.getElementById('success_story_block')!.classList.remove("fade-up-animate");
+      }
+
+      if (document.documentElement.scrollTop > document.getElementById('blog_section')!.offsetTop - 400) {
+        document.getElementById('blog_section_block')!.classList.add("fade-up-animate");
+      } else {
+        document.getElementById('blog_section_block')!.classList.remove("fade-up-animate");
+      }
+
+      if (document.documentElement.scrollTop > document.getElementById('news_cont')!.offsetTop - 400) {
+        document.getElementById('news_cont_block')!.classList.add("fade-up-animate");
+      } else {
+        document.getElementById('news_cont_block')!.classList.remove("fade-up-animate");
+      } 
+
+      if (document.documentElement.scrollTop > document.getElementById('clients_section')!.offsetTop - 400) {
+        document.getElementById('clients_section_block')!.classList.add("fade-up-animate");
+      } else {
+        document.getElementById('clients_section_block')!.classList.remove("fade-up-animate");
+      } 
+
+      if (document.documentElement.scrollTop > document.getElementById('clients_carousel')!.offsetTop - 400) {
+        document.getElementById('clients_carousel_block')!.classList.add("fade-up-animate");
+      } else {
+        document.getElementById('clients_carousel_block')!.classList.remove("fade-up-animate");
+      } 
+  }
   public getHomePageData() {    
     this.homeService.getHomeData().then((response: any) => {
       if (response.data) {
