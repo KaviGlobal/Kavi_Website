@@ -157,18 +157,37 @@ a {
       // height: 250px;
     }
     h3 {
-      font-size: 1.1rem;
+      color: #224991;
+      font-size: 1.5rem;
       margin: 0;
       padding: 10px 0;
     }
     p {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       padding-bottom: 5px;
+      text-align: justify;
     }
     a {
+      color: #ea6b1e;
     }
 }
 .top-layout-container {
-  background-image: linear-gradient(180deg, rgba(174, 223, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
+  background:#ffffff;
+  // background-image: linear-gradient(180deg, rgba(174, 223, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
+  h3 {
+    color: #224991;
+    line-height: 30px;
+    margin-bottom: 20px
+  }
+  a {
+    color: #ea6b1e;
+  }
+  p{
+    margin-bottom: 25px;
+  }
+}
+.success-card-container .col-12.col-md-6.mb-4 {
+  padding-left: 30px;
+  padding-right: 30px;
 }
 

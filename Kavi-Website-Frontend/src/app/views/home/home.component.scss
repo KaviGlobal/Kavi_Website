@@ -16,7 +16,7 @@
   justify-content: flex-start;
   align-items: flex-end;
   background: #000e42;
-  padding: 100px 20px 50px;
+  padding: 140px 20px 60px;
   color: #fff;
   .banner-container {
     width: 100%;
@@ -61,6 +61,7 @@
 
 
 .description-section {
+  font-family: "montserrat-regular";
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -68,7 +69,7 @@
   h3 {
     font-family: "montserrat-regular";
     color: #ea6b1e;
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     text-align: center;
     padding-bottom:20px;
     // font-weight: 900;
@@ -99,7 +100,7 @@
   align-items: stretch;
 }
 .cost-wrapper {
-  padding: 30px 0;
+  padding: 30px 0 0px;
   .cost-card-col {
     // border-left: 1px solid #000;
     &:first-child {
@@ -129,7 +130,7 @@
   }
 }
 .achievements-section {
-  padding: 40px 0;
+  padding: 60px 0;
 }
 .analytics-section {
   background-color: #000d42;
@@ -137,7 +138,7 @@
   padding: 50px 0;
   h1 {
     font-family: "montserrat-regular";
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     padding-bottom: 20px;
     text-align: center;
   }  
@@ -147,7 +148,7 @@
     h5 {
       font-family: "montserrat-regular";
       color: #fff;
-      font-size: 20px;
+      font-size: 22px;
       align-self: center;
       text-align: left;
       line-height: 2;
@@ -162,7 +163,7 @@
         a{
           color: #ea6b1e;
           font-weight: 600;
-          font-size: 1.1rem;
+          font-size: 1.3rem;
         }
         &:hover {
           opacity: 1;
@@ -173,7 +174,7 @@
     .analytics-image {
       // background: #fff;
       // padding: 20px;
-      // text-align: center;
+      text-align: center;
       img {
         height: 200px;
         max-width: 100%;
@@ -191,14 +192,14 @@
   }
 }
 .clients-section {
-  padding: 40px 0;
+  padding: 60px 0;
   text-align: center;
   h3 {
     font-family: "montserrat-regular";
     color: #ea6b1e;
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     // font-weight: 900;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
   }
   p {
     font-family: "montserrat-regular";
@@ -253,12 +254,9 @@
   }
 }
 .formStyles {
-//  width: 50%;
+ width: 100%;
 //  padding: 10px;
-  width : 40%;
-  height:30px;
-  padding:25px;
-  margin: 8px 0;
+  padding:15px 20px;
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -311,14 +309,14 @@ textarea:focus {
   h3 {
     font-family: "montserrat-regular";
     color: #2b5084;
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     // padding-top: 25px;
     text-align: center;
     // font-weight: 900;
   }
 }
 .blog-section {
-  padding: 30px 0;
+  padding: 60px 0;
   img {
     // width: 300px;
     // height: 200px;
@@ -326,21 +324,25 @@ textarea:focus {
   h3 {
     font-family: "montserrat-regular";
     color: #ea6b1e;
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     // padding-top: 25px;
     text-align: center;
     // font-weight: 900;
+    margin-bottom:35px;
+  }
+  .col-12.col-md-4 {
+    margin-bottom: 20px;
   }
 }
 
 .clients-carousel {
-  background-color: #f6f6f6;
+  background-color: #000d42;
   text-align: center;
   padding: 40px 0;
   h3 {
     font-family: "montserrat-regular";
-    color: #ea6b1e;
-    font-size: 1.8rem;
+    color: #ffffff;
+    font-size: 2.5rem;
     padding-bottom: 25px;
     // font-weight: 900;
   }
@@ -358,8 +360,8 @@ textarea:focus {
       }
     }
     .client-carousel-image-wrapper {
-      width: 33%;
-      padding: 10px;
+      width: 20%;
+      padding: 10px 20px;
       .client-carousel-image-container {
         background-color: #FFFFFF;
         padding: 10px;
@@ -494,13 +496,14 @@ textarea:focus {
   background-color: #333333;
 }
 .read-more-section {
+  text-align: right;
+  // background-color: rgba(#9b9b9b, 0.25);
   a {
-    background-color: rgba(#9b9b9b, 0.25);
-    padding: 15px 20px;
-    font-size: 1.1rem;
-    color: #0D2C3D;
+    padding: 0px 20px;
+    font-size: 1.5rem;
+    color: #224991;
     font-weight: 500;
-    display: block;
+    // display: block;
     i {
       padding-left: 6px;
       top: 2px;
@@ -517,13 +520,21 @@ textarea:focus {
     padding-left: 30px;
   }
 }
+
+.success-story-wrapper{
+    background: #f1f1f1;
+  }
+.news-cont{
+  background: #f1f1f1;
+  padding: 60px 0;
+}
 .section-heading {
   font-family: "montserrat-regular";
   color: #ea6b1e;
-  font-size: 1.8rem;
+  font-size: 2.5rem;
   text-align: center;
   // font-weight: 900;
-  margin-bottom: 25px
+  margin-bottom: 35px
 }
 
 .card-1 {
@@ -568,6 +579,9 @@ textarea:focus {
   
 }
 .news-cont{
+  .col-12.col-md-4 {
+    margin-bottom: 20px;
+  }
 }
 .news-letter-wrapper {
   background-color: #000d42;
@@ -756,10 +770,19 @@ agm-map {
 }
 }
 
+.schedule_submit{
+  float: right;width: 100%;line-height: 50px;margin-top: 6px;font-size: 24px;
+}
 @media only screen and (min-width: 992px) {
   .cost-wrapper {
     .cost-card-col {
       border-left: 1px solid #000;
     }
+  }
+}
+@media (min-width: 1200px)
+{
+  .container {
+    max-width: 1400px;
   }
 }

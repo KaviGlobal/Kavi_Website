@@ -7,7 +7,7 @@
         </div>
         <div class="p-3">
             <h3>{{title}}</h3>
-            <p class="mb-1">{{description}}</p>
+            <p>{{description}}</p>
             <a routerLink="{{'/' + moduleName + '/'+ slug}}" *ngIf="moduleName">{{hyperlinkText}} <i
                     class="fas fa-arrow-right arrow-icon ml-1"></i></a>
             <a href="javascript:void(0)" *ngIf="!moduleName">{{hyperlinkText}} <i
@@ -57,15 +57,15 @@
 </div>
 <div *ngIf="type == 'success-card-layout'">
     <div class="success-card-container">
-        <div class="row">
-            <div class="col-12 col-md-6 pb-3">
+        <div class="row pb-4">
+            <div class="col-12 col-md-6 mb-4">
                 <div class="">
                     <div class="image-wrapper">
                         <img src="{{image}}" alt="image" />
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 pb-3">
+            <div class="col-12 col-md-6 mb-4">
                 <div class="">
                     <h3>{{title}}</h3>
                     <p class="mb-1">{{description}}</p>
@@ -80,8 +80,8 @@
 </div>
 <div *ngIf="type == 'success-right-card-layout'">
     <div class="success-card-container">
-        <div class="row">
-            <div class="col-12 col-md-6 pb-3">
+        <div class="row pb-4">
+            <div class="col-12 col-md-6 mb-4">
                 <div class="">
                     <h3>{{title}}</h3>
                     <p class="mb-1">{{description}}</p>
@@ -91,7 +91,7 @@
                             class="fas fa-arrow-right arrow-icon ml-1"></i></a>
                 </div>
             </div>
-            <div class="col-12 col-md-6 pb-3">
+            <div class="col-12 col-md-6 mb-4">
                 <div class="">
                     <div class="image-wrapper">
                         <img src="{{image}}" alt="image" />

@@ -58,7 +58,8 @@
     </div>-->
   </ng-template> 
 <div class="details-content" *ngIf="isPageLoaded">
-    <div class="container pad_400" *ngIf="isDataLoaded && !isClient && !isPartner">
+    <div class="" *ngIf="isDataLoaded && !isClient && !isPartner">
+    <div class="container" [ngClass]="{'pad_400': pageType != 'pages'}" >
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12 border-right"> 
                 <div class="page-content py-4" *ngIf="!isPeople">
@@ -196,7 +197,7 @@
                     </div>
                 </div> -->
             </div>
-            <div class="right_fixed">
+            <div class="right_fixed" *ngIf="pageType != 'pages'">
             <!--    <app-right-menu-sidebar [data]="pageData"></app-right-menu-sidebar>-->
                 <div *ngIf="!isPeople">
                     <app-detail-viewer-right-pane  [authorDetails]="authors"
@@ -217,12 +218,12 @@
                         [moduleName]="pageType"
                     ></app-detail-viewer-right-pane>                   
                 </div> 
-                <div class="pt-5" *ngIf="pageType == 'pages'">
+                <!-- <div class="pt-5" *ngIf="pageType == 'pages'">
                     <app-right-menu-sidebar [data1]="rightPageData"
                     [module]="pageType"
                     [metaViewer]="listMetaData"
                     ></app-right-menu-sidebar>
-                </div>
+                </div> -->
             </div>
        
         </div>
@@ -296,6 +297,8 @@
     <div>
 <!--          cccc {{this.viewerData[0] | json}}-->
         </div>
+
+    </div>
 </div>
 <div class="container" *ngIf="isDataLoaded && (isClient || isPartner)" style="margin:30px auto 0.5px">
     <div *ngIf="isClient" class="our_page"><h2 style = "background-image:url('https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/Our_Clients_2x_8a4cd56f7d.png?updated_at=2023-06-19T15:58:36.314Z')">Our Clients</h2></div>

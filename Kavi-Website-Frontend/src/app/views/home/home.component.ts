@@ -58,49 +58,49 @@ export class HomeComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-      if (document.documentElement.scrollTop > document.getElementById('achievements_section')!.offsetTop - 200) {
-        document.getElementById('achievements_section_desc')!.classList.add("fade-down-animate");
-        setTimeout(() => {  document.getElementById('achievements_section_count')!.classList.add("fade-down-animate"); }, 500);
+      if (document.documentElement.scrollTop > document.getElementById('achievements_section')!.offsetTop - 400) {
+        document.getElementById('achievements_section_count')!.classList.add("fade-down-animate");
+        // setTimeout(() => {  document.getElementById('achievements_section_count')!.classList.add("fade-down-animate"); }, 500);
 
       } else {
-        document.getElementById('achievements_section_desc')!.classList.remove("fade-down-animate");
+        // document.getElementById('achievements_section_desc')!.classList.remove("fade-down-animate");
         document.getElementById('achievements_section_count')!.classList.remove("fade-down-animate");
       }
 
-      if (document.documentElement.scrollTop > document.getElementById('analytics_section')!.offsetTop - 200) {
-        document.getElementById('analytics_section_block')!.classList.add("fade-up-animate");
+      if (document.documentElement.scrollTop > document.getElementById('analytics_section')!.offsetTop - 400) {
+        document.getElementById('analytics_section')!.classList.add("fade-up-animate");
       } else {
-        document.getElementById('analytics_section_block')!.classList.remove("fade-up-animate");
+        document.getElementById('analytics_section')!.classList.remove("fade-up-animate");
       }
 
-      if (document.documentElement.scrollTop > document.getElementById('success_story')!.offsetTop - 300) {
-        document.getElementById('success_story_block')!.classList.add("fade-up-animate");
+      if (document.documentElement.scrollTop > document.getElementById('success_story')!.offsetTop - 400) {
+        document.getElementById('success_story')!.classList.add("fade-up-animate");
       } else {
-        document.getElementById('success_story_block')!.classList.remove("fade-up-animate");
+        document.getElementById('success_story')!.classList.remove("fade-up-animate");
       }
 
       if (document.documentElement.scrollTop > document.getElementById('blog_section')!.offsetTop - 400) {
-        document.getElementById('blog_section_block')!.classList.add("fade-up-animate");
+        document.getElementById('blog_section')!.classList.add("fade-up-animate");
       } else {
-        document.getElementById('blog_section_block')!.classList.remove("fade-up-animate");
+        document.getElementById('blog_section')!.classList.remove("fade-up-animate");
       }
 
       if (document.documentElement.scrollTop > document.getElementById('news_cont')!.offsetTop - 400) {
-        document.getElementById('news_cont_block')!.classList.add("fade-up-animate");
+        document.getElementById('news_cont')!.classList.add("fade-up-animate");
       } else {
-        document.getElementById('news_cont_block')!.classList.remove("fade-up-animate");
+        document.getElementById('news_cont')!.classList.remove("fade-up-animate");
       } 
 
       if (document.documentElement.scrollTop > document.getElementById('clients_section')!.offsetTop - 400) {
-        document.getElementById('clients_section_block')!.classList.add("fade-up-animate");
+        document.getElementById('clients_section')!.classList.add("fade-up-animate");
       } else {
-        document.getElementById('clients_section_block')!.classList.remove("fade-up-animate");
+        document.getElementById('clients_section')!.classList.remove("fade-up-animate");
       } 
 
       if (document.documentElement.scrollTop > document.getElementById('clients_carousel')!.offsetTop - 400) {
-        document.getElementById('clients_carousel_block')!.classList.add("fade-up-animate");
+        document.getElementById('clients_carousel')!.classList.add("fade-up-animate");
       } else {
-        document.getElementById('clients_carousel_block')!.classList.remove("fade-up-animate");
+        document.getElementById('clients_carousel')!.classList.remove("fade-up-animate");
       } 
   }
 
@@ -149,7 +149,7 @@ export class HomeComponent implements OnInit {
     let temp: any = [];
     let items: any = [];
     for (let index = 0; index < this.homeData.attributes.OurClientImages.length; index++) {     
-      if (this.homeData.attributes.OurClientImages[index].Order % 4 === 0) {
+      if (this.homeData.attributes.OurClientImages[index].Order % 5 === 0) {
       //  console.log("index",index,this.homeData.attributes.OurClientImages,this.homeData.attributes.OurClientImages[index].Order);
         items.push(this.homeData.attributes.OurClientImages[index]);
         temp.push(items);

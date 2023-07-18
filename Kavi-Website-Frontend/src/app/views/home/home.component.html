@@ -39,7 +39,7 @@
         <div class="container">
             <div class="description-section">
                 <h3 class="mb-2">{{homeData.attributes.Achievements.Title}}</h3>
-                <p id="achievements_section_desc" class="aos-init fade-down">{{homeData.attributes.Achievements.Paragraph}}</p>
+                <p>{{homeData.attributes.Achievements.Paragraph}}</p>
             </div>
             <div id="achievements_section_count" class="cost-wrapper aos-init fade-down">
                 <div class="row"
@@ -57,10 +57,10 @@
             </div>
         </div>
     </div>
-    <div id="analytics_section" class="analytics-section">
+    <div id="analytics_section" class="analytics-section aos-init fade-up">
         <div class="container">
             <h1 class="">{{homeData.attributes.Analytics.Title}}</h1>
-            <div id="analytics_section_block" class="analytics-content aos-init fade-up">
+            <div class="analytics-content">
                 <div class="row no-gutters align-items-center">
                     <div class="col-12 col-md-7">
                         <h5>
@@ -85,49 +85,10 @@
         </div>
     </div>
 
-    <div class="demo-section">
+    <div id="success_story" class="success-story-wrapper py-5 fade-up aos-init">
+        <h3 class="section-heading" *ngIf="homeData.attributes">{{this.homeData.attributes.SuccessStoryTitle}}</h3>
         <div class="container">
-            <h3>Schedule a free 30-minute consultation</h3>
-            <div class="pt-4">
-                <div class="row">                    
-                    <ng-container>
-                        <form [formGroup]="demoSection" (ngSubmit)="sendDemoRequest()">
-                            <div>       
-                                                        
-                                    <input class="formStyles" type="text" placeholder = "FirstName *" formControlName="firstName">                                  
-                                 
-                                    <input class="formStyles" type="text" placeholder = "LastName *"  formControlName="lastName">
-                                 
-                                    <input class="formStyles" type="text" placeholder = "Email *" formControlName="email">
-                                  
-                                    <input class="formStyles" type="number" placeholder = "Phone" formControlName="phone">
-                                
-                                    <textarea class="formStyles" style="width:82%; height:60px" formControlName="message" placeholder="Message.." cols="45" rows="8" aria-required="true"></textarea>
-                                    
-                            </div> 
-                            <div *ngIf="!validateStatus && validateMessage.length > 0" style="padding-bottom: 20px;">
-                                <span style="color: red; font-size:13px;">
-                                    {{validateMessage}}
-                                </span>
-                            </div>
-                            <button id="submit" type="submit" >Send</button>                             
-                           
-                            <div *ngIf="validateStatus" style="padding-bottom: 20px;">
-                                <span style="color: Green; font-size:13px;">
-                                    {{validateMessage}}
-                                </span>
-                            </div>
-                    
-                          </form>
-                    </ng-container>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="success_story" class="success-story-wrapper pt-5">
-        <div class="container">
-            <h3 class="section-heading" *ngIf="homeData.attributes">{{this.homeData.attributes.SuccessStoryTitle}}</h3>
-            <div id="success_story_block" class="pt-3 fade-up aos-init">
+            <div>
                 <div class="" *ngIf="homeData.attributes">
                     <div class="" *ngFor="let item of homeData.attributes.SuccessStory.data; let i = index">
                         <ng-container *ngIf="i < 2">
@@ -137,23 +98,23 @@
                                 [slug]="item.attributes.Slug"
                                 [type]="i?'success-right-card-layout':'success-card-layout'"></app-card-layout>
                         </ng-container>
-                    </div>    
+                    </div>
                     <div class="">
-                        <div class="read-more-section pt-2">
-                            <a class="pl-4" routerLink ="/success-stories" (click)="makeMenuActive(homeData.rightmenu[2])">
+                        <div class="read-more-section">
+                            <a routerLink ="/success-stories" (click)="makeMenuActive(homeData.rightmenu[2])">
                                 Read more on our Success Stories <i class="fas fa-arrow-right arrow-icon"></i>
                             </a>
                         </div>
-                    </div>                
+                    </div> 
                 </div>                 
             </div>                       
-        </div>                
+        </div>
     </div>
-    <div id="blog_section" class="blog-section">
+    <div id="blog_section" class="blog-section fade-up aos-init" style="background-image:url(https://kavidemo.wpengine.com/wp-content/uploads/2017/09/bg2.jpg);">
         <div class="container">
             <h3 *ngIf = "homeData.attributes">{{this.homeData.attributes.BlogsTitle}}</h3>
-            <div class="pt-4">
-                <div id="blog_section_block" class="row fade-up aos-init" *ngIf="homeData.attributes">                    
+            <div>
+                <div class="row" *ngIf="homeData.attributes">                    
                     <ng-container>
                         <!-- *ngFor="homeData.attributes.Blogs.data[0]; let j = index">
                         -->
@@ -174,7 +135,7 @@
                         <ng-container *ngIf="homeData.attributes.Blogs.data.length > 1">
                             <ng-container *ngFor="let item of homeData.attributes.Blogs.data; let i = index">
                                 <!-- <ng-container *ngIf="i && i < 4"> -->
-                                    <div class="col-12 col-md-4" > <!-- [ngClass]="{'pt-2': i === 1, 'pt-3': i !== 1}" -->
+                                    <div class="col-12 col-md-4 px-4 mb-4" > <!-- [ngClass]="{'pt-2': i === 1, 'pt-3': i !== 1}" -->
                                         <app-card-layout [image]="item.attributes?.Thumbnail?.Media?.data?.attributes?.url"
                                             [title]="item.attributes.Title" 
                                             [slug]="item.attributes.Slug"
@@ -196,8 +157,8 @@
                         </ng-container>
                     </ng-container>
                     <div class="col-12">
-                        <div class="read-more-section pt-2">
-                            <a class="pl-4" routerLink ="/blogs" (click)="makeMenuActive(homeData.rightmenu[0])">
+                        <div class="read-more-section">
+                            <a routerLink ="/blogs" (click)="makeMenuActive(homeData.rightmenu[0])">
                                 Read more on our Blogs <i class="fas fa-arrow-right arrow-icon"></i>
                             </a>
                         </div>
@@ -206,12 +167,12 @@
             </div>
         </div>
     </div>
-    <div id="news_cont" class="news-cont">
+    <div id="news_cont" class="news-cont fade-up aos-init">
         <div class="container">
             <h3 class="section-heading">News</h3>
-            <div class="pt-3">
-                <div id="news_cont_block" class="row news-section fade-up aos-init" *ngIf="homeData.attributes">
-                    <div class="col-12 col-md-4" *ngFor="let item of homeData.attributes.News.data; let i = index">
+            <div>
+                <div class="row news-section" *ngIf="homeData.attributes">
+                    <div class="col-12 col-md-4 px-4 mb-4" *ngFor="let item of homeData.attributes.News.data; let i = index">
                         <ng-container *ngIf="i < 4">
                             <app-card-layout [image]="item.attributes?.Thumbnail?.Media?.data?.attributes?.url"
                                 [title]="item.attributes.Title" [description]="item.attributes.PreviewContent"
@@ -223,7 +184,7 @@
                     </div>
                     <div class="col-12">
                         <div class="read-more-section pt-2">
-                            <a class="pl-4" routerLink ="/newslist" (click)="makeMenuActive(homeData.rightmenu[1])">
+                            <a routerLink ="/newslist" (click)="makeMenuActive(homeData.rightmenu[1])">
                                 Read more on our News <i class="fas fa-arrow-right arrow-icon"></i>
                             </a>
                         </div>
@@ -253,10 +214,10 @@
         </div>
     </div>-->
 
-    <div id="clients_section" class="clients-section">
+    <div id="clients_section" class="clients-section fade-up aos-init">
         <div class="container">
             <h3>{{homeData.attributes.OurClientsTitle}}</h3>
-            <div id="clients_section_block" class="fade-up aos-init">
+            <div>
                 <div class="client-content">
                     <p>
                         {{homeData.attributes.OurClientsParagraph}}
@@ -306,11 +267,11 @@
             </div>
         </div>
     </div>
-   <div id="clients_carousel" class="clients-carousel">
+   <div id="clients_carousel" class="clients-carousel fade-up aos-init">
         <div class="container">
             <h3 *ngIf = "homeData.attributes">
                 {{homeData.attributes.OurClientImagesTitle}}</h3>
-            <div id="clients_carousel_block" class="fade-up aos-init row no-gutters">
+            <div class="row no-gutters">
                 <div class="col-12">
                     <ngb-carousel class="client-slider" *ngIf="clientImages.length">
                         <ng-container *ngFor="let item of clientImages;let i = index">
@@ -334,6 +295,52 @@
                           </ng-template>
                         </ng-container>
                     </ngb-carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="demo-section">
+        <div class="container">
+            <h3>Schedule a free 30-minute consultation</h3>
+            <div class="pt-4">
+                <div>                    
+                    <ng-container>
+                        <form [formGroup]="demoSection" (ngSubmit)="sendDemoRequest()">
+                            <div class="row">       
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <input class="formStyles" type="text" placeholder = "FirstName *" formControlName="firstName">                                  
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <input class="formStyles" type="text" placeholder = "LastName *"  formControlName="lastName">
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <input class="formStyles" type="text" placeholder = "Email *" formControlName="email">
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <input class="formStyles" type="number" placeholder = "Phone" formControlName="phone">
+                                    </div>
+                                    <div class="col-md-9 col-sm-12 col-xs-12">
+                                        <textarea class="formStyles" style="height:60px" formControlName="message" placeholder="Message.." cols="45" rows="8" aria-required="true"></textarea>
+                                    </div>
+                                    <div class="col-md-3 col-sm-12 col-xs-12">
+                                        <button class="schedule_submit" id="submit" type="submit">Send</button>
+                                    </div>
+                            </div> 
+                            <div *ngIf="!validateStatus && validateMessage.length > 0" style="padding-bottom: 20px;">
+                                <span style="color: red; font-size:13px;">
+                                    {{validateMessage}}
+                                </span>
+                            </div>
+                                                         
+                           
+                            <div *ngIf="validateStatus" style="padding-bottom: 20px;">
+                                <span style="color: Green; font-size:13px;">
+                                    {{validateMessage}}
+                                </span>
+                            </div>
+                    
+                          </form>
+                    </ng-container>
                 </div>
             </div>
         </div>
