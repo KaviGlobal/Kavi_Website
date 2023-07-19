@@ -32,21 +32,21 @@
       // background-image: url("../../../assets/images/Group 2007.png");
       box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%);
       .nav-right-bars {
-        color: #224991;
+        color: #234990;
       }
       .nav-right a{
-        color: #000d42;
+        color: #0c2939;
       }
     }
     .nav-right {
       justify-content: space-around;
       a {
-        color: #000d42;
+        color: #0c2939;
       }
     }
     .nav-right-bars{
       justify-content: space-around;
-      color: #224991;
+      color: #234990;
       
     }
   }
@@ -98,7 +98,7 @@ input{
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom-style: groove;
-  border-bottom: 1px solid #000d42;
+  border-bottom: 1px solid #0c2939;
   text-align: center;
 //  background-color: #eee;
 }
@@ -138,7 +138,7 @@ nav a {
   max-height: 420px;
 }
 .menu-container {
-  background-color: #000d42;
+  background-color: #0c2939;
   width: 100%;
   max-height: 0;
   will-change: max-height;
@@ -179,7 +179,7 @@ nav a {
   }*/
 }
 .menu-group{
-  color:#EA6B1E;
+  color:#f26000;
   padding-top:3px;
   padding-bottom:3px;
 }
@@ -222,13 +222,13 @@ nav a {
 }
 
 h6 {
-  color: #EA6B1E;
+  color: #f26000;
   font-size: 1rem;
   font-family: "montserrat-regular";
   font-weight: 600;
 }
 a {
-  // color: #234A91;
+  // color: #234990;
   color: #fff;
   font-size: 1.1rem;
   font-family: "montserrat-regular";

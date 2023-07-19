@@ -1,14 +1,14 @@
  
 .footer-container{
     max-width: 100%;
-    background-color: #000d42;
+    background-color: #0c2939;
     // padding: 40px 0;
     z-index: 999;
     position: relative;
     
 }
 .footer-bg-container {
-    color: #a2a6b8;
+    color: #ffffff;
     font-family: "montserrat-regular";
     padding: 45px 0px 0px;
     font-weight: 600;
@@ -17,7 +17,7 @@
         padding-bottom: 30px;
     }
     h6 {
-        color: #EA6B1E;
+        color: #f26000;
         font-size: 19px;
         font-family: "montserrat-regular";
         font-weight: 600;
@@ -26,11 +26,11 @@
         margin-bottom: 5px;
     }
     a{
-        color: #a2a6b8;
+        color: #ffffff; //a2a6b8
     }
     .privacy_policy{
         cursor: pointer;
-        color: #EA6B1E;
+        color: #f26000;
     }
 }
 .logo-wrapper {
@@ -52,7 +52,7 @@
     padding: 10px 0 0 0;
     margin: 0;
     &.ft-menu {
-        color: #ea6b1e;
+        color: #f26000;
         font-size: 14px;
         margin: 10px 0;
         padding: 0;
@@ -63,7 +63,7 @@
     }
     .custom {
         text-decoration: underline;
-        color: #224991;
+        color: #234990;
         cursor: pointer;
         &:hover {
             color: #fff;

@@ -57,7 +57,7 @@
                     <ng-container>
                       <li *ngFor="let menuItem of menuData[3]?.AboutUs; let k=index">
                         <div *ngIf="k == 0">
-                          <a class="menu-items-left" style ="color:#EA6B1E;margin-bottom: 8px;">{{menuItem.attributes?.Menu}}</a>
+                          <a class="menu-items-left" style ="color:#f26000;margin-bottom: 8px;">{{menuItem.attributes?.Menu}}</a>
                         </div>
                         <div class="inner-menu-items" *ngIf="!menuItem.attributes?.IsTitle">
                           <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName && menuItem?.attributes?.Slug != 'our-leadership-team'"
@@ -77,7 +77,7 @@
                     <ng-container>
                       <li *ngFor="let menuItem of menuData[0]?.LeftMenu; let k=index">
                         <div *ngIf="k == 0">
-                          <a class="menu-items-left" style ="color:#EA6B1E;margin-bottom: 8px;">{{menuItem.attributes?.parent_item?.data?.attributes?.DisplayName}}</a>
+                          <a class="menu-items-left" style ="color:#f26000;margin-bottom: 8px;">{{menuItem.attributes?.parent_item?.data?.attributes?.DisplayName}}</a>
                         </div>
                         <div class="inner-menu-items" *ngIf="!menuItem.attributes?.IsTitle">
                           <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName && menuItem?.attributes?.Slug != 'our-leadership-team'"
@@ -97,7 +97,7 @@
                     <ng-container>
                       <li *ngFor="let menuItem of menuData[4]?.SoftwareMenu; let k=index">
                         <div *ngIf="k == 0">
-                          <a class="menu-items-left" style ="color:#EA6B1E;margin-bottom: 8px;">{{menuItem.attributes?.parent_item?.data?.attributes?.DisplayName}}</a>
+                          <a class="menu-items-left" style ="color:#f26000;margin-bottom: 8px;">{{menuItem.attributes?.parent_item?.data?.attributes?.DisplayName}}</a>
                         </div>
                         <div class="inner-menu-items" *ngIf="!menuItem.attributes?.IsTitle">
                           <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName && menuItem?.attributes?.Slug != 'our-leadership-team'"
@@ -121,7 +121,7 @@
                             <div *ngIf="j==0 &&  !menuItem[IndustrykeyItem][0].attributes?.IsTitle">
                               <a [routerLink]="['/'+menuItem[IndustrykeyItem][0].attributes?.Parameter?.type+'/'+menuItem[IndustrykeyItem][0].attributes?.Slug]"
                               (click)="makeOfferingsActive(menuItem,menuItem[IndustrykeyItem][0].attributes?.Slug,menuItem[IndustrykeyItem][0].attributes?.Parameter)"
-                              class="menu-items-left" style ="color:#EA6B1E;margin-bottom:8px"> {{IndustrykeyItem}}</a>
+                              class="menu-items-left" style ="color:#f26000;margin-bottom:8px"> {{IndustrykeyItem}}</a>
                             </div>
                             <li> 
                               <a [routerLink]="[subItem.attributes?.Slug]" *ngIf="subItem.attributes?.DisplayName"
@@ -144,7 +144,7 @@
                         <div *ngIf="j==0 &&  menuItem[keyItem][0].attributes.parent_item.data.attributes.IsTitle">
                           <a [routerLink]="['/'+menuItem[keyItem][0].attributes.parent_item.data.attributes.Parameter.type+'/'+menuItem[keyItem][0].attributes.parent_item.data.attributes.Slug]"
                           (click)="makeOfferingsActive(menuItem[keyItem][0].attributes.parent_item.data,menuItem[keyItem][0].attributes.parent_item.data.attributes.Slug,menuItem[keyItem][0].attributes.Menu)"
-                          class="menu-items-left" style ="color:#EA6B1E;margin-bottom:8px"> {{keyItem}}</a>
+                          class="menu-items-left" style ="color:#f26000;margin-bottom:8px"> {{keyItem}}</a>
                         </div>
                         <div *ngIf="j==0 && !menuItem[keyItem][0].attributes.parent_item.data.attributes.IsTitle">
                           <a class="menu-items-left" style ="margin-bottom:8px" href=""> {{keyItem}}</a>

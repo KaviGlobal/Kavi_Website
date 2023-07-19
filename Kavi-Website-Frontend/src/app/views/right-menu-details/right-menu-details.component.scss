@@ -1,6 +1,6 @@
-.heading_cover {
+.full_heading_cover {
   padding: 200px 20px;
-  color: #EA6B1E;
+  color: #f26000;
   font-size: 50px;
   font-weight: 700;
   background-repeat: no-repeat;
@@ -11,6 +11,18 @@
     width: 90%;
     margin: auto;display: block;
   }
+}
+.heading_cover {
+  color: #ea6b1e;
+  font-size: 34px;
+  font-weight: 700;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 70px 20px;
+  background-position: left;
+  text-align: center;
+  margin-bottom: 25px;
+  border-radius: 20px;
 }
 .page-content {
     // padding-right: 70px;    
@@ -23,7 +35,7 @@
       font-family: "montserrat-regular";
     }  
     h2 {
-      color: #EA6B1E;
+      color: #f26000;
       font-size: 34px;
       font-weight: 700;
       background-repeat: no-repeat;
@@ -37,7 +49,7 @@
   }
   .centered {
       position: relative;
-    color: #EA6B1E;
+    color: #f26000;
     font-size: 1.5rem;
     font-weight: 700;
 }
@@ -45,18 +57,18 @@
   border-radius: 20px !important;
 }
 .title {
-  color: #EA6B1E;
+  color: #f26000;
   font-size:1.4rem;
   font-weight: 700px;
   margin-bottom:10px
 }
 .close {
-  background-color: #EA6B1E;
+  background-color: #f26000;
   color: #fff;
   outline:none;
 }
 .contactFormSend{
-  background-color: #EA6B1E;
+  background-color: #f26000;
   color: white;
   padding: 5px 20px;
   border: none;
@@ -83,22 +95,22 @@
     outline: none;
   }
   .formStyles:focus {
-    border: 1px solid #EA6B1E;
+    border: 1px solid #f26000;
   }
   
   input[type=text]:focus {
-    border: 1px solid #EA6B1E;
+    border: 1px solid #f26000;
   }
   input[type=number]:focus {
-    border: 1px solid #EA6B1E;
+    border: 1px solid #f26000;
   }
   textarea:focus {
-    border: 1px solid #EA6B1E;
+    border: 1px solid #f26000;
    
     } 
     
     input[type=submit] {
-      background-color: #EA6B1E;
+      background-color: #f26000;
       color: white;
       padding: 5px 20px;
       border: none;
@@ -108,10 +120,10 @@
     }
     
     input[type=submit]:hover {
-      background-color: #EA6B1E;
+      background-color: #f26000;
     }
     button{
-      background-color: #EA6B1E;
+      background-color: #f26000;
       color: white;
       padding: 5px 20px;
       border: none;
@@ -139,8 +151,10 @@
 }
   .recommendation-section {
     h3 {
-      color: #EA6B1E;
-      font-size: 24px;
+      color: #f26000;
+      font-size: 1.4rem;
+      font-family: "montserrat-regular";
+      font-weight: bold;
     }
   }
   .container{
@@ -153,12 +167,12 @@
 //      height:400px
     }
     h2 {
-      color:#EA6B1E;
+      color:#f26000;
       font-size: 45px;
       font-weight:700;
     }
     h5 {
-      color:#224991;
+      color:#234990;
       //#747474;
       font-size: 20px;
       margin-bottom:30px;
@@ -178,7 +192,7 @@
     border-bottom-right-radius: calc(0.3rem - 1px);
     border-bottom-left-radius: calc(0.3rem - 1px);
     button{
-      background-color: #EA6B1E;
+      background-color: #f26000;
       color: white;
       padding: 5px 20px;
       border: none;
@@ -205,7 +219,7 @@
       font-family: 'FontAwesome';
     }
     a{
-      color:#EA6B1E;
+      color:#f26000;
     }
   }
   .social-wrapper {  
@@ -221,7 +235,7 @@
       }
     }
     a{
-      color:#000d42;
+      color:#0c2939;
   }
   }
 
@@ -230,20 +244,20 @@
         font-size: 1.6rem;
         font-family: "montserrat-regular";
         font-size: 900;
-        color:#234A91;
-    //    color: #224991;
+        color:#234990;
+    //    color: #234990;
     /*    margin-bottom: 25px;*/
     }
     h5{
-    //    color: #666;  
-        color:#EA6B1E;
+    //    color: #000000;  
+        color:#f26000;
         font-weight:600;
         font-family: "montserrat-regular";
         font-size: 0.9rem;
         margin-bottom: -5px;
     }
     p{
-        color: #666;
+        color: #000000;
         // width: 90%;
         font-family: "montserrat-regular";
         font-size: 1.1rem;
@@ -256,7 +270,7 @@
     }
     
     b{        
-        background-color:#000d42;
+        background-color:#0c2939;
         color: #fff;
         width: 90%;
         font-family: "montserrat-regular";
@@ -269,7 +283,7 @@
       
       /* Style the buttons inside the tab */
       .tab b {
-        background-color: #000d42;
+        background-color: #0c2939;
         color: #fff;
         width: fit-content;
         font-weight:800;
@@ -291,7 +305,7 @@
 .our_page {
   // padding: 0px 20px;
   h2 {
-      color: #ea6b1e;
+      color: #f26000;
       font-size: 34px;
       font-weight: 700;
       background-repeat: no-repeat;
@@ -307,26 +321,31 @@
 markdown ::ng-deep  {
   font-size: 1.1em;
   summary{
-    //  color: #fff;
-     color: #234a91;
-      font-size: 20px;
-      margin-bottom:10px;    
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    background: #0c2939;
+    padding: 15px;  
+  }
+  details{
+    background-color: #f6f6f6;
+    p{
+      padding: 15px;
+      margin: 0px;
     }
-    details{
-      background-color: #f6f6f6;
-      padding:15px;
-    }
+  }
   h4 {
-    color:#EA6B1E;
+    color:#f26000;
     font-weight: 900;
   }
   p{
+    color: #000000;
+    font-size: 1.1rem;
     img {
       max-width: 100% !important;
       margin-top:10px;
       margin-bottom:30px;
     }
-    font-size: 1.1rem;
   }
   img {
     max-width: 100%;

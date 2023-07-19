@@ -58,10 +58,20 @@ export class HomeComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
+
       if (document.documentElement.scrollTop > document.getElementById('achievements_section')!.offsetTop - 400) {
         document.getElementById('achievements_section_count')!.classList.add("fade-down-animate");
         // setTimeout(() => {  document.getElementById('achievements_section_count')!.classList.add("fade-down-animate"); }, 500);
+        // let counts = setInterval(updated);
+        // let upto = 0;
+        // function updated() {
 
+        //     let count = document.getElementById("counter");
+        //     count!.innerHTML = String('$'+ ++upto +' million');
+        //     if (upto === 500) {
+        //         clearInterval(counts);
+        //     }
+        // }
       } else {
         // document.getElementById('achievements_section_desc')!.classList.remove("fade-down-animate");
         document.getElementById('achievements_section_count')!.classList.remove("fade-down-animate");

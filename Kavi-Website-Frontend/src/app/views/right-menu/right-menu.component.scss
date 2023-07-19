@@ -10,7 +10,7 @@
     display: flex;
   }
   h2{
-    color: #ea6b1e;
+    color: #f26000;
     font-size: 34px;
     font-weight: 700;
     background-repeat: no-repeat;
@@ -46,13 +46,15 @@ footer-top-margin{
   font-family: "montserrat-regular";
   font-size: 1.1rem;
   line-height: 0.8;
-//  color: #2b5084 !important;
+  color: #f26000;
   cursor: pointer;
 }
 .recommendation-section {
   h3 {
-    color: #EA6B1E;
-    font-size: 24px;
+    color: #f26000;
+    font-size: 1.4rem;
+    font-family: "montserrat-regular";
+    font-weight: bold;
   }
 }
 .page-content {
@@ -96,14 +98,14 @@ select {
   background: #fff;
 }
 select:focus {
-  border: 2px solid #EA6B1E;
+  border: 2px solid #f26000;
 }
 select:hover {
 //    color: #000000;
     background: #fff;
 }
 select::after {
-  background-color: #000d42;
+  background-color: #0c2939;
 }
 .custom-select {
   position: relative;
@@ -193,17 +195,17 @@ input[type=text],[type=number],textarea {
   outline: none;
 }
 .formStyles:focus {
-  border: 1px solid #EA6B1E;
+  border: 1px solid #f26000;
 }
 
 input[type=text]:focus {
-  border: 1px solid #EA6B1E;
+  border: 1px solid #f26000;
 }
 input[type=number]:focus {
-  border: 1px solid #EA6B1E;
+  border: 1px solid #f26000;
 }
 textarea:focus {
-  border: 1px solid #EA6B1E;
+  border: 1px solid #f26000;
   }
 
 .mandatory-sign {
@@ -216,7 +218,7 @@ textarea:focus {
 }
 
 button{
-  background-color: #EA6B1E;
+  background-color: #f26000;
   color: white;
   padding: 5px 20px;
   border: none;
@@ -226,7 +228,7 @@ button{
 }
 
 input[type=submit] {
-  background-color: #EA6B1E;
+  background-color: #f26000;
   color: white;
   padding: 5px 20px;
   border: none;
@@ -236,7 +238,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: #EA6B1E;
+  background-color: #f26000;
 }
 
 .container {
@@ -247,7 +249,7 @@ input[type=submit]:hover {
 }
 
 .title {
-  color: #EA6B1E;
+  color: #f26000;
   font-size:1.4rem;
   font-weight: 700px;
   margin-bottom:10px
@@ -291,7 +293,7 @@ p {
 
 /* Style the buttons inside the tab */
 .tab a {
-  background-color: #000d42;
+  background-color: #0c2939;
   color: #fff;
   width: -moz-fit-content;
   width: fit-content;
@@ -309,7 +311,7 @@ p {
 .our_page {
   // padding: 0px 20px;
   h2 {
-      color: #ea6b1e;
+      color: #f26000;
       font-size: 34px;
       font-weight: 700;
       background-repeat: no-repeat;

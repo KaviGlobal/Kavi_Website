@@ -7,7 +7,7 @@ img {
 }
 h3 {
   font-family: "montserrat-regular";
-  color: #EA6B1E;
+  color: #f26000;
   font-size: 1.1rem;
   font-weight: 900;
   padding-top: 5px;
@@ -16,7 +16,7 @@ h3 {
 p {
   font-size: 1.1rem;
   text-align: start;
-  color: #333333;
+  color: #000000;
   font-family: "montserrat-regular"; 
   overflow: hidden;
   text-overflow: ellipsis;
@@ -27,7 +27,7 @@ p {
 }
 a {
   font-family: "montserrat-regular";
-  color: #224991;
+  color: #234990;
   font-size: 1.1rem;
   text-align: start;
   font-weight: bold;
@@ -127,7 +127,7 @@ a {
     }
     a {
       font-family: "montserrat-regular";
-      color: #224991;
+      color: #234990;
       font-size: 13px;
       text-align: start !important;
       font-weight: bold;
@@ -157,7 +157,7 @@ a {
       // height: 250px;
     }
     h3 {
-      color: #224991;
+      color: #234990;
       font-size: 1.5rem;
       margin: 0;
       padding: 10px 0;
@@ -168,19 +168,19 @@ a {
       text-align: justify;
     }
     a {
-      color: #ea6b1e;
+      color: #f26000;
     }
 }
 .top-layout-container {
   background:#ffffff;
   // background-image: linear-gradient(180deg, rgba(174, 223, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
   h3 {
-    color: #224991;
+    color: #234990;
     line-height: 30px;
     margin-bottom: 20px
   }
   a {
-    color: #ea6b1e;
+    color: #f26000;
   }
   p{
     margin-bottom: 25px;

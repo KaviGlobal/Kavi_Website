@@ -30,7 +30,7 @@
       font-size: 24px;
       line-height: 1.6;
       span {
-        color: #ea6b1e;
+        color: #f26000;
         font-weight: 600;
       }
     }
@@ -68,7 +68,7 @@
   align-items: center;
   h3 {
     font-family: "montserrat-regular";
-    color: #ea6b1e;
+    color: #f26000;
     font-size: 2.5rem;
     text-align: center;
     padding-bottom:20px;
@@ -76,13 +76,14 @@
   }
 
   h2 {
-    color: #224991;
+    color: #234990;
     font-size: 20px;
     line-height: 1;
     text-align: left;
   }
 
   p {
+    color: #000000;
     font-size: 1.4rem;
     width: 55%;
     text-align: center;
@@ -120,12 +121,12 @@
     }
     h1 {
       font-size: 55px;
-      color: #224991;
+      color: #234990;
       font-weight: bold;
     }
     p {
       font-size: 24px;
-      color: #0d2c3d;
+      color: #000000;
     }
   }
 }
@@ -133,7 +134,7 @@
   padding: 60px 0;
 }
 .analytics-section {
-  background-color: #000d42;
+  background-color: #0c2939;
   color: #fff;
   padding: 50px 0;
   h1 {
@@ -161,7 +162,7 @@
           font-size: 10px;
         }
         a{
-          color: #ea6b1e;
+          color: #f26000;
           font-weight: 600;
           font-size: 1.3rem;
         }
@@ -196,7 +197,7 @@
   text-align: center;
   h3 {
     font-family: "montserrat-regular";
-    color: #ea6b1e;
+    color: #f26000;
     font-size: 2.5rem;
     // font-weight: 900;
     margin-bottom: 35px;
@@ -207,7 +208,7 @@
     line-height: 1.6;
     margin: 0;
     text-align: center;
-    color: #333333;
+    color: #000000;
     span {
       line-height: 2.5;
     }
@@ -247,7 +248,7 @@
     max-width: 100%;
   }
   p {
-    color: #224991;
+    color: #234990;
     font-family: "montserrat-regular";
     font-size: 1.2rem;
     padding-top: 5px;
@@ -268,22 +269,22 @@
   outline: none;
 }
 .formStyles:focus {
-  border: 1px solid #EA6B1E;
+  border: 1px solid #f26000;
 }
 
 input[type=text]:focus {
-  border: 1px solid #EA6B1E;
+  border: 1px solid #f26000;
 }
 input[type=number]:focus {
-  border: 1px solid #EA6B1E;
+  border: 1px solid #f26000;
 }
 textarea:focus {
-  border: 1px solid #EA6B1E;
+  border: 1px solid #f26000;
  
   } 
   
   input[type=submit] {
-    background-color: #EA6B1E;
+    background-color: #f26000;
     color: white;
     padding: 5px 20px;
     border: none;
@@ -293,10 +294,10 @@ textarea:focus {
   }
   
   input[type=submit]:hover {
-    background-color: #EA6B1E;
+    background-color: #f26000;
   }
   button{
-    background-color: #EA6B1E;
+    background-color: #f26000;
     color: white;
     padding: 5px 20px;
     border: none;
@@ -323,7 +324,7 @@ textarea:focus {
   }
   h3 {
     font-family: "montserrat-regular";
-    color: #ea6b1e;
+    color: #f26000;
     font-size: 2.5rem;
     // padding-top: 25px;
     text-align: center;
@@ -336,7 +337,7 @@ textarea:focus {
 }
 
 .clients-carousel {
-  background-color: #000d42;
+  background-color: #0c2939;
   text-align: center;
   padding: 40px 0;
   h3 {
@@ -493,7 +494,7 @@ textarea:focus {
 // }
 .image-container {
   width: 355px;
-  background-color: #333333;
+  background-color: #000000;
 }
 .read-more-section {
   text-align: right;
@@ -501,7 +502,7 @@ textarea:focus {
   a {
     padding: 0px 20px;
     font-size: 1.5rem;
-    color: #224991;
+    color: #234990;
     font-weight: 500;
     // display: block;
     i {
@@ -511,7 +512,7 @@ textarea:focus {
     }
   }
   h3 {
-    color: #0d2c3d;
+    color: #000000;
     font-family: "montserrat-regular";
     font-size: 20px;
     text-align: left;
@@ -530,7 +531,7 @@ textarea:focus {
 }
 .section-heading {
   font-family: "montserrat-regular";
-  color: #ea6b1e;
+  color: #f26000;
   font-size: 2.5rem;
   text-align: center;
   // font-weight: 900;
@@ -548,7 +549,7 @@ textarea:focus {
   }
   h3 {
     font-family: "montserrat-regular";
-    color: #224991;
+    color: #234990;
     font-size: 15px;
     width: 250px;
     padding-top: 5px;
@@ -565,7 +566,7 @@ textarea:focus {
   }
   a {
     font-family: "montserrat-regular";
-    color: #224991;
+    color: #234990;
     font-size: 13px;
     width: 250px;
     text-align: start !important;
@@ -584,12 +585,12 @@ textarea:focus {
   }
 }
 .news-letter-wrapper {
-  background-color: #000d42;
+  background-color: #0c2939;
   padding: 20px 40px;
   color: #fff;
   h3 {
     font-family: "montserrat-regular";
-    color: #ea6b1e;
+    color: #f26000;
     font-size: 1.8rem;
     font-weight: bold;
   }
@@ -627,7 +628,7 @@ textarea:focus {
   }
   h3 {
     font-family: "montserrat-regular";
-    color: #224991;
+    color: #234990;
     font-size: 24px;
     width: 480px;
     text-align: start;
@@ -644,7 +645,7 @@ textarea:focus {
   }
   a {
     font-family: "montserrat-regular";
-    color: #224991;
+    color: #234990;
     font-size: 13px;
     width: 300px;
     text-align: start !important;
@@ -665,7 +666,7 @@ agm-map {
     width: 400px;
     position: absolute;
     .map-contact-container {
-      background: #000D42;
+      background: #0c2939;
       border-radius: 0 15px 15px 0;
       padding: 15px 10px 4px;
       .map-contact-content {
@@ -674,7 +675,7 @@ agm-map {
         color: #b5b8c4;
         text-align: center;
         .title {
-          color: #EA6B1E;
+          color: #f26000;
           font-weight: 700px;
         }
       }
@@ -737,7 +738,7 @@ agm-map {
     padding-top: 30px;
   }
   p {
-    color: #224991;
+    color: #234990;
     font-family: "montserrat-regular";
     font-size: 1.2rem;
     padding-top: 30px;
@@ -749,7 +750,7 @@ agm-map {
   color: white;
   transform: rotateY(180deg);
   p {
-    color: #224991;
+    color: #234990;
     font-family: "montserrat-regular";
     font-size: 1rem;
     padding-top: 70px;
@@ -774,11 +775,11 @@ agm-map {
   float: right;width: 100%;line-height: 50px;margin-top: 6px;font-size: 24px;
 }
 @media only screen and (min-width: 992px) {
-  .cost-wrapper {
-    .cost-card-col {
-      border-left: 1px solid #000;
-    }
-  }
+  // .cost-wrapper {
+  //   .cost-card-col {
+  //     border-left: 1px solid #000;
+  //   }
+  // }
 }
 @media (min-width: 1200px)
 {
