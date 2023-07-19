@@ -59,6 +59,7 @@
   </ng-template> 
 <div class="details-content" *ngIf="isPageLoaded">
     <div class="" *ngIf="isDataLoaded && !isClient && !isPartner">
+        <h2 class="heading_cover" *ngIf="pageType == 'pages'" style = "background-image:url('{{pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes?.url}}')"><span>{{pageData[0]?.attributes?.Title}}</span></h2>
     <div class="container" [ngClass]="{'pad_400': pageType != 'pages'}" >
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12 border-right"> 
@@ -70,7 +71,7 @@
                         <!--    <div class="centered">{{pageData[0]?.attributes?.Title}}</div>-->
                         </div>
                     </div>
-                    <h2 class="heading_cover" *ngIf="pageType == 'pages'" style = "background-image:url('{{pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes?.url}}')">{{pageData[0]?.attributes?.Title}}</h2>
+                    
                     <div *ngIf="pageFullContent">
                     <markdown  [data]="pageFullContent"> </markdown>
                     </div>
