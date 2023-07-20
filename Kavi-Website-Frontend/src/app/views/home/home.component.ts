@@ -77,37 +77,37 @@ export class HomeComponent implements OnInit {
         document.getElementById('achievements_section_count')!.classList.remove("fade-down-animate");
       }
 
-      if (document.documentElement.scrollTop > document.getElementById('analytics_section')!.offsetTop - 400) {
+      if (document.documentElement.scrollTop > document.getElementById('analytics_section')!.offsetTop - 600) {
         document.getElementById('analytics_section')!.classList.add("fade-up-animate");
       } else {
         document.getElementById('analytics_section')!.classList.remove("fade-up-animate");
       }
 
-      if (document.documentElement.scrollTop > document.getElementById('success_story')!.offsetTop - 400) {
+      if (document.documentElement.scrollTop > document.getElementById('success_story')!.offsetTop - 500) {
         document.getElementById('success_story')!.classList.add("fade-up-animate");
       } else {
         document.getElementById('success_story')!.classList.remove("fade-up-animate");
       }
 
-      if (document.documentElement.scrollTop > document.getElementById('blog_section')!.offsetTop - 400) {
+      if (document.documentElement.scrollTop > document.getElementById('blog_section')!.offsetTop - 500) {
         document.getElementById('blog_section')!.classList.add("fade-up-animate");
       } else {
         document.getElementById('blog_section')!.classList.remove("fade-up-animate");
       }
 
-      if (document.documentElement.scrollTop > document.getElementById('news_cont')!.offsetTop - 400) {
+      if (document.documentElement.scrollTop > document.getElementById('news_cont')!.offsetTop - 500) {
         document.getElementById('news_cont')!.classList.add("fade-up-animate");
       } else {
         document.getElementById('news_cont')!.classList.remove("fade-up-animate");
       } 
 
-      if (document.documentElement.scrollTop > document.getElementById('clients_section')!.offsetTop - 400) {
+      if (document.documentElement.scrollTop > document.getElementById('clients_section')!.offsetTop - 500) {
         document.getElementById('clients_section')!.classList.add("fade-up-animate");
       } else {
         document.getElementById('clients_section')!.classList.remove("fade-up-animate");
       } 
 
-      if (document.documentElement.scrollTop > document.getElementById('clients_carousel')!.offsetTop - 400) {
+      if (document.documentElement.scrollTop > document.getElementById('clients_carousel')!.offsetTop - 500) {
         document.getElementById('clients_carousel')!.classList.add("fade-up-animate");
       } else {
         document.getElementById('clients_carousel')!.classList.remove("fade-up-animate");

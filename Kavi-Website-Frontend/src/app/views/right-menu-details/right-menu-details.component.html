@@ -116,7 +116,7 @@
                             >
                             </iframe>
                             <div class="fileDownload" *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.mime && pageData[0]?.attributes?.isDownloadable">                            
-                                <a (click)="open(mymodal,pageData[0]?.attributes?.Media[0].Media.data.attributes.url,pageData[0]?.attributes?.Slug)">
+                                <a (click)="open(mymodal,pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.url,pageData[0]?.attributes?.Slug,pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.ext)">
                                     <i class="fa fa-download" aria-hidden="true"></i>Download File</a>                                
                             </div> 
                         </div>                       

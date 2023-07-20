@@ -170,14 +170,14 @@ export class RightMenuDetailsComponent implements OnInit {
     modalRef.componentInstance.title = ' title:';*/  
   }
 
-  open(content:any,fileUrl:any,fileName:any) {
+  open(content:any,fileUrl:any,fileName:any,fileExtention:any) {
     this.modalService.open(content, this.modalOptions).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {     
       this.closeResult = `Dismissed ${
         this.getDismissReason(reason)}`;
         if(this.validateStatus){
-          this.downloadFile(fileUrl,fileName);
+          this.downloadFile(fileUrl,fileName,fileExtention);
         }
     });
   }
@@ -206,7 +206,7 @@ export class RightMenuDetailsComponent implements OnInit {
     }
   }
 
-  public downloadFile(fileUrl:any,fileName:any){   
+  public downloadFile(fileUrl:any,fileName:any,fileExtention:any){   
 //    this.getUserInfo();
     var req = new XMLHttpRequest();
             req.open("GET", fileUrl, true);
@@ -219,7 +219,7 @@ export class RightMenuDetailsComponent implements OnInit {
                     var url = window.URL || window.webkitURL;
                     let link = url.createObjectURL(blob);
                     var a = document.createElement("a");
-                    a.setAttribute("download", fileName+'.pdf');
+                    a.setAttribute("download", fileName+fileExtention);
                     a.setAttribute("href", link);
                     document.body.appendChild(a);
                     a.click();
