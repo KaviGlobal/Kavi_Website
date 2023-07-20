@@ -516,7 +516,7 @@ callTag(searchText:any){
         });
         this.getRightPageData()
 
-      } else if (this.routePath == 'our-leadership-team'){
+      } else if (this.routePath == 'leadership-team'){
         this.rightMenuService.getDetailsData(this.commonService.activeMenuData?.attributes?.Parameter?.type, this.pageDetailsName, this.commonService.activeMenuData?.attributes?.Parameter?.parameter?.filter).then((response: any) => {
           if (response.data && response.data.length > 0) {
             var sort = sortBy(response.data, ["id"]);
