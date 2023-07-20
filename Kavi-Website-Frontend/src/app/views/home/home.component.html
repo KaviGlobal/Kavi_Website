@@ -15,9 +15,9 @@
                                     {{this.homeData.attributes.HeroHeader[0].Description}}</h3>
                             </div>
                             <div class="partner-img-wrapper">
-                                <div class="row align-items-center">
-                                    <ng-container *ngFor="let item of homeData.attributes.HeroHeader;let i = index">
-                                        <div class="col-3" *ngIf="i && item.SliderMedia.Media.data.attributes.url">
+                                <div class="row align-items-center" *ngIf="homeData.attributes?.HeroHeader">
+                                    <ng-container *ngFor="let item of homeData.attributes?.HeroHeader;let i = index">
+                                        <div class="col-3" *ngIf="i && item.SliderMedia?.Media?.data?.attributes?.url">
                                             <div class="partner-img">
                                                 <img src="{{item.SliderMedia.Media.data.attributes.url}}" alt="logo"
                                                     class="">
