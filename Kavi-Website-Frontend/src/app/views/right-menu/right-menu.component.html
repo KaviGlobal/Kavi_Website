@@ -8,7 +8,7 @@
 && !searchTag && !isUserForm && !isEmptyDataList && !isLeadership)">
     <app-page-loader></app-page-loader>
 </div> 
-<div class="icon-bar">
+<div class="icon-bar" *ngIf="!isPolicy">
     <a href="https://www.linkedin.com/company/kavi-global/mycompany/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
     <a href="https://www.youtube.com/channel/UCEMWF8WAJuM5k32gkxGopBQ" target="_blank" class="youtube"><i class="fa fa-youtube"></i></a> 
     <a href="https://twitter.com/KG4Analytics" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a> 
@@ -23,8 +23,8 @@
     </div>        
 </div>
 <div *ngIf="isContactUs && !isUserForm" class="page-container"> 
-    <div class="container py-5">
-        <h3 class="title" style="width:25%">Contact Us</h3> 
+    <div style="text-align:center" class="container py-5">
+        <h3 class="title" style="width:100%">Contact Us</h3> 
     <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
       <div *ngFor="let item of formData; let i = index">
         <div *ngIf="item.Type == 'text' || item.Type == 'number'">    

@@ -167,7 +167,7 @@ select::after {
 }
 
     
-input[type=text],[type=number],textarea {
+input[type=text],[type=number] {
   width: 50%;
   padding: 10px;
  // margin: 8px 0;
@@ -175,6 +175,20 @@ input[type=text],[type=number],textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-top: 6px;
+  margin-bottom: 16px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+textarea {
+  width: 50%;
+  padding: 10px;
+ // margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 6px;
+  margin-left:-10px;
   margin-bottom: 16px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
