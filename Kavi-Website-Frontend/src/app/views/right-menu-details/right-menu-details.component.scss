@@ -1,6 +1,6 @@
 .full_heading_cover {
-  padding: 200px 20px;
-  color: #f26000;
+  // padding: 200px 20px;
+  color: #ffffff;
   font-size: 50px;
   font-weight: 700;
   font-family: 'montserrat-regular';
@@ -8,9 +8,21 @@
   background-size: cover;
   background-position: left;
   margin-bottom: 25px;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    bottom: 0px;
+    background: rgba(0,0,0,0.2);
+  }
   span{
     width: 90%;
     margin: auto;display: block;
+    padding: 180px 20px;
+    position: relative;
   }
 }
 .heading_cover {
@@ -406,6 +418,7 @@ markdown ::ng-deep  {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+  z-index: 2;
 }
 
 .icon-bar a {
