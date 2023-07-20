@@ -59,9 +59,9 @@
   </ng-template> 
 <div class="details-content" *ngIf="isPageLoaded">
     <div class="" *ngIf="isDataLoaded && !isClient && !isPartner">
-        <h2 class="full_heading_cover" *ngIf="pageType == 'pages' && pageData[0]?.attributes?.Slug == 'business-intelligence'" style = "background-image:url('{{pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes?.url}}')"><span>{{pageData[0]?.attributes?.Title}}</span></h2>
+        <h2 class="full_heading_cover" *ngIf="pageType == 'pages'" style = "background-image:url('{{pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes?.url}}')"><span>{{pageData[0]?.attributes?.Title}}</span></h2>
     <div class="container" [ngClass]="{'pad_400': pageType != 'pages'}" >
-        <h2 class="heading_cover" *ngIf="pageType == 'pages' && pageData[0]?.attributes?.Slug != 'business-intelligence'" style = "background-image:url('{{pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes?.url}}')"><span>{{pageData[0]?.attributes?.Title}}</span></h2>
+        <!-- <h2 class="heading_cover" *ngIf="pageType == 'pages' && pageData[0]?.attributes?.Slug != 'business-intelligence'" style = "background-image:url('{{pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes?.url}}')"><span>{{pageData[0]?.attributes?.Title}}</span></h2> -->
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12 border-right"> 
                 <div class="page-content py-4" *ngIf="!isPeople">
