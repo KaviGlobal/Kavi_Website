@@ -268,7 +268,12 @@ input[type=submit]:hover {
   font-weight: 700px;
   margin-bottom:10px
 }
-
+.title-menu-list {
+  color: #f26000;
+  font-size:2.0rem;
+  font-weight: 700px;
+  margin-bottom:10px
+}
 .modalFooter {
   display: flex;
   flex-wrap: wrap;
@@ -424,7 +429,7 @@ p {
     
     .read-more{
       font-family: "montserrat-regular";
-      font-size: 1.2rem;
+      font-size: 1.0rem;
       line-height: 0.8;
       color: #f26000;
       cursor: pointer;
