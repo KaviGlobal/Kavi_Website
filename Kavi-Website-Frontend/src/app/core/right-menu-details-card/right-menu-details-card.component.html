@@ -2,7 +2,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <div class="right-menu-card">
-    <h1>{{title}}</h1>
+    <h1 *ngIf="title">{{title}}</h1>
     <div>
     <h5 *ngIf="authorDetails && authorDetails.length !== 0">
         by {{authorDetails[0].attributes.DisplayName}} |
@@ -22,6 +22,6 @@
     
     
     <img *ngIf="cardImage" src={{cardImage}} alt="image" />    
-    <p>{{cardContent}}</p>
+    <p *ngIf="cardContent">{{cardContent}}</p>
 </div>
 

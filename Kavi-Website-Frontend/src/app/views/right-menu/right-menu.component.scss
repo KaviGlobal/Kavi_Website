@@ -3,8 +3,8 @@
   // height: 100%;
   // background-color: aqua;
   // margin-right: 10px;
-  padding-top: 30px;
-  padding-right: 30px;
+  // padding-top: 30px;
+  // padding-right: 30px;
   box-sizing: border-box;
   .list-wrapper {
     display: flex;
@@ -42,7 +42,7 @@ footer-top-margin{
   margin-top:20px;
 }
 .read-more {
-  width: 90%;
+  // width: 90%;
   font-family: "montserrat-regular";
   font-size: 1.1rem;
   line-height: 0.8;
@@ -389,4 +389,47 @@ p {
 .youtube {
   background: #bb0000;
   color: white;
+}
+.container_1400 .container{
+  max-width: 1400px;
+}
+.page-container{
+  background: #f2f2f2;
+}
+.page-content-section {
+  box-sizing: border-box;
+  padding: 25px;
+  .box_block {
+    box-shadow: 0 0 4px #e6e6e6;
+    background: #fff;
+    border-radius: 4px;
+    padding: 25px;
+    margin-bottom: 25px;
+    .tab a {
+      background-color: #0c2939;
+      color: #fff;
+      width: -moz-fit-content;
+      width: fit-content;
+      font-weight: 800;
+      font-family: "montserrat-regular";
+      float: left;
+      border-radius: 7px;
+      outline: none;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 14px;
+      padding: 5px 10px;
+      margin: 0 8px 10px 0;
+    }
+    
+    .read-more{
+      font-family: "montserrat-regular";
+      font-size: 1.2rem;
+      line-height: 0.8;
+      color: #f26000;
+      cursor: pointer;
+      font-weight: bold;
+      // float: right;
+    }
+  }
 }

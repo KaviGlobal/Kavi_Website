@@ -2,34 +2,34 @@
     * {
         font-family: "montserrat-regular";
       }  
-    h1{
-        font-size: 1.4rem;
-        font-family: "montserrat-regular";
-        font-size: 900;
-        color:#234990;
-    //    color: #234990;
-    /*    margin-bottom: 25px;*/
-    }
-    h5{
-    //    color: #000000;  
-        color:#f26000;
-        font-weight:600;
-        font-family: "montserrat-regular";
-        font-size: 0.9rem;
-        margin-bottom: -5px;
-    }
-    p{
-        color: #000000;
-        // width: 90%;
-        font-family: "montserrat-regular";
-        font-size: 1.1rem;
-        line-height: 1.6;
-        text-align: justify;
-    }
+    // h1{
+    //     font-size: 1.4rem;
+    //     font-family: "montserrat-regular";
+    //     font-size: 900;
+    //     color:#234990;
+    // //    color: #234990;
+    // /*    margin-bottom: 25px;*/
+    // }
+    // h5{
+    // //    color: #000000;  
+    //     color:#f26000;
+    //     font-weight:600;
+    //     font-family: "montserrat-regular";
+    //     font-size: 0.9rem;
+    //     // margin-bottom: -5px;
+    // }
+    // p{
+    //     color: #000000;
+    //     // width: 90%;
+    //     font-family: "montserrat-regular";
+    //     font-size: 1.1rem;
+    //     line-height: 1.6;
+    //     text-align: justify;
+    // }
     img{
-        width: 60%;
-        margin-bottom: 30px;
-        margin-top: 10px;
+    //     width: 60%;
+        margin-bottom: 10px;
+    //     margin-top: 10px;
     }
     
     b{        
@@ -63,4 +63,42 @@
       .tab a {        
         color: #fff;
       }
+}
+
+
+.right-menu-card  {
+  h1{
+  font-size: 1.6rem;
+  font-family: "montserrat-regular";
+  font-weight: 900;
+  color: #234990;
+  margin-bottom: 10px;
+  line-height: 35px;
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2;
+           line-clamp: 2;
+   -webkit-box-orient: vertical;
+  }
+  h5{
+    color: #f26000;
+    font-weight: 600;
+    font-family: "montserrat-regular";
+    font-size: 1.1rem;
+    margin-bottom: 13px
+  }
+  p {
+    color: #000000;
+    font-family: "montserrat-regular";
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: justify;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 5;
+           line-clamp: 5;
+   -webkit-box-orient: vertical;
+  }
 }

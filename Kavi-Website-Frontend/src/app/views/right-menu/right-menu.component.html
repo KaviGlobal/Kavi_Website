@@ -92,10 +92,10 @@
 
     </div>
 </div>
-<div *ngIf="isDataLoaded && !isUserForm" class="page-container"> 
+<div *ngIf="isDataLoaded && !isUserForm" class="page-container container_1400"> 
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-12 col-lg-12 border-right">
+            <div class=""> <!-- col-12 col-md-12 col-lg-12 border-right -->
                 <!--To display the list of Tags based on Master Tag List click event -->
                 <div class="page-content-section" *ngIf = "SearchTagMenu == ':id'">
                     <div class="centered">
@@ -150,7 +150,44 @@
                     </div>
                     
                 </div>
-                <div class="page-content-section" *ngIf =" !SearchTagMenu && pageData.length > 0">           
+                <div class="page-content-section" *ngIf =" !SearchTagMenu && pageData.length > 0">
+                    <div class="row">        
+                        <div *ngFor="let item of pageData; let i = index;"class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                            <div  >
+                                <div class="box_block" >
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <app-right-menu-details-card 
+                                                [cardImage]="item?.attributes?.Thumbnail?.Media?.data?.attributes.url"
+                                            ></app-right-menu-details-card>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <app-right-menu-details-card 
+                                            [title]="item?.attributes?.Title"
+                                            [authorDetails]="item?.attributes?.Authors?.data"                            
+                                            [date]="item?.attributes?.PublishedOn">
+                                            </app-right-menu-details-card>  
+                                            <div class="tab" *ngFor="let tag of item?.attributes?.Tags?.data">                                
+                                                <!-- <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug)">
+                                                    {{tag.attributes.DisplayName}}
+                                                </a> -->
+                                                <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug)" routerLink="{{'/SearchTag='+tag?.attributes?.Slug}}">{{tag.attributes.DisplayName}}</a>                                                      
+                                            </div> 
+                                            <app-right-menu-details-card 
+                                            [cardContent]="item?.attributes?.PreviewContent">
+                                            </app-right-menu-details-card>
+                                            <a *ngIf="searchTag || pageDetailsName =='analytics'" routerLink="{{'/'+SearchTagMenu+'/'+ item?.attributes?.Slug}}" class="read-more">Read
+                                                More...</a>                               
+                                            <a *ngIf="!searchTag && pageDetailsName !='analytics'" routerLink="{{'/'+ routePath + '/'+ item?.attributes?.Slug}}" class="read-more">Read
+                                                    More...</a> 
+                                        </div>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>                 
+                </div>
+                <!-- <div class="page-content-section" *ngIf =" !SearchTagMenu && pageData.length > 0">           
                     <div *ngFor="let item of pageData; let i = index;">
                         <div class="pb-5" >
                             <app-right-menu-details-card 
@@ -162,7 +199,7 @@
                             <div class="tab" *ngFor="let tag of item?.attributes?.Tags?.data">                                
                                 <!-- <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug)">
                                     {{tag.attributes.DisplayName}}
-                                </a> -->
+                                </a> --
                                 <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug)" routerLink="{{'/SearchTag='+tag?.attributes?.Slug}}">{{tag.attributes.DisplayName}}</a>                                                      
                             </div> 
                             <app-right-menu-details-card 
@@ -178,7 +215,7 @@
                         </div>
                              
                     </div>                    
-                </div>
+                </div> -->
 
             </div>
             <!-- <div class="col-12 col-md-4 col-lg-3 border-left">
