@@ -11,7 +11,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Location} from '@angular/common';
 import {marked} from 'marked';
 import { DOCUMENT } from '@angular/common';
-
+import { EmailClient} from '@azure/communication-email';
+import appConfig from '../../../assets/config/appconfig.json';
 @Component({
   selector: 'app-right-menu',
   templateUrl: './right-menu.component.html',
@@ -134,6 +135,34 @@ export class RightMenuComponent implements OnInit  {
       this.getMenuItem.unsubscribe();
     }    
 }
+
+sendEmail(contactForm:any){ 
+let contactMessage = "";
+if(contactForm.value.Message)
+  contactMessage = "Message:"+contactForm.value.Message;
+  let message = {    
+    senderAddress: appConfig.EMAIL_SENDER_ADDRESS,
+    content:{
+      subject: "Contact Form",
+      html:"<html><body> The user "+contactForm.value.Name+" has filled in the Contact Form on our Website. Kindly contact the user with the below details.<br/>Name : "+contactForm.value.Name+"<br/>Email : "+contactForm.value.Email+"<br/>Phone : "+contactForm.value.Phone+"<br/>"+contactMessage+"</br></body></html>"
+    }, 
+    recipients: {
+      to: [
+        {
+          address: appConfig.CONTACT_FORM_RECIPIENT_ADDRESS,
+          displayName: "Customer Name",
+        },
+      ],
+    }
+  };
+
+  let emailClient = new EmailClient(appConfig.EMAIL_CONNECTION_STRING);
+ // let emailContent = new HtmlEmal
+  console.log("message",message);
+  emailClient.beginSend(message);
+
+}
+
 downloadFile(filePath:any){ 
   this.returnToDownload = true;  
   const modalRef = this.modalService.open(RightMenuComponent, {
@@ -150,8 +179,7 @@ downloadFile(filePath:any){
           modalRef.componentInstance.contactForm.addControl(item.Label,new FormControl(''));
         });
     }  
-  }); 
-  
+  });   
 }
 saveFile(filePath:any){ 
 let url = filePath.split('#');
@@ -249,14 +277,15 @@ callTag(searchText:any){
   submitForm() {
   //  console.log("contactForm..",this.contactForm.value,this.contactForm);
     this.formSendMessage = '';
-    this.validateMessage = 'Success' ; 
+    this.validateMessage = 'Success' ;
+    this.sendEmail(this.contactForm);    
     this.formData.forEach((item: any) => {
       if(item.Required == 'true' && item.Type !='button'){        
         if(this.contactForm.value[item.Label].length == 0)
         this.validateMessage = 'Error' ;  
         if(item.Validate) {
           let emailValidation = new RegExp(item.Validate);
-          let valid = emailValidation.test(this.contactForm.value[item.Label]);
+          let valid = emailValidation.test(this.contactForm.value[item.Label]);          
           if(!valid)
           this.validateMessage = 'Error' ;   
         }        
