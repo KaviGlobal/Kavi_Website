@@ -308,7 +308,7 @@
                         <form [formGroup]="demoSection" (ngSubmit)="sendDemoRequest()">
                             <div class="row">       
                                     <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                        <input class="formStyles" type="text" placeholder = "FirstName *" formControlName="firstName">                                  
+                                        <input class="formStyles" type="text" placeholder = "Name *" formControlName="firstName">                                  
                                     </div>
                                     <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
                                         <input class="formStyles" type="text" placeholder = "LastName *"  formControlName="lastName">
@@ -327,14 +327,14 @@
                                     </div>
                             </div> 
                             <div *ngIf="!validateStatus && validateMessage.length > 0" style="padding-bottom: 20px;">
-                                <span style="color: red; font-size:13px;">
+                                <span style="color: red; font-size:18px;">
                                     {{validateMessage}}
                                 </span>
                             </div>
                                                          
                            
                             <div *ngIf="validateStatus" style="padding-bottom: 20px;">
-                                <span style="color: Green; font-size:13px;">
+                                <span style="color: Green; font-size:18px;">
                                     {{validateMessage}}
                                 </span>
                             </div>

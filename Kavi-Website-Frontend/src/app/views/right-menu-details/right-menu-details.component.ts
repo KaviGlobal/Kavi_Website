@@ -11,6 +11,8 @@ import { DOCUMENT } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {NgbModal, ModalDismissReasons, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup } from '@angular/forms';
+import appConfig from '../../../assets/config/appconfig.json';
+import { EmailClient} from '@azure/communication-email';
 @Component({
   selector: 'app-right-menu-details',
   templateUrl: './right-menu-details.component.html',
@@ -47,6 +49,7 @@ export class RightMenuDetailsComponent implements OnInit {
   public modalOptions:NgbModalOptions;
   public validateStatus: boolean = false;
   public validateMessage: String = '';
+  public downloadFileURL:any;
   demoSection = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
@@ -171,6 +174,7 @@ export class RightMenuDetailsComponent implements OnInit {
   }
 
   open(content:any,fileUrl:any,fileName:any,fileExtention:any) {
+    this.downloadFileURL = fileUrl;
     this.modalService.open(content, this.modalOptions).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {     
@@ -191,11 +195,45 @@ export class RightMenuDetailsComponent implements OnInit {
     else{
       //success call api
       this.validateStatus = true;
-      this.validateMessage = "Thank you for contacting us. Our team will get in touch with you shortly.";
-      this.onClose();
-    }
-   
-   }
+      this.sendEmail(this.demoSection);
+//      this.validateMessage = "Thank you for contacting us. Our team will get in touch with you shortly.";
+      this.clearForm();
+      this.onClose();      
+    }   
+  }
+  
+ sendEmail(contactForm:any){ 
+//  console.log("fggg",this.downloadFileURLvalue.fileUrl);
+  let contactMessage = "";
+  if(contactForm.value.message)
+    contactMessage = "Message:"+contactForm.value.message;
+    let message = {    
+      senderAddress: appConfig.EMAIL_SENDER_ADDRESS,
+      content:{
+        subject: "Form Download",
+        html:"<html><body> The user "+contactForm.value.firstName+" has downloaded the a file from the URL "+this.downloadFileURL +"<br/>First Name : "+contactForm.value.firstName+"<br/>Last Name : "+contactForm.value.lastName+"<br/>Email : "+contactForm.value.email+"<br/>Phone : "+contactForm.value.phone+"<br/>"+contactMessage+"</br></body></html>"
+      }, 
+      recipients: {
+        to: [
+          {
+            address: appConfig.CONTACT_FORM_RECIPIENT_ADDRESS,
+            displayName: "Customer Name",
+          },
+        ],
+      }
+    };
+    let emailClient = new EmailClient(appConfig.EMAIL_CONNECTION_STRING);
+    // let emailContent = new HtmlEmal
+     console.log("message",message);
+     emailClient.beginSend(message); 
+ }
+ clearForm(){
+    this.demoSection.value.firstName ='';
+      this.demoSection.value.lastName ='';
+      this.demoSection.value.email ='';
+      this.demoSection.value.phone ='';
+      this.demoSection.value.message ='';
+ }
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';

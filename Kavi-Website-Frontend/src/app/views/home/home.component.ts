@@ -6,7 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 import {  HostListener} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-
+import appConfig from '../../../assets/config/appconfig.json';
+import { EmailClient} from '@azure/communication-email';
 // declare const google: any;
 @Component({
   selector: 'app-home',
@@ -124,11 +125,35 @@ export class HomeComponent implements OnInit {
   else{
     //success call api
     this.validateStatus = true;
+    this.sendEmail(this.demoSection);
     this.validateMessage = "Thank you for contacting us. Our team will get in touch with you shortly.";
   }
  
  }
-
+ sendEmail(contactForm:any){ 
+  let contactMessage = "";
+  if(contactForm.value.message)
+    contactMessage = "Message:"+contactForm.value.message;
+    let message = {    
+      senderAddress: appConfig.EMAIL_SENDER_ADDRESS,
+      content:{
+        subject: "Demo Request",
+        html:"<html><body> The user "+contactForm.value.firstName+" has requested for demo through our website. Kindly contact the user with the below details.<br/>First Name : "+contactForm.value.firstName+"<br/>Last Name : "+contactForm.value.lastName+"<br/>Email : "+contactForm.value.email+"<br/>Phone : "+contactForm.value.phone+"<br/>"+contactMessage+"</br></body></html>"
+      }, 
+      recipients: {
+        to: [
+          {
+            address: appConfig.CONTACT_FORM_RECIPIENT_ADDRESS,
+            displayName: "Customer Name",
+          },
+        ],
+      }
+    };
+    let emailClient = new EmailClient(appConfig.EMAIL_CONNECTION_STRING);
+    // let emailContent = new HtmlEmal
+     console.log("message",message);
+     emailClient.beginSend(message); 
+ }
   public getHomePageData() {    
     this.homeService.getHomeData().then((response: any) => {
       if (response.data) {
