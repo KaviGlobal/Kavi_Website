@@ -67,7 +67,7 @@
                 <div class="page-content py-4" *ngIf="!isPeople">
                     <div *ngIf="pageType != 'pages'" class="centered">
                         <h2>{{pageData[0]?.attributes?.Title}}</h2>
-                        <div *ngIf="pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes">
+                        <div class="pb-4" *ngIf="pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes">
                             <img [src]=[pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes.url]>
                         <!--    <div class="centered">{{pageData[0]?.attributes?.Title}}</div>-->
                         </div>
@@ -315,10 +315,10 @@
 
     </div>
 </div>
-<div class="container" *ngIf="isDataLoaded && (isClient || isPartner)" style="margin:30px auto 0.5px">
-    <div *ngIf="isClient" class="our_page"><h2 style = "background-image:url('https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/Our_Clients_2x_8a4cd56f7d.png?updated_at=2023-06-19T15:58:36.314Z')">Our Clients</h2></div>
-    <div *ngIf="isPartner" class="our_page"><h2 style = "background-image:url('https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/Our_Partners2x_50f91ec8fc.png?updated_at=2023-06-20T13:16:36.882Z')">Our Partners</h2></div>
-    <div>
+<div *ngIf="isDataLoaded && (isClient || isPartner)" style="margin:0px auto;padding: 0px 0px 30px;">
+    <div class="mb-5" *ngIf="isClient"><h2 class="full_heading_cover" style = "background-image:url('https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/Our_Clients_c3172330e9.png?updated_at=2023-07-23T11:01:22.840Z')"><span>Our Clients</span></h2></div>
+    <div class="mb-5" *ngIf="isPartner"><h2 class="full_heading_cover" style = "background-image:url('https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/Our_Partner_b53404e808.png?updated_at=2023-07-23T11:01:23.842Z')"><span>Our Partners</span></h2></div>
+    <div class="container">
     <div class="row" *ngIf="isClient">          
         <div *ngFor="let item of pageData; let i = index" class="col-lg-3 col-md-4 col-sm-6 col-xs-12"> 
             <div class="pb-5" style="min-height: 70px;">
