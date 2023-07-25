@@ -65,7 +65,12 @@
               "optimization": true,
               "sourceMap": false,
               "namedChunks": false,
-              "aot": true,
+              "aot": true,              
+              "assets": [
+                "src/favicon.ico",
+                "src/assets",
+                "src/web.config"
+              ],
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
