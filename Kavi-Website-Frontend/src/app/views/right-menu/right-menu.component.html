@@ -94,7 +94,7 @@
 </div>
 <div *ngIf="isDataLoaded && !isUserForm" class="page-container container_1400"> 
     <div class="container">
-        <div class="row">
+        <div class=""> <!-- row -->
             <div class=""> <!-- col-12 col-md-12 col-lg-12 border-right -->
                 <!--To display the list of Tags based on Master Tag List click event -->
                 <div class="page-content-section" *ngIf = "SearchTagMenu == ':id'">
@@ -167,13 +167,15 @@
                                             [title]="item?.attributes?.Title"
                                             [authorDetails]="item?.attributes?.Authors?.data"                            
                                             [date]="item?.attributes?.PublishedOn">
-                                            </app-right-menu-details-card>  
-                                            <div class="tab" *ngFor="let tag of item?.attributes?.Tags?.data">                                
-                                                <!-- <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug)">
-                                                    {{tag.attributes.DisplayName}}
-                                                </a> -->
-                                                <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug)" routerLink="{{'/SearchTag='+tag?.attributes?.Slug}}">{{tag.attributes.DisplayName}}</a>                                                      
-                                            </div> 
+                                            </app-right-menu-details-card>
+                                            <div class="tag_block" *ngIf="item?.attributes?.Tags?.data">
+                                                <div class="tab" *ngFor="let tag of item?.attributes?.Tags?.data">                                
+                                                    <!-- <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug)">
+                                                        {{tag.attributes.DisplayName}}
+                                                    </a> -->
+                                                    <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug)" routerLink="{{'/SearchTag='+tag?.attributes?.Slug}}">{{tag.attributes.DisplayName}}</a>                                                      
+                                                </div> 
+                                            </div>
                                             <app-right-menu-details-card 
                                             [cardContent]="item?.attributes?.PreviewContent">
                                             </app-right-menu-details-card>

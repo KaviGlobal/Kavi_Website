@@ -24,10 +24,10 @@
       }
     }
     box-shadow: none;
-    background: rgb(255 255 255 / 90%);
+    background: rgb(255 255 255);
 
     &.isScroll {
-      background: rgb(255 255 255 / 90%);
+      background: rgb(255 255 255);
       // background: #000e42;
       // background-image: url("../../../assets/images/Group 2007.png");
       box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%);
@@ -135,7 +135,7 @@ nav a {
   // margin-right: 20px;
 }
 .menu-container.menu-container-open {
-  max-height: 420px;
+  max-height: 500px;
 }
 .menu-container {
   background-color: #0c2939;
@@ -204,7 +204,8 @@ nav a {
   // font-size: 24px;
   // font-weight: 600;
   a {
-    font-size: 24px;
+    // font-size: 24px;
+    font-weight: 600;
   }
  /* a {
   //  font-size: 1.6rem;
