@@ -25,6 +25,11 @@ export class RightMenuDetailsComponent implements OnInit {
   public listMetaData:any = [];  
   public pageType: any = '';
   public pageDetailsName: any = '';
+  public firstNamevalue: any = "";
+  public lastNamevalue: any = "";
+  public emailvalue: any = "";
+  public messagevalue: any = "";
+  public phonevalue: any = ""
   public viewerData:any=[];
   public pageData: any = [];  
   public pageFullContent: any;
@@ -48,7 +53,7 @@ export class RightMenuDetailsComponent implements OnInit {
   public closeResult: string = '';
   public modalOptions:NgbModalOptions;
   public validateStatus: boolean = false;
-  public validateMessage: String = '';
+  public validateMessage: string = '';
   public downloadFileURL:any;
   demoSection = new FormGroup({
     firstName: new FormControl(''),
@@ -89,8 +94,9 @@ export class RightMenuDetailsComponent implements OnInit {
   public loadPageData() {   
 //    console.log("this.commonService.activeMenuName",this.commonService.activeMenuName);
       this.pageType = cloneDeep(this.activatedRoute.snapshot.paramMap.get('pageType'));
-      this.pageDetailsName = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id'));  
+      this.pageDetailsName = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id'));
       this.clearForm(this.demoSection);
+      this.validateMessage = "";
       if (this.pageType && this.pageDetailsName && !this.pageType.includes("SearchTag")) {
         if(this.pageType != "pages"){
           let menuItemAttributes = this.commonService.menuData[1].RightMenu.filter((element: any) => (element.attributes.Parameter.type == this.pageType));
@@ -199,7 +205,6 @@ export class RightMenuDetailsComponent implements OnInit {
       this.validateMessage = "Thank you for contacting us. Our team will get in touch with you shortly.";
       this.onClose(); 
       this.clearForm(this.demoSection);
-          
     }   
   }
   
@@ -236,6 +241,11 @@ export class RightMenuDetailsComponent implements OnInit {
   formName.value.email ='';
   formName.value.phone ='';
   formName.value.message ='';
+  this.firstNamevalue ="";
+  this.lastNamevalue ="";
+  this.emailvalue ="";
+  this.phonevalue ="";
+  this.messagevalue ="";
  }
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {

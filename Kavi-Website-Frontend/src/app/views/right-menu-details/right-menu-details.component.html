@@ -108,7 +108,7 @@
                             </div>
                         </div>
                     </div>
-                    <div *ngIf="pageData[0]?.attributes">
+                    <div *ngIf="pageData[0]?.attributes && pageType == 'pages'">
                         <div *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.mime && pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.url">
                         <iframe style="margin-top:20px" allow="autoplay *; encrypted-media *; fullscreen *" 
                                 frameborder="0" width="100%" height="500" 
@@ -121,7 +121,7 @@
                             </div> 
                         </div>                       
                     </div> 
-                    <!-- <div *ngIf="pageData[0]?.attributes?.Publisher">
+                    <div *ngIf="pageData[0]?.attributes?.Publisher">
                         <div *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.mime && pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.url">
                         <iframe style="margin-top:20px" allow="autoplay *; encrypted-media *; fullscreen *" 
                                 frameborder="0" width="100%" height="500" 
@@ -130,12 +130,12 @@
                             </iframe>
                             <div class="fileDownload" *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.mime && pageData[0]?.attributes?.isDownloadable">                            
                               <!--  <a (click)="downloadFile(pageData[0]?.attributes?.Media[0].Media.data.attributes.url,pageData[0]?.attributes?.Slug)"   >
-                                <i class="fa fa-download" aria-hidden="true"></i> Download File</a> --
-                                <a (click)="open(mymodal,pageData[0]?.attributes?.Media[0].Media.data.attributes.url,pageData[0]?.attributes?.Slug)">
+                                <i class="fa fa-download" aria-hidden="true"></i> Download File</a> -->
+                                <a (click)="open(mymodal,pageData[0]?.attributes?.Media[0].Media.data.attributes.url,pageData[0]?.attributes?.Slug,pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.ext)">
                                     <i class="fa fa-download" aria-hidden="true"></i>Download File</a>                                
                             </div> 
                         </div>                       
-                    </div>                    -->
+                    </div>                   
                 </div>           
                 <div class="people-detail" *ngIf="isPeople">
                     <div class="container rounded bg-white mt-5 mb-5" *ngIf="isPeople">
@@ -244,7 +244,7 @@
         <div style="width:100%; height:2px; background: #dee2e6 ;margin-bottom:30px">
         </div>
         <div class="demo-section">
-            <div class="container">
+            <div class="">
                 <h3>Contact Us</h3>
                 <div class="pt-4">
                     <div>                    
@@ -252,19 +252,19 @@
                             <form [formGroup]="demoSection" (ngSubmit)="sendDemoRequest('Contact Us')">
                                 <div class="row">       
                                         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                            <input class="formStyles" type="text" placeholder = "Name *" formControlName="firstName">                                  
+                                            <input class="formStyles" type="text" placeholder = "Name *" [(ngModel)]="firstNamevalue" formControlName="firstName">                                  
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                            <input class="formStyles" type="text" placeholder = "LastName *"  formControlName="lastName">
+                                            <input class="formStyles" type="text" placeholder = "LastName *" [(ngModel)]="lastNamevalue" formControlName="lastName">
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                            <input class="formStyles" type="text" placeholder = "Email *" formControlName="email">
+                                            <input class="formStyles" type="text" placeholder = "Email *" [(ngModel)]="emailvalue" formControlName="email">
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                            <input class="formStyles" type="number" placeholder = "Phone" formControlName="phone">
+                                            <input class="formStyles" type="number" placeholder = "Phone" [(ngModel)]="phonevalue" formControlName="phone">
                                         </div>
                                         <div class="col-md-9 col-sm-12 col-xs-12">
-                                            <textarea class="formStyles" style="height:60px" formControlName="message" placeholder="Message.." cols="45" rows="8" aria-required="true"></textarea>
+                                            <textarea class="formStyles" style="height:60px" [(ngModel)]="messagevalue" formControlName="message" placeholder="Message.." cols="45" rows="8" aria-required="true"></textarea>
                                         </div>
                                         <div class="col-md-3 col-sm-12 col-xs-12">
                                             <button class="schedule_submit" id="submit" type="submit">Send</button>
