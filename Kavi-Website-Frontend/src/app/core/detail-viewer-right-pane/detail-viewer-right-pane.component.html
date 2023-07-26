@@ -4,7 +4,7 @@
         Author's Contribution:
     </h6>
     <div *ngFor="let post of authorPost"> 
-        <h6>
+        <h6 *ngIf="post?.Data?.length > 0">
             {{post.Label}}
         </h6>
         <ul *ngFor="let item of post?.Data">
