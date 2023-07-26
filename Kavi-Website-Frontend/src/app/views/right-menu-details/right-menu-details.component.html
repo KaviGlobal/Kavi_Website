@@ -21,7 +21,7 @@
     <div class="modal-body">
         <div class="row fillForm">                    
             <ng-container>
-                <form [formGroup]="demoSection" (ngSubmit)="sendDemoRequest()">                  
+                <form [formGroup]="demoSection" (ngSubmit)="sendDemoRequest('Download Form')">                  
                     <div>    
                                                 
                             <input class="formStyles" type="text" placeholder = "FirstName *" formControlName="firstName">                                  
@@ -239,8 +239,55 @@
                     [metaViewer]="listMetaData"
                     ></app-right-menu-sidebar>
                 </div> -->
+            </div>       
+        </div>
+        <div style="width:100%; height:2px; background: #dee2e6 ;margin-bottom:30px">
+        </div>
+        <div class="demo-section">
+            <div class="container">
+                <h3>Contact Us</h3>
+                <div class="pt-4">
+                    <div>                    
+                        <ng-container>
+                            <form [formGroup]="demoSection" (ngSubmit)="sendDemoRequest('Contact Us')">
+                                <div class="row">       
+                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                            <input class="formStyles" type="text" placeholder = "Name *" formControlName="firstName">                                  
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                            <input class="formStyles" type="text" placeholder = "LastName *"  formControlName="lastName">
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                            <input class="formStyles" type="text" placeholder = "Email *" formControlName="email">
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                            <input class="formStyles" type="number" placeholder = "Phone" formControlName="phone">
+                                        </div>
+                                        <div class="col-md-9 col-sm-12 col-xs-12">
+                                            <textarea class="formStyles" style="height:60px" formControlName="message" placeholder="Message.." cols="45" rows="8" aria-required="true"></textarea>
+                                        </div>
+                                        <div class="col-md-3 col-sm-12 col-xs-12">
+                                            <button class="schedule_submit" id="submit" type="submit">Send</button>
+                                        </div>
+                                </div> 
+                                <div *ngIf="!validateStatus && validateMessage.length > 0" style="padding-bottom: 20px;">
+                                    <span style="color: red; font-size:18px;">
+                                        {{validateMessage}}
+                                    </span>
+                                </div>
+                                                             
+                               
+                                <div *ngIf="validateStatus" style="padding-bottom: 20px;">
+                                    <span style="color: Green; font-size:18px;">
+                                        {{validateMessage}}
+                                    </span>
+                                </div>
+                        
+                              </form>
+                        </ng-container>
+                    </div>
+                </div>
             </div>
-       
         </div>
         <div class="recommendation-section" *ngIf="rightPageRelatedData.length > 0">
             <div *ngFor="let relatedData of rightPageRelatedData">

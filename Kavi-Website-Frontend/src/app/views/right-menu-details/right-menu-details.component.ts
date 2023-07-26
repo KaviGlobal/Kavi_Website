@@ -73,7 +73,7 @@ export class RightMenuDetailsComponent implements OnInit {
     windowClass: 'dark-modal'
   } }
 
-  ngOnInit(): void {//    console.log("sss",this.commonService.activeMenuData);
+  ngOnInit(): void {//    console.log("sss",this.commonService.activeMenuData);    
     this.loadPageData();
     this.routerEventSubscription = this.router.events.subscribe((evt: any) => {
       if ((evt instanceof NavigationEnd)) {
@@ -90,7 +90,7 @@ export class RightMenuDetailsComponent implements OnInit {
 //    console.log("this.commonService.activeMenuName",this.commonService.activeMenuName);
       this.pageType = cloneDeep(this.activatedRoute.snapshot.paramMap.get('pageType'));
       this.pageDetailsName = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id'));  
-
+      this.clearForm(this.demoSection);
       if (this.pageType && this.pageDetailsName && !this.pageType.includes("SearchTag")) {
         if(this.pageType != "pages"){
           let menuItemAttributes = this.commonService.menuData[1].RightMenu.filter((element: any) => (element.attributes.Parameter.type == this.pageType));
@@ -185,7 +185,7 @@ export class RightMenuDetailsComponent implements OnInit {
         }
     });
   }
-  public sendDemoRequest(){
+  public sendDemoRequest(formName:string){
     console.log("demoSection",this.demoSection);
     if(!this.demoSection.value.firstName || !this.demoSection.value.lastName || !this.demoSection.value.email){
       //error display
@@ -195,14 +195,15 @@ export class RightMenuDetailsComponent implements OnInit {
     else{
       //success call api
       this.validateStatus = true;
-      this.sendEmail(this.demoSection);
-//      this.validateMessage = "Thank you for contacting us. Our team will get in touch with you shortly.";
-      this.clearForm();
-      this.onClose();      
+      this.sendEmail(this.demoSection,formName);
+      this.validateMessage = "Thank you for contacting us. Our team will get in touch with you shortly.";
+      this.onClose(); 
+      this.clearForm(this.demoSection);
+          
     }   
   }
   
- sendEmail(contactForm:any){ 
+ sendEmail(contactForm:any,formName:string){ 
 //  console.log("fggg",this.downloadFileURLvalue.fileUrl);
   let contactMessage = "";
   if(contactForm.value.message)
@@ -210,7 +211,7 @@ export class RightMenuDetailsComponent implements OnInit {
     let message = {    
       senderAddress: appConfig.EMAIL_SENDER_ADDRESS,
       content:{
-        subject: "Form Download",
+        subject:formName,
         html:"<html><body> The user "+contactForm.value.firstName+" has downloaded the a file from the URL "+this.downloadFileURL +"<br/>First Name : "+contactForm.value.firstName+"<br/>Last Name : "+contactForm.value.lastName+"<br/>Email : "+contactForm.value.email+"<br/>Phone : "+contactForm.value.phone+"<br/>"+contactMessage+"</br></body></html>"
       }, 
       recipients: {
@@ -226,13 +227,15 @@ export class RightMenuDetailsComponent implements OnInit {
     // let emailContent = new HtmlEmal
      console.log("message",message);
      emailClient.beginSend(message); 
+     
  }
- clearForm(){
-    this.demoSection.value.firstName ='';
-      this.demoSection.value.lastName ='';
-      this.demoSection.value.email ='';
-      this.demoSection.value.phone ='';
-      this.demoSection.value.message ='';
+ public clearForm(formName:any){
+  console.log("jjjj",formName);
+  formName.value.firstName ='';
+  formName.value.lastName ='';
+  formName.value.email ='';
+  formName.value.phone ='';
+  formName.value.message ='';
  }
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {

@@ -378,6 +378,68 @@ markdown ::ng-deep  {
   //     margin: 0;
   // }
 }
+.formStyles {
+  width: 100%;
+ //  padding: 10px;
+   padding:15px 20px;
+   box-sizing: border-box;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   margin-top: 6px;
+   margin-bottom: 16px;
+   margin-right: 15px;
+   -webkit-transition: 0.5s;
+   transition: 0.5s;
+   outline: none;
+ }
+ .formStyles:focus {
+   border: 1px solid #f26000;
+ }
+ 
+ input[type=text]:focus {
+   border: 1px solid #f26000;
+ }
+ input[type=number]:focus {
+   border: 1px solid #f26000;
+ }
+ textarea:focus {
+   border: 1px solid #f26000;
+  
+   } 
+   
+   input[type=submit] {
+     background-color: #f26000;
+     color: white;
+     padding: 5px 20px;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     font-weight :500;
+   }
+   
+   input[type=submit]:hover {
+     background-color: #f26000;
+   }
+   button{
+     background-color: #f26000;
+     color: white;
+     padding: 5px 20px;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     font-weight :500;
+   }
+.demo-section {
+  padding: 60px 0;  
+  h3 {
+    font-family: "montserrat-regular";
+    color: #2b5084;
+    font-size: 2.5rem;
+    // padding-top: 25px;
+    text-align: center;
+    // font-weight: 900;
+  }
+}
 .right_fixed{
   border: 2px solid #fff;  
   border-radius: 20px;
