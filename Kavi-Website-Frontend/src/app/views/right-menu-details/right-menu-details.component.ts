@@ -208,11 +208,12 @@ export class RightMenuDetailsComponent implements OnInit {
     }   
   }
   
- sendEmail(contactForm:any,formName:string){ 
-//  console.log("fggg",this.downloadFileURLvalue.fileUrl);
+ sendEmail(contactForm:any,formName:string){   
   let contactMessage = "";
   if(contactForm.value.message)
     contactMessage = "Message:"+contactForm.value.message;
+  if(formName == 'Contact Us')
+    formName = formName +" from "+ this.pageDetailsName.charAt(0).toUpperCase() + this.pageDetailsName.slice(1)
     let message = {    
       senderAddress: appConfig.EMAIL_SENDER_ADDRESS,
       content:{
@@ -235,7 +236,7 @@ export class RightMenuDetailsComponent implements OnInit {
      
  }
  public clearForm(formName:any){
-  console.log("jjjj",formName);
+//  console.log("jjjj",formName);
   formName.value.firstName ='';
   formName.value.lastName ='';
   formName.value.email ='';

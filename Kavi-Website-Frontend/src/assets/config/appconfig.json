@@ -23,7 +23,7 @@
   "GET_TAG_LIST":"/tags?populate=deep,20&sort=tag_dimension.Name",
   "GET_TAG_LIST_BY_NAME":"?populate=deep,20&filters[Tags][Slug][$eq]=",
   "GET_PEOPLE" : "/people?populate=deep,20&filters[Slug][$eq]=",
-  "GET_AUTHORS_POST"  : "?populate=deep,20?filters[Authors][Slug][$eq]=",
+  "GET_AUTHORS_POST"  : "?populate=deep,20&filters[Authors][Slug][$eq]=",
   "GET_PEOPLE_VIEWER":"/people-viewer?populate=deep,20",
   "GET_LIST_VIEWER" : "/list-viewer?populate=deep,20",
   "GET_AUTHORS_PRESENTATIONS_OR_PUBLICATIONS" : "?populate=deep,20&filters[Authors][Slug][$eq]=",
