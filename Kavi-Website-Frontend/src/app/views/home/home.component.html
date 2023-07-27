@@ -2,7 +2,19 @@
     <app-page-loader></app-page-loader>
 </div>
 <div class="cont" *ngIf="isDataLoaded">
-    <div id="home_banner" class="banner-wrapper" [ngStyle]="{'background-image': 'url(' + backgroundImg + ')'}">
+    <!-- {{this.homeData.attributes.HeroHeader.SliderMedia.Media.data.attributes.url | json}} -->
+    <ngb-carousel class="client-slider home_slider" *ngIf="clientImages.length">
+        <ng-container *ngFor="let item of this.homeData.attributes.HeroHeader">
+            <ng-template ngbSlide>
+                <img *ngIf="item.SliderMedia.Media.data" [src]="item.SliderMedia.Media.data.attributes.url"
+                                alt="Random first slide" class="" />
+                <div class="slider_content">
+                    <h3 *ngIf="item.Description">{{this.homeData.attributes.HeroHeader[0].Description}}</h3>
+                </div>
+          </ng-template>
+        </ng-container>
+    </ngb-carousel>
+    <!-- <div id="home_banner" class="banner-wrapper" [ngStyle]="{'background-image': 'url(' + backgroundImg + ')'}">
         <div class="banner-container">
             <div class="container-fluid">
                 <div class="container">
@@ -30,11 +42,11 @@
                     </div>
 <!--                    <div class="bottom-arrow-wrapper">
                         <i class="fas fa-angle-down"></i>
-                    </div>-->
+                    </div>--
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div id="achievements_section" class="achievements-section">
         <div class="container">
             <div class="description-section">

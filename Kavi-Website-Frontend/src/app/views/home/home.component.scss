@@ -398,6 +398,38 @@ textarea:focus {
     }
   }
 }
+::ng-deep .home_slider {
+  a.carousel-control-prev, a.carousel-control-next{
+    width: 5%;
+    opacity: 1;
+  }
+  img {
+    width: 100%;
+    min-height: 460px;
+  }
+  h3 {
+    color: #fff;
+    font-family: "montserrat-regular";
+    font-size: 24px;
+    line-height: 1.6;
+    padding: 30px 0 0;
+  }
+  .active .slider_content {
+      transform: translate3d(0, 0px, 0);
+      opacity: 1;
+  }
+  .slider_content {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-duration: 1s;
+    transform: translate3d(0, 100px, 0);
+    position: absolute;
+    z-index: 2;
+    top: 80px;
+    max-width: 60%;
+    left: 10%;
+  }
+}
 .aos-init {
   opacity: 0;
   transition-property: opacity,transform;
