@@ -128,12 +128,15 @@ export class AppComponent implements OnInit {
       let menuData:any = [];
       let aboutUs:any=[];
       let softwareMenu:any=[];
+      let solutionsMenu:any=[];
       
       if (response && response.data) { 
         response.data.forEach((element:any,index:number) => { 
         if (element.attributes.IsTitle == false && element.attributes.parent_item.data != null){          
           if(element?.attributes.parent_item?.data?.attributes?.DisplayName == "Software"){
             softwareMenu.push(element);
+          } else if(element?.attributes.parent_item?.data?.attributes?.DisplayName == "Solutions"){
+            solutionsMenu.push(element);
           } else {
             leftMenu.push(element);
           }
@@ -155,7 +158,8 @@ export class AppComponent implements OnInit {
         leftMenu.sort(this.sortByDisplayOrder);
         rightMenu.sort(this.sortByDisplayOrder);
         industryMenu.sort(this.sortByDisplayOrder);
-        softwareMenu.sort(this.sortByDisplayOrder); 
+        softwareMenu.sort(this.sortByDisplayOrder);
+        solutionsMenu.sort(this.sortByDisplayOrder);
 //        menuData.push({LeftMenu :leftMenu});        
       }  
       // let groupedMenu = this.groupBy(leftMenu, (item:any) => item?.attributes.parent_item?.data?.attributes?.DisplayName);
@@ -165,6 +169,7 @@ export class AppComponent implements OnInit {
       menuData.push({IndustryMenu :groupindustryMenu});
       menuData.push({AboutUs :aboutUs});
       menuData.push({SoftwareMenu :softwareMenu});
+      menuData.push({SolutionsMenu :solutionsMenu});
       /*      for(let menu of menuData[0].LeftMenu) {
         console.log("xxxx",menu?.attributes?.ParentItem?.data?.attributes?.DisplayName);
         

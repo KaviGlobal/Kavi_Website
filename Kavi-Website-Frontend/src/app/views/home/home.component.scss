@@ -405,14 +405,12 @@ textarea:focus {
   }
   img {
     width: 100%;
-    min-height: 460px;
   }
   h3 {
     color: #fff;
     font-family: "montserrat-regular";
     font-size: 24px;
     line-height: 1.6;
-    padding: 30px 0 0;
   }
   .active .slider_content {
       transform: translate3d(0, 0px, 0);
@@ -425,9 +423,15 @@ textarea:focus {
     transform: translate3d(0, 100px, 0);
     position: absolute;
     z-index: 2;
-    top: 80px;
-    max-width: 60%;
+    top: 110px;
+    max-width: 50%;
     left: 10%;
+    text-align: justify;
+  }
+  .carousel-indicators li{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
   }
 }
 .aos-init {
@@ -806,7 +810,21 @@ agm-map {
 .schedule_submit{
   float: right;width: 100%;line-height: 50px;margin-top: 6px;font-size: 24px;
 }
-@media only screen and (min-width: 992px) {
+@media only screen and (max-width: 640px) {
+  .clients-carousel {
+    ::ng-deep .client-slider {
+      .client-carousel-image-wrapper {
+        padding: 10px 5px;
+      }
+    }
+  }
+  .home_slider h3{
+    font-size: 10px;
+  }
+  .home_slider .slider_content{
+    max-width: 80%;
+    top:20px;
+  }
   // .cost-wrapper {
   //   .cost-card-col {
   //     border-left: 1px solid #000;
