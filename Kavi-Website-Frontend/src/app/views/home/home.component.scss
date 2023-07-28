@@ -825,11 +825,16 @@ agm-map {
     max-width: 80%;
     top:20px;
   }
-  // .cost-wrapper {
-  //   .cost-card-col {
-  //     border-left: 1px solid #000;
-  //   }
-  // }
+  .analytics-section h1,.description-section h3{
+    font-size: 1.5rem;
+    }
+  .description-section{
+    
+    p{
+      font-size: 1rem;
+      width: 90%;
+    }
+  }
 }
 @media (min-width: 1200px)
 {
