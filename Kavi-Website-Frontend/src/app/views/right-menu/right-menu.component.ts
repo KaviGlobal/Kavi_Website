@@ -89,24 +89,24 @@ export class RightMenuComponent implements OnInit  {
 //      console.log("this.pageDetailsName",this.pageDetailsName);
   //    this.commonService.activeMenuName = (this.pageDetailsName).split('=')[1];
       this.routePath = this.commonService.activeMenuName;
-      this.loadPageData();
+      this.loadPageData('');
     //  this.routePath='';
 
     }
     else if(this.pageDetailsName == 'analytics'){
       this.routePath = 'analytics';
-      this.loadPageData();
+      this.loadPageData('');
     }
     else if(this.pageDetailsName == 'UserForm'){
       this.routePath = 'UserForm';
 //      console.log("menu---",this.commonService.getMenuItem);
-      this.loadPageData();
+      this.loadPageData('');
      
     } else if (this.pageDetailsName == 'our-leadership-team'){
       this.commonService.menuData[3]?.AboutUs.forEach((items:any,index:number) =>{ 
           if(items.attributes.Slug == this.pageDetailsName){
             this.commonService.activeMenuData = items;
-            this.loadPageData();
+            this.loadPageData('');
           }
       });      
     // }
@@ -117,12 +117,12 @@ export class RightMenuComponent implements OnInit  {
     }
     else{       
       this.getMenuItem = this.commonService.getMenuItem.subscribe((menuItem: any) => {   
-        this.loadPageData();
+        this.loadPageData('');
         //console.log("getMenuItem",menuItem);
       });
    
       this.routeChangeSubscription = this.commonService.routeChangeSubscription.subscribe((menuItem: any) => {
-        this.loadPageData();
+        this.loadPageData('');
         //console.log("routeChangeSubscription",menuItem);
       });    
     }
@@ -206,10 +206,11 @@ console.log("filePath",url,filePath);
             req.send();
 }
  
-callTag(searchText:any){
-    this.commonService.activeMenuName = this.commonService.activeMenuName;
-    this.routePath = searchText;
-    this.loadPageData();  
+callTag(searchText:any, activemenu :any){
+    this.commonService.activeMenuName = activemenu;
+    // this.routePath = searchText;
+    this.loadPageData(searchText);  
+    console.log("ppk", activemenu,searchText );
  }
   public getActiveMenu() {    
     if (this.commonService.menuData && this.commonService.menuData.RightMenu && this.commonService.menuData.RightMenu.length > 0) {
@@ -272,7 +273,7 @@ callTag(searchText:any){
     this.commonService.activeMenuName = '/SearchTag='+tag;
   //  this.routePath = this.commonService.activeMenuName;
     this.isDataLoaded = false;
-    this.loadPageData();
+    this.loadPageData('');
  }
   submitForm() {
   //  console.log("contactForm..",this.contactForm.value,this.contactForm);
@@ -319,8 +320,13 @@ callTag(searchText:any){
     });*/
   
    }
-  loadPageData() {
-    this.routePath = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id')); 
+  loadPageData(routePath:any) {
+    console.log("ppp", this.activatedRoute.snapshot.paramMap.get('id'));
+    if(routePath != ''){
+      this.routePath = routePath
+    } else {
+      this.routePath = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id')); 
+    }
     this.commonService.pageScrollToTop();
     let tagName = "";
     if(this.commonService.activeMenuName.includes("SearchTag") || this.routePath.includes("SearchTag")){

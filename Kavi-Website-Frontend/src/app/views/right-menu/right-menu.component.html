@@ -173,7 +173,7 @@
                                                     <!-- <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug)">
                                                         {{tag.attributes.DisplayName}}
                                                     </a> -->
-                                                    <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug)" routerLink="{{'/SearchTag='+tag?.attributes?.Slug}}">{{tag.attributes.DisplayName}}</a>                                                      
+                                                    <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug, ':id')" routerLink="{{'/SearchTag='+tag?.attributes?.Slug}}">{{tag.attributes.DisplayName}}</a>                                                      
                                                 </div> 
                                             </div>
                                             <app-right-menu-details-card 
