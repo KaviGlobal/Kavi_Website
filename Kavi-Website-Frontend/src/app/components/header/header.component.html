@@ -117,12 +117,14 @@
                           <a class="menu-items-left" style ="color:#f26000;margin-bottom: 8px;">{{menuItem.attributes?.parent_item?.data?.attributes?.DisplayName}}</a>
                         </div>
                         <div class="inner-menu-items" *ngIf="!menuItem.attributes?.IsTitle">
+                          <a href="https://advana.kaviglobal.com/" target="_blank">{{menuItem.attributes.DisplayName}}</a>
+                          <!--
                           <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName && menuItem?.attributes?.Slug != 'our-leadership-team'"
                           (click) = "makeOfferingsActive(menuItem,menuItem?.attributes?.Slug,menuItem?.attributes?.Parameter?.type)"
                           >{{menuItem.attributes.DisplayName}}</a>
                           <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName && menuItem?.attributes?.Slug == 'our-leadership-team'"
                             (click) = "makeMenuActive(menuItem)"
-                          >{{menuItem.attributes.DisplayName}}</a>
+                          >{{menuItem.attributes.DisplayName}}</a>-->
                         </div>
                       </li>
                     </ng-container>
