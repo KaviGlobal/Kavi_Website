@@ -810,6 +810,20 @@ agm-map {
 .schedule_submit{
   float: right;width: 100%;line-height: 50px;margin-top: 6px;font-size: 24px;
 }
+.slider_readmore{
+  position: absolute;
+  width: 100%;
+  bottom: 60px;
+  text-align: center;
+  a {
+    max-width: 100px;
+    background: #f26000;
+    color: #ffffff !important;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
 @media only screen and (max-width: 640px) {
   .clients-carousel {
     ::ng-deep .client-slider {

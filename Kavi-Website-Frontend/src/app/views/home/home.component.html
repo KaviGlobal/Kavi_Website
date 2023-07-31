@@ -4,12 +4,13 @@
 <div class="cont" *ngIf="isDataLoaded">
     <!-- {{this.homeData.attributes.HeroHeader.SliderMedia.Media.data.attributes.url | json}} -->
     <ngb-carousel class="client-slider home_slider" *ngIf="clientImages.length">
-        <ng-container *ngFor="let item of this.homeData.attributes?.HeroHeader">
+        <ng-container *ngFor="let item of this.homeData.attributes?.HeroHeader;let i = index">
             <ng-template ngbSlide>
                 <img *ngIf="item.SliderMedia?.Media?.data" [src]="item.SliderMedia?.Media?.data?.attributes?.url" alt="kaviglobal" />
                 <div class="slider_content">
                     <h3 *ngIf="item.Description">{{item.Description}}</h3>
                 </div>
+                <div style="display: none;" class="slider_readmore"><a href="" *ngIf="i == 2">Read more</a></div>
           </ng-template>
         </ng-container>
     </ngb-carousel>

@@ -38,8 +38,9 @@
   </nav>
 </header>
 
-<div id="menu_block" class="menu-container" > <!--[style.display]="showMenu ? 'block' : 'none'"-->
-  <div class="container-fluid">
+<div id="menu_block"> <!--[style.display]="showMenu ? 'block' : 'none'"-->
+  <div class="overflow_block" (click)="toggleDiv()"></div>
+  <div class="menu-container container-fluid">
     <div class="close-btn text-right">
       <span (click)="toggleDiv()">
         <i class="fas fa-times"></i>

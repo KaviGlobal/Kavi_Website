@@ -134,7 +134,7 @@ nav a {
   text-decoration: none;
   // margin-right: 20px;
 }
-.menu-container.menu-container-open {
+.menu-container-open .menu-container{
   max-height: 500px;
 }
 .menu-container {
@@ -329,5 +329,12 @@ a {
 }
 img{
   max-width: 100%;
+}
+.menu-container-open .overflow_block{
+  position: fixed;
+  top: 84px;
+  z-index: 1004;
+  bottom: 0px;
+  width: 100%;
 }
 
