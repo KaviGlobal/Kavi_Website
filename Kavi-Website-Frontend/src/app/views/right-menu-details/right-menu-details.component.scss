@@ -176,6 +176,12 @@
     max-width:90%;
     text-align: justify;
   }
+  .container_1400{
+    max-width: 1400px;
+    margin: auto;
+    text-align: justify;
+    padding: 0px 15px;
+  }
   .people-detail{    
     img{
 //      width:300px;
@@ -460,8 +466,9 @@ markdown ::ng-deep  {
 }
 @media only screen and (min-width: 992px) {
   .pad_400{
-    padding-right: 430px;
-    
+    padding-right: 410px;
+    max-width: 1450px;
+    margin: auto;
   }
   .right_fixed{
     position: fixed;
