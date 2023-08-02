@@ -110,14 +110,20 @@
                     </div>
                     <div *ngIf="pageData[0]?.attributes && pageType == 'pages'">
                         <div *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.mime && pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.url">
-                            <iframe *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.ext != '.pdf'" style="margin-top:20px" allow="autoplay *; encrypted-media *; fullscreen *" 
-                                frameborder="0" width="100%" height="500" 
+                            <iframe *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.ext != '.pdf'" style="margin-top:20px" allow="autoplay *; encrypted-media *; fullscreen *;" 
+                                frameborder="0" width="100%" height="500" style="overflow:hidden; pointer-events: none;"
                                 [src]="'https://docs.google.com/viewer?url='+pageData[0]?.attributes?.Media[0].Media.data.attributes.url+'&embedded=true' | customPipe"
                             >
                             </iframe>
+                    <!--        <iframe *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.ext == '.pdf'" style="margin-top:20px" allow="autoplay *; encrypted-media *; fullscreen *" 
+                                frameborder="0" width="100%" height="500" style="overflow:hidden; pointer-events: none;"
+                                [src]="pageData[0]?.attributes?.Media[0].Media.data.attributes.url+'#page=1' | customPipe"
+                            >
+                            </iframe>
+                        -->                          
                             <iframe *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.ext == '.pdf'" style="margin-top:20px" allow="autoplay *; encrypted-media *; fullscreen *" 
-                                frameborder="0" width="100%" height="500" 
-                                [src]="pageData[0]?.attributes?.Media[0].Media.data.attributes.url+'#toolbar=0' | customPipe"
+                                frameborder="0" width="100%" height="500" style="overflow:hidden; pointer-events: none;"
+                                [src]="pageData[0]?.attributes?.Media[0].Media.data.attributes.url+'#toolbar=0&scrollbar=0&page=1' | customPipe"
                             >
                             </iframe>
                             <div class="fileDownload" *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.mime && pageData[0]?.attributes?.isDownloadable">                            
@@ -129,8 +135,8 @@
                     <div *ngIf="pageData[0]?.attributes?.Publisher">
                         <div *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.mime && pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.url">
                             <iframe style="margin-top:20px" allow="autoplay *; encrypted-media *; fullscreen *" 
-                                frameborder="0" width="100%" height="500" 
-                                [src]="pageData[0]?.attributes?.Media[0].Media.data.attributes.url+'#toolbar=0' | customPipe"
+                                frameborder="0" width="100%" height="500" style="overflow:hidden; pointer-events: none;"
+                                [src]="pageData[0]?.attributes?.Media[0].Media.data.attributes.url+'#toolbar=0&scrollbar=0&page=1' | customPipe"
                             >
                             </iframe>
                             <div class="fileDownload" *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.mime && pageData[0]?.attributes?.isDownloadable">                            
@@ -396,7 +402,7 @@
     </div>
     <div *ngIf="isPartner">  
         <div *ngFor="let key of partnerKeys; let i = index">  
-            <h4 style="text-align: center;margin-bottom: 40px;color:#234990">Our {{key}} Partners</h4>
+            <h4 style="text-align: center;margin-bottom: 40px;color:2b5084">Our {{key}} Partners</h4>
             <div *ngFor="let item1 of partnerValues; let j = index"> 
                 <div *ngIf = "i == j" class="row">      
                     <div *ngFor="let item of item1" class="col-lg-3 col-md-4 col-sm-6 col-xs-12">           
