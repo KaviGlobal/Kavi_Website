@@ -27,6 +27,14 @@
       "repeatable": false,
       "component": "media.image"
     },
+    "AlternateName": {
+      "type": "string"
+    },
+    "IndustryLogo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
+    },
     "Url": {
       "type": "text"
     },
