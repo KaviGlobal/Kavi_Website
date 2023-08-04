@@ -55,6 +55,7 @@ export class RightMenuDetailsComponent implements OnInit {
   public validateStatus: boolean = false;
   public validateMessage: string = '';
   public downloadFileURL:any;
+  public emailFormName :any;
   demoSection = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
@@ -180,20 +181,23 @@ console.log("kkp", this.activatedRoute.snapshot.paramMap.get('pageType'), this.a
     modalRef.componentInstance.title = ' title:';*/  
   }
 
-  open(content:any,fileUrl:any,fileName:any,fileExtention:any) {
+  open(content:any,fileUrl:any,fileName:any,fileExtention:any,formName:any) {
     this.downloadFileURL = fileUrl;
+    this.emailFormName = formName;
     this.modalService.open(content, this.modalOptions).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {     
       this.closeResult = `Dismissed ${
-        this.getDismissReason(reason)}`;
-        if(this.validateStatus){
-          this.downloadFile(fileUrl,fileName,fileExtention);
+        this.getDismissReason(reason)
+      }`;     
+        if(this.validateStatus && fileUrl.length > 0){  
+   //       this.emailFormName = 'Download File';     
+          this.downloadFile(fileUrl,fileName,fileExtention,this.emailFormName);
         }
     });
   }
-  public sendDemoRequest(formName:string){
-    console.log("demoSection",this.demoSection);
+  public sendDemoRequest(){
+//    console.log("demoSection",this.demoSection,this.emailFormName);
     if(!this.demoSection.value.firstName || !this.demoSection.value.lastName || !this.demoSection.value.email){
       //error display
       this.validateStatus = false;
@@ -202,7 +206,7 @@ console.log("kkp", this.activatedRoute.snapshot.paramMap.get('pageType'), this.a
     else{
       //success call api
       this.validateStatus = true;
-      this.sendEmail(this.demoSection,formName);
+      this.sendEmail(this.demoSection,this.emailFormName);
       this.validateMessage = "Thank you for contacting us. Our team will get in touch with you shortly.";
       this.onClose(); 
       this.clearForm(this.demoSection);
@@ -211,15 +215,29 @@ console.log("kkp", this.activatedRoute.snapshot.paramMap.get('pageType'), this.a
   
  sendEmail(contactForm:any,formName:string){   
   let contactMessage = "";
+  let htmlContent = "";
+  let pageName="";
+  let pageType="";
+  if(this.pageType != 'pages')
+    pageType =  "pageType:"+ this.pageType.charAt(0).toUpperCase() + this.pageType.slice(1);;
   if(contactForm.value.message)
     contactMessage = "Message:"+contactForm.value.message;
-  if(formName == 'Contact Us')
+  if(formName == 'Contact Us'){
+    formName = formName ;
+    pageName= this.pageDetailsName.charAt(0).toUpperCase() + this.pageDetailsName.slice(1);
+    htmlContent = "<html><body> The user "+contactForm.value.firstName+" has filled the Contact Us form <br/>First Name : "+contactForm.value.firstName+"<br/>Last Name : "+contactForm.value.lastName+"<br/>Email : "+contactForm.value.email+"<br/>Phone : "+contactForm.value.phone+"<br/>"+contactMessage+"<br/>Page  : "+ pageName +"<br/>"+pageType+"</body></html>"
+ 
+  }
+  if(formName == 'Download File'){
     formName = formName +" from "+ this.pageDetailsName.charAt(0).toUpperCase() + this.pageDetailsName.slice(1)
+    htmlContent = "<html><body> The user "+contactForm.value.firstName+" has downloaded the a file from the URL "+this.downloadFileURL +"<br/>First Name : "+contactForm.value.firstName+"<br/>Last Name : "+contactForm.value.lastName+"<br/>Email : "+contactForm.value.email+"<br/>Phone : "+contactForm.value.phone+"<br/>"+contactMessage+"</br></body></html>"
+    
+  }
     let message = {    
       senderAddress: appConfig.EMAIL_SENDER_ADDRESS,
       content:{
         subject:formName,
-        html:"<html><body> The user "+contactForm.value.firstName+" has downloaded the a file from the URL "+this.downloadFileURL +"<br/>First Name : "+contactForm.value.firstName+"<br/>Last Name : "+contactForm.value.lastName+"<br/>Email : "+contactForm.value.email+"<br/>Phone : "+contactForm.value.phone+"<br/>"+contactMessage+"</br></body></html>"
+        html:  htmlContent
       }, 
       recipients: {
         to: [
@@ -259,7 +277,7 @@ console.log("kkp", this.activatedRoute.snapshot.paramMap.get('pageType'), this.a
     }
   }
 
-  public downloadFile(fileUrl:any,fileName:any,fileExtention:any){   
+  public downloadFile(fileUrl:any,fileName:any,fileExtention:any,formName:any){   
 //    this.getUserInfo();
     var req = new XMLHttpRequest();
             req.open("GET", fileUrl, true);
@@ -280,7 +298,7 @@ console.log("kkp", this.activatedRoute.snapshot.paramMap.get('pageType'), this.a
                 
             };
             req.send();
-
+            this.emailFormName = 'Download File';
   }
   public onClose() {
     this.isPeople = false;
@@ -397,7 +415,7 @@ console.log("kkp", this.activatedRoute.snapshot.paramMap.get('pageType'), this.a
      
   }
   getRelatedDataByTag(tagName:any, viewer:any){
-    let menu=['blogs','newslist','success-stories', 'podcasts', 'publications' ,'presentations'];
+    let menu=['success-stories','blogs','newslist','podcasts', 'publications' ,'presentations'];
     let menuTaglist:any=[];
     let relatedMeta:any;
     this.rightPageRelatedData = [];

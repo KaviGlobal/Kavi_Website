@@ -11,6 +11,12 @@
     <a href="https://twitter.com/KG4Analytics" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a> 
     <a href="https://www.facebook.com/kaviglobal/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a> 
     </div>
+    <div class="icon-bar1">                                    
+       
+        <a class="contact" (click)="open(mymodal,'','','','Contact Us')">
+                            
+        CONTACT US </a> 
+    </div>
 <ng-template #mymodal let-modal>
     <div class="modal-header">     
       <h3 class="title" style="width:25%">Fill the Form</h3>
@@ -21,18 +27,17 @@
     <div class="modal-body">
         <div class="row fillForm">                    
             <ng-container>
-                <form [formGroup]="demoSection" (ngSubmit)="sendDemoRequest('Download Form')">                  
-                    <div>    
-                                                
-                            <input class="formStyles" type="text" placeholder = "FirstName *" formControlName="firstName">                                  
+                <form [formGroup]="demoSection" (ngSubmit)="sendDemoRequest()">                  
+                    <div>                                                    
+                            <input class="formStyles" type="text" placeholder = "First Name *" formControlName="firstName">                                  
                          
-                            <input class="formStyles" type="text" placeholder = "LastName *"  formControlName="lastName">
+                            <input class="formStyles" type="text" placeholder = "Last Name *"  formControlName="lastName">
                          
                             <input class="formStyles" type="text" placeholder = "Email *" formControlName="email">
                           
                             <input class="formStyles" type="number" placeholder = "Phone" formControlName="phone">
                         
-                            <textarea class="formStyles" style="width:82%; height:60px" formControlName="message" placeholder="Message.." cols="45" rows="8" aria-required="true"></textarea>
+                            <textarea class="formStyles" style="width:82%; height:100px" formControlName="message" placeholder="Message.." cols="45" rows="8" aria-required="true"></textarea>
                             
                     </div> 
                     <div *ngIf="!validateStatus && validateMessage.length > 0" style="padding-bottom: 20px;">
@@ -127,7 +132,7 @@
                             >
                             </iframe>
                             <div class="fileDownload" *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.mime && pageData[0]?.attributes?.isDownloadable">                            
-                                <a (click)="open(mymodal,pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.url,pageData[0]?.attributes?.Slug,pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.ext)">
+                                <a (click)="open(mymodal,pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.url,pageData[0]?.attributes?.Slug,pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.ext,'Download File')">
                                     <i class="fa fa-download" aria-hidden="true"></i>Download File</a>                                
                             </div> 
                         </div>                       
@@ -142,7 +147,7 @@
                             <div class="fileDownload" *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.mime && pageData[0]?.attributes?.isDownloadable">                            
                               <!--  <a (click)="downloadFile(pageData[0]?.attributes?.Media[0].Media.data.attributes.url,pageData[0]?.attributes?.Slug)"   >
                                 <i class="fa fa-download" aria-hidden="true"></i> Download File</a> -->
-                                <a (click)="open(mymodal,pageData[0]?.attributes?.Media[0].Media.data.attributes.url,pageData[0]?.attributes?.Slug,pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.ext)">
+                                <a (click)="open(mymodal,pageData[0]?.attributes?.Media[0].Media.data.attributes.url,pageData[0]?.attributes?.Slug,pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.ext,'Download File')">
                                     <i class="fa fa-download" aria-hidden="true"></i>Download File</a>                                
                             </div> 
                         </div>                       
@@ -161,7 +166,7 @@
                                     <a *ngIf="media?.Type == 'Twitter'" href={{media?.Url}} target="_blank"><i class="fab fa-twitter-square"></i></a>
                                     <a *ngIf="media?.Type == 'Facebook'" href={{media?.Url}} target="_blank"><i class="fab fa-facebook-square"></i></a>
                                     <a *ngIf="media?.Type == 'YouTube'" href={{media?.Url}} target="_blank"><i class="fab fa-youtube"></i></a>
-                                </div>
+                                </div>                               
                                 <div class="social-horizontal">
                                 <a href="mailto:{{pageData.Email}}"><i class="fas fa-envelope mr-2"></i></a>
                                 </div>
@@ -252,7 +257,7 @@
                 </div> -->
             </div>       
         </div>
-        <div style="width:100%; height:2px; background: #dee2e6 ;margin-bottom:30px">
+<!--        <div style="width:100%; height:2px; background: #dee2e6 ;margin-bottom:30px">
         </div>
         <div class="demo-section" *ngIf="!isPeople">
             <div class="">
@@ -300,6 +305,7 @@
                 </div>
             </div>
         </div>
+    -->
         <div class="recommendation-section" *ngIf="rightPageRelatedData.length > 0">
             <div *ngFor="let relatedData of rightPageRelatedData">
                 <div style="width:100%; height:2px; background: #dee2e6 ;margin-bottom:30px">

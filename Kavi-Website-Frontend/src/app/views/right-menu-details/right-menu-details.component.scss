@@ -386,7 +386,7 @@ markdown ::ng-deep  {
   // }
 }
 .formStyles {
-  width: 100%;
+  width: 82%;
  //  padding: 10px;
    padding:15px 20px;
    box-sizing: border-box;
@@ -495,7 +495,7 @@ markdown ::ng-deep  {
 
 .icon-bar {
   position: fixed;
-  top: 50%;
+  top: 40%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -514,7 +514,33 @@ markdown ::ng-deep  {
 .icon-bar a:hover {
   background-color: #000;
 }
+.icon-bar1 {
+  position: fixed;
+  top: 70%;
+  -webkit-transform: translateY(-70%);
+  -ms-transform: translateY(-70%);
+  transform: translateY(-70%);
+  z-index: 2;
+}
 
+.icon-bar1 a {
+  display: block;
+//  padding: 16px;
+  padding: 10.5px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+
+.icon-bar1 a:hover {
+  background-color: #000;
+}
+.contact{
+  //  border-radius: 50%;  
+    background: #f26000;
+    color:#fff;
+    writing-mode: vertical-rl;
+  }
 .facebook {
   background: #3B5998;
   color: white;
