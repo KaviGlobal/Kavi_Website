@@ -41,8 +41,8 @@
         <a routerLink="/blogs">Back to List</a>
     </h6>-->
 </div>
-<div class="clients" *ngIf="clients?.data?.attributes && !clients?.data?.isEnabled">
-    <h6>Clients:</h6> 
+<div class="clients" *ngIf="clients?.data?.attributes">
+    <h6>Clients:</h6>
 <!--   
     <div> 
         <img *ngIf="clients?.data?.attributes?.Logo?.Media?.data?.attributes?.url" 
@@ -60,7 +60,7 @@
 -->
     <div class="container d-flex justify-content-center align-items-center">             
         <div class="card">
-            <div class="user text-center image_card">
+            <div class="user text-center image_card" *ngIf="clients?.data?.attributes.isDisplayed">
                 <div class="image_box" *ngIf="clients?.data?.attributes?.Logo?.Media?.data?.attributes?.url">
                     <div class="image_sub_box">
                         <img src="{{clients?.data?.attributes?.Logo?.Media?.data?.attributes?.url}}"
@@ -69,6 +69,31 @@
                 </div>
             <a href="{{clients?.data?.attributes?.Url}}" target="blank">
                 <i class="fas fa-external-link-alt" style="margin-right:5px;margin-top:15px"></i> {{clients?.data.attributes?.Name}}</a>
+        
+        <span class="text-muted d-block mb-2">{{clients?.data?.attributes?.Industry}}</span>
+        <div class="d-flex justify-content-between align-items-center px-4">
+            <div class="stats" *ngIf="clients?.data?.attributes?.Revenue">
+            <h6 class="mb-0">Revenue</h6>
+            <span>{{clients.data.attributes.Revenue}}</span>
+
+            </div>
+
+            <div class="stats" *ngIf="clients?.data?.attributes?.EmployeeCount">
+            <h6 class="mb-0">Employees</h6>
+            <span> {{clients.data.attributes.EmployeeCount}}</span>
+            </div>            
+        </div>
+
+            </div> 
+            <div class="user text-center image_card" *ngIf="!clients?.data?.attributes.isDisplayed">
+                <div class="image_box" *ngIf="clients?.data?.attributes?.IndustryLogo?.Media?.data?.attributes?.url">
+                    <div class="image_sub_box">
+                        <img src="{{clients?.data?.attributes?.IndustryLogo?.Media?.data?.attributes?.url}}"
+                        title={{clients?.data?.attributes?.IndustryLogo?.Media?.data?.attributes?.AlternateName}}>
+                    </div>
+                </div>
+            <a href="{{clients?.data?.attributes?.Url}}" target="blank">
+                <i class="fas fa-external-link-alt" style="margin-right:5px;margin-top:15px"></i> {{clients?.data.attributes?.AlternateName}}</a>
         
         <span class="text-muted d-block mb-2">{{clients?.data?.attributes?.Industry}}</span>
         <div class="d-flex justify-content-between align-items-center px-4">
