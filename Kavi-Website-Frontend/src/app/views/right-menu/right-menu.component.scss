@@ -420,13 +420,15 @@ p {
     padding: 25px;
     margin-bottom: 25px;
     .tag_block {
-      display: flex;
+      position: relative;
+      display: inline-block;
       white-space: nowrap;
-      overflow-x: auto;
+      // overflow-x: auto;
       width: 100%;
-      padding-bottom: 10px;
-      margin-bottom: 15px;
-      height: 57px;
+      padding:15px 0 10px;
+      
+      // margin-bottom: 15px;
+      // height: 57px;
       &::-webkit-scrollbar {
         // width: 10px;
         height: 7px;
@@ -439,6 +441,32 @@ p {
       }
       &::-webkit-scrollbar-thumb {
         background: #234990;
+      }
+      &:hover .tag_all_block{
+        display: block;
+      } 
+      .tag_all_block {
+        display: none;
+        position: absolute;
+        background: #ffffff;
+        padding: 15px;
+        border-radius: 5px;
+        left: 0px;
+        right: 0px;
+        bottom: 100%;
+        text-align: center;
+        background-image: linear-gradient(180deg, rgba(174, 223, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
+        box-shadow: 0px 3px 6px rgb(0 0 0 / 36%);
+        max-height: 170px;
+        overflow: auto;
+      }
+      a.more_tags{
+        background-color: #f26000;
+        float: right;
+      }
+      .fas{
+        font-family:'Font Awesome 5 Free';
+        padding-left: 3px;
       }​
       .tab {
         a {

@@ -11,11 +11,8 @@
     <a href="https://twitter.com/KG4Analytics" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a> 
     <a href="https://www.facebook.com/kaviglobal/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a> 
     </div>
-    <div class="icon-bar1">                                    
-       
-        <a class="contact" (click)="open(mymodal,'','','','Contact Us')">
-                            
-        CONTACT US </a> 
+    <div class="icon-bar1">
+        <a class="contact" (click)="open(mymodal,'','','','Contact Us')"style="padding: 13px 13px 13px 8px;"><i class="fas fa-envelope"></i></a> 
     </div>
 <ng-template #mymodal let-modal>
     <div class="modal-header">     
@@ -154,7 +151,7 @@
                     </div>                   
                 </div>           
                 <div class="people-detail" *ngIf="isPeople">
-                    <div class="container rounded bg-white mt-5 mb-5" *ngIf="isPeople">
+                    <div class="mt-5 mb-5" *ngIf="isPeople">
                     <div class="row">
                         <div class="col-md-4">                         
                             <div *ngIf="pageData?.CoverImage?.Media?.data?.attributes">

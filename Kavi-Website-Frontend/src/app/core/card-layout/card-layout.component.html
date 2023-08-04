@@ -1,12 +1,12 @@
 <div *ngIf="type == 'top-image-layout'">
     <div class="top-layout-container">
-        <div>
+        <div class="px-3 pt-3">
             <div class="image-wrapper">
                 <img src="{{image}}" alt="image" />
             </div>
         </div>
         <div class="p-3">
-            <h3>{{title}}</h3>
+            <div class="mtooltip" *ngIf="title"><h3>{{title}}</h3><span class="mtooltiptext">{{title}}</span></div>
             <p>{{description}}</p>
             <a routerLink="{{'/' + moduleName + '/'+ slug}}" *ngIf="moduleName">{{hyperlinkText}} <i
                     class="fas fa-arrow-right arrow-icon ml-1"></i></a>
@@ -46,7 +46,7 @@
         <div class="new-content read_more_block">
             <div class="read_hight">
                 <h3>{{title}}</h3>
-                <p class="mb-1">{{description}}</p>
+                <p>{{description}}</p>
             </div>
             <a routerLink="{{'/' + moduleName + '/'+ slug}}" *ngIf="moduleName">{{hyperlinkText}} <i
                     class="fas fa-arrow-right arrow-icon ml-1"></i></a>
