@@ -160,7 +160,7 @@ nav a {
 }
 .menu-items {
   list-style-type: none;
-  padding-left: 30px;
+  padding-left: 0px;
   li {
     padding-bottom: 8px;
     a[href] {
@@ -337,4 +337,35 @@ img{
   bottom: 0px;
   width: 100%;
 }
+.menu-section{
+  width: 100%;
+  margin: 0px;
+}
+.menu-block {
+  padding: 0px 15px;
+}
 
+@media only screen and (min-width: 1025px ) {
+  .menu-section{
+    display: table;
+  }
+  .menu-block {
+    display: table-cell;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .menu-section{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .menu-block {
+    width: 33.3%;float: left;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .menu-block {
+    width: 100%;
+  }
+}

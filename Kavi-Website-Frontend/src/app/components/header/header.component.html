@@ -49,11 +49,9 @@
     <div class="py-4">
       <div class="row no-gutters">
         <div class="col-12 col-sm-12">
-          <div class="row">
+          <div class="menu-section">
 
-            <div class="col-md-9 col-sm-9 col-xs-12">
-              <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="menu-block">
                   <ul class="menu-items">
                     <ng-container>
                       <li *ngFor="let menuItem of menuData[3]?.AboutUs; let k=index">
@@ -73,7 +71,7 @@
                   </ul>
                 </div>
 
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="menu-block">
                   <ul class="menu-items">
                     <ng-container>
                       <li *ngFor="let menuItem of menuData[0]?.LeftMenu; let k=index">
@@ -93,7 +91,7 @@
                   </ul>
                 </div>
 
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="menu-block">
                   <ul class="menu-items">
                     <ng-container>
                       <li *ngFor="let menuItem of menuData[4]?.SoftwareMenu; let k=index">
@@ -113,7 +111,7 @@
                       </li>
                     </ng-container>
                   </ul>
-                  <ul class="menu-items">
+                  <ul class="menu-items" *ngIf="menuData[5]?.SolutionsMenu.length > 0">
                     <ng-container>
                       <li *ngFor="let menuItem of menuData[5]?.SolutionsMenu; let k=index">
                         <div *ngIf="k == 0">
@@ -132,7 +130,7 @@
                   </ul>
                 </div>
 
-                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="menu-block">
                   <ul class="menu-items">
                     <li *ngFor="let IndustrykeyItem of IndustrykeyList; let i = index">
                       <ul class="inner-menu-items" *ngIf="IndustrykeyItem">
@@ -153,8 +151,38 @@
                     </li>
                   </ul>
                 </div>
-              </div>
-            </div>
+                
+                <div class="menu-block" *ngIf="menuData[6]?.AdvancedAnalyticsMenu.length > 0">
+                  <ul class="menu-items">
+                    <ng-container>
+                      <li *ngFor="let menuItem of menuData[6]?.AdvancedAnalyticsMenu; let k=index">
+                        <div *ngIf="k == 0">
+                          <a class="menu-items-left" style ="color:#f26000;margin-bottom: 8px;">{{menuItem.attributes?.parent_item?.data?.attributes?.DisplayName}}</a>
+                        </div>
+                        <div class="inner-menu-items" *ngIf="!menuItem.attributes?.IsTitle">
+                          <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName && menuItem?.attributes?.Slug != 'our-leadership-team'"
+                          (click) = "makeOfferingsActive(menuItem,menuItem?.attributes?.Slug,menuItem?.attributes?.Parameter?.type)"
+                          >{{menuItem.attributes.DisplayName}}</a>
+                          <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName && menuItem?.attributes?.Slug == 'our-leadership-team'"
+                            (click) = "makeMenuActive(menuItem)"
+                          >{{menuItem.attributes.DisplayName}}</a>
+                        </div>
+                      </li>
+                    </ng-container>
+                  </ul>
+                </div>
+
+                <div class="menu-block menu-items-right-col">
+                  <ul class="menu-items-right">
+                    <ng-container *ngFor="let menuItem of menuData[1]?.RightMenu">        
+                      <li *ngIf="menuItem?.attributes?.Parameter">                                 
+                          <a routerLink="/{{menuItem?.attributes?.Parameter?.type}}" 
+                          (click)="makeMenuActive(menuItem)">{{menuItem.attributes.DisplayName}}</a>
+                      </li>
+                    </ng-container>            
+                  </ul>
+                </div>
+
             <!-- <div class="col-md-3 col-sm-6 col-xs-12">
               <ul class="menu-items">
                 <li *ngFor="let keyItem of keyList; let i = index">
@@ -178,18 +206,7 @@
                   </ul>                     
                 </li>
               </ul>
-            </div> -->            
-
-            <div class="col-md-3 col-sm-3 col-xs-12 menu-items-right-col">
-              <ul class="menu-items-right">
-                <ng-container *ngFor="let menuItem of menuData[1]?.RightMenu">        
-                  <li *ngIf="menuItem?.attributes?.Parameter">                                 
-                      <a routerLink="/{{menuItem?.attributes?.Parameter?.type}}" 
-                      (click)="makeMenuActive(menuItem)">{{menuItem.attributes.DisplayName}}</a>
-                  </li>
-                </ng-container>            
-              </ul>
-            </div>
+            </div> -->
 
           </div>
         </div>

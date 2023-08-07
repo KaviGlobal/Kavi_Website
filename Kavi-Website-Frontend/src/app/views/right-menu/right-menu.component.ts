@@ -394,7 +394,7 @@ callTag(searchText:any, activemenu :any){
               //        console.log("call",menuTaglist,this.pageData.length);              
             });
           }*/
-          this.getRightPageData();
+          // this.getRightPageData();
         } 
 /*        if(this.commonService.activeMenuName == ":id"){
           let menu=['blogs','newslist','success-stories', 'podcasts', 'publications' ,'presentations'];
@@ -549,7 +549,7 @@ callTag(searchText:any, activemenu :any){
        
           });
         });
-        this.getRightPageData()
+        // this.getRightPageData()
 
       } else if (this.routePath == 'leadership-team'){
         this.rightMenuService.getDetailsData(this.commonService.activeMenuData?.attributes?.Parameter?.type, this.pageDetailsName, this.commonService.activeMenuData?.attributes?.Parameter?.parameter?.filter).then((response: any) => {
@@ -650,17 +650,17 @@ callTag(searchText:any, activemenu :any){
   searchAuthor(authorName:any){  
     this.router.navigate(['/people/'+ authorName]);
   }
-  getRightPageData(){
-    let tags: any = [];
-    this.rightPageData = [];
-    // this.getMetaDataForListViewer();
-    this.rightMenuService.getTagList().then((response: any) => {          //          
-      let responseLength = response.data.length;
-      let dimension_tag = this.groupBy(response.data, (item:any) => item?.attributes?.tag_dimension.data.attributes.DisplayName);
-      this.rightPageData.push(dimension_tag);
-    });     
-  //  this.rightPageData.push(tags);
-  }
+  // getRightPageData(){
+  //   let tags: any = [];
+  //   this.rightPageData = [];
+  //   // this.getMetaDataForListViewer();
+  //   this.rightMenuService.getTagList().then((response: any) => {          //          
+  //     let responseLength = response.data.length;
+  //     let dimension_tag = this.groupBy(response.data, (item:any) => item?.attributes?.tag_dimension.data.attributes.DisplayName);
+  //     this.rightPageData.push(dimension_tag);
+  //   });     
+  // //  this.rightPageData.push(tags);
+  // }
   public groupBy(list:any, keyGetter:any) {
     const map = new Map();
     let keyProperties :any [];
