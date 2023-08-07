@@ -336,14 +336,18 @@ callTag(searchText:any, activemenu :any){
       else
         tagName = (this.routePath).split('=')[1] ;  
 //        console.log("ttttt",this.commonService.activeMenuName,this.routePath,tagName);   
+      
         if(this.routePath.includes("SearchTag")){
           let menu =  this.commonService.menuData[1].RightMenu;
           let menuTaglist:any=[];
-          let i = 0, j = 0;
+          let i = 0, j = 0;   
+          this.rightMenuService.getTagPropertyForTagSlug(tagName).then((response: any) => {
+            this.tagName = response.data[0].attributes.DisplayName;
+//            console.log("response1111111",response.data[0].attributes.DisplayName);          
+          });
           this.rightMenuService.getMetaDataForListViewer().then((response: any) => { 
             this.listMetaData = response.data.attributes;
-            for(let item of menu) {
-              
+            for(let item of menu) {              
                   this.rightMenuService.getTagListByName(tagName,item.attributes.Parameter.type,this.listMetaData.MaxCount).then((response: any) => {
               //      this.rightMenuService.getTagListByName(tagName,item.attributes.Parameter.type,20).then((response: any) => {
                     j++; 
@@ -365,7 +369,7 @@ callTag(searchText:any, activemenu :any){
                       this.isEmptyDataList = true;
                       this.isLeadership = true;
                     }
-                    this.tagName = tagName;
+                    
                     this.pageData = menuTaglist;
                     var element = this.document.getElementById("header_block");
                       if(element != null){
