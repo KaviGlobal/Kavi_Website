@@ -65,7 +65,7 @@ export class RightMenuService {
     });
 
   }
-public getTagListByName(tagName:any,menuName:any,listCount:number): any {
+  public getTagListByName(tagName:any,menuName:any,listCount:number): any {
     return new Promise<any>((resolve, reject) => {
       const endpoint =  '/'+menuName+appConfig. GET_TAG_LIST_BY_NAME+tagName+"&pagination[pageSize]="+listCount;      
       this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
@@ -95,7 +95,19 @@ public getTagListByName(tagName:any,menuName:any,listCount:number): any {
       })
     });
   }
-  
+  public getTagPropertyForTagSlug(slugName: any):any{
+    return new Promise<any>((resolve, reject) => {
+      const endpoint = appConfig. GET_TAG_PROPERTY_FOR_TAG_SLUG + slugName;      
+      this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+  }
   public emailSubscription(email: string): any {
     return new Promise<any>((resolve, reject) => {
       const endpoint =  appConfig.EMAIL_SUBSCRIPTION ;
