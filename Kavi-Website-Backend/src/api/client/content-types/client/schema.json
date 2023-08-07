@@ -47,7 +47,7 @@
     "EmployeeCount": {
       "type": "string"
     },
-    "isEnabled": {
+    "isDisplayed": {
       "type": "boolean"
     }
   }
