@@ -216,6 +216,21 @@ export class RightMenuService {
         })
       });
   }
+  public getAuthorsPodcast(authorName:string,type:string){
+    return new Promise<any>((resolve, reject) => {
+      //  const endpoint =  appConfig.RIGHT_MENU_TYPE + type + appConfig.RIGHT_MENU_VIEW_TYPE + blogTitle;
+        const endpoint =  '/podcasts' + appConfig.GET_AUTHORS_PODCAST + authorName;
+        this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
+          if (resp) {
+            resolve(resp);
+          }
+          else {
+            resolve(false);
+          }
+        })
+      });
+  }
+ 
   public getDetailsData(type: string, blogTitle: string, filter : any): any {
 //    console.log(type,blogTitle,filter);
     return new Promise<any>((resolve, reject) => {

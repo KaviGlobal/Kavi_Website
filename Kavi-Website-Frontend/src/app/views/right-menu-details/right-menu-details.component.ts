@@ -342,24 +342,6 @@ console.log("kkp", this.activatedRoute.snapshot.paramMap.get('pageType'), this.a
            
           });
           this.authorPost.push(peopleViewerResp.data.attributes.PublicationContribution);        
-        } 
-        if(peopleViewerResp.data.attributes.PodcastContribution){
-          let menuName = peopleViewerResp.data.attributes.PodcastContribution.Label.toLowerCase();           
-          this.rightMenuService.getAuthorsPost(this.pageDetailsName,menuName).then((response: any) => {  
-            let dataObj:any=[];      
-            if (response.data && response.data.length > 0) {
-              response.data.forEach((item:any,index:number) =>{
-                if(index < peopleViewerResp.data.attributes.PodcastContribution.MaxCount ){
-                  dataObj.push(item)
-                }               
-              });
-           }
-            peopleViewerResp.data.attributes.PodcastContribution.Data = dataObj;
-            peopleViewerResp.data.attributes.PodcastContribution.pageType = menuName;
-           
-          });
-          this.authorPost.push(peopleViewerResp.data.attributes.PodcastContribution);
-          
         }
         if(peopleViewerResp.data.attributes.PresentationContribution){
           let menuName = peopleViewerResp.data.attributes.PresentationContribution.Label.toLowerCase();           
@@ -377,6 +359,26 @@ console.log("kkp", this.activatedRoute.snapshot.paramMap.get('pageType'), this.a
            
           });
           this.authorPost.push(peopleViewerResp.data.attributes.PresentationContribution);
+        }
+         
+        if(peopleViewerResp.data.attributes.PodcastContribution){
+          let menuName = peopleViewerResp.data.attributes.PodcastContribution.Label.toLowerCase();           
+   //       this.rightMenuService.getAuthorsPost(this.pageDetailsName,menuName).then((response: any) => { 
+          this.rightMenuService.getAuthorsPodcast(this.pageDetailsName,menuName).then((response: any) => {  
+            let dataObj:any=[];      
+            if (response.data && response.data.length > 0) {
+              response.data.forEach((item:any,index:number) =>{
+                if(index < peopleViewerResp.data.attributes.PodcastContribution.MaxCount ){
+                  dataObj.push(item)
+                }               
+              });
+           }
+            peopleViewerResp.data.attributes.PodcastContribution.Data = dataObj;
+            peopleViewerResp.data.attributes.PodcastContribution.pageType = menuName;
+           
+          });
+          this.authorPost.push(peopleViewerResp.data.attributes.PodcastContribution);
+          
         }
     }    
 
