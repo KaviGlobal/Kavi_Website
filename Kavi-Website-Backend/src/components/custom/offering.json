@@ -9,14 +9,16 @@
     "Title": {
       "type": "string"
     },
-    "PreviewContent": {
-      "type": "string"
-    },
-    "CoverImage": {
-      "type": "string"
-    },
     "Label": {
       "type": "string"
+    },
+    "Media": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
+    },
+    "PreviewContent": {
+      "type": "text"
     }
   }
 }
