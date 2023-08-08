@@ -1,0 +1,32 @@
+.blog-container {
+    width: 100%;
+    margin-top: 9%;
+    height: 230%;
+    .back-to {
+        margin: 20px;
+    }
+
+    .block-container {
+        margin: 20px;
+
+        h1 {
+            color: #224991;
+            font-family: 'open-sans-bold';
+        }
+
+        h3 {
+            color: #EA6B1E;
+            font-family: 'open-sans-bold';
+        }
+
+        .block-div {
+            background-color: whitesmoke;
+            height: 199px;
+        }
+    }
+
+}
+
+cdk-virtual-scroll-viewport {
+    height: 100%;
+}

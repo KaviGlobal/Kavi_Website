@@ -8,9 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CollageViewComponent implements OnInit {
 
   @Input() imagePosition: any;
-  @Input() image:any;
-  @Input() title:any;
-  @Input() description:any;
+  @Input() image: any;
+  @Input() title: any;
+  @Input() description: any;
+  @Input() height: any;
+  @Input() width: any;
   constructor() { }
 
   ngOnInit(): void {

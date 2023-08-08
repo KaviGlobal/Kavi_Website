@@ -12,11 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
+<<<<<<< HEAD
     "Subscription": {
+=======
+    "FooterSubscription": {
+>>>>>>> 3144f2ef88ea89a5c13ebd6567334abf185cec38
       "type": "component",
       "repeatable": false,
       "component": "custom.subscription"
     },
+<<<<<<< HEAD
     "Logo": {
       "type": "component",
       "repeatable": false,
@@ -36,6 +41,51 @@
       "type": "component",
       "repeatable": true,
       "component": "custom.content-link"
+=======
+    "KaviLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "AboutKavi": {
+      "type": "string"
+    },
+    "Sliders": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "ContactUs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "text.icon-text"
+    },
+    "FollowUs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.image"
+    },
+    "Copyright": {
+      "type": "string"
+    },
+    "PrivacyLabel": {
+      "type": "string"
+    },
+    "PrivacyPolicies": {
+      "type": "richtext"
+>>>>>>> 3144f2ef88ea89a5c13ebd6567334abf185cec38
     }
   }
 }

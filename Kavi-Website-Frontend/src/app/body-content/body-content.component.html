@@ -9,7 +9,8 @@
                             <h3>{{item.Description}}</h3>
                         </ng-container>
                         <ng-container *ngIf="!item.Description">
-                            <img [src]="item.SliderMedia.Media.data.attributes.url" alt="item.SliderMedia.Alt">
+                            <img [src]="item.SliderMedia.Media.data.attributes.formats.thumbnail.url"
+                                alt="item.SliderMedia.Alt">
                         </ng-container>
                     </ng-container>
                 </div>
@@ -51,37 +52,162 @@
                 </ng-container>
             </div>
             <h3>{{renderData.OfferingsTitle}}</h3>
+
             <ng-container *ngIf="renderData.Offerings.length">
                 <div class="row">
-                    <ng-container *ngFor="let offerItem of renderData.Offerings">
-
-                        <div class="col-6" style="height: 100%; width: 100%;"
-                            [ngClass]="offerItem.Title === 'Solutions' ? 'collage-top-item':'collage-topless-item'"
-                            *ngIf="offerItem.Position === 'left'">
-                            <div class="item-block"
-                                [ngStyle]="{'height.px':offerItem.OfferingMedia.Media.data.attributes.height,'width.px':offerItem.OfferingMedia.Media.data.attributes.width}">
-                                <app-collage-view [imagePosition]="offerItem.ImagePosition"
-                                    [image]="offerItem.OfferingMedia.Media.data.attributes.url"
-                                    [title]="offerItem.Title" [description]="offerItem.PreviewText">
-                                </app-collage-view>
+                    <div class="col-6" style="height: 100%; width: 100%;">
+                        <div class="item-block"
+                            [ngStyle]="{'height.px':renderData.Offerings[0].OfferingMedia.Media.data.attributes.height,'width.px':renderData.Offerings[0].OfferingMedia.Media.data.attributes.width}">
+                            <!-- <app-collage-view [imagePosition]="renderData.Offerings[0].ImagePosition"
+                                [image]="renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats && renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats.thumbnail.url ? renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats.thumbnail.url : renderData.Offerings[0].OfferingMedia.Media.data.attributes.url"
+                                [title]="renderData.Offerings[0].Title"
+                                [description]="renderData.Offerings[0].PreviewText">
+                            </app-collage-view> -->
+                            <div class="item-container" style="height: 100%; width: 100%; display: flex;">
+                                <div class="sub-item">
+                                    <img [src]="renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats && renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats.thumbnail.url ? renderData.Offerings[0].OfferingMedia.Media.data.attributes.formats.thumbnail.url : renderData.Offerings[0].OfferingMedia.Media.data.attributes.url"
+                                        alt="">
+                                </div>
+                                <div class="desc-div" style="text-align: left;padding-top: 32px;">
+                                    <h4>{{renderData.Offerings[0].Title}}</h4>
+                                    <span style="width: 343px;">{{renderData.Offerings[0].PreviewText}}</span>
+                                    <a href="">Learn more<mat-icon>arrow_forward</mat-icon>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="col-6" style="height: 100%; width: 100%;" *ngIf="offerItem.Position === 'right'">
-                            <div class="item-block"
-                                [ngStyle]="{'height.px':offerItem.OfferingMedia.Media.data.attributes.height,'width.px':offerItem.OfferingMedia.Media.data.attributes.width}">
-                                <app-collage-view [imagePosition]="offerItem.ImagePosition"
-                                    [image]="offerItem.OfferingMedia.Media.data.attributes.url"
-                                    [title]="offerItem.Title" [description]="offerItem.PreviewText">
-                                </app-collage-view>
+                        <div class="item-block" style="margin-top: 15px;"
+                            [ngStyle]="{'height.px':renderData.Offerings[1].OfferingMedia.Media.data.attributes.height,'width.px':renderData.Offerings[1].OfferingMedia.Media.data.attributes.width}">
+                            <div class="item-container" style="height: 100%; width: 100%; display: block;">
+                                <div class="sub-item" style="width: 90%; height: 217px;">
+                                    <img [src]="renderData.Offerings[1].OfferingMedia.Media.data.attributes.formats && renderData.Offerings[1].OfferingMedia.Media.data.attributes.formats.thumbnail.url ? renderData.Offerings[1].OfferingMedia.Media.data.attributes.formats.thumbnail.url : renderData.Offerings[1].OfferingMedia.Media.data.attributes.url"
+                                        alt="" style="height: 100%;width: 100%;position: relative;">
+                                </div>
+                                <div class="desc-div" style="padding-left: 13px;">
+                                    <h4>{{renderData.Offerings[1].Title}}</h4>
+                                    <span style="width: 98%;">{{renderData.Offerings[1].PreviewText}}</span>
+                                    <a href="">Learn more
+                                        <mat-icon>arrow_forward</mat-icon>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </ng-container>
+                    </div>
+                    <div class="col-6" style="height: 100%; width: 100%;">
+                        <div class="item-block"
+                            [ngStyle]="{'height.px':renderData.Offerings[2].OfferingMedia.Media.data.attributes.height,'width.px':renderData.Offerings[2].OfferingMedia.Media.data.attributes.width}">
+                            <div class="item-container" style="height: 100%; width: 100%; display: block;">
+                                <div class="sub-item" style="width: 90%; height: 217px;">
+                                    <img [src]="renderData.Offerings[1].OfferingMedia.Media.data.attributes.formats && renderData.Offerings[1].OfferingMedia.Media.data.attributes.formats.thumbnail.url ? renderData.Offerings[1].OfferingMedia.Media.data.attributes.formats.thumbnail.url : renderData.Offerings[1].OfferingMedia.Media.data.attributes.url"
+                                        alt="" style="height: 100%;width: 100%;position: relative;">
+                                </div>
+                                <div class="desc-div" style="padding-left: 13px;">
+                                    <h4>{{renderData.Offerings[1].Title}}</h4>
+                                    <span style="width: 98%;">{{renderData.Offerings[1].PreviewText}}</span>
+                                    <a href="">Learn more<mat-icon>arrow_forward</mat-icon>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-block" style="margin-top: 15px;"
+                            [ngStyle]="{'height.px':renderData.Offerings[3].OfferingMedia.Media.data.attributes.height,'margin-top.px':'15px','width.px':renderData.Offerings[3].OfferingMedia.Media.data.attributes.width}">
+                            <div class="item-container" style="height: 100%; width: 100%; display: flex;">
+                                <div class="sub-item">
+                                    <img [src]="renderData.Offerings[3].OfferingMedia.Media.data.attributes.formats && renderData.Offerings[3].OfferingMedia.Media.data.attributes.formats.thumbnail.url ? renderData.Offerings[3].OfferingMedia.Media.data.attributes.formats.thumbnail.url : renderData.Offerings[3].OfferingMedia.Media.data.attributes.url"
+                                        alt="">
+                                </div>
+                                <div class="desc-div" style="text-align: left;padding-top: 32px;">
+                                    <h4>{{renderData.Offerings[3].Title}}</h4>
+                                    <span style="width: 343px;">{{renderData.Offerings[3].PreviewText}}</span>
+                                    <a href="">Learn more<mat-icon>arrow_forward</mat-icon>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- <ng-container *ngFor="let offerItem of renderData.Offerings">
+                    <div class="row" style="height:'200px'">
+                        <div class="col-6">
+                            <ng-container *ngIf="offerItem.id===3">
+                                <div class="col-12">
+                                    <div class="item-block" style="height: 30px;">
+                                        <app-collage-view [imagePosition]="offerItem.ImagePosition"
+                                            [image]="offerItem.OfferingMedia.Media.data.attributes.url"
+                                            [height]="offerItem.height" [width]="offerItem.width"
+                                            [title]="offerItem.Title" [description]="offerItem.PreviewText">
+                                        </app-collage-view>
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <ng-container *ngIf="offerItem.id===4">
+                                <div class="col-12">
+                                    <div class="item-block" style="height: 70px;margin-top: 5px;"
+                                        >
+                                        <app-collage-view [imagePosition]="offerItem.ImagePosition"
+                                            [image]="offerItem.OfferingMedia.Media.data.attributes.url"
+                                            [height]="offerItem.height" [width]="offerItem.width"
+                                            [title]="offerItem.Title" [description]="offerItem.PreviewText">
+                                        </app-collage-view>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="col-6">
+                            <ng-container *ngIf="offerItem.id===5">
+                                <div class="col-12">
+                                    <div class="item-block" style="height: 70px;" >
+                                        <app-collage-view [imagePosition]="offerItem.ImagePosition"
+                                            [image]="offerItem.OfferingMedia.Media.data.attributes.url"
+                                            [height]="offerItem.height" [width]="offerItem.width"
+                                            [title]="offerItem.Title" [description]="offerItem.PreviewText">
+                                        </app-collage-view>
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <ng-container *ngIf="offerItem.id===6">
+                                <div class="col-12">
+                                    <div class="item-block" style="height: 30px;margin-top: 5px;"
+                                        >
+                                        <app-collage-view [imagePosition]=" offerItem.ImagePosition"
+                                            [image]="offerItem.OfferingMedia.Media.data.attributes.url"
+                                            [height]="offerItem.height" [width]="offerItem.width"
+                                            [title]="offerItem.Title" [description]="offerItem.PreviewText">
+                                        </app-collage-view>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </ng-container> -->
+                <!-- <div class="col"> -->
+                <!-- <ng-container *ngFor="let offerItem of renderData.Offerings">
+                        <div class="col-6" style="height: 100%; width: 100%;">
+                            <div class="item-block"
+                                [ngStyle]="{'height':offerItem.height,'width':offerItem.width}">
+                                <app-collage-view [imagePosition]="offerItem.ImagePosition"
+                                    [image]="offerItem.OfferingMedia.Media.data.attributes.url"
+                                    [height]="offerItem.height" [width]="offerItem.width" [title]="offerItem.Title"
+                                    [description]="offerItem.PreviewText">
+                                </app-collage-view>
+                            </div>
+                        </div>
+
+                        <div class="col-6" [ngClass]="offerItem.id === 5 ? 'collage-top-item':''" style="height: 100%; width: 100%;" *ngIf="offerItem.Position === 'right'">
+                            <div class="item-block"
+                                [ngStyle]="{'height.px':offerItem.OfferingMedia.Media.data.attributes.height,'width.px':offerItem.OfferingMedia.Media.data.attributes.width}">
+                                <app-collage-view [imagePosition]="offerItem.ImagePosition"
+                                    [image]="offerItem.OfferingMedia.Media.data.attributes.url"
+                                    [title]="offerItem.Title" [description]="offerItem.PreviewText">
+                                </app-collage-view>
+                            </div>
+                        </div>
+                    </ng-container> -->
+                <!-- </div> -->
             </ng-container>
         </div>
         <div style="height: 380px;width: 100%; background-color: #000D42;color: #FFFFFF;">
-            <h3 style="text-align: center;padding-top: 50px;font-size: 34px;">{{renderData.Analytics.Title}}</h3>
+            <h3 style="text-align: center;padding-top: 50px;font-size: 32px;">{{renderData.Analytics.Title}}</h3>
             <div style="display: flex;">
                 <span style="font-size: 20px;margin: 0 20px 0 140px;width: 50%;padding-top: 28px;">
                     {{renderData.Analytics.PreviewText}}
@@ -94,7 +220,7 @@
                     <!-- </div> -->
                 </span>
                 <div style="height: 200px;width: 35%;background-color: white;">
-                    <img [src]="renderData.Analytics.OfferingMedia.Media.data.attributes.url"
+                    <img [src]="renderData.Analytics.OfferingMedia.Media.data.attributes.formats.thumbnail.url"
                         alt="renderData.Analytics.OfferingMedia.Alt"
                         style="width: 56%;height: 168px;margin-left: 94px;margin-top: 18px;">
                 </div>
@@ -146,15 +272,15 @@
                     <div class="col-6" style="display: flex;max-width: 100%;">
                         <div class="item-block" style="display: block;width: 100%;background-color: #FFFFFF">
                             <div class="sub-item" style="width: 94%;">
-                                <img [src]="renderData.Blogs.data[0].attributes.Media.data[0].attributes.url" alt=""
-                                    style="height: 218px;width: 100%;">
+                                <img [src]="renderData.Blogs.data[0].attributes.Media.data[0].attributes.formats.thumbnail.url"
+                                    alt="" style="height: 218px;width: 100%;">
                             </div>
                             <div style="text-align: left;padding-left: 13px;">
                                 <h4 style="font: normal normal 600 21px/20px Montserrat;">
                                     {{renderData.Blogs.data[0].attributes.Title}}</h4>
                                 <span
-                                    style="width: 100%;display: inline-flex;">{{renderData.Blogs.data[0].attributes.Content}}</span>
-                                <a href="" style="font: normal normal 600 16px/23px Montserrat;">Read more<mat-icon
+                                    style="width: 100%;display: inline-flex;">{{renderData.Blogs.data[0].attributes.ShortContent}}</span>
+                                <a href="/blog" style="font: normal normal 600 16px/23px Montserrat;">Read more<mat-icon
                                         style="">
                                         arrow_forward</mat-icon>
                                 </a>
@@ -162,15 +288,16 @@
                         </div>
                         <div class="item-block" style="width: 50%;height: 100%;background-color: #FFFFFF">
                             <div class="sub-item" style="height: 188px;width: 439px;">
-                                <img [src]="renderData.Blogs.data[1].attributes.Media.data[0].attributes.url" alt=""
-                                    style="height: 100%;width: 100%;">
+                                <img [src]="renderData.Blogs.data[1].attributes.Media.data[0].attributes.formats.thumbnail.url"
+                                    alt="" style="height: 100%;width: 100%;">
                             </div>
                             <div style="text-align: left;padding-top: 15px;">
                                 <h4 style="font: normal normal 600 21px/20px Montserrat;">
                                     {{renderData.Blogs.data[0].attributes.Title}}</h4>
                                 <span
-                                    style="width: 343px;display: inline-flex;">{{renderData.Blogs.data[0].attributes.Content}}</span>
-                                <a href="" style="font: normal normal 600 16px/23px Montserrat;">Read more<mat-icon>
+                                    style="width: 343px;display: inline-flex;">{{renderData.Blogs.data[0].attributes.ShortContent}}</span>
+                                <a href="/blog" style="font: normal normal 600 16px/23px Montserrat;">Read
+                                    more<mat-icon>
                                         arrow_forward</mat-icon>
                                 </a>
                             </div>
@@ -180,20 +307,21 @@
                         <div class="item-block"
                             style="margin-left: 50%;margin-top: -159px;width: 50%;height: 100%;background-color: #FFFFFF">
                             <div class="sub-item" style="height: 100%;width: 470px;">
-                                <img [src]="renderData.Blogs.data[2].attributes.Media.data[0].attributes.url" alt=""
-                                    style="height: 188px;width: 100%;">
+                                <img [src]="renderData.Blogs.data[2].attributes.Media.data[0].attributes.formats.thumbnail.url"
+                                    alt="" style="height: 188px;width: 100%;">
                             </div>
-                            <div style="text-align: left;padding-top: 15px;">
+                            <div style="text-align: left;padding-top: 9px;">
                                 <h4 style="font: normal normal 600 21px/20px Montserrat;">
                                     {{renderData.Blogs.data[0].attributes.Title}}</h4>
                                 <span
-                                    style="width: 343px;display: inline-flex;">{{renderData.Blogs.data[0].attributes.Content}}</span>
-                                <a href="" style="font: normal normal 600 16px/23px Montserrat;">Read more<mat-icon>
+                                    style="width: 343px;display: inline-flex;">{{renderData.Blogs.data[0].attributes.ShortContent}}</span>
+                                <a href="/blog" style="font: normal normal 600 16px/23px Montserrat;">Read
+                                    more<mat-icon>
                                         arrow_forward</mat-icon>
                                 </a>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <div style="background-color: #9B9B9B;border-color: #707070;margin-left: 87px;
                 text-align: left;
                 height: 75px;
@@ -207,22 +335,22 @@
                         </a>
                     </div>
                 </div>
-                <div>
+                <div class="">
                     <div class="page1">
                         <h3> {{renderData.NewsTitle}}</h3>
-                        <div style="display: flex; margin-left: 87px;text-align: left">
+                        <div style="display: flex; margin-left: 40px;margin-right: 40px;text-align: left">
                             <ng-container *ngFor="let newsItem of renderData.News.data">
                                 <div class="col-4">
                                     <div class="sub-item" style="height: 229px;width: 100%;margin: 0 0 14px 0;">
-                                        <img [src]="newsItem.attributes.Media.data[0].attributes.url" alt=""
-                                            style="width: 100%;height: 100%;">
+                                        <img [src]="newsItem.attributes.Media.data[0].attributes.formats.thumbnail.url"
+                                            alt="" style="width: 100%;height: 100%;">
                                     </div>
                                     <div>
                                         <h2>
                                             {{newsItem.attributes.Title}}
                                         </h2>
                                         <p style="font-size: 14px; width: 100%;margin-left: 0;">
-                                            {{newsItem.attributes.Content}}</p>
+                                            {{newsItem.attributes.ShortContent}}</p>
                                     </div>
                                     <a href=""
                                         style="font: normal normal 600 16px/23px Montserrat;color: #224991;display: flex;">Read
@@ -232,7 +360,7 @@
                                 </div>
                             </ng-container>
                         </div>
-                        <div style="background-color: #9B9B9B;border-color: #707070;    margin-left: 87px;
+                        <div style="background-color: #9B9B9B;border-color: #707070;margin-left: 33px;
                     text-align: left;
                     height: 75px;
                     padding-left: 20px;
@@ -255,7 +383,7 @@
                         font-weight: bold;color: #FFFFFF;" class="fa fa-paper-plane" aria-hidden="true"></i>
                     </div>
                 </div>
-                <div>
+                <div class="success-story">
                     <div>
                         <div class="page1" style="margin: 3% 3% 0% 3%;">
                             <h3> {{renderData.SuccessStoryTitle}}</h3>
@@ -263,14 +391,14 @@
                                 <ng-container *ngFor="let successItem of renderData.SuccessStory.data;let i=index">
                                     <div [ngClass]="i===1? 'columnReverse':''" style="width: 50%;margin-right: 12px;">
                                         <div class="sub-item" style="height: 248px;width: 97%;margin: 0 0 14px 0;">
-                                            <img [src]="successItem.attributes.Media.data[0]?.attributes.url" alt=""
-                                                style="height: 100%;width: 100%;"
+                                            <img [src]="successItem.attributes.Media.data[0]?.attributes.formats && successItem.attributes.Media.data[0]?.attributes.formats.thumbnail.url ? successItem.attributes.Media.data[0]?.attributes.formats.thumbnail.url  : successItem.attributes.Media.data[0]?.attributes.url"
+                                                alt="" style="height: 100%;width: 100%;"
                                                 *ngIf="successItem.attributes.Media.data">
                                         </div>
                                         <div style="width: 90%;padding-left: 10px;">
                                             <h2>{{successItem.attributes.Title}}</h2>
                                             <p style="font-size: 14px;width: 100%;margin-left: 0;">
-                                                {{successItem.attributes.Content}}
+                                                {{successItem.attributes.ShortContent}}
                                             </p>
                                             <a href=""
                                                 style="font: normal normal 600 16px/23px Montserrat;display: flex;color: #224991;">Read
@@ -283,12 +411,8 @@
                                 </ng-container>
                             </div>
                         </div>
-                        <div
-                            style="background-color: whitesmoke;width: 53%;height: 50px;display: flex;text-align: center;padding: 9px 9px 9px 39px;">
-                            <a href="" style="font: normal normal 600 19px/23px Montserrat;color: #224991;">Read more on
-                                our
-                                Success stories <mat-icon style="padding-top: 7px;font-size: 21px;">
-                                    arrow_forward</mat-icon>
+                        <div id="read-more-success">
+                            <a href="">Read more on our Success stories <mat-icon>arrow_forward</mat-icon>
                             </a>
                         </div>
                         <div style="width: 100%;height: 10px;background-color: #000D42;"></div>
@@ -305,16 +429,14 @@
                             </agm-info-window>
                         </agm-marker>
                     </agm-map>
-                    <div
-                        style="background-color: #000D42;width: 29%;height: 190px;position: relative;border-top-right-radius: 25px;
-                border-bottom-right-radius: 25px;top: -451px;align-items: center;justify-content: center;display: flex;">
-                        <div style="    text-align: left;
-                    color: #FFFF;">
-                            <h3 style="color: #EA6B1E;font: normal normal bold 26px/11px Open Sans;
-                        padding-left: 55px;">Contact us</h3>
-                            <p><mat-icon> location_on</mat-icon>{{renderData.ContactUs.Address}}</p>
-                            <p><mat-icon> phone</mat-icon>{{renderData.ContactUs.PhoneNumber}}</p>
-                            <p><mat-icon> email</mat-icon>{{renderData.ContactUs.Email}}</p>
+                    <div class="contact-us">
+                        <div>
+                            <h3>Contact us</h3>
+                            <p><mat-icon class="mat-items">
+                                    location_on</mat-icon>{{renderData.ContactUs.Address}}</p>
+                            <p><mat-icon class="mat-items">
+                                    phone</mat-icon>{{renderData.ContactUs.PhoneNumber}}</p>
+                            <p><mat-icon class="mat-items"> email</mat-icon>{{renderData.ContactUs.Email}}</p>
                         </div>
                     </div>
                 </div>

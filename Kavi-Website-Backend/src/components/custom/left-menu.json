@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_custom_left_menus",
+  "info": {
+    "displayName": "LeftMenu",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Styles": {
+      "type": "string"
+    },
+    "Card": {
+      "type": "string"
+    },
+    "offerings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::offering.offering"
+    },
+    "DisplayOrder": {
+      "type": "integer"
+    },
+    "aboutKavi": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::about-kavi.about-kavi"
+    }
+  }
+}

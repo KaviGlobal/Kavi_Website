@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DefaultComponent } from './default/default.component';
 
 const routes: Routes = [
   {
-    path: '', component: DefaultComponent, data: {
-
-      title: 'home'
-    },
-    children: [
-    ]
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+  },
+  {
+    path: '',
+    loadChildren: () => import('./default/default.module').then(module => module.DefaultModule),
+    data: { title: 'Home' }
   },
 ];
 

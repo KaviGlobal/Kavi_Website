@@ -25,8 +25,8 @@
         }
 
         img {
-            width: 202px;
-            height: 135px;
+            width: 167px;
+            height: 109px;
             color: white;
             padding-right: 20px;
             margin-top: 63px;
@@ -46,7 +46,7 @@
             font-size: 24px;
             letter-spacing: 0px;
             text-align: left;
-            width: 830px;
+            width: 716px;
             font: normal normal normal 28px/46px Montserrat;
 
             // strong {
@@ -57,6 +57,7 @@
             // }
 
             h3 {
+                font-family: "montserrat-regular";
                 font-size: 20px;
             }
         }
@@ -114,7 +115,7 @@
         h3 {
             font-family: 'open-sans-bold';
             color: #EA6B1E;
-            font-size: 35px;
+            font-size: 32px;
         }
 
         h2 {
@@ -129,6 +130,7 @@
             width: 45%;
             margin-left: 21%;
             line-height: 1.3;
+            // font-family: "montserrat-regular";
         }
 
         @media screen and (min-width:1960px) {
@@ -147,12 +149,16 @@
                 line-height: 1;
                 color: #224991;
                 font-weight: bold;
+                font-family: "montserrat-semi-bold";
+
             }
 
             p {
                 width: 78%;
-                font-size: 28px;
+                font-size: 26px;
                 color: #0D2C3D;
+                font-family: "montserrat-regular";
+
             }
 
             .vl {
@@ -187,6 +193,43 @@
                     font-weight: 600;
                 }
             }
+            .item-container {
+                .sub-item {
+                    background-color: white;
+                    margin: 14px;
+                    width: 215px;
+                    height: 220px;
+                    border: 1px solid #707070;
+            
+                    img {
+                        width: 100%;
+                        position: relative;
+                        height: 100%;
+                    }
+                }
+            
+                .desc-div {
+                    text-align: left;
+                    padding-top: 32px;
+            
+                    a {
+                        display: flex;
+                        color: #224991;
+                        font: normal normal 600 16px/23px Montserrat;
+                    }
+            
+                    h4 {
+                        font: normal normal 600 25px/20px Montserrat;
+                        font-size: x-large;
+                        color: #224991;
+                    }
+            
+                    span {
+                        display: inline-flex;
+                    }
+                }
+            }
+
         }
 
         .sub-item {
@@ -219,12 +262,50 @@ ngb-carousel {
     color: transparent;
 }
 
-// ::ng-deep .carousel-control-prev-icon {
-//     display: none;
-// }
-// ::ng-deep .carousel-control-next-icon {
-//     display: none;
-// }
+.success-story {
+    #read-more-success {
+        background-color: whitesmoke;
+        width: 53%;
+        height: 50px;
+        display: flex;
+        text-align: center;
+        padding: 9px 9px 9px 39px;
+
+        a {
+            font: normal normal 600 19px/23px Montserrat;
+            color: #224991;
+
+            mat-icon {
+                padding-top: 7px;
+                font-size: 21px;
+            }
+        }
+    }
+}
+
+.contact-us {
+    background-color: #000D42;
+    width: 29%;
+    height: 190px;
+    position: relative;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    top: -451px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #FFFF;
+
+    h3 {
+        color: #EA6B1E;
+        font: normal normal bold 26px/11px Open Sans;
+        padding-left: 55px;
+    }
+
+    .mat-items {
+        margin-right: 7px;
+    }
+}
 
 ::ng-deep .visually-hidden {
     display: none;
@@ -272,10 +353,8 @@ ngb-carousel {
     width: 100%;
     height: 100%;
     position: absolute;
-
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-
     color: #fff;
     text-align: center;
     line-height: 100px;
@@ -313,7 +392,7 @@ button {
 
 .collage-top-item {
     position: relative;
-    top: -153px;
+    top: -151px;
 }
 
 .collage-topless-item {}

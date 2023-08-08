@@ -1,15 +1,14 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { HeaderContentRoutingModule } from './header-content-routing.module';
-import { MenuItemsComponent } from './menu-items/menu-items.component';
-import { MenuItemsModule } from './menu-items/menu-items.module';
-import { HeaderContentComponent } from './header-content.component';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { HeaderContentComponent } from './header-content.component';
+import { MenuItemsModule } from './menu-items/menu-items.module';
+import { HeaderContentRoutingModule } from './header-content-routing.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatMenuModule,
     MatButtonModule,
     HttpClientModule,
+    HeaderContentRoutingModule
   ],  
   exports: [HeaderContentComponent],
   // entryComponents: [MenuItemsComponent]

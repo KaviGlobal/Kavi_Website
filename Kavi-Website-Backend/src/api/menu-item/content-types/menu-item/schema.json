@@ -15,10 +15,17 @@
     "Slug": {
       "type": "uid"
     },
+<<<<<<< HEAD
     "ItemName": {
       "type": "string"
     },
     "Menu": {
+=======
+    "Menu": {
+      "type": "string"
+    },
+    "ItemName": {
+>>>>>>> 3144f2ef88ea89a5c13ebd6567334abf185cec38
       "type": "string"
     },
     "DisplayName": {
@@ -30,6 +37,14 @@
     "DisplayOrder": {
       "type": "integer"
     },
+<<<<<<< HEAD
+=======
+    "ParentItem": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::menu-item.menu-item"
+    },
+>>>>>>> 3144f2ef88ea89a5c13ebd6567334abf185cec38
     "Viewer": {
       "type": "string"
     },
@@ -40,11 +55,14 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+<<<<<<< HEAD
     },
     "parent_item": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::menu-item.menu-item"
+=======
+>>>>>>> 3144f2ef88ea89a5c13ebd6567334abf185cec38
     }
   }
 }

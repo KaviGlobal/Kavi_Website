@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_custom_sub_menus",
+  "info": {
+    "displayName": "SubMenu",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "ContentLink": {
+      "type": "text"
+    }
+  }
+}

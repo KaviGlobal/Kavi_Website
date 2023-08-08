@@ -16,9 +16,6 @@
       "type": "component",
       "repeatable": true,
       "component": "custom.form"
-    },
-    "PageContent": {
-      "type": "text"
     }
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-default',
@@ -14,10 +15,11 @@ export class DefaultComponent implements OnInit {
   onResize() {
     this.innerHeight = window.innerHeight;
   }
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
-    // this.virtualScroll.scrollToIndex(0);
+    // this.router.navigate(['/home']);
+    console.log('default compen')
   }
 
 }
