@@ -12,11 +12,14 @@
     "LinkLabel": {
       "type": "string"
     },
+<<<<<<< HEAD
+=======
     "OfferingType": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::offering.offering"
     },
+>>>>>>> 3144f2ef88ea89a5c13ebd6567334abf185cec38
     "OfferingMedia": {
       "type": "component",
       "repeatable": false,

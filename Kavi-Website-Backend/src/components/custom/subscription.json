@@ -9,8 +9,13 @@
     "Title": {
       "type": "string"
     },
+<<<<<<< HEAD
+    "Action": {
+      "type": "string"
+=======
     "Email": {
       "type": "email"
+>>>>>>> 3144f2ef88ea89a5c13ebd6567334abf185cec38
     }
   }
 }

@@ -47,6 +47,17 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+<<<<<<< HEAD
+    },
+    "ExternalLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.content-link"
+    },
+    "isDownloadable": {
+      "type": "boolean"
+=======
+>>>>>>> 3144f2ef88ea89a5c13ebd6567334abf185cec38
     }
   }
 }

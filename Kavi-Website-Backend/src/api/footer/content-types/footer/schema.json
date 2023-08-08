@@ -12,11 +12,36 @@
   },
   "pluginOptions": {},
   "attributes": {
+<<<<<<< HEAD
+    "Subscription": {
+=======
     "FooterSubscription": {
+>>>>>>> 3144f2ef88ea89a5c13ebd6567334abf185cec38
       "type": "component",
       "repeatable": false,
       "component": "custom.subscription"
     },
+<<<<<<< HEAD
+    "Logo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
+    },
+    "AboutUs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.footer"
+    },
+    "PrivacyPolicy": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.footer"
+    }, 
+    "SocialMedia": {
+      "type": "component",
+      "repeatable": true,
+      "component": "custom.content-link"
+=======
     "KaviLogo": {
       "type": "media",
       "multiple": false,
@@ -60,6 +85,7 @@
     },
     "PrivacyPolicies": {
       "type": "richtext"
+>>>>>>> 3144f2ef88ea89a5c13ebd6567334abf185cec38
     }
   }
 }

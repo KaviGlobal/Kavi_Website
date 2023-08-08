@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * tag-group controller
+ * header controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::tag-group.tag-group');
+module.exports = createCoreController('api::header.header');

@@ -27,6 +27,17 @@
       "repeatable": false,
       "component": "media.image"
     },
+<<<<<<< HEAD
+    "AlternateName": {
+      "type": "string"
+    },
+    "IndustryLogo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
+    },
+=======
+>>>>>>> 3144f2ef88ea89a5c13ebd6567334abf185cec38
     "Url": {
       "type": "text"
     },
@@ -38,6 +49,12 @@
     },
     "EmployeeCount": {
       "type": "string"
+<<<<<<< HEAD
+    },
+    "isDisplayed": {
+      "type": "boolean"
+=======
+>>>>>>> 3144f2ef88ea89a5c13ebd6567334abf185cec38
     }
   }
 }

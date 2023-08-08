@@ -6,6 +6,10 @@
   },
   "options": {},
   "attributes": {
+<<<<<<< HEAD
+    "Slug": {
+      "type": "string"
+=======
     "FooterSubscription": {
       "type": "component",
       "repeatable": false,
@@ -21,10 +25,15 @@
         "videos",
         "audios"
       ]
+>>>>>>> 3144f2ef88ea89a5c13ebd6567334abf185cec38
     },
-    "AboutKavi": {
+    "Title": {
       "type": "string"
     },
+<<<<<<< HEAD
+    "PreviewContent": {
+      "type": "string"
+=======
     "Sliders": {
       "type": "media",
       "multiple": true,
@@ -40,6 +49,7 @@
       "type": "component",
       "repeatable": true,
       "component": "text.icon-text"
+>>>>>>> 3144f2ef88ea89a5c13ebd6567334abf185cec38
     }
   }
 }
