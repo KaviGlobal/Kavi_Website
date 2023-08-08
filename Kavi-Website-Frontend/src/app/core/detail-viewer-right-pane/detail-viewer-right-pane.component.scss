@@ -90,8 +90,10 @@
         margin-bottom:-5px;
     }
 }
+
 .author-post-data{
     // margin-top:30px;
+    font-family: "montserrat-regular";
     padding: 25px 20px;
     a{
     //    color: #000000;        
@@ -100,6 +102,9 @@
     ul {
         text-align: left;
         margin-bottom: 10px;
+    }
+    h6 {
+        font-weight: 600;
     }
 }
 .publish-data{

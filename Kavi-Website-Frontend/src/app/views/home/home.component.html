@@ -10,7 +10,7 @@
                 <div class="slider_content">
                     <h3 *ngIf="item.Description">{{item.Description}}</h3>
                 </div>
-                <div style="display: none;" class="slider_readmore"><a href="" *ngIf="i == 2">Read more</a></div>
+                <div class="slider_readmore"><a routerLink ="/newslist/kavi-global-announces-research-partnership-with-ann-and-robert-h-lurie-children-s-hospital-of-chicago" (click)="makeMenuActive(homeData.rightmenu[1])" *ngIf="i == 2">Read more</a></div>
           </ng-template>
         </ng-container>
     </ngb-carousel>
@@ -114,7 +114,7 @@
                     <div class="">
                         <div class="read-more-section">
                             <a routerLink ="/success-stories" (click)="makeMenuActive(homeData.rightmenu[2])">
-                                Read more on our Success Stories <i class="fas fa-arrow-right arrow-icon"></i>
+                                Browse Our Clients’ Success Stories <i class="fas fa-arrow-right arrow-icon"></i>
                             </a>
                         </div>
                     </div> 
@@ -323,7 +323,7 @@
                                         <input class="formStyles" type="text" placeholder = "Name *" formControlName="firstName">                                  
                                     </div>
                                     <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                        <input class="formStyles" type="text" placeholder = "LastName *"  formControlName="lastName">
+                                        <input class="formStyles" type="text" placeholder = "Last Name *"  formControlName="lastName">
                                     </div>
                                     <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
                                         <input class="formStyles" type="text" placeholder = "Email *" formControlName="email">

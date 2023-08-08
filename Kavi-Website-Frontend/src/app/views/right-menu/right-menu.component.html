@@ -176,7 +176,7 @@
                                                     <a *ngIf="i < 2" (click) = "callTag('SearchTag='+ tag?.attributes?.Slug, ':id')" routerLink="{{'/SearchTag='+tag?.attributes?.Slug}}">{{tag.attributes.DisplayName}}</a>
                                                 </div> 
                                                 <div class="tab" *ngIf="(item?.attributes?.Tags?.data).length > 2"> 
-                                                    <a class="more_tags"><i class="fas fa-sharp fa-light fa-tags"></i> ...</a>
+                                                    <a class="more_tags"><i class="fas fa-sharp fa-light fa-tags"></i></a>
                                                     <div class="tag_all_block" *ngIf="item?.attributes?.Tags?.data">
                                                         <div class="tab" *ngFor="let tag of item?.attributes?.Tags?.data">
                                                             <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug, ':id')" routerLink="{{'/SearchTag='+tag?.attributes?.Slug}}">{{tag.attributes.DisplayName}}</a>                                                      
