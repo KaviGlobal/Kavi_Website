@@ -157,7 +157,7 @@
                     <ng-container>
                       <li *ngFor="let menuItem of menuData[6]?.AdvancedAnalyticsMenu; let k=index">
                         <div *ngIf="k == 0">
-                          <a class="menu-items-left" style ="color:#f26000;margin-bottom: 8px;">{{menuItem.attributes?.parent_item?.data?.attributes?.DisplayName}}</a>
+                          <a class="menu-items-left" style ="color:#f26000;margin-bottom: 8px;">{{menuItem.attributes?.Menu}}</a>
                         </div>
                         <div class="inner-menu-items" *ngIf="!menuItem.attributes?.IsTitle">
                           <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName && menuItem?.attributes?.Slug != 'our-leadership-team'"

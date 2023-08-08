@@ -138,14 +138,14 @@ export class AppComponent implements OnInit {
             softwareMenu.push(element);
           } else if(element?.attributes.parent_item?.data?.attributes?.DisplayName == "Solutions"){
             solutionsMenu.push(element);
-          } else if(element?.attributes.parent_item?.data?.attributes?.DisplayName == "Advanced Analytics"){
-            advancedAnalyticsMenu.push(element);
           } else {
             leftMenu.push(element);
           }
         } else if(element.attributes.IsTitle == false && element.attributes.parent_item.data == null && element.attributes.Menu != 'Type'){
           if(element.attributes.Menu == "About Us"){
             aboutUs.push(element);
+          } else if(element.attributes.Menu == "Advanced Analytics"){
+            advancedAnalyticsMenu.push(element);
           } else {
             industryMenu.push(element);
           }
@@ -180,7 +180,7 @@ export class AppComponent implements OnInit {
         
       }*/
       this.commonService.menuData = menuData;
-    console.log("xxxx",menuData);
+    // console.log("xxxx",menuData);
       setTimeout(() => {
         this.commonService.getMenuItem.next(true);
       }, 100);
