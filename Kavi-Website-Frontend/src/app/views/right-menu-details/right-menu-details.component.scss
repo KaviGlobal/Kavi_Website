@@ -352,11 +352,16 @@ markdown ::ng-deep  {
     padding: 15px;  
   }
   details{
+    overflow:hidden;
     background-color: #f6f6f6;
     p{
-      padding: 15px;
+      padding: 0px 10px 10px;
       margin: 0px;
     }
+    ul {
+      padding-right: 10px;
+      margin-bottom: 10px;
+    }  
   }
   h4 {
     color:#f26000;
