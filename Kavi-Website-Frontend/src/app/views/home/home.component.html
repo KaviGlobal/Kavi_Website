@@ -70,6 +70,18 @@
             </div>
         </div>
     </div>
+    <div>
+        <div class="container">
+            <div class="row"
+                    *ngIf="homeData.attributes && homeData.attributes.Offerings && homeData.attributes.Offerings.length > 0">
+                <div *ngFor="let offering_item of homeData.attributes.Offerings">
+                    {{offering_item.Title}}
+                    {{offering_item.PreviewContent}}
+                    {{offering_item.Media.Media.data.attributes.url}}
+                </div>
+            </div>            
+        </div>
+    </div>
     <div id="analytics_section" class="analytics-section aos-init fade-up">
         <div class="container">
             <h1 class="">{{homeData.attributes.Analytics.Title}}</h1>
