@@ -190,6 +190,11 @@
     padding: 0 0 10px;
   p {
     padding: 0 0 5px;
+    
+  }
+  ::ng-deep h4  {
+    display: inline-block;
+    color: #f26000;font-size: 40px;
   }
 }
 .clients-section {
@@ -205,7 +210,7 @@
   p {
     font-family: "montserrat-regular";
     font-size: 1.4rem;
-    line-height: 1.6;
+    line-height: 2;
     margin: 0;
     text-align: center;
     color: #000000;
