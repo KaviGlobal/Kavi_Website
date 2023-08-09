@@ -112,41 +112,35 @@
                     </div>
                     <div *ngIf="pageData[0]?.attributes && pageType == 'pages'">
                         <div *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.mime && pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.url">
+                            <div class="fileDownload" *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.mime && pageData[0]?.attributes?.isDownloadable">                            
+                                <a (click)="open(mymodal,pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.url,pageData[0]?.attributes?.Slug,pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.ext,'Download File')">
+                                    <i class="fa fa-download" aria-hidden="true"></i>Download File</a>                                
+                            </div>
                             <iframe *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.ext != '.pdf'" style="margin-top:20px" allow="autoplay *; encrypted-media *; fullscreen *;" 
                                 frameborder="0" width="100%" height="500" style="overflow:hidden; pointer-events: none;"
                                 [src]="'https://docs.google.com/viewer?url='+pageData[0]?.attributes?.Media[0].Media.data.attributes.url+'&embedded=true' | customPipe"
                             >
                             </iframe>
-                    <!--        <iframe *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.ext == '.pdf'" style="margin-top:20px" allow="autoplay *; encrypted-media *; fullscreen *" 
-                                frameborder="0" width="100%" height="500" style="overflow:hidden; pointer-events: none;"
-                                [src]="pageData[0]?.attributes?.Media[0].Media.data.attributes.url+'#page=1' | customPipe"
-                            >
-                            </iframe>
-                        -->                          
+                                            
                             <iframe *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.ext == '.pdf'" style="margin-top:20px" allow="autoplay *; encrypted-media *; fullscreen *" 
                                 frameborder="0" width="100%" height="500" style="overflow:hidden; pointer-events: none;"
                                 [src]="pageData[0]?.attributes?.Media[0].Media.data.attributes.url+'#toolbar=0&scrollbar=0&page=1' | customPipe"
                             >
-                            </iframe>
-                            <div class="fileDownload" *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.mime && pageData[0]?.attributes?.isDownloadable">                            
-                                <a (click)="open(mymodal,pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.url,pageData[0]?.attributes?.Slug,pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.ext,'Download File')">
-                                    <i class="fa fa-download" aria-hidden="true"></i>Download File</a>                                
-                            </div> 
+                            </iframe>                             
                         </div>                       
                     </div> 
                     <div *ngIf="pageData[0]?.attributes?.Publisher">
                         <div *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.mime && pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.url">
+                            <div class="fileDownload" *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.mime && pageData[0]?.attributes?.isDownloadable">                            
+                                <a (click)="open(mymodal,pageData[0]?.attributes?.Media[0].Media.data.attributes.url,pageData[0]?.attributes?.Slug,pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.ext,'Download File')">
+                                     <i class="fa fa-download" aria-hidden="true"></i>Download File</a>                                
+                             </div>
                             <iframe style="margin-top:20px" allow="autoplay *; encrypted-media *; fullscreen *" 
                                 frameborder="0" width="100%" height="500" style="overflow:hidden; pointer-events: none;"
                                 [src]="pageData[0]?.attributes?.Media[0].Media.data.attributes.url+'#toolbar=0&scrollbar=0&page=1' | customPipe"
                             >
                             </iframe>
-                            <div class="fileDownload" *ngIf="pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.mime && pageData[0]?.attributes?.isDownloadable">                            
-                              <!--  <a (click)="downloadFile(pageData[0]?.attributes?.Media[0].Media.data.attributes.url,pageData[0]?.attributes?.Slug)"   >
-                                <i class="fa fa-download" aria-hidden="true"></i> Download File</a> -->
-                                <a (click)="open(mymodal,pageData[0]?.attributes?.Media[0].Media.data.attributes.url,pageData[0]?.attributes?.Slug,pageData[0]?.attributes?.Media[0]?.Media?.data?.attributes?.ext,'Download File')">
-                                    <i class="fa fa-download" aria-hidden="true"></i>Download File</a>                                
-                            </div> 
+                             
                         </div>                       
                     </div>                   
                 </div>           
