@@ -40,7 +40,7 @@
         <div *ngIf="item.Type == 'button'">   
             <button style="margin-right: 100px;"
             id="submit" type="submit" value="item.Label" >{{item.Label}}</button>    
-            <button id="closeModal" (click)="onClose()"> Cancel </button>
+     <!--       <button id="closeModal" (click)="onClose()"> Cancel </button>-->
         </div>
         </div>
         <div *ngIf="validateMessage == 'Error' && validateMessage.length > 0" style="padding-bottom: 20px;">

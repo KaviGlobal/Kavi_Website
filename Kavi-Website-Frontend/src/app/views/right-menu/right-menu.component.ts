@@ -136,25 +136,46 @@ export class RightMenuComponent implements OnInit  {
     }    
 }
 
-sendEmail(contactForm:any){ 
-let contactMessage = "";
-if(contactForm.value.Message)
-  contactMessage = "Message:"+contactForm.value.Message;
-  let message = {    
+sendEmail(contactForm:any,htmlContent:any){ 
+let message:any={};
+if(htmlContent.length != 0){
+ 
+  message = {    
     senderAddress: appConfig.EMAIL_SENDER_ADDRESS,
     content:{
       subject: "Contact Form",
-      html:"<html><body> The user "+contactForm.value.Name+" has filled in the Contact Form on our Website. Kindly contact the user with the below details.<br/>Name : "+contactForm.value.Name+"<br/>Email : "+contactForm.value.Email+"<br/>Phone : "+contactForm.value.Phone+"<br/>"+contactMessage+"</br></body></html>"
-    }, 
+      html:htmlContent,
+      }, 
     recipients: {
       to: [
         {
           address: appConfig.CONTACT_FORM_RECIPIENT_ADDRESS,
-          displayName: "Customer Name",
+          displayName: "Naomi Kaduwela",
         },
       ],
     }
   };
+
+}else{
+  let contactMessage = "";
+  if(contactForm.value.Message)
+    contactMessage = "Message:"+contactForm.value.Message;
+    message = {    
+      senderAddress: appConfig.EMAIL_SENDER_ADDRESS,
+      content:{
+        subject: "Contact Form",
+        html:"<html><body> The user "+contactForm.value.Name+" has filled in the Contact Form on our Website. Kindly contact the user with the below details.<br/>Name : "+contactForm.value.Name+"<br/>Email : "+contactForm.value.Email+"<br/>Phone : "+contactForm.value.Phone+"<br/>"+contactMessage+"</br></body></html>"
+      }, 
+      recipients: {
+        to: [
+          {
+            address: appConfig.CONTACT_FORM_RECIPIENT_ADDRESS,
+            displayName: "Naomi Kaduwela",
+          },
+        ],
+      }
+    };
+  }
 
   let emailClient = new EmailClient(appConfig.EMAIL_CONNECTION_STRING);
  // let emailContent = new HtmlEmal
@@ -249,6 +270,12 @@ callTag(searchText:any, activemenu :any){
   public onClose() {
     this.isPersonal = false;
     this.isPolicy = false;
+    this.contactForm.value['First Name']  = ''; 
+    this.contactForm.value['Last Name']  = ""; 
+    this.contactForm.value['Phone']  = ""; 
+    this.contactForm.value['Email']  = ""; 
+    this.contactForm.value['Message']  = ""; 
+    this.formSendMessage = '';
     if(this.modalService.hasOpenModals())
     this.modalService.dismissAll();  
   //    this.onClose();
@@ -279,7 +306,7 @@ callTag(searchText:any, activemenu :any){
   //  console.log("contactForm..",this.contactForm.value,this.contactForm);
     this.formSendMessage = '';
     this.validateMessage = 'Success' ;
-    this.sendEmail(this.contactForm);    
+//    this.sendEmail(this.contactForm);    
     this.formData.forEach((item: any) => {
       if(item.Required == 'true' && item.Type !='button'){        
         if(this.contactForm.value[item.Label].length == 0)
@@ -294,14 +321,21 @@ callTag(searchText:any, activemenu :any){
       }
     });
     if(this.validateMessage != 'Error'){
-      console.log("item",this.contactForm.value);
+      console.log("item",this.contactForm.value,this.contactForm.value['First Name']);
         this.validateMessage = 'Success' ;
-        this.rightMenuService.submitContactForm(this.contactForm.value).then((response: any) => {          
-          this.formSendMessage = 'The details has been Submitted. We will contact you shortly'
-          this.returnToDownload = true;                     
-          if(this.modalService.hasOpenModals())
-            this.modalService.dismissAll();          
-        });
+        this.formSendMessage = 'The details has been Submitted. We will contact you shortly'
+        this.returnToDownload = true;    
+        let message="";
+        if(this.contactForm.value['Message']){
+          message = "Message from User: '"+this.contactForm.value['Message']+"'";
+        }
+        let name = this.contactForm.value['First Name'] + " "+ this.contactForm.value['Last Name']+".";
+        let htmlContent = "<html><body> Please get in touch with "+name+" His / Her email is "+this.contactForm.value['Email']+" and Phone number is : "+this.contactForm.value.Phone+"<br/>"+message+"</br><br/><br/> --<br/>This e-mail was sent from a contact form on the header section<br/>--</body><html>";
+        this.sendEmail(this.contactForm,htmlContent)  ;  
+      
+        if(this.modalService.hasOpenModals())
+          this.modalService.dismissAll(); 
+        this.onClose();
     }
     else{
       this.formSendMessage = 'Please enter the required fields ';
