@@ -830,6 +830,28 @@ agm-map {
     font-weight: 600;
   }
 }
+.block_sssk {
+  text-align: center;
+  padding: 0px 30px 30px;
+  font-family: "montserrat-regular";
+  img {
+    margin-bottom: 40px;
+    height: 150px;
+    width: 150px;
+  }
+  .box_sssk {
+    padding: 20px;
+    border: 1px solid lightgrey;
+    box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #000;
+    background: #ffffff;
+    h2 {
+      color: #234990;
+      margin-bottom: 10px;
+    }
+  }
+}
+
 @media only screen and (max-width: 640px) {
   .clients-carousel {
     ::ng-deep .client-slider {
@@ -856,11 +878,23 @@ agm-map {
     }
   }
 }
+
+@media only screen and (min-width: 786px) and (max-width: 991px)
+{
+  .box_sssk {height: 400px;}
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1999px)
+{
+  .box_sssk {height: 600px;}
+}
+
 @media (min-width: 1200px)
 {
   .container {
     max-width: 1400px;
   }
+  .box_sssk {height: 400px;}
 }
 
 @media (min-width: 2000px)
@@ -870,3 +904,5 @@ agm-map {
       transform: translate3d(0,0,0) !important;
   }
 }
+
+

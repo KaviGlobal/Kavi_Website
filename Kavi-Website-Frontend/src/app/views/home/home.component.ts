@@ -90,6 +90,10 @@ export class HomeComponent implements OnInit {
         // document.getElementById('success_story')!.classList.remove("fade-up-animate");
       }
 
+      if (document.documentElement.scrollTop > document.getElementById('sssk_section')!.offsetTop - 500) {
+        document.getElementById('sssk_section')!.classList.add("fade-up-animate");
+      }
+
       if (document.documentElement.scrollTop > document.getElementById('blog_section')!.offsetTop - 500) {
         document.getElementById('blog_section')!.classList.add("fade-up-animate");
       } else {

@@ -70,14 +70,17 @@
             </div>
         </div>
     </div>
-    <div>
+    <div id="sssk_section" class="blog-section fade-up aos-init" style="background-image:url(https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/bg2_fe2da1bc6a.jpg?updated_at=2023-08-09T15:43:21.187Z);">
         <div class="container">
+            <h3>How do we get you there?</h3>
             <div class="row"
                     *ngIf="homeData.attributes && homeData.attributes.Offerings && homeData.attributes.Offerings.length > 0">
-                <div *ngFor="let offering_item of homeData.attributes.Offerings">
-                    {{offering_item.Title}}
-                    {{offering_item.PreviewContent}}
-                    {{offering_item.Media.Media.data.attributes.url}}
+                <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 block_sssk" *ngFor="let offering_item of homeData.attributes.Offerings">
+                    <img src="{{offering_item.Media.Media.data.attributes.url}}">
+                    <div class="box_sssk">
+                        <h2>{{offering_item.Title}}</h2>
+                        <p>{{offering_item.PreviewContent}}</p>
+                    </div>
                 </div>
             </div>            
         </div>
