@@ -1,7 +1,7 @@
 import { Component, OnInit,Output,Input, Inject } from '@angular/core';
 import { ActivatedRoute, Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { RightMenuService } from '../right-menu/right-menu.service';
-import { cloneDeep } from 'lodash';
+import { cloneDeep, sortBy } from 'lodash';
 import { CommonService } from 'src/app/services/common.service';
 import { Subscription } from 'rxjs';
 //import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -517,8 +517,9 @@ console.log("kkp", this.activatedRoute.snapshot.paramMap.get('pageType'), this.a
 //          console.log("this.pageData",this.pageData);
         }
         if(this.pageType == 'partners'){
- //         this.pageData = response.data;     
-          let partner_group = this.groupBy(response.data, (item:any) => item?.attributes?.Type);
+ //         this.pageData = response.data;  
+          var partner_sort = sortBy(response.data, ["id"]); 
+          let partner_group = this.groupBy(partner_sort, (item:any) => item?.attributes?.Type);
           this.pageData = [];
           this.pageData.push(partner_group);
           this.isPartner = true;
