@@ -7,12 +7,13 @@ import { RightMenuService } from './right-menu.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CustomPipePipe } from 'src/app/custom-pipe.pipe';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
 import { Location} from '@angular/common';
 import {marked} from 'marked';
 import { DOCUMENT } from '@angular/common';
 import { EmailClient} from '@azure/communication-email';
 import appConfig from '../../../assets/config/appconfig.json';
+
 @Component({
   selector: 'app-right-menu',
   templateUrl: './right-menu.component.html',
@@ -60,7 +61,22 @@ export class RightMenuComponent implements OnInit  {
   public parsedRichText : any ='';
   @Input() terms:any = [];  
   @Output() searchTagText:any = '';
-  
+  public firstNamevalue: any = "";
+  public lastNamevalue: any = "";
+  public emailvalue: any = "";
+  public messagevalue: any = "";
+  public phonevalue: any = ""
+  public validateStatus: boolean = false;
+  public emailFormName :any;
+  public modalOptions:NgbModalOptions;
+  public closeResult: string = '';
+  demoSection = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    phone: new FormControl(''),
+    email: new FormControl(''),
+    message:new FormControl('')
+  });
   public masterTagList: any = [];
    constructor(
     private router: Router,
@@ -71,8 +87,13 @@ export class RightMenuComponent implements OnInit  {
     public modalService: NgbModal,
     private _location: Location,
     @Inject(DOCUMENT) private document: Document
-  ) {    
-  }
+  ) {this.modalOptions = {
+    backdrop:'static',
+    backdropClass:'customBackdrop',
+    size: 'xl',
+    centered: true,
+    windowClass: 'dark-modal'
+  } }
  
   ngOnInit(): void {    
     this.pageType = cloneDeep(this.activatedRoute.snapshot.paramMap.get('pageType'));
@@ -354,8 +375,55 @@ callTag(searchText:any, activemenu :any){
     });*/
   
    }
+   private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
+   open(content:any,fileUrl:any,fileName:any,fileExtention:any,formName:any) {
+    this.emailFormName = formName;
+    this.modalService.open(content, this.modalOptions).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {     
+      this.closeResult = `Dismissed ${
+        this.getDismissReason(reason)
+      }`;
+    });
+  }
+   public sendDemoRequest(){
+    //    console.log("demoSection",this.demoSection,this.emailFormName);
+      if(!this.demoSection.value.firstName || !this.demoSection.value.lastName || !this.demoSection.value.email){
+        //error display
+        this.validateStatus = false;
+        this.validateMessage = "Please fill the required fields";   
+      }
+      else{
+        //success call api
+        this.validateStatus = true;
+        this.sendEmail(this.demoSection,this.emailFormName);
+        this.validateMessage = "Thank you for contacting us. Our team will get in touch with you shortly.";
+        this.onClose(); 
+        this.clearForm(this.demoSection);
+      }   
+    }
+    public clearForm(formName:any){
+  //  console.log("jjjj",formName);
+    formName.value.firstName ='';
+    formName.value.lastName ='';
+    formName.value.email ='';
+    formName.value.phone ='';
+    formName.value.message ='';
+    this.firstNamevalue ="";
+    this.lastNamevalue ="";
+    this.emailvalue ="";
+    this.phonevalue ="";
+    this.messagevalue ="";
+    }
   loadPageData(routePath:any) {
-    console.log("ppp", this.activatedRoute.snapshot.paramMap.get('id'));
     if(routePath != ''){
       this.routePath = routePath
     } else {

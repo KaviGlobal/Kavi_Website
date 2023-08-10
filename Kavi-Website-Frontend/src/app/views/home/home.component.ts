@@ -8,6 +8,7 @@ import {  HostListener} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import appConfig from '../../../assets/config/appconfig.json';
 import { EmailClient} from '@azure/communication-email';
+import {NgbModal, ModalDismissReasons, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
 // declare const google: any;
 @Component({
   selector: 'app-home',
@@ -31,6 +32,14 @@ export class HomeComponent implements OnInit {
   zoom: number = 16;
   lat: number = 42.135230;
   lng: number = -88.133640;
+  public firstNamevalue: any = "";
+  public lastNamevalue: any = "";
+  public emailvalue: any = "";
+  public messagevalue: any = "";
+  public phonevalue: any = ""
+  public emailFormName :any;
+  public modalOptions:NgbModalOptions;
+  public closeResult: string = '';
   demoSection = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
@@ -42,9 +51,15 @@ export class HomeComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     public commonService: CommonService,
     private homeService: HomeService,
+    public modalService: NgbModal,
     @Inject(DOCUMENT) private document: Document
-  ) {
-  }
+    ) {this.modalOptions = {
+      backdrop:'static',
+      backdropClass:'customBackdrop',
+      size: 'xl',
+      centered: true,
+      windowClass: 'dark-modal'
+    } }
 
   ngOnInit(): void {
     let routeConfig: any = this.activatedRoute.routeConfig;
@@ -134,6 +149,43 @@ export class HomeComponent implements OnInit {
   }
  
  }
+ private getDismissReason(reason: any): string {
+  if (reason === ModalDismissReasons.ESC) {
+    return 'by pressing ESC';
+  } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+    return 'by clicking on a backdrop';
+  } else {
+    return  `with: ${reason}`;
+  }
+}
+ open(content:any,fileUrl:any,fileName:any,fileExtention:any,formName:any) {
+  this.emailFormName = formName;
+  this.modalService.open(content, this.modalOptions).result.then((result) => {
+    this.closeResult = `Closed with: ${result}`;
+  }, (reason) => {     
+    this.closeResult = `Dismissed ${
+      this.getDismissReason(reason)
+    }`;
+  });
+}
+public onClose() {
+  if(this.modalService.hasOpenModals())
+  this.modalService.dismissAll();  
+  this.modalService.dismissAll();    
+}
+  public clearForm(formName:any){
+//  console.log("jjjj",formName);
+  formName.value.firstName ='';
+  formName.value.lastName ='';
+  formName.value.email ='';
+  formName.value.phone ='';
+  formName.value.message ='';
+  this.firstNamevalue ="";
+  this.lastNamevalue ="";
+  this.emailvalue ="";
+  this.phonevalue ="";
+  this.messagevalue ="";
+  }
  sendEmail(contactForm:any){ 
   let contactMessage = "";
   if(contactForm.value.message)

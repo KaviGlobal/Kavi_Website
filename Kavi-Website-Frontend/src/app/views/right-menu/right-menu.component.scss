@@ -167,19 +167,19 @@ select::after {
 }
 
     
-input[type=text],[type=number] {
-  width: 60%;
-  padding: 10px;
- // margin: 8px 0;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  outline: none;
-}
+// input[type=text],[type=number] {
+//   width: 60%;
+//   padding: 10px;
+//  // margin: 8px 0;
+//   box-sizing: border-box;
+//   border: 1px solid #ccc;
+//   border-radius: 4px;
+//   margin-top: 6px;
+//   margin-bottom: 16px;
+//   -webkit-transition: 0.5s;
+//   transition: 0.5s;
+//   outline: none;
+// }
 textarea {
   width: 60%;
   padding: 10px;
@@ -188,7 +188,7 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-top: 6px;
-  margin-left:-10px;
+  // margin-left:-10px;
   margin-bottom: 16px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -196,21 +196,22 @@ textarea {
 }
 
 .formStyles {
-  width: 60%;
-  padding: 10px;
- // margin: 8px 0;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  outline: none;
-}
-.formStyles:focus {
-  border: 1px solid #f26000;
-}
+  width: 82%;
+ //  padding: 10px;
+   padding:15px 20px;
+   box-sizing: border-box;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   margin-top: 6px;
+   margin-bottom: 16px;
+   margin-right: 15px;
+   -webkit-transition: 0.5s;
+   transition: 0.5s;
+   outline: none;
+ }
+ .formStyles:focus {
+   border: 1px solid #f26000;
+ }
 
 input[type=text]:focus {
   border: 1px solid #f26000;
@@ -526,4 +527,35 @@ p {
     padding: 180px 20px;
     position: relative;
   }
+}
+.icon-bar1 {
+  position: fixed;
+  bottom: 120px;
+  right: 30px;
+  z-index: 1000;
+   .contact {
+    display: block;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    font-size: 17px;
+    font-weight: bold;
+    background: #f26000;
+    color: #fff;
+    box-shadow: 1px 1px 2px #a6a29a;
+    border-radius: 30px;
+    font-family: "montserrat-regular";
+    cursor: pointer;
+  }
+}
+.fillForm{
+  margin-left: 10px;
+}
+.close {
+  background-color: transparent;
+  color: #f26000;
+  outline:none;
+}
+
+.icon-bar1 a:hover {
+  background-color: #0c2939;
 }

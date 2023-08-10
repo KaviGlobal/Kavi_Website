@@ -1,6 +1,50 @@
 <div *ngIf="!isDataLoaded">
     <app-page-loader></app-page-loader>
 </div>
+<div class="icon-bar1">
+    <a class="contact" (click)="open(mymodal,'','','','Contact Us')">Contact us</a> 
+</div>
+<ng-template #mymodal let-modal>
+    <div class="modal-header" style="padding-left: 25px;">     
+      <h3 class="title"> Please let us know how we may help you</h3>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="row fillForm">                    
+            <ng-container>
+                <form [formGroup]="demoSection" (ngSubmit)="sendDemoRequest()">                  
+                    <div>                                                    
+                            <input class="formStyles" type="text" placeholder = "First Name *" formControlName="firstName">                                  
+                         
+                            <input class="formStyles" type="text" placeholder = "Last Name *"  formControlName="lastName">
+                         
+                            <input class="formStyles" type="text" placeholder = "Email *" formControlName="email">
+                          
+                            <input class="formStyles" type="number" placeholder = "Phone" formControlName="phone">
+                        
+                            <textarea class="formStyles" style="width:82%; height:100px" formControlName="message" placeholder="Message.." cols="45" rows="8" aria-required="true"></textarea>
+                            
+                    </div> 
+                    <div *ngIf="!validateStatus && validateMessage.length > 0" style="padding-bottom: 20px;">
+                        <span style="color: red; font-size:13px;">
+                            {{validateMessage}}
+                        </span>
+                    </div>
+                    <button id="submit" type="submit" >Send</button>                             
+                   
+                    <div *ngIf="validateStatus" style="padding-bottom: 20px;">
+                        <span style="color: Green; font-size:13px;">
+                            {{validateMessage}}
+                        </span>
+                    </div>
+            
+                  </form>
+            </ng-container>
+        </div>
+    </div>
+  </ng-template> 
 <div class="cont" *ngIf="isDataLoaded">
     <!-- {{this.homeData.attributes.HeroHeader.SliderMedia.Media.data.attributes.url | json}} -->
     <ngb-carousel class="client-slider home_slider" *ngIf="clientImages.length">
