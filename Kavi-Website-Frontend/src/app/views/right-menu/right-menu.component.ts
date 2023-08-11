@@ -136,6 +136,16 @@ export class RightMenuComponent implements OnInit  {
     //   || this.pageDetailsName == 'publications' || this.pageDetailsName == 'presentations'){  
     //     this.loadPageData();
     }
+    else if (this.pageDetailsName == 'Careers'){
+      this.isCareers = true;
+ //     console.log("jjjj",this.pageDetailsName,this.routePath)
+      this.rightMenuService.getCareers().then((response: any) => {
+//        console.log("ddddd",response.data);
+        this.pageData = response.data;     
+      });
+ //     this.pageData =
+      
+    } 
     else{       
       this.getMenuItem = this.commonService.getMenuItem.subscribe((menuItem: any) => {   
         this.loadPageData('');
@@ -588,7 +598,7 @@ callTag(searchText:any, activemenu :any){
             }
           });
       } 
-      else if (this.routePath == 'Careers'){
+/*      else if (this.routePath == 'Careers'){
         this.isCareers = true;
         this.isUserForm = false;
         this.rightMenuService.getCareers().then((response: any) => {         
@@ -600,7 +610,7 @@ callTag(searchText:any, activemenu :any){
  //           this.routePath='';           
           }
         });
-      } 
+      } */
 /*      else if(this.routePath.includes("SearchTag")){
           this.rightMenuService.findTag((this.routePath).split('=')[1]).then((response: any) => {
           if(response.data.length > 0){

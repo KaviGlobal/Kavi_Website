@@ -359,7 +359,7 @@
         </div>        
     </div>
     -->
-    <div *ngIf="pageData.length > 0" style="margin:0px auto;padding: 0px 0px 30px;">
+    <div *ngIf="pageData.length > 0 && isAboutUs" style="margin:0px auto;padding: 0px 0px 30px;">
         <div class="mb-5"><h2 class="full_heading_cover" style = "background-image:url('https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/Our_Leadership_ffa149b2a8.png?updated_at=2023-07-23T11:01:22.188Z')"><span>Our Team</span></h2></div>
             <div class="container">
                 <div class="row">          
@@ -389,7 +389,18 @@
             <app-right-menu-sidebar [data]=""></app-right-menu-sidebar>
         </div>-->
     </div>
-      
+ <!--   <div *ngIf="isCareers" style="margin:0px auto;padding: 0px 0px 30px;">
+        <div class="container">
+            <div class="row">          {{pageData | json}}
+                <div *ngFor="let item of pageData; let i = index" class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12"> 
+                    <div class="pb-5" style="min-height: 70px;">
+                        {{item | json}}
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> --> 
 </div>
 
 <!--
