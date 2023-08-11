@@ -189,13 +189,13 @@ if(htmlContent.length != 0){
 
 }else{
   let contactMessage = "";
-  if(contactForm.value.Message)
-    contactMessage = "Message:"+contactForm.value.Message;
+  if(contactForm.value.message)
+    contactMessage = "Message:"+contactForm.value.message;
     message = {    
       senderAddress: appConfig.EMAIL_SENDER_ADDRESS,
       content:{
         subject: "Contact Form",
-        html:"<html><body> The user "+contactForm.value.Name+" has filled in the Contact Form on our Website. Kindly contact the user with the below details.<br/>Name : "+contactForm.value.Name+"<br/>Email : "+contactForm.value.Email+"<br/>Phone : "+contactForm.value.Phone+"<br/>"+contactMessage+"</br></body></html>"
+        html:"<html><body> The user "+contactForm.value.firstName+" has requested for demo through our website. Kindly contact the user with the below details.<br/>First Name : "+contactForm.value.firstName+"<br/>Last Name : "+contactForm.value.lastName+"<br/>Email : "+contactForm.value.email+"<br/>Phone : "+contactForm.value.phone+"<br/>"+contactMessage+"</br></body></html>"
       }, 
       recipients: {
         to: [
@@ -405,7 +405,7 @@ callTag(searchText:any, activemenu :any){
     });
   }
    public sendDemoRequest(){
-    //    console.log("demoSection",this.demoSection,this.emailFormName);
+      //  console.log("demoSection",this.demoSection,this.emailFormName);
       if(!this.demoSection.value.firstName || !this.demoSection.value.lastName || !this.demoSection.value.email){
         //error display
         this.validateStatus = false;
