@@ -88,10 +88,10 @@
       "repeatable": false,
       "component": "seo.seo"
     },
-    "ContactUs": {
+    "BackgroundImages": {
       "type": "component",
-      "repeatable": false,
-      "component": "custom.contact-us"
+      "repeatable": true,
+      "component": "media.image"
     }
   }
 }

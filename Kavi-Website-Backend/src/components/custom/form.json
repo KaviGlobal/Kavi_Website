@@ -17,6 +17,9 @@
     },
     "Validate": {
       "type": "text"
+    },
+    "FormControlName": {
+      "type": "string"
     }
   }
 }
