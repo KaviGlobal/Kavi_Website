@@ -24,7 +24,10 @@ import { RightMenuDetailsComponent } from './views/right-menu-details/right-menu
 import { DetailViewerRightPaneComponent } from './core/detail-viewer-right-pane/detail-viewer-right-pane.component';
 //import { CustomPipePipe } from './custom-pipe.pipe';
 import { CustomPipePipe } from 'src/app/custom-pipe.pipe';
-
+import { MAT_RIPPLE_GLOBAL_OPTIONS } from '@angular/material/core';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MAT_SELECT_CONFIG } from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,7 @@ import { CustomPipePipe } from 'src/app/custom-pipe.pipe';
     DetailViewerRightPaneComponent,
   ],
   imports: [
+    MatTableModule,
     BrowserModule,
     AppRoutingModule,
     NgbCarouselModule,
@@ -58,7 +62,12 @@ import { CustomPipePipe } from 'src/app/custom-pipe.pipe';
     }),
     MarkdownModule.forRoot(),
   ],
-  providers: [DatePipe,CustomPipePipe],
+  providers: [
+    DatePipe,CustomPipePipe,
+    {provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: {disabled: true}},
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { floatLabel: 'always' } },
+    {provide: MAT_SELECT_CONFIG, useValue: { disableOptionCentering: 'true' } }
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA ]
 })
