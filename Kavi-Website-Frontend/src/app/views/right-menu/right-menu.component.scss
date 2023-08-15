@@ -561,8 +561,13 @@ p {
 }
 
 td{
-  width:500px;
-}
+  width:400px;
+  padding: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color:rgb(216, 212, 212);
+  }
+
 .careerTitle{
   h2{
     color: #f26000;
@@ -571,13 +576,13 @@ td{
  //   font-size: 1.5rem;
     text-align:center;
     padding:20px;
-    // margin-bottom: 13px
   }
 }
 div.material-table {
   margin: 20px;
   table {
       width: 100%;
+      
     }
     th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
       width:500px;
