@@ -560,17 +560,32 @@ p {
   background-color: #0c2939;
 }
 
-
+td{
+  width:500px;
+}
+.careerTitle{
+  h2{
+    color: #f26000;
+    font-weight: 600;
+    font-family: "montserrat-regular";
+ //   font-size: 1.5rem;
+    text-align:center;
+    padding:20px;
+    // margin-bottom: 13px
+  }
+}
 div.material-table {
   margin: 20px;
   table {
       width: 100%;
     }
-    
+    th.mat-header-cell, td.mat-cell, td.mat-footer-cell{
+      width:500px;
+    }
     tr.example-detail-row {
       height: 0;
     }
-    
+        
     tr.example-element-row:not(.example-expanded-row):hover {
       background: whitesmoke;
     }
