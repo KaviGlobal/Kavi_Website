@@ -17,7 +17,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { animate, state, style, transition, trigger} from '@angular/animations';
-
+import { environment } from 'src/environments/environment';
 interface Country {
   name: string;
   flag: string;
@@ -78,6 +78,7 @@ export class RightMenuComponent implements OnInit  {
   public formSendMessage: any = '';
   public validateMessage : any ='';
   public isCareers: boolean = false;
+  public isJoinUs: boolean = false;
   public searchTag: boolean = false;
   public parsedRichText : any ='';
   @Input() terms:any = [];  
@@ -91,6 +92,7 @@ export class RightMenuComponent implements OnInit  {
   public emailFormName :any;
   public modalOptions:NgbModalOptions;
   public closeResult: string = '';
+  public imageUrl:string='';
   demoSection = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
@@ -106,7 +108,7 @@ export class RightMenuComponent implements OnInit  {
     private rightMenuService: RightMenuService,
     private sanitizer: DomSanitizer,
     public modalService: NgbModal,
-    private _location: Location,
+    private _location: Location,    
     @Inject(DOCUMENT) private document: Document
   ) {this.modalOptions = {
     backdrop:'static',
@@ -117,6 +119,7 @@ export class RightMenuComponent implements OnInit  {
   } }
  
   ngOnInit(): void {
+    this.imageUrl = environment.apiDetails.apiImgUrl;
     this.pageType = cloneDeep(this.activatedRoute.snapshot.paramMap.get('pageType'));
     this.pageDetailsName = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id')); 
     let routeConfig: any = this.activatedRoute.routeConfig;
@@ -157,17 +160,29 @@ export class RightMenuComponent implements OnInit  {
     //   || this.pageDetailsName == 'publications' || this.pageDetailsName == 'presentations'){  
     //     this.loadPageData();
     }
-    else if (this.pageDetailsName == 'Careers'){
-      this.isCareers = true;
-      this.rightMenuService.getCareers().then((response: any) => {
-        this.pageData = response.data;    
-        let ds:any = [];
-        response.data.forEach((item: any) => {  
-          ds.push(item.attributes);
-        })
-        this.dataSource = new MatTableDataSource(ds);
-      });      
+    else if (this.pageDetailsName == 'JoinUs'){
+      this.isJoinUs = true;
+      this.routePath = "isJoinUs";
+      this.imageUrl = this.imageUrl+'Our_Leadership_ffa149b2a8.png'
+      this.rightMenuService.getCareersMarkdown().then((response: any) => {
+        this.offeringsFullContent = response.data.attributes.FullContent;        
+      })  
     } 
+    else if(this.pageDetailsName == 'Careers'){
+      this.isCareers = true;
+      this.routePath = "Careers";
+      this.rightMenuService.getCareersList().then((response: any) => {
+        this.pageData = response.data;    
+        let ds:any = [];   
+        if(response.data.length > 0){
+          response.data.forEach((item: any) => {  
+            ds.push(item.attributes);
+          })
+          this.dataSource = new MatTableDataSource(ds);   
+        }     
+      });     
+    
+    }
     else{       
       this.getMenuItem = this.commonService.getMenuItem.subscribe((menuItem: any) => {   
         this.loadPageData('');
@@ -191,8 +206,7 @@ export class RightMenuComponent implements OnInit  {
 
 sendEmail(contactForm:any,htmlContent:any){ 
 let message:any={};
-if(htmlContent.length != 0){
- 
+if(htmlContent.length != 0){ 
   message = {    
     senderAddress: appConfig.EMAIL_SENDER_ADDRESS,
     content:{
@@ -604,9 +618,8 @@ callTag(searchText:any, activemenu :any){
         this.rightMenuService.getTagList().then((response: any) => {
 //                      console.log("response",response.data);
           this.masterTagList = response.data;
-        });      
-        //https://kavi-strapi-app.azurewebsites.net/api/tags?populate=deep,20
-    }
+        });    
+      }
       if (this.routePath == 'ContactUs'){
           this.isContactUs = true;
           this.isUserForm = false;
@@ -695,6 +708,7 @@ callTag(searchText:any, activemenu :any){
             var sort = sortBy(response.data, ["id"]);
             this.pageData = sort;
             this.isLeadership = true;
+            this.imageUrl = this.imageUrl+'Our_Leadership_ffa149b2a8.png'
             this.isAboutUs = true;
           }
         })

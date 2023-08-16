@@ -287,7 +287,20 @@ export class RightMenuService {
       })
     });
   }
-  public getCareers(): any {
+    public getCareersMarkdown(): any {
+    return new Promise<any>((resolve, reject) => {
+      const endpoint =  appConfig.CAREERS_MARKDOWN;
+      this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+  }
+  public getCareersList(): any {
     return new Promise<any>((resolve, reject) => {
       const endpoint =  appConfig.CAREERS;
       this.apicallService.apiCall('', endpoint, 'get', '', '').then((resp: any) => {

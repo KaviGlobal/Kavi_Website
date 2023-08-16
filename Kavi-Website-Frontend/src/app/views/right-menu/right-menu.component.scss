@@ -559,7 +559,56 @@ p {
 .icon-bar1 a:hover {
   background-color: #0c2939;
 }
-
+markdown ::ng-deep  {
+  font-size: 1.1em;
+  summary{
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    background: #0c2939;
+    padding: 15px;  
+  }
+  details{
+    overflow:hidden;
+//    background-color: #fff;
+    p{
+      padding: 0px 10px 10px;
+      margin: 0px;
+    }
+    ul {
+      padding-right: 10px;
+      margin-bottom: 10px;
+    }  
+  }
+  h4 {
+    color:#f26000;
+    font-weight: 900;
+  }
+  h3 {
+    color:#0c2939;
+  }
+  p{
+    color: #000000;
+    font-size: 1.1rem;
+    img {
+      max-width: 100% !important;
+      margin-top:10px;
+      margin-bottom:30px;
+    }
+  }
+  img {
+    max-width: 100%;
+  } 
+  a{
+    word-break: break-word;
+    font-size: 1.1rem;
+  }
+  // table ul {
+  //     list-style-type: none;
+  //     padding: 15px;
+  //     margin: 0;
+  // }
+}
 td{
   width:400px;
   padding: 0;
