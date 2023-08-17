@@ -410,10 +410,8 @@
                 <markdown [data]="(offeringsFullContent)"> </markdown>  
             </div>
           <!--  {{pageData.length}}-->
-            <div *ngIf="pageData.length > 0">
-                <a class="privacy_policy" (click)="getCareerList()">  
-                    <h6>Click here for current Openings</h6>
-                </a>
+            <div *ngIf="pageData.length > 0" class="current_opening" >
+                <a (click)="getCareerList()">Click here for current Openings</a>
             </div>
         </div>
         </div>
