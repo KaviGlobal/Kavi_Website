@@ -26,8 +26,7 @@
               <div class="col-md-3 col-sm-12 col-xs-12 pb-30">
                 <div >   
   <!--                  <a routerLink="{{'/ContactUs'}}"></a>-->
-                    <h6>Contact Us</h6>
-                    
+                    <h6>Contact Us</h6>                    
                     <div style="display: inline-block;">
                       <p align="left"><i class="fas fa-phone-alt mr-2"></i>(847)
                           387-6760
@@ -50,9 +49,13 @@
                 </div>
               </div>
               <div class="col-md-2 col-sm-12 col-xs-12 pb-30">
+                <!--
                 <div>
                   <a routerLink="{{'/Careers'}}"><h6>Careers</h6></a>
-                </div>
+                </div>-->
+                <a class="privacy_policy" (click)="makeMenuActive('JoinUs')">  
+                  <h6>Careers</h6>
+                </a> 
               </div>
             </div>
           </div>

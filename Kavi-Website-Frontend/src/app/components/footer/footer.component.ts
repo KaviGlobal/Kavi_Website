@@ -6,6 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RightMenuComponent} from 'src/app/views/right-menu/right-menu.component';
 import { CommonService } from 'src/app/services/common.service';
 import { Router, ActivatedRoute,  NavigationStart, NavigationEnd } from '@angular/router';
+import { cloneDeep } from 'lodash';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -22,7 +23,8 @@ export class FooterComponent implements OnInit {
   public currentYear: any = '';
   public isSubscribed:  boolean = false;
   public terms :any=[];
-  public aboutUs :any = [];
+  public aboutUs :any = [];  
+  public menuData: any = [];
   constructor(
     public footerService: FooterService,
     public config: NgbCarouselConfig,
@@ -40,6 +42,7 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
     this.currentYear = new Date().getFullYear(); 
     this.getAboutUs();
+    this.menuData = cloneDeep(this.commonService.menuData);
   }
   public emailSubscription(email:any){    
     let emailValidation = new RegExp("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$");
@@ -91,4 +94,18 @@ export class FooterComponent implements OnInit {
 //    modalRef.componentInstance.RightMenuComponent = terms.FullContent;
   }
   
+  public makeMenuActive(menuItem?: any) {
+//    this.showMenu = false;
+//    document.getElementById('menu_block')!.classList.remove("menu-container-open");
+//    this.document.body.classList.remove('hide-scroll'); 
+    if (menuItem) {
+      if(menuItem == 'JoinUs'){
+        this.commonService.activeMenuName = 'JoinUs';
+        this.router.navigate(["/JoinUs"]);
+ /*       setTimeout(() => {
+          this.commonService.routeChangeSubscription.next(true);        
+        }, 100);  */      
+      }
+    }
+  }
 }

@@ -355,7 +355,7 @@ markdown ::ng-deep  {
   }
   details{
     overflow:hidden;
-    background-color: #fff;
+//    background-color: #fff;
     p{
       padding: 0px 10px 10px;
       margin: 0px;
@@ -525,7 +525,7 @@ markdown ::ng-deep  {
 }
 .icon-bar1 {
   position: fixed;
-  bottom: 120px;
+  bottom: 80px;
   right: 30px;
   z-index: 1000;
 }

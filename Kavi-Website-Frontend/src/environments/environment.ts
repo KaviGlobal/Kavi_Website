@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   apiDetails: {
     apiUrl: 'https://kavi-strapi-app.azurewebsites.net/api',
-    apiImgUrl: ''
+    apiImgUrl: 'https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/'
   }
 };
 

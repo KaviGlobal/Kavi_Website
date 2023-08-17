@@ -17,7 +17,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { animate, state, style, transition, trigger} from '@angular/animations';
-
+import { environment } from 'src/environments/environment';
 interface Country {
   name: string;
   flag: string;
@@ -38,8 +38,10 @@ interface Country {
 })
 
 export class RightMenuComponent implements OnInit  {
-  displayedColumns: string[] = ['Flag', 'Name', 'Area', 'Population'];
-  dataSource: MatTableDataSource<any> = new MatTableDataSource();
+//  displayedColumns: string[] = ['Flag', 'Name', 'Area', 'Population'];
+  displayedColumns: string[] = ['Role', 'JobLevel', 'Location', 'Engagement'];
+//  dataSource: MatTableDataSource<any> = new MatTableDataSource();
+  public dataSource: MatTableDataSource<any> = new MatTableDataSource();
   public routePath: any = '';  
   public tagName: any = '';  
   public activeMenuItem: any = {};
@@ -76,6 +78,7 @@ export class RightMenuComponent implements OnInit  {
   public formSendMessage: any = '';
   public validateMessage : any ='';
   public isCareers: boolean = false;
+  public isJoinUs: boolean = false;
   public searchTag: boolean = false;
   public parsedRichText : any ='';
   @Input() terms:any = [];  
@@ -89,6 +92,7 @@ export class RightMenuComponent implements OnInit  {
   public emailFormName :any;
   public modalOptions:NgbModalOptions;
   public closeResult: string = '';
+  public imageUrl:string='';
   demoSection = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
@@ -104,7 +108,7 @@ export class RightMenuComponent implements OnInit  {
     private rightMenuService: RightMenuService,
     private sanitizer: DomSanitizer,
     public modalService: NgbModal,
-    private _location: Location,
+    private _location: Location,    
     @Inject(DOCUMENT) private document: Document
   ) {this.modalOptions = {
     backdrop:'static',
@@ -114,100 +118,8 @@ export class RightMenuComponent implements OnInit  {
     windowClass: 'dark-modal'
   } }
  
-  ngOnInit(): void {    
-    this.dataSource = new MatTableDataSource([
-      {
-        "name": "Russia",
-        "flag": "f/f3/Flag_of_Russia.svg",
-        "area": 17075200,
-        "population": 146989754,
-        "description": "Russia, the largest country in the world, occupies one-tenth of all the land on Earth."
-      },
-      {
-        "name": "France",
-        "flag": "c/c3/Flag_of_France.svg",
-        "area": 640679,
-        "population": 64979548,
-        "description": "France, the largest country in Western Europe, has long been a gateway between the continent's northern and southern regions."
-      },
-      {
-        "name": "Germany",
-        "flag": "b/ba/Flag_of_Germany.svg",
-        "area": 357114,
-        "population": 82114224,
-        "description": "Germany is a country located in the heart of Western Europe."
-      },
-      {
-        "name": "Portugal",
-        "flag": "5/5c/Flag_of_Portugal.svg",
-        "area": 92090,
-        "population": 10329506,
-        "description": "Portugal is a country full of wonders — charming castles, pristine beaches, and a metropolitan capital spattered in remnants of the past."
-      },
-      {
-        "name": "Canada",
-        "flag": "c/cf/Flag_of_Canada.svg",
-        "area": 9976140,
-        "population": 36624199,
-        "description": "Canada is a vast and rugged land. From north to south it spans more than half the Northern Hemisphere."
-      },
-      {
-        "name": "Vietnam",
-        "flag": "2/21/Flag_of_Vietnam.svg",
-        "area": 331212,
-        "population": 95540800,
-        "description": "Vietnam is a long, narrow nation shaped like the letter s. It is in Southeast Asia on the eastern edge of the peninsula known as Indochina."
-      },
-      {
-        "name": "Brazil",
-        "flag": "0/05/Flag_of_Brazil.svg",
-        "area": 8515767,
-        "population": 209288278,
-        "description": "Brazil is the largest country in South America and the fifth largest nation in the world. "
-      },
-      {
-        "name": "Mexico",
-        "flag": "f/fc/Flag_of_Mexico.svg",
-        "area": 1964375,
-        "population": 129163276,
-        "description": "Mexico is a land of extremes, with high mountains and deep canyons in the center of the country, sweeping deserts in the north, and dense rain forests in the south and east."
-      },
-      {
-        "name": "United States",
-        "flag": "a/a4/Flag_of_the_United_States.svg",
-        "area": 9629091,
-        "population": 324459463,
-        "description": "The United States of America is the world's third largest country in size and nearly the third largest in terms of population."
-      },
-      {
-        "name": "India",
-        "flag": "4/41/Flag_of_India.svg",
-        "area": 3287263,
-        "population": 1324171354,
-        "description": "India (Hindi: Bhārat), officially the Republic of India (Hindi: Bhārat Gaṇarājya) is a country in South Asia."
-      },
-      {
-        "name": "Indonesia",
-        "flag": "9/9f/Flag_of_Indonesia.svg",
-        "area": 1910931,
-        "population": 263991379,
-        "description": "Background: Indonesia is the largest archipelago in the world. It consists of five major islands and about 30 smaller groups."
-      },
-      {
-        "name": "Tuvalu",
-        "flag": "3/38/Flag_of_Tuvalu.svg",
-        "area": 26,
-        "population": 11097,
-        "description": "Tuvalu, formerly known as the Ellice Islands, is located midway between Hawaii and Australia in the South Pacific Ocean. "
-      },
-      {
-        "name": "China",
-        "flag": "f/fa/Flag_of_the_People%27s_Republic_of_China.svg",
-        "area": 9596960,
-        "population": 1409517397,
-        "description": "It is the world's most populous country, with a population of around 1.404 billion."
-      }
-    ]);
+  ngOnInit(): void {
+    this.imageUrl = environment.apiDetails.apiImgUrl;
     this.pageType = cloneDeep(this.activatedRoute.snapshot.paramMap.get('pageType'));
     this.pageDetailsName = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id')); 
     let routeConfig: any = this.activatedRoute.routeConfig;
@@ -248,16 +160,29 @@ export class RightMenuComponent implements OnInit  {
     //   || this.pageDetailsName == 'publications' || this.pageDetailsName == 'presentations'){  
     //     this.loadPageData();
     }
-    else if (this.pageDetailsName == 'Careers'){
-      this.isCareers = true;
- //     console.log("jjjj",this.pageDetailsName,this.routePath)
-      this.rightMenuService.getCareers().then((response: any) => {
-//        console.log("ddddd",response.data);
-        this.pageData = response.data;     
-      });
- //     this.pageData =
-      
+    else if (this.pageDetailsName == 'JoinUs'){
+      this.isJoinUs = true;
+      this.routePath = "isJoinUs";
+      this.imageUrl = this.imageUrl+'Our_Leadership_ffa149b2a8.png'
+      this.rightMenuService.getCareersMarkdown().then((response: any) => {
+        this.offeringsFullContent = response.data.attributes.FullContent;        
+      })  
     } 
+    else if(this.pageDetailsName == 'Careers'){
+      this.isCareers = true;
+      this.routePath = "Careers";
+      this.rightMenuService.getCareersList().then((response: any) => {
+        this.pageData = response.data;    
+        let ds:any = [];   
+        if(response.data.length > 0){
+          response.data.forEach((item: any) => {  
+            ds.push(item.attributes);
+          })
+          this.dataSource = new MatTableDataSource(ds);   
+        }     
+      });     
+    
+    }
     else{       
       this.getMenuItem = this.commonService.getMenuItem.subscribe((menuItem: any) => {   
         this.loadPageData('');
@@ -281,8 +206,7 @@ export class RightMenuComponent implements OnInit  {
 
 sendEmail(contactForm:any,htmlContent:any){ 
 let message:any={};
-if(htmlContent.length != 0){
- 
+if(htmlContent.length != 0){ 
   message = {    
     senderAddress: appConfig.EMAIL_SENDER_ADDRESS,
     content:{
@@ -694,9 +618,8 @@ callTag(searchText:any, activemenu :any){
         this.rightMenuService.getTagList().then((response: any) => {
 //                      console.log("response",response.data);
           this.masterTagList = response.data;
-        });      
-        //https://kavi-strapi-app.azurewebsites.net/api/tags?populate=deep,20
-    }
+        });    
+      }
       if (this.routePath == 'ContactUs'){
           this.isContactUs = true;
           this.isUserForm = false;
@@ -785,6 +708,7 @@ callTag(searchText:any, activemenu :any){
             var sort = sortBy(response.data, ["id"]);
             this.pageData = sort;
             this.isLeadership = true;
+            this.imageUrl = this.imageUrl+'Our_Leadership_ffa149b2a8.png'
             this.isAboutUs = true;
           }
         })
