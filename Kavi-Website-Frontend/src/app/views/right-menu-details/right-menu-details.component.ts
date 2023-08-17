@@ -14,6 +14,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import appConfig from '../../../assets/config/appconfig.json';
 import { EmailClient} from '@azure/communication-email';
 import { environment } from 'src/environments/environment.prod';
+import { Meta } from '@angular/platform-browser';
 @Component({
   selector: 'app-right-menu-details',
   templateUrl: './right-menu-details.component.html',
@@ -66,6 +67,7 @@ export class RightMenuDetailsComponent implements OnInit {
     message:new FormControl('')
   });
   constructor(
+    private meta: Meta,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     public commonService: CommonService,
@@ -82,6 +84,8 @@ export class RightMenuDetailsComponent implements OnInit {
   } }
 
   ngOnInit(): void {//    console.log("sss",this.commonService.activeMenuData);
+    this.meta.updateTag({property: 'og:title', content: 'My page title'});
+    this.meta.updateTag({property: 'og:image', content: 'https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/Data_Engineering_5bf56b381a.jpg'});
     this.loadPageData();
     this.routerEventSubscription = this.router.events.subscribe((evt: any) => {
       if ((evt instanceof NavigationEnd)) {
