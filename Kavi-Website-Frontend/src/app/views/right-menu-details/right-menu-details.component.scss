@@ -175,12 +175,14 @@
   .container{
     max-width:1400px;
     text-align: justify;
+    padding-left: 25px;
+    padding-right: 20px;
   }
   .container_1400{
     max-width: 1400px;
     margin: auto;
     text-align: justify;
-    padding: 0px 15px;
+    padding: 0px 20px 0px 25px;
   }
   .people-detail{   
     font-family: "montserrat-regular"; 
@@ -575,4 +577,16 @@ markdown ::ng-deep  {
 .youtube {
   background: #bb0000;
   color: white;
+}
+@media only screen and (max-width: 640px) {
+  .icon-bar a {
+    padding: 5px;
+    font-size: 12px;
+  }
+  .full_heading_cover {
+    font-size: 30px;
+    span{
+     padding: 40px 20px;
+    }
+  }
 }

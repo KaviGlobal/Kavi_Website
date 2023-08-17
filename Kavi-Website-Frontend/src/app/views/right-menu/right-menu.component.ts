@@ -170,7 +170,8 @@ export class RightMenuComponent implements OnInit  {
       })  
       this.rightMenuService.getCareersList().then((response: any) => {
         this.pageData = response.data;    
-      }); 
+      });
+      this.commonService.pageScrollToTop();
     } 
     else if(this.pageDetailsName == 'Careers'){
       this.isCareers = true;

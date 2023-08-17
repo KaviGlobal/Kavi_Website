@@ -13,6 +13,7 @@ import {NgbModal, ModalDismissReasons, NgbModalOptions} from '@ng-bootstrap/ng-b
 import { FormControl, FormGroup } from '@angular/forms';
 import appConfig from '../../../assets/config/appconfig.json';
 import { EmailClient} from '@azure/communication-email';
+import { environment } from 'src/environments/environment.prod';
 @Component({
   selector: 'app-right-menu-details',
   templateUrl: './right-menu-details.component.html',
@@ -56,6 +57,7 @@ export class RightMenuDetailsComponent implements OnInit {
   public validateMessage: string = '';
   public downloadFileURL:any;
   public emailFormName :any;
+  public imageUrl:string='';
   demoSection = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
@@ -79,7 +81,7 @@ export class RightMenuDetailsComponent implements OnInit {
     windowClass: 'dark-modal'
   } }
 
-  ngOnInit(): void {//    console.log("sss",this.commonService.activeMenuData);    
+  ngOnInit(): void {//    console.log("sss",this.commonService.activeMenuData);
     this.loadPageData();
     this.routerEventSubscription = this.router.events.subscribe((evt: any) => {
       if ((evt instanceof NavigationEnd)) {
@@ -99,6 +101,7 @@ console.log("kkp", this.activatedRoute.snapshot.paramMap.get('pageType'), this.a
       this.pageDetailsName = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id'));
       this.clearForm(this.demoSection);
       this.validateMessage = "";
+      this.imageUrl = environment.apiDetails.apiImgUrl;
       if (this.pageType && this.pageDetailsName && !this.pageType.includes("SearchTag")) {
         if(this.pageType != "pages"){
           let menuItemAttributes = this.commonService.menuData[1].RightMenu.filter((element: any) => (element.attributes.Parameter.type == this.pageType));
@@ -108,9 +111,11 @@ console.log("kkp", this.activatedRoute.snapshot.paramMap.get('pageType'), this.a
           if(this.pageType == "clients"){
             this.isClient = true;
             this.isPartner = false;
+            this.imageUrl = this.imageUrl+'Our_Clients_c3172330e9.png';
           } else if(this.pageType == "partners"){
             this.isClient = false;
             this.isPartner = true;
+            this.imageUrl = this.imageUrl+'Our_Partner_b53404e808.png';
           }
         } else if(this.pageType == "pages"){
           let activeMenuAttributes;

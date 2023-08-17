@@ -9,6 +9,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import appConfig from '../../../assets/config/appconfig.json';
 import { EmailClient} from '@azure/communication-email';
 import {NgbModal, ModalDismissReasons, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
+import { environment } from 'src/environments/environment.prod';
 // declare const google: any;
 @Component({
   selector: 'app-home',
@@ -40,6 +41,7 @@ export class HomeComponent implements OnInit {
   public emailFormName :any;
   public modalOptions:NgbModalOptions;
   public closeResult: string = '';
+  public imageUrl:string='';
   demoSection = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
@@ -62,6 +64,7 @@ export class HomeComponent implements OnInit {
     } }
 
   ngOnInit(): void {
+    this.imageUrl = environment.apiDetails.apiImgUrl;
     let routeConfig: any = this.activatedRoute.routeConfig;
     this.commonService.activeMenuName = cloneDeep(routeConfig.path);
     this.getHomePageData();

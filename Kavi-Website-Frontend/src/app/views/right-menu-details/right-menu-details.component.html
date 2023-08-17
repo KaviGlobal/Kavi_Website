@@ -371,8 +371,8 @@
     </div>
 </div>
 <div *ngIf="isDataLoaded && (isClient || isPartner)" style="margin:0px auto;padding: 0px 0px 30px;">
-    <div class="mb-5" *ngIf="isClient"><h2 class="full_heading_cover" style = "background-image:url('https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/Our_Clients_c3172330e9.png?updated_at=2023-07-23T11:01:22.840Z')"><span>Our Clients</span></h2></div>
-    <div class="mb-5" *ngIf="isPartner"><h2 class="full_heading_cover" style = "background-image:url('https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/Our_Partner_b53404e808.png?updated_at=2023-07-23T11:01:23.842Z')"><span>Our Partners</span></h2></div>
+    <div class="mb-5" *ngIf="isClient"><h2 class="full_heading_cover" style = "background-image:url('{{imageUrl}}')"><span>Our Clients</span></h2></div>
+    <div class="mb-5" *ngIf="isPartner"><h2 class="full_heading_cover" style = "background-image:url('{{imageUrl}}')"><span>Our Partners</span></h2></div>
     <div class="container_1400">
     <div class="row" *ngIf="isClient">          
         <div *ngFor="let item of pageData; let i = index" class="col-lg-3 col-md-4 col-sm-6 col-xs-12"> 

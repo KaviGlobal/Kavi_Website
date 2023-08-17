@@ -261,6 +261,8 @@ input[type=submit]:hover {
 //  background-color: #f2f2f2;
 //  padding: 20px;
   max-width:1400px;
+  padding-left: 25px;
+  padding-right: 20px;
 }
 
 .title {
@@ -678,4 +680,10 @@ div.material-table {
     .example-element-description-attribution {
       opacity: 0.5;
     }
+}
+@media only screen and (max-width: 640px) {
+  .icon-bar a {
+    padding: 5px;
+    font-size: 12px;
+  }
 }

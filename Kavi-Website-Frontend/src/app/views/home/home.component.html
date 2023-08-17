@@ -114,7 +114,7 @@
             </div>
         </div>
     </div>
-    <div id="sssk_section" class="blog-section fade-up aos-init" style="background-image:url(https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/bg2_fe2da1bc6a.jpg?updated_at=2023-08-09T15:43:21.187Z);">
+    <div id="sssk_section" class="blog-section fade-up aos-init" style="background-image:url('{{imageUrl}}bg2_fe2da1bc6a.jpg');">
         <div class="container">
             <h3>{{homeData.attributes?.OfferingsTitle}}</h3>
             <div class="row"
@@ -182,7 +182,7 @@
             </div>                       
         </div>
     </div>
-    <div id="blog_section" class="blog-section fade-up aos-init" style="background-image:url(https://kavidemo.wpengine.com/wp-content/uploads/2017/09/bg2.jpg);">
+    <div id="blog_section" class="blog-section fade-up aos-init" style="background-image:url('{{imageUrl}}bg3_4a1641c6ee.jpg');">
         <div class="container">
             <h3 *ngIf = "homeData.attributes">{{this.homeData.attributes.BlogsTitle}}</h3>
             <div>
