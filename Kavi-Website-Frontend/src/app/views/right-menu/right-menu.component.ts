@@ -224,7 +224,7 @@ public getCareerList(){
         this.dataSource = new MatTableDataSource(ds);   
       }     
     });     
-  
+    this.commonService.pageScrollToTop();
 //  }
 }
 sendEmail(contactForm:any,htmlContent:any){ 
