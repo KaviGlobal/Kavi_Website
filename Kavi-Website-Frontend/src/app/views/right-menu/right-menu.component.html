@@ -409,6 +409,12 @@
             <div class="page-content py-4" >
                 <markdown [data]="(offeringsFullContent)"> </markdown>  
             </div>
+          <!--  {{pageData.length}}-->
+            <div *ngIf="pageData.length > 0">
+                <a class="privacy_policy" (click)="getCareerList()">  
+                    <h6>Click here for current Openings</h6>
+                </a>
+            </div>
         </div>
         </div>
     </div>
@@ -417,13 +423,13 @@
         <div class="page-content py-4" >
             <markdown [data]="(offeringsFullContent)"> </markdown>  
         </div>-->
-        <div class="careerTitle" *ngIf = dataSource> 
+        <div class="careerTitle" *ngIf = "pageData.length > 0"> 
                 <h2>Current Openings</h2>
             </div> 
-            <div class="careerTitle" *ngIf = !dataSource> 
+            <div class="careerTitle" *ngIf = "pageData.length == 0"> 
                 <h2>There are no Current Openings.</h2>
             </div>
-            <div class="container" *ngIf = dataSource>                       
+            <div class="container" *ngIf = "pageData.length > 0">                       
                 <div class="row">
                     <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
                     <!-- Position Column -->

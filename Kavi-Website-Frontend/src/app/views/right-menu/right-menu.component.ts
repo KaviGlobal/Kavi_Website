@@ -129,7 +129,7 @@ export class RightMenuComponent implements OnInit  {
       this.SearchTagMenu ='';  
         /*  else
     this.commonService.activeMenuName =':id'*/
-//    console.log("ctrl is here111", this.commonService.activeMenuName,this.pageDetailsName,this.routePath,routeConfig.path);
+    console.log("ctrl is here111", this.commonService.activeMenuName,this.pageDetailsName,this.routePath,routeConfig.path);
     if(this.pageDetailsName && this.pageDetailsName.includes("SearchTag")){
 //      console.log("this.pageDetailsName",this.pageDetailsName);
   //    this.commonService.activeMenuName = (this.pageDetailsName).split('=')[1];
@@ -162,11 +162,15 @@ export class RightMenuComponent implements OnInit  {
     }
     else if (this.pageDetailsName == 'JoinUs'){
       this.isJoinUs = true;
+      this.isCareers = false;
       this.routePath = "isJoinUs";
       this.imageUrl = this.imageUrl+'Our_Leadership_ffa149b2a8.png'
       this.rightMenuService.getCareersMarkdown().then((response: any) => {
         this.offeringsFullContent = response.data.attributes.FullContent;        
       })  
+      this.rightMenuService.getCareersList().then((response: any) => {
+        this.pageData = response.data;    
+      }); 
     } 
     else if(this.pageDetailsName == 'Careers'){
       this.isCareers = true;
@@ -203,7 +207,25 @@ export class RightMenuComponent implements OnInit  {
       this.getMenuItem.unsubscribe();
     }    
 }
-
+public getCareerList(){
+//  else if(this.pageDetailsName == 'Careers'){
+    this.isCareers = true;
+    this.isJoinUs = false;
+    this.pageDetailsName == 'Careers'
+    this.routePath = "Careers";
+    this.rightMenuService.getCareersList().then((response: any) => {
+      this.pageData = response.data;    
+      let ds:any = [];   
+      if(response.data.length > 0){
+        response.data.forEach((item: any) => {  
+          ds.push(item.attributes);
+        })
+        this.dataSource = new MatTableDataSource(ds);   
+      }     
+    });     
+  
+//  }
+}
 sendEmail(contactForm:any,htmlContent:any){ 
 let message:any={};
 if(htmlContent.length != 0){ 
