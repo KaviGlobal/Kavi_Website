@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA ,NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Meta } from '@angular/platform-browser';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -63,6 +63,7 @@ import {MatTableModule} from '@angular/material/table';
     MarkdownModule.forRoot(),
   ],
   providers: [
+    Meta,
     DatePipe,CustomPipePipe,
     {provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: {disabled: true}},
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { floatLabel: 'always' } },
