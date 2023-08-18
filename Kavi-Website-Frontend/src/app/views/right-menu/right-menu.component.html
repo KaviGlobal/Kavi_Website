@@ -81,13 +81,12 @@
 
                 </div>        
                 <div *ngIf="item.Type == 'button' && (validateMessage == '' || validateMessage == 'Error')">   
-                    <button style="margin-right: 100px;"
+                    <button
                     id="submit" type="submit" value="item.Label">{{item.Label}}</button>    
             <!--       <button id="closeModal" (click)="onClose()"> Cancel </button>-->
                 </div>
                 <div *ngIf="item.Type == 'button' && (validateMessage == 'Success')">   
-                    <button style="margin-right: 100px;"
-                    id="submit" type="submit" value="item.Label" [disabled] = "true">{{item.Label}}</button>    
+                    <button id="submit" type="submit" value="item.Label" [disabled] = "true">{{item.Label}}</button>    
             <!--       <button id="closeModal" (click)="onClose()"> Cancel </button>-->
                 </div>
             </div>
