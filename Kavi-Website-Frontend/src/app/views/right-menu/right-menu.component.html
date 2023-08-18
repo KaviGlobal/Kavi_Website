@@ -14,7 +14,7 @@
     <a href="https://twitter.com/KG4Analytics" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a> 
     <a href="https://www.facebook.com/kaviglobal/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a> 
  </div>
- <div class="icon-bar1">
+ <div *ngIf="!isContactUs" class="icon-bar1">
     <a class="contact" (click)="open(mymodal,'','','','')">Contact us</a> 
 </div>
 <ng-template #mymodal let-modal>
@@ -78,6 +78,17 @@
             <div *ngIf="item.Type == 'textarea'">    
                 <textarea class="formStyles" [formControlName]="item.Label" placeholder="{{item.Label}}"></textarea>
                 <span *ngIf="item.Required == 'true'" style="color: red; padding-left: 5px; background-position: right top;">*</span>
+    <div class="container py-5 contact_page">
+        <h3 class="title">Contact Us</h3> 
+    <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+      <div *ngFor="let item of formData; let i = index">
+        <div *ngIf="item.Type == 'text' || item.Type == 'number'" class="flex_div">    
+            <input  class="formStyles" [type]="item.Type" [formControlName]="item.Label" placeholder={{item.Label}} item.Required>
+            <span *ngIf="item.Required == 'true'" class="mandatory_start">*</span>
+        </div> 
+        <div *ngIf="item.Type == 'textarea'" style="padding-right: 26px;">    
+            <textarea class="formStyles" [formControlName]="item.Label" placeholder="{{item.Label}}"></textarea>
+            <span *ngIf="item.Required == 'true'" class="mandatory_start">*</span>
 
             </div>        
             <div *ngIf="item.Type == 'button' && (validateMessage == '' || validateMessage == 'Error')">   
@@ -94,6 +105,13 @@
         </form>
     
         <div *ngIf="validateMessage == 'Error'" style="padding-bottom: 20px;">
+        <div *ngIf="item.Type == 'button'">   
+            <button
+            id="submit" type="submit" value="item.Label" >{{item.Label}}</button>    
+     <!--       <button id="closeModal" (click)="onClose()"> Cancel </button>-->
+        </div>
+        </div>
+        <div *ngIf="validateMessage == 'Error' && validateMessage.length > 0" style="padding-bottom: 20px;">
             <span style="color: red; font-size:18px;">
                 {{formSendMessage}}
             </span>
