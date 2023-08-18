@@ -196,8 +196,8 @@ public onClose() {
     let message = {    
       senderAddress: appConfig.EMAIL_SENDER_ADDRESS,
       content:{
-        subject: "Demo Request",
-        html:"<html><body> The user "+contactForm.value.firstName+" has requested for demo through our website. Kindly contact the user with the below details.<br/>First Name : "+contactForm.value.firstName+"<br/>Last Name : "+contactForm.value.lastName+"<br/>Email : "+contactForm.value.email+"<br/>Phone : "+contactForm.value.phone+"<br/>"+contactMessage+"</br></body></html>"
+        subject: "Consultation Request from Home Page",
+        html:"<html><body> The user "+contactForm.value.firstName+" has requested a 30-minute consultation from the home page. Kindly contact the user with the below details.<br/>First Name : "+contactForm.value.firstName+"<br/>Last Name : "+contactForm.value.lastName+"<br/>Email : "+contactForm.value.email+"<br/>Phone : "+contactForm.value.phone+"<br/>"+contactMessage+"</br></body></html>"
       }, 
       recipients: {
         to: [

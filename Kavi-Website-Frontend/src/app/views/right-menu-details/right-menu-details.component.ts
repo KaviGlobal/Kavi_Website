@@ -228,13 +228,13 @@ console.log("kkp", this.activatedRoute.snapshot.paramMap.get('pageType'), this.a
   let pageName="";
   let pageType="";
   if(this.pageType != 'pages')
-    pageType =  "pageType:"+ this.pageType.charAt(0).toUpperCase() + this.pageType.slice(1);;
+    pageType =  "Page Type:"+ this.pageType.charAt(0).toUpperCase() + this.pageType.slice(1);;
   if(contactForm.value.message)
     contactMessage = "Message:"+contactForm.value.message;
   if(formName == 'Contact Us'){
     formName = formName ;
     pageName= this.pageDetailsName.charAt(0).toUpperCase() + this.pageDetailsName.slice(1);
-    htmlContent = "<html><body> The user "+contactForm.value.firstName+" has filled the Contact Us form <br/>First Name : "+contactForm.value.firstName+"<br/>Last Name : "+contactForm.value.lastName+"<br/>Email : "+contactForm.value.email+"<br/>Phone : "+contactForm.value.phone+"<br/>"+contactMessage+"<br/>Page  : "+ pageName +"<br/>"+pageType+"</body></html>"
+    htmlContent = "<html><body> The user "+contactForm.value.firstName+" has filled the Contact Us form <br/>First Name : "+contactForm.value.firstName+"<br/>Last Name : "+contactForm.value.lastName+"<br/>Email : "+contactForm.value.email+"<br/>Phone : "+contactForm.value.phone+"<br/>"+contactMessage+"<br/>Page  : "+ pageName +"<br/>"+pageType+"--<br/>This e-mail was sent from a contact form on "+pageName+": "+pageType+"<br/>--</body></html>"
  
   }
   if(formName == 'Download File'){

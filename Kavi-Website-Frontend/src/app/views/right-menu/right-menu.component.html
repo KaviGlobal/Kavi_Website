@@ -69,37 +69,41 @@
 <div *ngIf="isContactUs && !isUserForm" class="page-container"> 
     <div style="text-align:center" class="container py-5">
         <h3 class="title" style="width:100%">Contact Us</h3> 
-    <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
-      <div *ngFor="let item of formData; let i = index">
-        <div *ngIf="item.Type == 'text' || item.Type == 'number'">    
-            <input  class="formStyles" [type]="item.Type" [formControlName]="item.Label" placeholder={{item.Label}} item.Required>
-            <span *ngIf="item.Required == 'true'" style="color: red; padding-left: 5px;">*</span>
-        </div> 
-        <div *ngIf="item.Type == 'textarea'">    
-            <textarea class="formStyles" [formControlName]="item.Label" placeholder="{{item.Label}}"></textarea>
-            <span *ngIf="item.Required == 'true'" style="color: red; padding-left: 5px; background-position: right top;">*</span>
+        <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+        <div *ngFor="let item of formData; let i = index">
+            <div *ngIf="item.Type == 'text' || item.Type == 'number'">    
+                <input  class="formStyles" [type]="item.Type" [formControlName]="item.Label" placeholder={{item.Label}} item.Required>
+                <span *ngIf="item.Required == 'true'" style="color: red; padding-left: 5px;">*</span>
+            </div> 
+            <div *ngIf="item.Type == 'textarea'">    
+                <textarea class="formStyles" [formControlName]="item.Label" placeholder="{{item.Label}}"></textarea>
+                <span *ngIf="item.Required == 'true'" style="color: red; padding-left: 5px; background-position: right top;">*</span>
 
-        </div>
+            </div>        
+            <div *ngIf="item.Type == 'button' && (validateMessage == '' || validateMessage == 'Error')">   
+                <button style="margin-right: 100px;"
+                id="submit" type="submit" value="item.Label">{{item.Label}}</button>    
+        <!--       <button id="closeModal" (click)="onClose()"> Cancel </button>-->
+            </div>
+            <div *ngIf="item.Type == 'button' && (validateMessage == 'Success')">   
+                <button style="margin-right: 100px;"
+                id="submit" type="submit" value="item.Label" [disabled] = "true">{{item.Label}}</button>    
+        <!--       <button id="closeModal" (click)="onClose()"> Cancel </button>-->
+            </div>
+            </div>
+        </form>
     
-        <div *ngIf="item.Type == 'button'">   
-            <button style="margin-right: 100px;"
-            id="submit" type="submit" value="item.Label" >{{item.Label}}</button>    
-     <!--       <button id="closeModal" (click)="onClose()"> Cancel </button>-->
-        </div>
-        </div>
-        <div *ngIf="validateMessage == 'Error' && validateMessage.length > 0" style="padding-bottom: 20px;">
+        <div *ngIf="validateMessage == 'Error'" style="padding-bottom: 20px;">
             <span style="color: red; font-size:18px;">
                 {{formSendMessage}}
             </span>
         </div>
-        <div *ngIf="validateMessage == 'Success' && validateMessage.length > 0" style="padding-bottom: 20px;">
+        <div *ngIf="validateMessage == 'Success'" style="padding-bottom: 20px;">
             <span style="color: Green; font-size:18px;">
-                {{formSendMessage}}
+                {{formSendMessage}}The details has been Submitted. We will contact you shortly
             </span>
         </div>
 
-      </form>
- 
     </div>
 </div>
 <div *ngIf="isEmptyDataList" class="page-container"> 
