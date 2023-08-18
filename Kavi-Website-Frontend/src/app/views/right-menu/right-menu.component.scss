@@ -196,7 +196,7 @@ textarea {
 }
 
 .formStyles {
-  width: 82%;
+  width: 100%;
  //  padding: 10px;
    padding:15px 20px;
    box-sizing: border-box;
@@ -693,7 +693,24 @@ div.material-table {
     cursor: pointer;
   }
 }
-
+.contact_page{
+  text-align: center;
+  h3{
+    width: 100%;
+  }
+  form{
+    margin: auto;
+    max-width: 850px;
+  }
+  .flex_div{
+    display: flex;
+  }
+  .mandatory_start{
+    color: red;
+    padding-left: 5px;
+    padding-top: 25px;
+  }
+}
 
 @media only screen and (max-width: 820px) {
   .icon-bar a {
