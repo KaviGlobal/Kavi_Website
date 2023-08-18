@@ -67,50 +67,32 @@
     </div>        
 </div>
 <div *ngIf="isContactUs && !isUserForm" class="page-container"> 
-    <div style="text-align:center" class="container py-5">
-        <h3 class="title" style="width:100%">Contact Us</h3> 
-        <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
-        <div *ngFor="let item of formData; let i = index">
-            <div *ngIf="item.Type == 'text' || item.Type == 'number'">    
-                <input  class="formStyles" [type]="item.Type" [formControlName]="item.Label" placeholder={{item.Label}} item.Required>
-                <span *ngIf="item.Required == 'true'" style="color: red; padding-left: 5px;">*</span>
-            </div> 
-            <div *ngIf="item.Type == 'textarea'">    
-                <textarea class="formStyles" [formControlName]="item.Label" placeholder="{{item.Label}}"></textarea>
-                <span *ngIf="item.Required == 'true'" style="color: red; padding-left: 5px; background-position: right top;">*</span>
     <div class="container py-5 contact_page">
         <h3 class="title">Contact Us</h3> 
-    <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
-      <div *ngFor="let item of formData; let i = index">
-        <div *ngIf="item.Type == 'text' || item.Type == 'number'" class="flex_div">    
-            <input  class="formStyles" [type]="item.Type" [formControlName]="item.Label" placeholder={{item.Label}} item.Required>
-            <span *ngIf="item.Required == 'true'" class="mandatory_start">*</span>
-        </div> 
-        <div *ngIf="item.Type == 'textarea'" style="padding-right: 26px;">    
-            <textarea class="formStyles" [formControlName]="item.Label" placeholder="{{item.Label}}"></textarea>
-            <span *ngIf="item.Required == 'true'" class="mandatory_start">*</span>
+        <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+            <div *ngFor="let item of formData; let i = index">
+            <div *ngIf="item.Type == 'text' || item.Type == 'number'" class="flex_div">    
+                <input  class="formStyles" [type]="item.Type" [formControlName]="item.Label" placeholder={{item.Label}} item.Required>
+                <span *ngIf="item.Required == 'true'" class="mandatory_start">*</span>
+            </div> 
+            <div *ngIf="item.Type == 'textarea'" style="padding-right: 26px;">    
+                <textarea class="formStyles" [formControlName]="item.Label" placeholder="{{item.Label}}"></textarea>
+                <span *ngIf="item.Required == 'true'" class="mandatory_start">*</span>
 
-            </div>        
-            <div *ngIf="item.Type == 'button' && (validateMessage == '' || validateMessage == 'Error')">   
-                <button style="margin-right: 100px;"
-                id="submit" type="submit" value="item.Label">{{item.Label}}</button>    
-        <!--       <button id="closeModal" (click)="onClose()"> Cancel </button>-->
-            </div>
-            <div *ngIf="item.Type == 'button' && (validateMessage == 'Success')">   
-                <button style="margin-right: 100px;"
-                id="submit" type="submit" value="item.Label" [disabled] = "true">{{item.Label}}</button>    
-        <!--       <button id="closeModal" (click)="onClose()"> Cancel </button>-->
-            </div>
+                </div>        
+                <div *ngIf="item.Type == 'button' && (validateMessage == '' || validateMessage == 'Error')">   
+                    <button style="margin-right: 100px;"
+                    id="submit" type="submit" value="item.Label">{{item.Label}}</button>    
+            <!--       <button id="closeModal" (click)="onClose()"> Cancel </button>-->
+                </div>
+                <div *ngIf="item.Type == 'button' && (validateMessage == 'Success')">   
+                    <button style="margin-right: 100px;"
+                    id="submit" type="submit" value="item.Label" [disabled] = "true">{{item.Label}}</button>    
+            <!--       <button id="closeModal" (click)="onClose()"> Cancel </button>-->
+                </div>
             </div>
         </form>
     
-        <div *ngIf="validateMessage == 'Error'" style="padding-bottom: 20px;">
-        <div *ngIf="item.Type == 'button'">   
-            <button
-            id="submit" type="submit" value="item.Label" >{{item.Label}}</button>    
-     <!--       <button id="closeModal" (click)="onClose()"> Cancel </button>-->
-        </div>
-        </div>
         <div *ngIf="validateMessage == 'Error' && validateMessage.length > 0" style="padding-bottom: 20px;">
             <span style="color: red; font-size:18px;">
                 {{formSendMessage}}
