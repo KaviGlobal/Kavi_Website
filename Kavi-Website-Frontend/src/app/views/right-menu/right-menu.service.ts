@@ -117,7 +117,8 @@ export class RightMenuService {
             "Email": email
         }    
       }      
-      this.apicallService.apiCall('', endpoint, 'post',emailAddress,'').then((resp: any) => {
+      console.log("dddd",endpoint,emailAddress);
+      this.apicallService.apiCustomCall('', endpoint, 'post',{emailid:email},'').then((resp: any) => {
         console.log("resp",resp);
         if (resp) {
           resolve(resp);
