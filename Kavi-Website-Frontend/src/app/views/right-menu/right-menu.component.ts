@@ -273,7 +273,11 @@ if(htmlContent.length != 0){
   emailClient.beginSend(message);
 
 }
-
+sendContactDetailsToDb(contactDetails:any){
+  this.rightMenuService.sendContactDetailsToDb(contactDetails).then((response: any) => {
+  //      console.log("hhhhhh",contactForm,response);
+  });
+}
 downloadFile(filePath:any){ 
   this.returnToDownload = true;  
   const modalRef = this.modalService.open(RightMenuComponent, {
@@ -432,6 +436,20 @@ callTag(searchText:any, activemenu :any){
         let htmlContent = "<html><body> Please get in touch with "+name+" His / Her email is "+this.contactForm.value['Email']+" and Phone number is : "+this.contactForm.value.Phone+"<br/>"+message+"</br><br/><br/> --<br/>This e-mail was sent from a contact form on the header section<br/>--</body><html>";
         this.sendEmail(this.contactForm,htmlContent)  ;  
 //        this.formData=[];
+        let contactDetails = {
+          /*  "data": 
+            {
+                "Email": email
+            }   */ 
+            "emailid": this.contactForm.value['Email'],
+            "firstname": this.contactForm.value['First Name'],
+            "lastname": this.contactForm.value['Last Name'],
+            "phone": this.contactForm.value['Phone'],
+            "message": this.contactForm.value['Message'],
+            "page":'Header Section',
+            "pagedetails":''
+          }
+          this.sendContactDetailsToDb(contactDetails);
         if(this.modalService.hasOpenModals())
           this.modalService.dismissAll(); 
         this.onClose();
@@ -486,6 +504,20 @@ callTag(searchText:any, activemenu :any){
         this.validateStatus = true;
         this.sendEmail(this.demoSection,this.emailFormName);
         this.validateMessage = "Thank you for contacting us. Our team will get in touch with you shortly.";
+        let contactDetails = {
+          /*  "data": 
+            {
+                "Email": email
+            }   */ 
+            "emailid": this.demoSection.value.email,
+            "firstname": this.demoSection.value.firstName,
+            "lastname": this.demoSection.value.lastName,
+            "phone": this.demoSection.value.phone,
+            "message": this.demoSection.value.message,
+            "page": this.routePath,
+            "pagedetails":''
+          }
+        this.sendContactDetailsToDb(contactDetails);
         this.onClose(); 
         this.clearForm(this.demoSection);
       }   

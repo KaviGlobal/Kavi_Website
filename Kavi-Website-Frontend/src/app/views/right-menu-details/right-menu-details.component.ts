@@ -216,12 +216,18 @@ console.log("kkp", this.activatedRoute.snapshot.paramMap.get('pageType'), this.a
       //success call api
       this.validateStatus = true;
       this.sendEmail(this.demoSection,this.emailFormName);
-      this.validateMessage = "Thank you for contacting us. Our team will get in touch with you shortly.";
+      this.validateMessage = "Thank you for contacting us. Our team will get in touch with you shortly.";  
       this.onClose(); 
       this.clearForm(this.demoSection);
     }   
   }
-  
+
+  sendContactDetailsToDb(contactDetails:any){
+    this.rightMenuService.sendContactDetailsToDb(contactDetails).then((response: any) => {
+    //      console.log("hhhhhh",contactForm,response);
+    });
+  }
+
  sendEmail(contactForm:any,formName:string){   
   let contactMessage = "";
   let htmlContent = "";
@@ -261,6 +267,20 @@ console.log("kkp", this.activatedRoute.snapshot.paramMap.get('pageType'), this.a
     // let emailContent = new HtmlEmal
      console.log("message",message);
      emailClient.beginSend(message); 
+     let contactDetails = {
+      /*  "data": 
+        {
+            "Email": email
+        }   */ 
+        "emailid": this.demoSection.value.email,
+        "firstname": this.demoSection.value.firstName,
+        "lastname": this.demoSection.value.lastName,
+        "phone": this.demoSection.value.phone,
+        "message": this.demoSection.value.message,
+        "page": this.emailFormName || this.pageType,
+        "pagedetails":this.pageDetailsName
+      }
+    this.sendContactDetailsToDb(contactDetails);
      
  }
  public clearForm(formName:any){

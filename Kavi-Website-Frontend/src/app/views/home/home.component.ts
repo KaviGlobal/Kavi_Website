@@ -10,6 +10,7 @@ import appConfig from '../../../assets/config/appconfig.json';
 import { EmailClient} from '@azure/communication-email';
 import {NgbModal, ModalDismissReasons, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
 import { environment } from 'src/environments/environment.prod';
+import { RightMenuService } from 'src/app/views/right-menu/right-menu.service';
 // declare const google: any;
 @Component({
   selector: 'app-home',
@@ -54,6 +55,7 @@ export class HomeComponent implements OnInit {
     public commonService: CommonService,
     private homeService: HomeService,
     public modalService: NgbModal,
+    public rightMenuService: RightMenuService,
     @Inject(DOCUMENT) private document: Document
     ) {this.modalOptions = {
       backdrop:'static',
@@ -212,6 +214,22 @@ public onClose() {
     // let emailContent = new HtmlEmal
      console.log("message",message);
      emailClient.beginSend(message); 
+     let contactDetails = {
+      /*  "data": 
+        {
+            "Email": email
+        }   */ 
+        "emailid": contactForm.value.email,
+        "firstname": contactForm.value.firstName,
+        "lastname": contactForm.value.lastName,
+        "phone": contactForm.value.phone,
+        "message": contactForm.value.message,
+        "page":'HomePage',
+        "pagedetails":''
+      }
+     this.rightMenuService.sendContactDetailsToDb(contactDetails).then((response: any) => {
+//      console.log("hhhhhh",contactForm,response);
+     });
  }
   public getHomePageData() {    
     this.homeService.getHomeData().then((response: any) => {

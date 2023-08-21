@@ -108,16 +108,30 @@ export class RightMenuService {
       })
     });
   }
+  public sendContactDetailsToDb(contactDetails:any):any{
+    return new Promise<any>((resolve, reject) => {
+      const endpoint =  appConfig.ADD_CONTACT_FORM_TO_DB ;
+        
+      this.apicallService.apiCustomCall('', endpoint, 'post',contactDetails,'').then((resp: any) => {
+        console.log("resp",resp);
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+  }
   public emailSubscription(email: string): any {
     return new Promise<any>((resolve, reject) => {
       const endpoint =  appConfig.EMAIL_SUBSCRIPTION ;
-      let emailAddress = {
+ /*     let emailAddress = {
         "data": 
         {
             "Email": email
         }    
-      }      
-      console.log("dddd",endpoint,emailAddress);
+      }   */
       this.apicallService.apiCustomCall('', endpoint, 'post',{emailid:email},'').then((resp: any) => {
         console.log("resp",resp);
         if (resp) {
