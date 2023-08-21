@@ -100,7 +100,6 @@ export class HeaderComponent implements OnInit {
     this.IndustrykeyList = IndustrykeyItem;
     this.IndustryList = Industrymenus;
   }
-
   public makeMenuActive(menuItem?: any) {
     this.showMenu = false;
     document.getElementById('menu_block')!.classList.remove("menu-container-open");
@@ -134,12 +133,18 @@ export class HeaderComponent implements OnInit {
       else{
         this.commonService.activeMenuName = menuItem?.attributes?.Parameter?.type;  
         this.commonService.activeMenuData =  menuItem;
-  //    this.commonService.activeMenuName = menuItem.Label;      
-      this.makeMenuList();
- //     console.log("activeMenuName",this.commonService.activeMenuName);  
-        setTimeout(() => {
-          this.commonService.routeChangeSubscription.next(true);        
-        }, 100);
+  //    this.commonService.activeMenuName = menuItem.Label; 
+        this.makeMenuList();        
+        if(menuItem?.attributes?.Parameter?.type != "pages"){
+            console.log("activeMenuName",this.commonService.activeMenuName,this.commonService.activeMenuData);       
+            setTimeout(() => {
+              this.commonService.routeChangeSubscription.next(true);
+              this.router.navigate(['/'+this.commonService.activeMenuName]).then(() => {
+              window.location.reload();
+            });
+          }, 100);
+
+        }
       }         
     }
     else {

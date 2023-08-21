@@ -93,6 +93,7 @@ export class RightMenuComponent implements OnInit  {
   public modalOptions:NgbModalOptions;
   public closeResult: string = '';
   public imageUrl:string='';
+  public routerEventSubscription: Subscription | undefined;
   demoSection = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
@@ -123,13 +124,19 @@ export class RightMenuComponent implements OnInit  {
     this.pageType = cloneDeep(this.activatedRoute.snapshot.paramMap.get('pageType'));
     this.pageDetailsName = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id')); 
     let routeConfig: any = this.activatedRoute.routeConfig;
-//    console.log("ctrl is here",this.commonService.activeMenuName, this.pageDetailsName,routeConfig);
+  /*  this.routerEventSubscription = this.router.events.subscribe((evt: any) => {
+      if ((evt instanceof NavigationEnd)) {
+        this.loadPageData('');
+      }
+    });*/
+    console.log("ctrl is here",this.commonService.activeMenuName, this.pageDetailsName,routeConfig);
     if(routeConfig && !this.pageDetailsName.includes("SearchTag") )
-      this.commonService.activeMenuName = cloneDeep(routeConfig.path);
+//    this.commonService.activeMenuName = 'blogs';
+    this.commonService.activeMenuName = cloneDeep(routeConfig.path);
       this.SearchTagMenu ='';  
         /*  else
     this.commonService.activeMenuName =':id'*/
-    console.log("ctrl is here111", this.commonService.activeMenuName,this.pageDetailsName,this.routePath,routeConfig.path);
+//    console.log("ctrl is here111", this.pageDetailsName,this.commonService.activeMenuName,this.pageDetailsName,this.routePath,routeConfig.path);
     if(this.pageDetailsName && this.pageDetailsName.includes("SearchTag")){
 //      console.log("this.pageDetailsName",this.pageDetailsName);
   //    this.commonService.activeMenuName = (this.pageDetailsName).split('=')[1];
@@ -147,7 +154,8 @@ export class RightMenuComponent implements OnInit  {
 //      console.log("menu---",this.commonService.getMenuItem);
       this.loadPageData('');
      
-    } else if (this.pageDetailsName == 'our-leadership-team'){
+    } 
+    else if (this.pageDetailsName == 'leadership-team'){
       this.commonService.menuData[3]?.AboutUs.forEach((items:any,index:number) =>{ 
           if(items.attributes.Slug == this.pageDetailsName){
             this.commonService.activeMenuData = items;
