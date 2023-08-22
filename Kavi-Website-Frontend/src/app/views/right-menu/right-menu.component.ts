@@ -696,10 +696,10 @@ callTag(searchText:any, activemenu :any){
       if (this.routePath == 'UserForm'){
         this.isUserForm = true;  
         this.isDataLoaded = false;  
-        this.rightMenuService.getTagList().then((response: any) => {
-//                      console.log("response",response.data);
-          this.masterTagList = response.data;
-        });    
+//         this.rightMenuService.getTagList().then((response: any) => {
+// //                      console.log("response",response.data);
+//           this.masterTagList = response.data;
+//         });    
       }
       if (this.routePath == 'ContactUs'){
           this.isContactUs = true;

@@ -26,7 +26,6 @@
   "GET_CONTACT_FORM":"/contact-page?populate=deep,20",
   "CAREERS"  : "/careers?populate=deep",
   "GET_TAG" :"/posts?populate=deep,20&filters[Tags][DisplayName][$containsi]=",
-  "GET_TAG_LIST":"/tags?populate=deep,20&sort=tag_dimension.Name",
   "GET_TAG_LIST_BY_NAME":"?populate=deep,20&filters[Tags][Slug][$eq]=",
   "GET_PEOPLE" : "/people?populate=deep,20&filters[Slug][$eq]=",
   "GET_AUTHORS_POST"  : "?populate=deep,20&filters[Authors][Slug][$eq]=",

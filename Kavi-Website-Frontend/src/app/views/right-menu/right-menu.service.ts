@@ -50,21 +50,21 @@ export class RightMenuService {
     });
 
   }
-  public getTagList(): any {
-    return new Promise<any>((resolve, reject) => {
-      const endpoint =  appConfig.GET_TAG_LIST ;
-//      console.log("endpoint...",endpoint); 
-      this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
-        if (resp) {
-          resolve(resp);
-        }
-        else {
-          resolve(false);
-        }
-      })
-    });
+//   public getTagList(): any {
+//     return new Promise<any>((resolve, reject) => {
+//       const endpoint =  appConfig.GET_TAG_LIST ;
+// //      console.log("endpoint...",endpoint); 
+//       this.apicallService.apiCall('', endpoint, 'get','','').then((resp: any) => {
+//         if (resp) {
+//           resolve(resp);
+//         }
+//         else {
+//           resolve(false);
+//         }
+//       })
+//     });
 
-  }
+//   }
   public getTagListByName(tagName:any,menuName:any,listCount:number): any {
     return new Promise<any>((resolve, reject) => {
       const endpoint =  '/'+menuName+appConfig. GET_TAG_LIST_BY_NAME+tagName+"&pagination[pageSize]="+listCount;      
