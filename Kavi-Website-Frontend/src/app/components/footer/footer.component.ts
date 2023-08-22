@@ -56,7 +56,7 @@ export class FooterComponent implements OnInit {
           this.message = response.statusMessage;
         } else {
           this.isSubscribed = false;
-          this.message = 'Error in Subscribe';
+//          this.message = 'Error in Subscribe';
         }
       })
     }
