@@ -32,7 +32,7 @@
     <!--   <a routerLink="{{'/tag/'+tag?.attributes?.tag_dimension?.data?.attributes?.Name}}">{{tag.attributes.DisplayName}}</a>
            <a> {{tag.attributes.DisplayName}} </a>  -->                                             
     </div> 
-    <h6 *ngIf="publishDate">
+    <h6 *ngIf="publishDate && publishDate != null && moduleName != 'success-stories'">
         Published Date : {{ publishDate | date:'MMMM d, yyyy' }} 
     </h6>   
     
@@ -72,13 +72,13 @@
         
         <span class="text-muted d-block mb-2">{{clients?.data?.attributes?.Industry}}</span>
         <div class="d-flex justify-content-between align-items-center px-4">
-            <div class="stats" *ngIf="clients?.data?.attributes?.Revenue">
+            <div class="stats" *ngIf="clients?.data?.attributes?.Revenue && clients?.data?.attributes?.Revenue != null">
             <h6 class="mb-0">Revenue</h6>
             <span>{{clients.data.attributes.Revenue}}</span>
 
             </div>
 
-            <div class="stats" *ngIf="clients?.data?.attributes?.EmployeeCount">
+            <div class="stats" *ngIf="clients?.data?.attributes?.EmployeeCount && clients?.data?.attributes?.EmployeeCount != null">
             <h6 class="mb-0">Employees</h6>
             <span> {{clients.data.attributes.EmployeeCount}}</span>
             </div>            
@@ -97,13 +97,13 @@
         
         <span class="text-muted d-block mb-2">{{clients?.data?.attributes?.Industry}}</span>
         <div class="d-flex justify-content-between align-items-center px-4">
-            <div class="stats" *ngIf="clients?.data?.attributes?.Revenue">
+            <div class="stats" *ngIf="clients?.data?.attributes?.Revenue && clients?.data?.attributes?.Revenue != null">
             <h6 class="mb-0">Revenue</h6>
             <span>{{clients.data.attributes.Revenue}}</span>
 
             </div>
 
-            <div class="stats" *ngIf="clients?.data?.attributes?.EmployeeCount">
+            <div class="stats" *ngIf="clients?.data?.attributes?.EmployeeCount && clients?.data?.attributes?.EmployeeCount != null">
             <h6 class="mb-0">Employees</h6>
             <span> {{clients.data.attributes.EmployeeCount}}</span>
             </div>            

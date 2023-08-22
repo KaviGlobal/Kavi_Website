@@ -100,7 +100,6 @@ export class RightMenuDetailsComponent implements OnInit {
   }
   public loadPageData() {   
 //    console.log("this.commonService.activeMenuName",this.commonService.activeMenuName);
-console.log("kkp", this.activatedRoute.snapshot.paramMap.get('pageType'), this.activatedRoute.snapshot.paramMap.get('id'));
       this.pageType = cloneDeep(this.activatedRoute.snapshot.paramMap.get('pageType'));
       this.pageDetailsName = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id'));
       this.clearForm(this.demoSection);

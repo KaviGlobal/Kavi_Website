@@ -172,7 +172,7 @@ export class RightMenuComponent implements OnInit  {
       this.isJoinUs = true;
       this.isCareers = false;
       this.routePath = "isJoinUs";
-      this.imageUrl = this.imageUrl+'Our_Leadership_ffa149b2a8.png'
+      this.imageUrl = this.imageUrl+'Careers_1_91a2f9be9c.jpg'
       this.rightMenuService.getCareersMarkdown().then((response: any) => {
         this.offeringsFullContent = response.data.attributes.FullContent;        
       })  

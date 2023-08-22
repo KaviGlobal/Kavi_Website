@@ -2,7 +2,7 @@
   "EMAIL_CONNECTION_STRING" : "endpoint=https://kaviwebsitecommunicationservices.unitedstates.communication.azure.com/;accesskey=XuT8WCT9vP4LnBeWIDjw8/Ti1KxB55jJBKRudo1UKGvH4Qf7FpgPfl3nMF4ZPIuE5ykeBeCFYIery/fy0+uP1w==",
   "EMAIL_CONNECTION_STRING_PROD" : "endpoint=https://kaviwebsitecommunicationservices.unitedstates.communication.azure.com/;accesskey=XuT8WCT9vP4LnBeWIDjw8/Ti1KxB55jJBKRudo1UKGvH4Qf7FpgPfl3nMF4ZPIuE5ykeBeCFYIery/fy0+uP1w==",
   "CONTACT_FORM_RECIPIENT_ADDRESS2" : "naomi.kaduwela@kaviglobal.com",
-  "CONTACT_FORM_RECIPIENT_ADDRESS" : "sheeba.hency@kaviglobal.com",
+  "CONTACT_FORM_RECIPIENT_ADDRESS" : "premkumar.shanmugavel@kaviglobal.com",
   "CONTACT_FORM_RECIPIENT_ADDRESS1" : "campaigns@kaviglobal.com", 
   "EMAIL_SENDER_ADDRESS" : "donotreply@285c0e3c-419c-4760-9e22-ccc3992502dc.azurecomm.net",
   "HOME": "/home-page?populate=deep,20",
