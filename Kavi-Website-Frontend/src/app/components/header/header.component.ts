@@ -207,23 +207,20 @@ export class HeaderComponent implements OnInit {
     }*/
     
     if(menuItem.attributes?.Parameter?.type && !menuType.type){
-      console.log('if', menuItem.attributes?.Parameter?.type, selectedMenu, menuItem, menuType.type);
       this.commonService.activeMenuName = selectedMenu;
       this.commonService.activeMenuData = menuItem;
       this.makeMenuActive(menuItem);
       this.router.navigate(["/"+menuItem.attributes?.Parameter?.type+"/"+selectedMenu]);
     }
     else if(menuType.type && !menuItem?.attributes?.Parameter?.type){
-      console.log("else if",menuItem.attributes?.Parameter?.type, selectedMenu, menuItem, menuType.type);
       this.commonService.activeMenuName = selectedMenu;
       this.commonService.activeMenuData = menuItem;
       this.makeMenuActive(menuItem);
       this.router.navigate(["/"+menuType.type+"/"+selectedMenu]);
     }
     else {
-      console.log("else...");
       this.commonService.activeMenuName = '';
-      // this.router.navigate(['/']);
+      this.router.navigate(['/']);
     }
   }
 
