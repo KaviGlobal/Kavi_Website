@@ -52,6 +52,9 @@
     },
     "EducationalQualification": {
       "type": "string"
+    },
+    "FullContent": {
+      "type": "richtext"
     }
   }
 }
