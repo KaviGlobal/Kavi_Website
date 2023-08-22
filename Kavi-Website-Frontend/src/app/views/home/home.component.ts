@@ -222,6 +222,7 @@ public onClose() {
         "emailid": contactForm.value.email,
         "firstname": contactForm.value.firstName,
         "lastname": contactForm.value.lastName,
+        "company": "",
         "phone": contactForm.value.phone,
         "message": contactForm.value.message,
         "category" : '',
