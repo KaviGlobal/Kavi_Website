@@ -129,7 +129,7 @@ export class RightMenuComponent implements OnInit  {
         this.loadPageData('');
       }
     });*/
-    console.log("ctrl is here",this.commonService.activeMenuName, this.pageDetailsName,routeConfig);
+//    console.log("ctrl is here",this.commonService.activeMenuName, this.pageDetailsName,routeConfig);
     if(routeConfig && !this.pageDetailsName.includes("SearchTag") )
 //    this.commonService.activeMenuName = 'blogs';
     this.commonService.activeMenuName = cloneDeep(routeConfig.path);
@@ -454,8 +454,8 @@ callTag(searchText:any, activemenu :any){
             "lastname": this.contactForm.value['Last Name'],
             "phone": this.contactForm.value['Phone'],
             "message": this.contactForm.value['Message'],
-            "page":'Header Section',
-            "pagedetails":''
+            "category":'',
+            "page":'Header Section'
           }
           this.sendContactDetailsToDb(contactDetails);
         if(this.modalService.hasOpenModals())
@@ -522,8 +522,8 @@ callTag(searchText:any, activemenu :any){
             "lastname": this.demoSection.value.lastName,
             "phone": this.demoSection.value.phone,
             "message": this.demoSection.value.message,
-            "page": this.routePath,
-            "pagedetails":''
+            "category": this.routePath,
+            "page":''
           }
         this.sendContactDetailsToDb(contactDetails);
         this.onClose(); 

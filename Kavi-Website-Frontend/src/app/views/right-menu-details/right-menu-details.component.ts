@@ -268,16 +268,12 @@ console.log("kkp", this.activatedRoute.snapshot.paramMap.get('pageType'), this.a
      console.log("message",message);
      emailClient.beginSend(message); 
      let contactDetails = {
-      /*  "data": 
-        {
-            "Email": email
-        }   */ 
         "emailid": this.demoSection.value.email,
         "firstname": this.demoSection.value.firstName,
         "lastname": this.demoSection.value.lastName,
         "phone": this.demoSection.value.phone,
         "message": this.demoSection.value.message,
-        "page": this.emailFormName || this.pageType,
+        "category": this.emailFormName || this.pageType,
         "pagedetails":this.pageDetailsName
       }
     this.sendContactDetailsToDb(contactDetails);

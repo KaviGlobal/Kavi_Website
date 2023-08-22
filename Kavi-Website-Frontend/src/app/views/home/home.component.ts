@@ -224,8 +224,8 @@ public onClose() {
         "lastname": contactForm.value.lastName,
         "phone": contactForm.value.phone,
         "message": contactForm.value.message,
-        "page":'HomePage',
-        "pagedetails":''
+        "category" : '',
+        "page":'HomePage'
       }
      this.rightMenuService.sendContactDetailsToDb(contactDetails).then((response: any) => {
 //      console.log("hhhhhh",contactForm,response);
