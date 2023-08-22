@@ -129,7 +129,7 @@ export class RightMenuComponent implements OnInit  {
         this.loadPageData('');
       }
     });*/
-//    console.log("ctrl is here",this.commonService.activeMenuName, this.pageDetailsName,routeConfig);
+    console.log("ctrl is here",this.commonService.activeMenuName, this.pageDetailsName,routeConfig);
     if(routeConfig && !this.pageDetailsName.includes("SearchTag") )
 //    this.commonService.activeMenuName = 'blogs';
     this.commonService.activeMenuName = cloneDeep(routeConfig.path);
@@ -161,6 +161,7 @@ export class RightMenuComponent implements OnInit  {
             this.commonService.activeMenuData = items;
             this.loadPageData('');
           }
+          
       });      
     // }
     // else if (this.pageDetailsName == 'blogs' || this.pageDetailsName == 'newslist' ||
@@ -168,10 +169,16 @@ export class RightMenuComponent implements OnInit  {
     //   || this.pageDetailsName == 'publications' || this.pageDetailsName == 'presentations'){  
     //     this.loadPageData();
     }
+    else if (this.pageDetailsName == 'people'){
+      this.router.navigate(['/leadership-team']).then(() => {
+        window.location.reload();;
+      })
+    }
     else if (this.pageDetailsName == 'JoinUs'){
       this.isJoinUs = true;
       this.isCareers = false;
       this.routePath = "isJoinUs";
+      this.commonService.activeMenuName = this.pageDetailsName;
       this.imageUrl = this.imageUrl+'Careers_1_91a2f9be9c.jpg'
       this.rightMenuService.getCareersMarkdown().then((response: any) => {
         this.offeringsFullContent = response.data.attributes.FullContent;        
