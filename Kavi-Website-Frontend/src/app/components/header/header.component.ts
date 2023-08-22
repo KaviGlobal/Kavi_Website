@@ -124,13 +124,19 @@ export class HeaderComponent implements OnInit {
         this.commonService.routeChangeSubscription.next(true);        
       }, 100);
       }
+      else if(menuItem?.attributes?.Parameter?.type == 'clients' || menuItem?.attributes?.Parameter?.type == 'partners'){
+        this.commonService.activeMenuName = menuItem?.attributes?.Parameter?.type;  
+        this.commonService.activeMenuData =  menuItem;
+        setTimeout(() => {
+          this.commonService.routeChangeSubscription.next(true);        
+        }, 100);
 /*      else if(menuItem == 'UserForm'){
         this.commonService.activeMenuName = this.searchTagValue;
         setTimeout(() => {
           this.commonService.routeChangeSubscription.next(true);        
         }, 100);
         }*/
-      else{
+      }else{
         this.commonService.activeMenuName = menuItem?.attributes?.Parameter?.type;  
         this.commonService.activeMenuData =  menuItem;
   //    this.commonService.activeMenuName = menuItem.Label; 
@@ -201,20 +207,23 @@ export class HeaderComponent implements OnInit {
     }*/
     
     if(menuItem.attributes?.Parameter?.type && !menuType.type){
+      console.log('if', menuItem.attributes?.Parameter?.type, selectedMenu, menuItem, menuType.type);
       this.commonService.activeMenuName = selectedMenu;
       this.commonService.activeMenuData = menuItem;
       this.makeMenuActive(menuItem);
       this.router.navigate(["/"+menuItem.attributes?.Parameter?.type+"/"+selectedMenu]);
     }
     else if(menuType.type && !menuItem?.attributes?.Parameter?.type){
+      console.log("else if",menuItem.attributes?.Parameter?.type, selectedMenu, menuItem, menuType.type);
       this.commonService.activeMenuName = selectedMenu;
       this.commonService.activeMenuData = menuItem;
       this.makeMenuActive(menuItem);
       this.router.navigate(["/"+menuType.type+"/"+selectedMenu]);
     }
     else {
+      console.log("else...");
       this.commonService.activeMenuName = '';
-      this.router.navigate(['/']);
+      // this.router.navigate(['/']);
     }
   }
 

@@ -196,7 +196,7 @@ textarea {
 }
 
 .formStyles {
-  width: 100%;
+  width: 82%;
  //  padding: 10px;
    padding:15px 20px;
    box-sizing: border-box;
@@ -212,7 +212,9 @@ textarea {
  .formStyles:focus {
    border: 1px solid #f26000;
  }
-
+ .contact_page .formStyles {
+  width: 100%;
+}
 input[type=text]:focus {
   border: 1px solid #f26000;
 }
