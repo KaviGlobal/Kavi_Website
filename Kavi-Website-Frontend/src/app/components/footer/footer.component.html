@@ -20,7 +20,7 @@
                       <i class="fas fa-paper-plane" (click)="emailSubscription(email1.value);"></i>
                     </div>    
                   </div>
-                  <p  *ngIf="isSubscribed" style ="padding-top:10px;font-size:smaller">Thank you for Subscribing!</p>
+                  <p *ngIf="isSubscribed" >{{this.message}}</p>
                 </div>
               </div>
               <div class="col-md-3 col-sm-12 col-xs-12 pb-30">

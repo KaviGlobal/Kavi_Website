@@ -25,6 +25,7 @@ export class FooterComponent implements OnInit {
   public terms :any=[];
   public aboutUs :any = [];  
   public menuData: any = [];
+  public message: string = '';
   constructor(
     public footerService: FooterService,
     public config: NgbCarouselConfig,
@@ -50,11 +51,13 @@ export class FooterComponent implements OnInit {
     if(valid){
       //call API
       this.rightMenuService.emailSubscription(email).then((response: any) => {
-        if(response.data){
-          this.isSubscribed = true
+        if(response){
+          this.isSubscribed = true;
+          this.message = response.statusMessage;
+        } else {
+          this.isSubscribed = false;
+          this.message = 'Error in Subscribe';
         }
-        else
-          this.isSubscribed = false
       })
     }
     else{

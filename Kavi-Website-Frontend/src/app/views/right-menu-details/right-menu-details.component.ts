@@ -579,7 +579,7 @@ export class RightMenuDetailsComponent implements OnInit {
       let responseLength = response.data.length;
 //      console.log("aaaaa",response);
 //      let dimension_tag = this.groupBy(response.data, (item:any) => item?.attributes?.Name);      
-      let dimension_tag = this.groupBy(response.data, (item:any) => item?.attributes?.tag_dimension.data.attributes.DisplayName);
+      let dimension_tag = this.groupBy(response.data, (item:any) => item?.attributes?.tag_dimension?.data?.attributes?.DisplayName);
       this.rightPageData.push(dimension_tag);
 //      this.rightPageData.push(dimension_tag);
 //      console.log("sssss",dimension_tag);
@@ -591,19 +591,19 @@ export class RightMenuDetailsComponent implements OnInit {
         for(let item of response.data) {
 //                  console.log("ii",item);
 //                    console.log(i,"ii",item.attributes.tag_dimension.data.attributes.DisplayName);
-            current_dimension = item.attributes.tag_dimension.data.attributes.DisplayName;
+            current_dimension = item?.attributes?.tag_dimension?.data?.attributes?.DisplayName;
             if(i==0){
-              previous_dimension = item.attributes.tag_dimension.data.attributes.DisplayName;
+              previous_dimension = item?.attributes?.tag_dimension?.data?.attributes?.DisplayName;
 //                      console.log("ii",item.attributes.tag_dimension.data.attributes.DisplayName);
-              tag_list.push({name:item.attributes.DisplayName,slug:item.attributes.Slug})              
+              tag_list.push({name:item?.attributes?.DisplayName,slug:item?.attributes?.Slug})              
             }
             if(i > 0){
               if(current_dimension == previous_dimension){
 //                        console.log("ij",item.attributes.DisplayName);
-                previous_dimension = item.attributes.tag_dimension.data.attributes.DisplayName;
+                previous_dimension = item?.attributes?.tag_dimension?.data?.attributes?.DisplayName;
 //                               console.log("xxxx",tag_list.length,this.listMetaData.TagMaxCount);
   //              if(tag_list.length < this.listMetaData.TagMaxCount)
-                tag_list.push({name:item.attributes.DisplayName,slug:item.attributes.Slug})
+                tag_list.push({name:item?.attributes?.DisplayName,slug:item?.attributes?.Slug})
               }
               if(current_dimension != previous_dimension){ 
                 if(tag_list.length != 0)                      
