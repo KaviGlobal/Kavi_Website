@@ -104,7 +104,9 @@ export class FooterComponent implements OnInit {
     if (menuItem) {
       if(menuItem == 'JoinUs'){
         this.commonService.activeMenuName = 'JoinUs';
-        this.router.navigate(["/JoinUs"]);
+        this.router.navigate(["/JoinUs"]).then(() => {
+          window.location.reload();
+        })
  /*       setTimeout(() => {
           this.commonService.routeChangeSubscription.next(true);        
         }, 100);  */      
