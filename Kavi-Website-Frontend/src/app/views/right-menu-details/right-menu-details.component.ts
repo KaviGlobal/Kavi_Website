@@ -83,9 +83,7 @@ export class RightMenuDetailsComponent implements OnInit {
     windowClass: 'dark-modal'
   } }
 
-  ngOnInit(): void {//    console.log("sss",this.commonService.activeMenuData);
-    this.meta.updateTag({property: 'og:title', content: 'My page title'});
-    this.meta.updateTag({property: 'og:image', content: 'https://kavistrapiappstorage.blob.core.windows.net/strapi-uploads/assets/Data_Engineering_5bf56b381a.jpg'});
+  ngOnInit(): void {
     this.loadPageData();
     this.routerEventSubscription = this.router.events.subscribe((evt: any) => {
       if ((evt instanceof NavigationEnd)) {
@@ -104,7 +102,7 @@ export class RightMenuDetailsComponent implements OnInit {
       this.pageDetailsName = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id'));
       this.clearForm(this.demoSection);
       this.validateMessage = "";
-      this.imageUrl = environment.apiDetails.apiImgUrl;
+      this.imageUrl = environment.apiDetails.apiImgUrl;      
       if (this.pageType && this.pageDetailsName && !this.pageType.includes("SearchTag")) {
         if(this.pageType != "pages"){
           let menuItemAttributes = this.commonService.menuData[1].RightMenu.filter((element: any) => (element.attributes.Parameter.type == this.pageType));
@@ -120,7 +118,8 @@ export class RightMenuDetailsComponent implements OnInit {
             this.isPartner = true;
             this.imageUrl = this.imageUrl+'Our_Partner_b53404e808.png';
           }
-        } else if(this.pageType == "pages"){
+        }
+        else if(this.pageType == "pages"){
           let activeMenuAttributes;
           this.commonService.menuData[0]?.LeftMenu.forEach((items:any,index:number) =>{ 
             // items.forEach((item:any,index:number) =>{ 
@@ -140,6 +139,16 @@ export class RightMenuDetailsComponent implements OnInit {
               if(item.attributes.Slug == this.pageDetailsName){
                 activeMenuAttributes = item;
               }
+          });
+          this.commonService.menuData[5]?.SolutionsMenu.forEach((item:any,index:number) =>{ 
+            if(item.attributes.Slug == this.pageDetailsName){
+              activeMenuAttributes = item;
+            }
+          });
+          this.commonService.menuData[6]?.AdvancedAnalyticsMenu.forEach((item:any,index:number) =>{ 
+            if(item.attributes.Slug == this.pageDetailsName){
+              activeMenuAttributes = item;
+            }
           });
           if(activeMenuAttributes){
             this.commonService.activeMenuData = activeMenuAttributes;
