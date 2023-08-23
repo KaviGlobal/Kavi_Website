@@ -81,27 +81,26 @@
 
                 </div>        
                 <div *ngIf="item.Type == 'button' && (validateMessage == '' || validateMessage == 'Error')">   
+                    <div *ngIf="validateMessage == 'Error' && validateMessage.length > 0" style="padding-bottom: 20px;">
+                        <span style="color: red; font-size:18px;">
+                            {{formSendMessage}}
+                        </span>
+                    </div>
                     <button
                     id="submit" type="submit" value="item.Label">{{item.Label}}</button>    
             <!--       <button id="closeModal" (click)="onClose()"> Cancel </button>-->
                 </div>
-                <div *ngIf="item.Type == 'button' && (validateMessage == 'Success')">   
+                <div *ngIf="item.Type == 'button' && (validateMessage == 'Success')">
+                    <div *ngIf="validateMessage == 'Success'" style="padding-bottom: 20px;">
+                        <span style="color: Green; font-size:18px;">
+                            {{formSendMessage}}
+                        </span>
+                    </div>
                     <button id="submit" type="submit" value="item.Label" [disabled] = "true">{{item.Label}}</button>    
             <!--       <button id="closeModal" (click)="onClose()"> Cancel </button>-->
                 </div>
             </div>
         </form>
-    
-        <div *ngIf="validateMessage == 'Error' && validateMessage.length > 0" style="padding-bottom: 20px;">
-            <span style="color: red; font-size:18px;">
-                {{formSendMessage}}
-            </span>
-        </div>
-        <div *ngIf="validateMessage == 'Success'" style="padding-bottom: 20px;">
-            <span style="color: Green; font-size:18px;">
-                {{formSendMessage}}The details has been Submitted. We will contact you shortly
-            </span>
-        </div>
 
     </div>
 </div>

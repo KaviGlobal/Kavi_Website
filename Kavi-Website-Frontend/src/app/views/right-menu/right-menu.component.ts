@@ -441,7 +441,7 @@ callTag(searchText:any, activemenu :any){
       }
     });
     if(this.validateMessage != 'Error'){
-      this.formSendMessage = 'The details has been Submitted. We will contact you shortly'
+      this.formSendMessage = "Thank you for contacting us. Our team will get in touch with you shortly."
         this.returnToDownload = true;    
         let message="";
         if(this.contactForm.value['Message']){
@@ -465,11 +465,13 @@ callTag(searchText:any, activemenu :any){
             "page":'Header Section'
           }
           this.sendContactDetailsToDb(contactDetails);
-        if(this.modalService.hasOpenModals())
+        if(this.modalService.hasOpenModals()){
           this.modalService.dismissAll(); 
-        this.onClose();
+          this.onClose();
+        }
+        this.clearForm(this.contactForm);
     }else if(this.validateMessage == 'Success'){
-      this.formSendMessage = 'The details has been Submitted. We will contact you shortly'      
+      this.formSendMessage = "Thank you for contacting us. Our team will get in touch with you shortly."     
     }
     else{
       this.formSendMessage = 'Please enter the required fields ';
