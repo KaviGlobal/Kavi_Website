@@ -469,6 +469,10 @@ callTag(searchText:any, activemenu :any){
           this.modalService.dismissAll(); 
           this.onClose();
         }
+        setTimeout(() => {
+          this.router.navigate(['/']);
+        }, 2000);
+        
     }else if(this.validateMessage == 'Success'){
       this.formSendMessage = "Thank you for contacting us. Our team will get in touch with you shortly."     
     }

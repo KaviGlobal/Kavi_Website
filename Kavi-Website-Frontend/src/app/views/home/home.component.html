@@ -16,15 +16,15 @@
             <ng-container>
                 <form [formGroup]="demoSection" (ngSubmit)="sendDemoRequest()">                  
                     <div>                                                    
-                            <input class="formStyles" type="text" placeholder = "First Name *" formControlName="firstName">                                  
+                            <input class="formStyles" type="text" placeholder = "First Name *" formControlName="firstName" [(ngModel)]="firstNamevalue">                                  
                          
-                            <input class="formStyles" type="text" placeholder = "Last Name *"  formControlName="lastName">
+                            <input class="formStyles" type="text" placeholder = "Last Name *"  formControlName="lastName" [(ngModel)]="lastNamevalue">
                          
-                            <input class="formStyles" type="text" placeholder = "Email *" formControlName="email">
+                            <input class="formStyles" type="text" placeholder = "Email *" formControlName="email" [(ngModel)]="emailvalue">
                           
-                            <input class="formStyles" type="number" placeholder = "Phone" formControlName="phone">
+                            <input class="formStyles" type="number" placeholder = "Phone" formControlName="phone" [(ngModel)]="phonevalue">
                         
-                            <textarea class="formStyles" style="width:82%; height:100px" formControlName="message" placeholder="Message.." cols="45" rows="8" aria-required="true"></textarea>
+                            <textarea class="formStyles" style="width:82%; height:100px" formControlName="message" [(ngModel)]="messagevalue" placeholder="Message.." cols="45" rows="8" aria-required="true"></textarea>
                             
                     </div> 
                     <div *ngIf="!validateStatus && validateMessage.length > 0" style="padding-bottom: 20px;">

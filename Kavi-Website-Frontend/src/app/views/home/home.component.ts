@@ -144,13 +144,18 @@ export class HomeComponent implements OnInit {
   if(!this.demoSection.value.firstName || !this.demoSection.value.lastName || !this.demoSection.value.email){
     //error display
     this.validateStatus = false;
-    this.validateMessage = "Please fill the required fields";   
+    this.validateMessage = "Please fill the required fields";  
   }
   else{
     //success call api
     this.validateStatus = true;
     this.sendEmail(this.demoSection);
     this.validateMessage = "Thank you for contacting us. Our team will get in touch with you shortly.";
+    this.clearForm(this.demoSection);
+    setTimeout(() => {
+      this.onClose();
+      this.validateMessage = '';
+    }, 1500);
   }
  
  }
