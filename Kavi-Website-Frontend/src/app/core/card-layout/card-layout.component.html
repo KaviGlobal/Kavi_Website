@@ -134,7 +134,8 @@
         <div class="new-content">            
         <!--    <a href="{{url}}" target="blank"></a> -->
                 <span>
-                    <h3 style="text-align:center;margin-top:20px">{{title}}</h3>   
+                    <h3 *ngIf="title.length <= 31 && title !='Florida Department Of Education'" style="text-align:center;margin-top:20px;margin-bottom:50px">{{title}}</h3>   
+                    <h3 *ngIf="title.length > 31 || title =='Florida Department Of Education'" style="text-align:center;margin-top:20px">{{title}}</h3>
                 </span>
                        
             <p class="mb-1" style="text-align:center; min-height: 30px;color: #234990;">{{description}}</p>
