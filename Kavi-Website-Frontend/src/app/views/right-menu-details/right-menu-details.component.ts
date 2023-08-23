@@ -450,40 +450,40 @@ export class RightMenuDetailsComponent implements OnInit {
      
   }
   getRelatedDataByTag(tagName:any, viewer:any){
-    let menu=['success-stories','blogs','newslist','podcasts', 'publications' ,'presentations'];
+    let menu=['success-stories','blogs','newslist', 'publications' ,'presentations','podcasts',];
     let menuTaglist:any=[];
     let relatedMeta:any;
     this.rightPageRelatedData = [];
     
     for(let item of menu) { 
-      if(item == 'blogs'){
+      if(item == 'success-stories'){
+        relatedMeta = viewer.RelatedSuccessStories;
+      } if(item == 'blogs'){
         relatedMeta = viewer.RelatedBlogs;
       } else if(item == 'newslist'){
         relatedMeta = viewer.RelatedNews;
-      } else if(item == 'success-stories'){
-        relatedMeta = viewer.RelatedSuccessStories;
-      } else if(item == 'podcasts'){
-        relatedMeta = viewer.RelatedPodcast;
       } else if(item == 'publications'){
         relatedMeta = viewer.RelatedPublication;
       } else if(item == 'presentations'){
         relatedMeta = viewer.RelatedPresentation;
+      } else if(item == 'podcasts'){
+        relatedMeta = viewer.RelatedPodcast;
       }
       this.rightMenuService.getRelatedDataByTag(item,tagName,relatedMeta?.MaxCount).then((response: any) => {
         if(response.data.length > 0){
-          if(item == 'blogs'){
+           if(item == 'success-stories'){
+            relatedMeta = viewer.RelatedSuccessStories;
+          } else if(item == 'blogs'){
             relatedMeta = viewer.RelatedBlogs;
           } else if(item == 'newslist'){
             relatedMeta = viewer.RelatedNews;
-          } else if(item == 'success-stories'){
-            relatedMeta = viewer.RelatedSuccessStories;
-          } else if(item == 'podcasts'){
-            relatedMeta = viewer.RelatedPodcast;
           } else if(item == 'publications'){
             relatedMeta = viewer.RelatedPublication;
           } else if(item == 'presentations'){
             relatedMeta = viewer.RelatedPresentation;
-          }
+          } else if(item == 'podcasts'){
+            relatedMeta = viewer.RelatedPodcast;
+          } 
           response.data[0].attributes.menuType = item;
           response.data[0].attributes.relatedMeta = relatedMeta;
 //                this.searchTag = true;
