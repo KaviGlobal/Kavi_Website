@@ -1,6 +1,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 </head>
 <div *ngIf="!isPageLoaded">
     <app-page-loader></app-page-loader>
@@ -164,7 +165,7 @@
                             </div> 
                         </div>
                         <div class="col-md-8">
-                            <h2>{{pageData.DisplayName}}</h2>
+                            <h2>{{pageData.Name}}</h2>
                             <h5>{{pageData.Title}}</h5> 
                             <div class="full-content">
                                 <markdown [data]="pageFullContent"> </markdown>     
