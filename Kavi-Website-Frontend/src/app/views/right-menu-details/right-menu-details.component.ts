@@ -281,7 +281,7 @@ export class RightMenuDetailsComponent implements OnInit {
         "lastname": this.demoSection.value.lastName,
         "phone": this.demoSection.value.phone,
         "message": this.demoSection.value.message,
-        "category": this.emailFormName || this.pageType,
+        "category": this.pageType || this.emailFormName,
         "page":this.pageDetailsName,
       }
     this.sendContactDetailsToDb(contactDetails);
