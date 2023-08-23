@@ -137,9 +137,10 @@
                         <ng-container *ngFor="let menuItem of IndustryList">
                           <div *ngFor="let subItem of menuItem[IndustrykeyItem];let j= index">    
                             <div *ngIf="j==0 &&  !menuItem[IndustrykeyItem][0].attributes?.IsTitle">
-                              <a [routerLink]="['/'+menuItem[IndustrykeyItem][0].attributes?.Parameter?.type+'/'+menuItem[IndustrykeyItem][0].attributes?.Slug]"
+                              <!-- <a [routerLink]="['/'+menuItem[IndustrykeyItem][0].attributes?.Parameter?.type+'/'+menuItem[IndustrykeyItem][0].attributes?.Slug]"
                               (click)="makeOfferingsActive(menuItem,menuItem[IndustrykeyItem][0].attributes?.Slug,menuItem[IndustrykeyItem][0].attributes?.Parameter)"
-                              class="menu-items-left" style ="color:#f26000;margin-bottom:8px"> {{IndustrykeyItem}}</a>
+                              class="menu-items-left" style ="color:#f26000;margin-bottom:8px"> {{IndustrykeyItem}}</a> -->
+                              <a class="menu-items-left" style ="color:#f26000;margin-bottom:8px"> {{IndustrykeyItem}}</a>
                             </div>
                             <li> 
                               <a [routerLink]="[subItem.attributes?.Slug]" *ngIf="subItem.attributes?.DisplayName"
