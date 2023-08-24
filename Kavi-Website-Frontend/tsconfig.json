@@ -4,6 +4,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "types": ["gtag.js"],
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
