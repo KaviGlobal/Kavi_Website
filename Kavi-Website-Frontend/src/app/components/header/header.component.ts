@@ -108,7 +108,10 @@ export class HeaderComponent implements OnInit {
       if(menuItem == 'ContactUs'){
       this.commonService.activeMenuName = 'ContactUs';
       setTimeout(() => {
-        this.commonService.routeChangeSubscription.next(true);        
+        this.commonService.routeChangeSubscription.next(true);   
+        this.router.navigate(['/ContactUs']).then(() => {
+          window.location.reload();
+        });     
       }, 100);
       }
       else if(menuItem == 'Careers'){
