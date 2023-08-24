@@ -487,7 +487,7 @@ export class RightMenuDetailsComponent implements OnInit {
           response.data[0].attributes.menuType = item;
           response.data[0].attributes.relatedMeta = relatedMeta;
 //                this.searchTag = true;
-          menuTaglist.push(response.data);
+          menuTaglist[item] = (response.data);
         }
       })
     }
