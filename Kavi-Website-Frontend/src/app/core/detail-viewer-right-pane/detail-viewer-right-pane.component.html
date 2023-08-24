@@ -113,7 +113,7 @@
         </div>
     </div>
 </div>
-<div class="news-link" *ngIf="externalLink?.length >=1 && !podcasts?.data">  
+<div class="news-link" *ngIf="(newsMedia?.data || externalLink?.length >=1) && !podcasts?.data">  
     <h6>News Media :</h6>  
 </div>
 <div class="news-link" *ngIf="podcasts?.data.length >=1">  
@@ -172,7 +172,7 @@
                         <a href="{{externalLink[i].Url}}" target="blank">{{cast.attributes.Name}}</a>     
                     </li>
                 </ul> -->     
-                <div *ngFor="let cast of podcasts?.data">
+                <div *ngFor="let cast of podcasts?.data" style="margin-bottom: 20px;" >
                         <div class="image_box" *ngIf="cast?.attributes?.Logo?.Media?.data?.attributes?.url" >
                             <div class="image_sub_box">
                                 <img src="{{cast.attributes?.Logo?.Media?.data?.attributes?.url}}"
