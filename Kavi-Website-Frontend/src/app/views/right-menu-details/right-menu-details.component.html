@@ -1,7 +1,16 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67075015-1"></script>
+    <script>  
+        window.dataLayer = window.dataLayer || [];  
+        function gtag(){
+        dataLayer.push(arguments);
+        }  
+        gtag('js', new Date());  
+        gtag('config', 'UA-67075015-1');
+    </script>
+
 </head>
 <div *ngIf="!isPageLoaded">
     <app-page-loader></app-page-loader>
@@ -312,7 +321,7 @@
                             <div class="pb-4" *ngIf = "item.attributes.Thumbnail">                       
                                 <app-card-layout [image] = "item?.attributes?.Thumbnail?.Media?.data?.attributes?.url"
                                         [title]="item.attributes?.Title" [description]="item.attributes?.PreviewContent"
-                                        [moduleName]="item.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
+                                        [moduleName]="rightPageRelatedData['success-stories'][0].attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
                                         [slug] = "item.attributes?.Slug"
                                         [type]="'recommendation-card-layout'">
                                     </app-card-layout>
@@ -320,7 +329,7 @@
                                 <div class="pb-4" *ngIf = "!item.attributes?.Thumbnail">                    
                                     <app-card-layout 
                                         [title]="item.attributes?.Title" [description]="item.attributes?.PreviewContent"
-                                        [moduleName]="item.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
+                                        [moduleName]="rightPageRelatedData['success-stories'][0]" [hyperlinkText]="'Read More'"
                                         [slug] = "item.attributes?.Slug"
                                         [type]="'recommendation-card-layout'">
                                     </app-card-layout>    
@@ -334,7 +343,7 @@
                 <div style="width:100%; height:2px; background: #dee2e6 ;margin-bottom:30px">
                 </div>
                 <div>
-                    <h3 style="margin-top:20px;color: #f26000;">{{rightPageRelatedData['blogs'][0]?.attributes?.relatedMeta?.Label}}</h3>                    
+                    <h3 style="margin-top:20px;color: #f26000;">{{rightPageRelatedData['blogs'][0]?.attributes?.relatedMeta?.Label}}</h3>                                     
                 </div>
                 <div class="py-3">
                     <div class="row">
@@ -343,7 +352,7 @@
                             <div class="pb-4" *ngIf = "item.attributes.Thumbnail">                       
                                 <app-card-layout [image] = "item?.attributes?.Thumbnail?.Media?.data?.attributes?.url"
                                         [title]="item.attributes?.Title" [description]="item.attributes?.PreviewContent"
-                                        [moduleName]="item.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
+                                        [moduleName]="rightPageRelatedData['blogs'][0].attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
                                         [slug] = "item.attributes?.Slug"
                                         [type]="'recommendation-card-layout'">
                                     </app-card-layout>
@@ -351,7 +360,7 @@
                                 <div class="pb-4" *ngIf = "!item.attributes?.Thumbnail">                    
                                     <app-card-layout 
                                         [title]="item.attributes?.Title" [description]="item.attributes?.PreviewContent"
-                                        [moduleName]="item.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
+                                        [moduleName]="rightPageRelatedData['blogs'][0]" [hyperlinkText]="'Read More'"
                                         [slug] = "item.attributes?.Slug"
                                         [type]="'recommendation-card-layout'">
                                     </app-card-layout>    
@@ -374,7 +383,7 @@
                             <div class="pb-4" *ngIf = "item.attributes.Thumbnail">                       
                                 <app-card-layout [image] = "item?.attributes?.Thumbnail?.Media?.data?.attributes?.url"
                                         [title]="item.attributes?.Title" [description]="item.attributes?.PreviewContent"
-                                        [moduleName]="item.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
+                                        [moduleName]="rightPageRelatedData['newslist'][0]?.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
                                         [slug] = "item.attributes?.Slug"
                                         [type]="'recommendation-card-layout'">
                                     </app-card-layout>
@@ -382,7 +391,7 @@
                                 <div class="pb-4" *ngIf = "!item.attributes?.Thumbnail">                    
                                     <app-card-layout 
                                         [title]="item.attributes?.Title" [description]="item.attributes?.PreviewContent"
-                                        [moduleName]="item.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
+                                        [moduleName]="rightPageRelatedData['newslist'][0]?.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
                                         [slug] = "item.attributes?.Slug"
                                         [type]="'recommendation-card-layout'">
                                     </app-card-layout>    
@@ -405,7 +414,7 @@
                             <div class="pb-4" *ngIf = "item.attributes?.Thumbnail">                       
                                 <app-card-layout [image] = "item?.attributes?.Thumbnail?.Media?.data?.attributes?.url"
                                         [title]="item.attributes?.Title" [description]="item.attributes?.PreviewContent"
-                                        [moduleName]="item.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
+                                        [moduleName]="rightPageRelatedData['publications'][0]?.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
                                         [slug] = "item.attributes?.Slug"
                                         [type]="'recommendation-card-layout'">
                                     </app-card-layout>
@@ -413,7 +422,7 @@
                                 <div class="pb-4" *ngIf = "!item.attributes?.Thumbnail">       
                                     <app-card-layout 
                                         [title]="item.attributes?.Title" [description]="item.attributes?.PreviewContent"
-                                        [moduleName]="item.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
+                                        [moduleName]="rightPageRelatedData['publications'][0]?.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
                                         [slug] = "item.attributes?.Slug"
                                         [type]="'recommendation-card-layout'">
                                     </app-card-layout>    
@@ -436,7 +445,7 @@
                             <div class="pb-4" *ngIf = "item.attributes.Thumbnail">                       
                                 <app-card-layout [image] = "item?.attributes?.Thumbnail?.Media?.data?.attributes?.url"
                                         [title]="item.attributes?.Title" [description]="item.attributes?.PreviewContent"
-                                        [moduleName]="item.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
+                                        [moduleName]="rightPageRelatedData['presentations'][0]?.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
                                         [slug] = "item.attributes?.Slug"
                                         [type]="'recommendation-card-layout'">
                                     </app-card-layout>
@@ -444,7 +453,7 @@
                                 <div class="pb-4" *ngIf = "!item.attributes?.Thumbnail">                    
                                     <app-card-layout 
                                         [title]="item.attributes?.Title" [description]="item.attributes?.PreviewContent"
-                                        [moduleName]="item.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
+                                        [moduleName]="rightPageRelatedData['presentations'][0]?.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
                                         [slug] = "item.attributes?.Slug"
                                         [type]="'recommendation-card-layout'">
                                     </app-card-layout>    
@@ -467,7 +476,7 @@
                             <div class="pb-4" *ngIf = "item.attributes.Thumbnail">                       
                                 <app-card-layout [image] = "item?.attributes?.Thumbnail?.Media?.data?.attributes?.url"
                                         [title]="item.attributes?.Title" [description]="item.attributes?.PreviewContent"
-                                        [moduleName]="item.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
+                                        [moduleName]="rightPageRelatedData['podcasts'][0]?.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
                                         [slug] = "item.attributes?.Slug"
                                         [type]="'recommendation-card-layout'">
                                     </app-card-layout>
@@ -475,7 +484,7 @@
                                 <div class="pb-4" *ngIf = "!item.attributes?.Thumbnail">                    
                                     <app-card-layout 
                                         [title]="item.attributes?.Title" [description]="item.attributes?.PreviewContent"
-                                        [moduleName]="item.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
+                                        [moduleName]="rightPageRelatedData['podcasts'][0]?.attributes?.relatedMeta?.TypeFilter" [hyperlinkText]="'Read More'"
                                         [slug] = "item.attributes?.Slug"
                                         [type]="'recommendation-card-layout'">
                                     </app-card-layout>    
