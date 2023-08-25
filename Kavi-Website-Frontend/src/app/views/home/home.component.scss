@@ -910,6 +910,12 @@ agm-map {
     max-width: 80%;
     top:20px;
   }
+  ::ng-deep .home_slider .carousel-indicators {
+    margin-bottom: 0px;
+    li{
+      width: 5px;height: 5px;
+    }
+  }
   .analytics-section h1,.description-section h3{
     font-size: 1.5rem;
     }
