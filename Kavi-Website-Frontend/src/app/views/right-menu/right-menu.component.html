@@ -323,7 +323,7 @@
                     <div class="py-4">
                         <div class="row">
                             <ng-container *ngFor="let item of recommendationData;let i = index">                                
-                                <div class="col-6 col-md-4">
+                                <div class="col-xs-12 col-sm-12 col-md-4">
                                     <div class="pb-4" *ngIf="item.attributes.Type == posts.TypeFilter"> 
                                         <div *ngIf = "!item.attributes.CoverImage.data">
                                             <app-card-layout 
@@ -417,7 +417,7 @@
         <div class="mb-5"><h2 class="full_heading_cover" style = "background-image:url('{{imageUrl}}')"><span>Careers</span></h2></div>
        
         <div class="container">
-            <div class="row">        
+            <div>        
             <div class="page-content py-4" >
                 <markdown [data]="(offeringsFullContent)"> </markdown>  
             </div>

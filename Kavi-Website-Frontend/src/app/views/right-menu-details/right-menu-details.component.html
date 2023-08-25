@@ -229,34 +229,36 @@
                     </div>
                 </div> -->
             </div>
-            <div class="right_fixed" *ngIf="pageType != 'pages'">
+            <div class="col-12" *ngIf="pageType != 'pages'">
+                <div class="right_fixed">
             <!--    <app-right-menu-sidebar [data]="pageData"></app-right-menu-sidebar>-->
-                <div *ngIf="!isPeople">
-                    <app-detail-viewer-right-pane  [authorDetails]="authors"
-                    [tags]="tags" [publishDate] ="publishDate"
-                    [externalLink] = "externalLink"
-                    [newsMedia] = "newsMedia"
-                    [podcasts] = "pageData[0]?.attributes?.PodcastPlatforms"
-                    [clients] = "pageData[0]?.attributes?.Client"
-                    [conference] = "pageData[0]?.attributes?.Conference"
-                    [publisher] = "pageData[0]?.attributes?.Publisher"
-                    [moduleName]="pageType" 
-                    ></app-detail-viewer-right-pane> 
-                </div>  
-                <!-- <div *ngIf="isPeople || (pageType == 'publications' || pageType == 'presentations') "> -->
-                <div *ngIf="isPeople">
-                    <app-detail-viewer-right-pane
-                        [authorPost]="authorPost"
-                        [moduleName]="pageType"
-                    ></app-detail-viewer-right-pane>                   
-                </div> 
-                <!-- <div class="pt-5" *ngIf="pageType == 'pages'">
-                    <app-right-menu-sidebar [data1]="rightPageData"
-                    [module]="pageType"
-                    [metaViewer]="listMetaData"
-                    ></app-right-menu-sidebar>
-                </div> -->
-            </div>       
+                    <div *ngIf="!isPeople">
+                        <app-detail-viewer-right-pane  [authorDetails]="authors"
+                        [tags]="tags" [publishDate] ="publishDate"
+                        [externalLink] = "externalLink"
+                        [newsMedia] = "newsMedia"
+                        [podcasts] = "pageData[0]?.attributes?.PodcastPlatforms"
+                        [clients] = "pageData[0]?.attributes?.Client"
+                        [conference] = "pageData[0]?.attributes?.Conference"
+                        [publisher] = "pageData[0]?.attributes?.Publisher"
+                        [moduleName]="pageType" 
+                        ></app-detail-viewer-right-pane> 
+                    </div>  
+                    <!-- <div *ngIf="isPeople || (pageType == 'publications' || pageType == 'presentations') "> -->
+                    <div *ngIf="isPeople">
+                        <app-detail-viewer-right-pane
+                            [authorPost]="authorPost"
+                            [moduleName]="pageType"
+                        ></app-detail-viewer-right-pane>                   
+                    </div> 
+                    <!-- <div class="pt-5" *ngIf="pageType == 'pages'">
+                        <app-right-menu-sidebar [data1]="rightPageData"
+                        [module]="pageType"
+                        [metaViewer]="listMetaData"
+                        ></app-right-menu-sidebar>
+                    </div> -->
+                </div>
+            </div>
         </div>
 <!--        <div style="width:100%; height:2px; background: #dee2e6 ;margin-bottom:30px">
         </div>
@@ -505,7 +507,7 @@
             <div class="py-3">
                 <div class="row">
                     <ng-container *ngFor="let item of recommendationData;let i = index">
-                        <div class="col-6 col-md-4" *ngIf = "i < recommendationMetaData.MaxCount">
+                        <div class="col-sm-12 col-xs-12 col-md-4" *ngIf = "i < recommendationMetaData.MaxCount">
                            <div class="pb-4" *ngIf = "item.attributes.Thumbnail">                          
                                <app-card-layout [image] = "item?.attributes?.Thumbnail?.Media?.data?.attributes?.url"
                                     [title]="item.attributes.Title" [description]="item.attributes.PreviewContent"

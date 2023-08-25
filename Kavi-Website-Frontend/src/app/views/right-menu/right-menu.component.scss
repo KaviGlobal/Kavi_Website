@@ -417,7 +417,7 @@ p {
 }
 .page-content-section {
   box-sizing: border-box;
-  padding: 25px;
+  padding: 25px 0px;
   .box_block {
     box-shadow: 0 0 4px #e6e6e6;
     background: #fff;
@@ -718,5 +718,20 @@ div.material-table {
   .icon-bar a {
     padding: 5px;
     font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  markdown ::ng-deep  {
+    table td{
+      display: block;
+      width: 100%;
+    }
+  }
+  .full_heading_cover {
+    font-size: 30px;
+    span{
+     padding: 40px 20px;
+    }
   }
 }
