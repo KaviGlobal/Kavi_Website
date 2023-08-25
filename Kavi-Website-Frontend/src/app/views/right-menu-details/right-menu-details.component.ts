@@ -502,7 +502,7 @@ export class RightMenuDetailsComponent implements OnInit {
 //    console.log("ffff",this.pageType,this.commonService.activeMenuData?.attributes?.Slug,this.commonService.activeMenuName,this.commonService.activeMenuData?.attributes?.Viewer);
 //  if(this.commonService.activeMenuData?.attributes?.Viewer && (this.commonService.activeMenuData?.attributes?.Slug == this.commonService.activeMenuName))
     let filter :any=[];
-    if(this.commonService.activeMenuName = "pages" && this.commonService.activeMenuData?.attributes?.Viewer){
+    if(this.commonService.activeMenuName == "pages" && this.commonService.activeMenuData?.attributes?.Viewer){
         filter = this.commonService.activeMenuData?.attributes?.Parameter?.parameter?.filter;
         this.getViewer(this.commonService.activeMenuData?.attributes?.Viewer);
       }    
