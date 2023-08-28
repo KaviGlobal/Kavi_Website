@@ -32,9 +32,20 @@
     <!--   <a routerLink="{{'/tag/'+tag?.attributes?.tag_dimension?.data?.attributes?.Name}}">{{tag.attributes.DisplayName}}</a>
            <a> {{tag.attributes.DisplayName}} </a>  -->                                             
     </div> 
-    <!-- <h6 *ngIf="publishDate && publishDate != null && moduleName != 'success-stories'">
-        Published Date : {{ publishDate | date:'MMMM d, yyyy' }} 
-    </h6>    -->
+    <h6 *ngIf="moduleName != 'success-stories'">
+        <span *ngIf="publishedOn && publishedOn != null">
+            Published On : {{ publishedOn | date:'MMMM d, yyyy' }} 
+        </span>
+        <span *ngIf="releasedOn && releasedOn != null">
+            Released On : {{ releasedOn | date:'MMMM d, yyyy' }} 
+        </span>
+        <span *ngIf="broadcastedOn && broadcastedOn != null">
+            Broadcasted On : {{ broadcastedOn | date:'MMMM d, yyyy' }} 
+        </span>
+        <span *ngIf="presentedOn && presentedOn != null">
+            Presented On : {{ presentedOn | date:'MMMM d, yyyy' }} 
+        </span>
+    </h6>   
     
     <!--
     <h6 style="float:right">
@@ -42,7 +53,7 @@
     </h6>-->
 </div>
 <div class="clients" *ngIf="clients?.data?.attributes">
-    <h6>Clients:</h6>
+    <h6>Client:</h6>
 <!--   
     <div> 
         <img *ngIf="clients?.data?.attributes?.Logo?.Media?.data?.attributes?.url" 

@@ -38,6 +38,10 @@ export class RightMenuDetailsComponent implements OnInit {
   public authors: any;
   public tags:any;
   public publishDate:any;
+  public publishedOn:any;
+  public broadcastedOn:any;
+  public releasedOn:any;
+  public presentedOn:any;
   public isDataLoaded: boolean = false;
   public isPageLoaded: boolean = false;
   public isPeople: boolean = false;
@@ -526,6 +530,18 @@ export class RightMenuDetailsComponent implements OnInit {
         this.publishDate = response.data[0].attributes?.publishedAt;
         this.externalLink = response.data[0].attributes?.ExternalLink;
         this.newsMedia = response.data[0].attributes?.NewsMedia;
+        if(response.data[0].attributes?.PublishedOn){
+          this.publishedOn = response.data[0].attributes?.PublishedOn;
+        }
+        if(response.data[0].attributes?.ReleasedOn){
+          this.releasedOn = response.data[0].attributes?.ReleasedOn;
+        }
+        if(response.data[0].attributes?.PresentedOn){
+          this.presentedOn = response.data[0].attributes?.PresentedOn;
+        }
+        if(response.data[0].attributes?.BroadcastedOn){
+          this.broadcastedOn = response.data[0].attributes?.BroadcastedOn;
+        }
         let pageData: any = cloneDeep(response.data[0]);
         if (pageData.attributes && pageData.attributes.Tags && pageData.attributes.Tags.data && pageData.attributes.Tags.data.length > 0) {
           let tagName: any = [];   

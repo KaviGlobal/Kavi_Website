@@ -235,6 +235,8 @@
                     <div *ngIf="!isPeople">
                         <app-detail-viewer-right-pane  [authorDetails]="authors"
                         [tags]="tags" [publishDate] ="publishDate"
+                        [publishedOn] ="publishedOn" [releasedOn] ="releasedOn"
+                        [broadcastedOn] ="broadcastedOn" [presentedOn] ="presentedOn"
                         [externalLink] = "externalLink"
                         [newsMedia] = "newsMedia"
                         [podcasts] = "pageData[0]?.attributes?.PodcastPlatforms"

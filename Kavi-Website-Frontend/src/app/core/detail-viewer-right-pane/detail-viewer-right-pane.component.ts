@@ -17,6 +17,10 @@ export class DetailViewerRightPaneComponent implements OnInit {
  // @Input() cardContent:any;
   @Input() tags:any;
   @Input() publishDate:any;
+  @Input() publishedOn:any;
+  @Input() releasedOn:any;
+  @Input() broadcastedOn:any;
+  @Input() presentedOn:any;
   @Input() externalLink:any;
   @Input() newsMedia:any;
   @Input() podcasts:any;

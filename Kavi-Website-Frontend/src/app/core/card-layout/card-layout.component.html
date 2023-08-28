@@ -110,7 +110,7 @@
         </div>
         <div class="new-content" style="text-align:center">
             <h3 style="text-align:center;padding-top:25px">{{title}}</h3>
-            <p class="mb-1" style="text-align:center; min-height: 70px;">{{description}}</p>
+            <p class="mb-1" style="text-align:center; min-height: 70px;" [innerHTML]="description"></p>
             <a routerLink="{{'/' + moduleName + '/'+ title}}" *ngIf="moduleName">{{hyperlinkText}} <i
                     class="fas fa-arrow-right arrow-icon ml-1"></i></a>
         <!--    <div style="text-align:center;padding-right:15px">
@@ -134,8 +134,8 @@
         <div class="new-content">            
         <!--    <a href="{{url}}" target="blank"></a> -->
                 <span>
-                    <h3 *ngIf="title.length <= 31 && title !='Florida Department Of Education'" style="text-align:center;margin-top:20px;margin-bottom:50px">{{title}}</h3>   
-                    <h3 *ngIf="title.length > 31 || title =='Florida Department Of Education'" style="text-align:center;margin-top:20px">{{title}}</h3>
+                    <!-- <h3 *ngIf="title.length <= 31 && title !='Florida Department Of Education'" style="text-align:center;margin-top:20px;margin-bottom:50px">{{title}}</h3>    -->
+                    <h3 style="text-align:center;margin-top:20px">{{title}}</h3>
                 </span>
                        
             <p class="mb-1" style="text-align:center; min-height: 30px;color: #234990;">{{description}}</p>
