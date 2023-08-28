@@ -9,18 +9,6 @@
         {{ date | date:'MMMM d, yyyy' }}
     </h5>
     </div>
-        <!--<div *ngIf="tags && tags.length !== 0">-->            
-<!--        <div style="padding-top:5px" class="tab" > 
-            <div *ngFor="let tag of tags">
-                <b (click)="searchTag(tag?.attributes?.Name)">
-                            <a routerLink="{{'/SearchTag='+ tag?.attributes?.Name}}" >{{tag.attributes.DisplayName}}</a>
-                    {{tag.attributes.DisplayName}}
-                
-                </b>
-            </div>
-        </div>-->
-    
-    
     <img *ngIf="cardImage" src={{cardImage}} alt="image" />    
     <p *ngIf="cardContent">{{cardContent}}</p>
 </div>

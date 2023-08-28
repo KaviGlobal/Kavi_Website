@@ -28,9 +28,7 @@
 <div class="publish-data" *ngIf="!authorPost && moduleName != 'pages'">
     <h6 *ngIf="tags?.data">Tags:</h6> 
     <div class="tab" *ngFor="let tag of tags?.data">
-        <a (click)="searchTag(tag?.attributes?.Slug)">{{tag.attributes.DisplayName}}</a>
-    <!--   <a routerLink="{{'/tag/'+tag?.attributes?.tag_dimension?.data?.attributes?.Name}}">{{tag.attributes.DisplayName}}</a>
-           <a> {{tag.attributes.DisplayName}} </a>  -->                                             
+        <a (click)="searchTag(tag?.attributes?.Slug)">{{tag.attributes.DisplayName}}</a>                     
     </div> 
     <h6 *ngIf="moduleName != 'success-stories'">
         <span *ngIf="publishedOn && publishedOn != null">
@@ -46,29 +44,9 @@
             Presented On : {{ presentedOn | date:'MMMM d, yyyy' }} 
         </span>
     </h6>   
-    
-    <!--
-    <h6 style="float:right">
-        <a routerLink="/blogs">Back to List</a>
-    </h6>-->
 </div>
 <div class="clients" *ngIf="clients?.data?.attributes">
     <h6>Client:</h6>
-<!--   
-    <div> 
-        <img *ngIf="clients?.data?.attributes?.Logo?.Media?.data?.attributes?.url" 
-        src="{{clients?.data?.attributes?.Logo?.Media?.data?.attributes?.url}}"
-        title={{clients?.data?.attributes?.Logo?.Media?.data?.attributes?.name}}>
-        <a href="{{clients?.data?.attributes?.Url}}" target="blank">
-            <i class="fas fa-external-link-alt" style="margin-right:5px;margin-top:15px"></i> {{clients?.data.attributes?.Name}}</a>
-           
-        <h6 *ngIf = "clients.data.attributes.Name">{{clients.data.attributes.Name}}, {{clients.data.attributes.Location}}</h6>
-        <h6 *ngIf = "clients.data.attributes.Industry">Industry : {{clients.data.attributes.Industry}}</h6>
-        <h6 *ngIf = "clients.data.attributes.EmployeeCount">Employees : {{clients.data.attributes.EmployeeCount}}</h6>
-        <h6 *ngIf = "clients.data.attributes.Revenue">Revenue : {{clients.data.attributes.Revenue}}</h6>
-     
-    </div>
--->
     <div class="container d-flex justify-content-center align-items-center">             
         <div class="card">
             <div class="user text-center image_card" *ngIf="clients?.data?.attributes.isDisplayed">
@@ -135,19 +113,7 @@
 </div>
 <div class="news-link" *ngIf="publisher?.data">  
     <h6>Publisher :</h6>  
-</div> 
- <!--<div class="news-link" *ngIf="newsMedia?.data.length >=1">
-        <a *ngFor="let media of newsMedia?.data;let i= index">
-            <img *ngIf="media?.attributes?.Logo?.Media?.data?.attributes?.url" 
-            src={{media?.attributes?.Logo?.Media?.data?.attributes?.url}}
-            title={{media?.attributes?.Logo?.Media?.data?.attributes?.name}}>
-        </a>
-    </div> -->
-<!--<div class="news-link" *ngIf="newsMedia?.data">
-    <a href="{{newsMedia?.data[0].attributes?.Url}}" target="blank">
-        <i class="fas fa-external-link-alt" style="margin-right:5px;"></i> {{newsMedia?.data[0].attributes?.Name}}</a>
-        <h6>Type : {{newsMedia?.data[0].attributes?.Type}}</h6>
-</div> -->
+</div>
 <div class="news-link" *ngIf="newsMedia?.data">
     <div class="container d-flex justify-content-center align-items-center">             
         <div class="card">
@@ -161,28 +127,15 @@
                 </div>
                 <a href="{{newsMedia?.data[0].attributes?.Url}}" target="blank">
                     <i class="fas fa-external-link-alt" style="margin-right:5px;"></i> {{newsMedia?.data[0].attributes?.Name}}</a>
-               
-                <span class="text-muted d-block mb-2">Media : {{newsMedia?.data[0].attributes?.Type}}</span>
-                          
+                    <span class="text-muted d-block mb-2">Media : {{newsMedia?.data[0].attributes?.Type}}</span>
             </div>
         </div>
     </div>
 </div>
 <div class="podcasts" *ngIf="podcasts?.data.length >=1">
-  <!--  <h6>Podcasts :</h6> -->
-<!--    <ul *ngFor="let cast of podcasts?.data;let i= index">        
-        <li>
-            <a href="{{externalLink[i].Url}}" target="blank">{{cast.attributes.Name}}</a>     
-        </li>
-    </ul>-->
     <div class="container d-flex justify-content-center align-items-center">             
         <div class="card">
-            <div class="user text-center image_card">    
-        <!--        <ul *ngFor="let cast of podcasts?.data;let i= index">        
-                    <li>
-                        <a href="{{externalLink[i].Url}}" target="blank">{{cast.attributes.Name}}</a>     
-                    </li>
-                </ul> -->     
+            <div class="user text-center image_card">
                 <div *ngFor="let cast of podcasts?.data" style="margin-bottom: 20px;" >
                         <div class="image_box" *ngIf="cast?.attributes?.Logo?.Media?.data?.attributes?.url" >
                             <div class="image_sub_box">
@@ -192,14 +145,11 @@
                         </div>
                         <a href="{{cast?.attributes?.Url}}" target="blank">
                         <i class="fas fa-external-link-alt" style="margin-right:5px;margin-top:10px"></i> 
-                        {{cast?.attributes?.Name}}</a> 
-                    
+                        {{cast?.attributes?.Name}}</a>
                 </div>                             
             </div>
         </div>
      </div>
-      <!--  <a style="margin-left:-250px; margin-top:-50px; margin-right:20px"href="{{externalLink[i].Url}}" target="blank">
-            <i class="fas fa-external-link-alt" style="margin-right:10px"></i> Click Here</a>-->       
 </div>
 
 <div class="podcasts" *ngIf="conference?.data?.attributes"> 
@@ -214,9 +164,7 @@
                     </div>
                 </div>
                 <a href="{{conference?.data.attributes?.Url}}" target="blank">
-                <i class="fas fa-external-link-alt" style="margin-right:5px;margin-top:10px"></i> {{conference?.data.attributes?.Name}}</a>
-    <!--        <span class="text-muted d-block mb-2">Media : {{newsMedia?.data[0].attributes?.Type}}</span>
-        -->                    
+                <i class="fas fa-external-link-alt" style="margin-right:5px;margin-top:10px"></i> {{conference?.data.attributes?.Name}}</a>            
             </div>
         </div>
      </div>
@@ -235,38 +183,10 @@
                 <a href="{{publisher?.data?.attributes?.Url}}" target="blank">
                 <i class="fas fa-external-link-alt" style="margin-right:5px;margin-top:15px"></i> 
                 {{publisher?.data.attributes?.Name}}</a>                  
-        <!--            <span class="text-muted d-block mb-2">Media : {{newsMedia?.data[0].attributes?.Type}}</span>
-        -->                    
             </div>
         </div>
      </div>
 </div>
-<!--
-<div *ngIf="authorDetails?.data"> 
-    <div class="news-link" *ngFor="let author of authorDetails?.data">  
-        <h6>Author : {{author.attributes.DisplayName}}</h6>     
-    </div>    
-    <div *ngFor="let author of authorDetails?.data">    
-        <div class="about-author-title">     
-            <div *ngIf="author?.attributes?.Thumbnail?.Media?.data?.attributes?.url">                        
-            <a>  
-            <img src="{{author.attributes.Thumbnail.Media.data.attributes.url}}" alt={{author.attributes.Thumbnail.Alt}} title={{author.attributes.DisplayName}}>
-            </a>
-           <h6> {{author.attributes.DisplayName}}</h6>             
-            <div class="social-wrapper" *ngIf="author.attributes.SocialMedia.length >= 1">  
-                <a *ngIf="author?.attributes?.Email" href="mailto:{{author.attributes.Email}}"><i class="fas fa-envelope mr-2"></i></a>
-                <div class="social-horizontal" *ngFor="let media of author.attributes.SocialMedia">                              
-                    <a *ngIf="media?.Type == 'LinkedIn'" href={{media?.Url}} target="_blank"><i class="fab fa-linkedin"></i></a>  
-                    <a *ngIf="media?.Type == 'Twitter'" href={{media?.Url}} target="_blank"><i class="fab fa-twitter-square"></i></a>
-                    <a *ngIf="media?.Type == 'Facebook'" href={{media?.Url}} target="_blank"><i class="fab fa-facebook-square"></i></a>
-                    <a *ngIf="media?.Type == 'YouTube'" href={{media?.Url}} target="_blank"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>  
-            </div>          
-            <p>{{author.attributes.PreviewContent}}</p>
-            <h6 *ngIf="author?.attributes?.PreviewContent" (click) = "searchAuthor(author.attributes.Slug)">Read More ...</h6>
-        </div> 
-</div>-->
 <div class="news-link" *ngIf="authorDetails?.data">  
     <h6>Author Details :</h6>  
 </div>
@@ -289,14 +209,7 @@
                                 <a *ngIf="media?.Type == 'YouTube'" href={{media?.Url}} target="_blank"><i class="fab fa-youtube"></i></a>
                             </div>
                         </div>  
-                    </div>  
-    <!--                <img *ngIf="publisher?.data?.attributes?.Logo?.Media?.data?.attributes?.url" 
-                    src="{{publisher?.data?.attributes?.Logo?.Media?.data?.attributes?.url}}"
-                    title={{publisher?.data?.attributes?.Logo?.Media?.data?.attributes?.name}}>
-                    <a href="{{publisher?.data?.attributes?.Url}}" target="blank">
-                    <i class="fas fa-external-link-alt" style="margin-right:5px;margin-top:15px"></i> 
-                    {{publisher?.data.attributes?.Name}}</a>                  
-                    -->                  
+                    </div>               
                 </div>
             </div>
         </div>   
@@ -305,14 +218,3 @@
     </div>
 </div>
 </div>
-<!--
-<div>
-    <app-subscribe-layout></app-subscribe-layout>
-</div>-->
-  
-    <!--
-    <img *ngIf="cardImage" src={{cardImage}} alt="image" />    
-    <p>{{cardContent}}</p>
-</div>
--->
-

@@ -38,14 +38,6 @@ export class PageLoaderComponent implements OnInit {
           else if(event instanceof NavigationEnd){                     
               this.currentUrl = event.url;                             
           }
-/*     
-          if(this.previousUrl.length ==0 && this.currentUrl=='/blog'){          
-          let url=this.currentUrl;
-          this.commonService.activeMenuName = "Blog";
-          setTimeout(() => {
-            this.commonService.routeChangeSubscription.next(true);        
-          }, 100);
-        }*/
 
         if(this.menuData.RightMenu){
           if(this.previousUrl.length == 0){          

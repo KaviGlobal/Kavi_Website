@@ -64,16 +64,11 @@
             </ng-container>
         </div>
     </div>
-    <!--
-    <div class="modal-footer">
-      <button type="button" class="btn contactFormSend" (click)="modal.close('Save click')">Send</button>
-    </div>-->
   </ng-template> 
 <div class="details-content" *ngIf="isPageLoaded">
     <div class="" *ngIf="isDataLoaded && !isClient && !isPartner">
         <h2 class="full_heading_cover" *ngIf="pageType == 'pages'" style = "background-image:url('{{pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes?.url}}')"><span>{{pageData[0]?.attributes?.Title}}</span></h2>
     <div class="container" [ngClass]="{'pad_400': pageType != 'pages'}" >
-        <!-- <h2 class="heading_cover" *ngIf="pageType == 'pages' && pageData[0]?.attributes?.Slug != 'business-intelligence'" style = "background-image:url('{{pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes?.url}}')"><span>{{pageData[0]?.attributes?.Title}}</span></h2> -->
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12 border-right"> 
                 <div class="page-content py-4" *ngIf="!isPeople">
@@ -81,7 +76,6 @@
                         <h2>{{pageData[0]?.attributes?.Title}}</h2>
                         <div class="pb-4" *ngIf="pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes">
                             <img [src]=[pageData[0]?.attributes?.CoverImage?.Media?.data?.attributes.url]>
-                        <!--    <div class="centered">{{pageData[0]?.attributes?.Title}}</div>-->
                         </div>
                     </div>
                     
@@ -182,56 +176,10 @@
                         </div>
                     </div>
                 </div>
-                    
-                    <!--
-                    <h2>{{pageData.DisplayName}}</h2>
-                    <h5>{{pageData.Title}}</h5>                   
-                     <div class="social-wrapper" *ngIf="pageData?.SocialMedia.length >= 1">  
-                         <div class="social-horizontal" *ngFor="let media of pageData?.SocialMedia">                              
-                             <a *ngIf="media?.Type == 'LinkedIn'" href={{media?.Url}} target="_blank"><i class="fab fa-linkedin"></i></a>  
-                             <a *ngIf="media?.Type == 'Twitter'" href={{media?.Url}} target="_blank"><i class="fab fa-twitter-square"></i></a>
-                             <a *ngIf="media?.Type == 'Facebook'" href={{media?.Url}} target="_blank"><i class="fab fa-facebook-square"></i></a>
-                             <a *ngIf="media?.Type == 'YouTube'" href={{media?.Url}} target="_blank"><i class="fab fa-youtube"></i></a>
-                         </div>
-                         <div class="social-horizontal">
-                         <a href="mailto:{{pageData.Email}}"><i class="fas fa-envelope mr-2"></i></a>
-                         </div>
-                     </div> 
-                    <div *ngIf="pageData?.CoverImage?.Media?.data?.attributes">
-                        <img [src]=[pageData?.CoverImage?.Media?.data?.attributes.url]>
-                    </div>
-                    <div class="full-content">
-                    <markdown [data]="pageFullContent"> </markdown>
-                    </div> -->
                 </div>
-                <!-- <div *ngIf="rightPageRelatedData.length > 0">
-                    <div *ngFor="let relatedData of rightPageRelatedData">
-                        <div class="">
-                            <h3 style="margin-top:20px;color: #f26000;">Related {{relatedData[0].attributes?.relatedMeta?.Label}}</h3>
-                        </div>
-                        <div class="py-3">
-                                <div class="pb-5" *ngFor="let item of relatedData;let i = index">
-                                    <div class="right-menu-card" >
-                                        <h1>{{item.attributes?.Title}}</h1>
-                                        <div class="pb-3">
-                                            <h5 *ngIf="item.attributes?.Authors?.data[0]?.attributes && item.attributes?.Authors?.data[0]?.length !== 0">
-                                                by {{item.attributes?.Authors?.data[0]?.attributes?.DisplayName}} |
-                                                {{ item.attributes?.Authors?.data[0]?.attributes?.publishedAt | date:'MMMM d, yyyy' }}
-                                            </h5>
-                                        </div>
-                                        <img *ngIf="item?.attributes?.Thumbnail?.Media?.data?.attributes?.url" src={{item?.attributes?.Thumbnail?.Media?.data?.attributes?.url}} alt="image" />    
-                                        <p>{{item.attributes?.PreviewContent}}</p>
-                                    </div> 
-                                    <a routerLink="{{'/'+ relatedData[0].attributes?.menuType +'/'+ item?.attributes?.Slug}}" class="read-more">Read
-                                        More... {{'/'+ relatedData[0].attributes?.menuType +'/'+ item?.attributes?.Slug}}</a> 
-                                </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
             <div class="col-12" *ngIf="pageType != 'pages'">
                 <div class="right_fixed">
-            <!--    <app-right-menu-sidebar [data]="pageData"></app-right-menu-sidebar>-->
                     <div *ngIf="!isPeople">
                         <app-detail-viewer-right-pane  [authorDetails]="authors"
                         [tags]="tags" [publishDate] ="publishDate"
@@ -246,71 +194,15 @@
                         [moduleName]="pageType" 
                         ></app-detail-viewer-right-pane> 
                     </div>  
-                    <!-- <div *ngIf="isPeople || (pageType == 'publications' || pageType == 'presentations') "> -->
                     <div *ngIf="isPeople">
                         <app-detail-viewer-right-pane
                             [authorPost]="authorPost"
                             [moduleName]="pageType"
                         ></app-detail-viewer-right-pane>                   
                     </div> 
-                    <!-- <div class="pt-5" *ngIf="pageType == 'pages'">
-                        <app-right-menu-sidebar [data1]="rightPageData"
-                        [module]="pageType"
-                        [metaViewer]="listMetaData"
-                        ></app-right-menu-sidebar>
-                    </div> -->
                 </div>
             </div>
         </div>
-<!--        <div style="width:100%; height:2px; background: #dee2e6 ;margin-bottom:30px">
-        </div>
-        <div class="demo-section" *ngIf="!isPeople">
-            <div class="">
-                <h3>Contact Us</h3>
-                <div class="pt-4">
-                    <div>                    
-                        <ng-container>
-                            <form [formGroup]="demoSection" (ngSubmit)="sendDemoRequest('Contact Us')">
-                                <div class="row">       
-                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                            <input class="formStyles" type="text" placeholder = "Name *" [(ngModel)]="firstNamevalue" formControlName="firstName">                                  
-                                        </div>
-                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                            <input class="formStyles" type="text" placeholder = "LastName *" [(ngModel)]="lastNamevalue" formControlName="lastName">
-                                        </div>
-                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                            <input class="formStyles" type="text" placeholder = "Email *" [(ngModel)]="emailvalue" formControlName="email">
-                                        </div>
-                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-                                            <input class="formStyles" type="number" placeholder = "Phone" [(ngModel)]="phonevalue" formControlName="phone">
-                                        </div>
-                                        <div class="col-md-9 col-sm-12 col-xs-12">
-                                            <textarea class="formStyles" style="height:60px" [(ngModel)]="messagevalue" formControlName="message" placeholder="Message.." cols="45" rows="8" aria-required="true"></textarea>
-                                        </div>
-                                        <div class="col-md-3 col-sm-12 col-xs-12">
-                                            <button class="schedule_submit" id="submit" type="submit">Send</button>
-                                        </div>
-                                </div> 
-                                <div *ngIf="!validateStatus && validateMessage.length > 0" style="padding-bottom: 20px;">
-                                    <span style="color: red; font-size:18px;">
-                                        {{validateMessage}}
-                                    </span>
-                                </div>
-                                                             
-                               
-                                <div *ngIf="validateStatus" style="padding-bottom: 20px;">
-                                    <span style="color: Green; font-size:18px;">
-                                        {{validateMessage}}
-                                    </span>
-                                </div>
-                        
-                              </form>
-                        </ng-container>
-                    </div>
-                </div>
-            </div>
-        </div>
-    -->
         <div class="recommendation-section">
             <div *ngIf="rightPageRelatedData['success-stories']">
                 <div style="width:100%; height:2px; background: #dee2e6 ;margin-bottom:30px">
@@ -526,15 +418,12 @@
                                                 [type]="'recommendation-card-layout'">
                                             </app-card-layout>    
                             </div>
-<!--                            <div style="width:100%; height:2px; background: #dee2e6 ;margin-bottom:30px">
-                            </div>-->
                         </div>
                     </ng-container>
                 </div>
             </div>
         </div>
     <div>
-<!--          cccc {{this.viewerData[0] | json}}-->
         </div>
 
     </div>
@@ -595,8 +484,4 @@
         </div>
     </div>
     </div>
-<!--    <div class="col-12 col-md-4 col-lg-3 border-left">
-        <div class="pt-5">
-        <app-right-menu-sidebar [data]=""></app-right-menu-sidebar>
-    </div>-->
 </div>   

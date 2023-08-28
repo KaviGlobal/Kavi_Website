@@ -56,19 +56,16 @@ export class FooterComponent implements OnInit {
           this.message = response.statusMessage;
         } else {
           this.isSubscribed = false;
-//          this.message = 'Error in Subscribe';
         }
       })
     }
     else{
-      //error message
       this.isSubscribed = false
     }
     console.log(valid);    
   }
   public getAboutUs(){
     this.rightMenuService.getAboutUs().then((response: any) => {
-//      console.log("this.terms123",response.data,response.data[0].attributes.FullContent); 
       if(response.data){                
         this.aboutUs.push(response.data[0].attributes.PreviewContent);
       }
@@ -76,7 +73,6 @@ export class FooterComponent implements OnInit {
   }
   public getPolicyData(){
     this.rightMenuService.getPolicyData().then((response: any) => {
-//      console.log("this.terms123",response.data,response.data[0].attributes.FullContent); 
       if(response.data){                
         this.terms.push(response.data[0].attributes.FullContent);
       }
@@ -89,27 +85,18 @@ export class FooterComponent implements OnInit {
       centered: true,
       windowClass: 'dark-modal'
     });    
-//    console.log("this.terms",this.terms,this.terms[0]);
     modalRef.componentInstance.terms = this.terms;    
     modalRef.componentInstance.isPolicy = true;
     this.commonService.activeMenuName = 'policy';
-  //  this.router.navigate(["/policy"]);
-//    modalRef.componentInstance.RightMenuComponent = terms.FullContent;
   }
   
   public makeMenuActive(menuItem?: any) {
-//    this.showMenu = false;
-//    document.getElementById('menu_block')!.classList.remove("menu-container-open");
-//    this.document.body.classList.remove('hide-scroll'); 
     if (menuItem) {
       if(menuItem == 'JoinUs'){
         this.commonService.activeMenuName = 'JoinUs';
         this.router.navigate(["/JoinUs"]).then(() => {
           window.location.reload();
         })
- /*       setTimeout(() => {
-          this.commonService.routeChangeSubscription.next(true);        
-        }, 100);  */      
       }
     }
   }

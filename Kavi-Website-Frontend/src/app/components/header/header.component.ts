@@ -14,7 +14,6 @@ import { Subscription } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RightMenuService } from 'src/app/views/right-menu/right-menu.service';
 import { HomeComponent} from 'src/app/views/home/home.component';
-//import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -46,12 +45,10 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-//    this.router.routeReuseStrategy.shouldReuseRoute = () => false; 
     this.document.body.classList.remove('hide-scroll');
     this.getMenuItem = this.commonService.getMenuItem.subscribe((menuItem: any) => {     
       this.makeMenuList();
     });
-//    this.router.navigate(['/blogs']);
 
   }
   ngOnDestroy(): void {
@@ -133,16 +130,9 @@ export class HeaderComponent implements OnInit {
         setTimeout(() => {
           this.commonService.routeChangeSubscription.next(true);        
         }, 100);
-/*      else if(menuItem == 'UserForm'){
-        this.commonService.activeMenuName = this.searchTagValue;
-        setTimeout(() => {
-          this.commonService.routeChangeSubscription.next(true);        
-        }, 100);
-        }*/
       }else{
         this.commonService.activeMenuName = menuItem?.attributes?.Parameter?.type;  
         this.commonService.activeMenuData =  menuItem;
-  //    this.commonService.activeMenuName = menuItem.Label; 
         this.makeMenuList();        
         if(menuItem?.attributes?.Parameter?.type != "pages"){
             console.log("activeMenuName",this.commonService.activeMenuName,this.commonService.activeMenuData);       
@@ -184,30 +174,7 @@ export class HeaderComponent implements OnInit {
   public makeOfferingsActive(menuItem?: any,selectedMenu?: any,menuType?:any) {
     this.showMenu = false;
     document.getElementById('menu_block')!.classList.remove("menu-container-open");    
-    this.document.body.classList.remove('hide-scroll');    
-/*    if (menuItem?.offerings?.data && menuItem?.offerings?.data?.length > 0 
-    ) {    
-      menuItem.offerings.data.forEach((item: any) => {
-        if(item.attributes['Label'] == selectedMenu){
-          this.commonService.activeMenuName = selectedMenu;
-      setTimeout(() => {
-        this.commonService.routeChangeSubscription.next(true);        
-      }, 100);
-        }
-      });
-      
-    }
-    else if (menuItem?.aboutKavi?.data && menuItem?.aboutKavi?.data?.length > 0)
-    {    
-      menuItem.aboutKavi.data.forEach((item: any) => {
-        if(item.attributes['Label'] == selectedMenu){
-          this.commonService.activeMenuName = selectedMenu;
-      setTimeout(() => {
-        this.commonService.routeChangeSubscription.next(true);        
-      }, 100);
-        }
-      });      
-    }*/
+    this.document.body.classList.remove('hide-scroll');
     
     if(menuItem.attributes?.Parameter?.type && !menuType.type){
       this.commonService.activeMenuName = selectedMenu;
@@ -245,16 +212,11 @@ searchTag(searchText:any){
 
   toggleDiv() {
     this.showMenu = !this.showMenu;
-    // this.document.body.classList.remove('hide-scroll');
-    // if (this.showMenu) {
-    //   this.document.body.classList.add('hide-scroll');
-    // }
     document.getElementById('menu_block')!.classList.remove("menu-container-open");
     if (this.showMenu) {
       document.getElementById('menu_block')!.classList.add("menu-container-open");
     }
   }
-
 
 }
 

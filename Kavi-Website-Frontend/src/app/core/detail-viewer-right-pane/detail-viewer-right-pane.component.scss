@@ -1,12 +1,9 @@
 .pageContainer + div{
     padding: 10px 15px;
-    // border: 2px solid #fff;  
     border-radius: 25px;
     background-image: linear-gradient(180deg, rgba(174, 223, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
-    
 }
-.right-menu-card {    
-//   border: 2px solid #fff;  
+.right-menu-card {
   border-radius: 25px;
   background-image: linear-gradient(180deg, rgba(174, 223, 255, 0.6) 0%, rgba(255, 255, 255, 0.6) 100%);
     h1{
@@ -14,7 +11,6 @@
         font-family: "montserrat-regular";
         font-size: 900;
         color: #234990;
-    /*    margin-bottom: 25px;*/
     }
     h5{
         color: #a2a6b8;  
@@ -24,7 +20,6 @@
     }
     p{
         color: #a2a6b8;
-        // width: 90%;
         font-family: "montserrat-regular";
         font-size: 1.1rem;
         line-height: 1.6;
@@ -56,7 +51,6 @@
         float: left;
         border: 1px solid #fff;
         outline: none;
-     /*   pointer-events: none;*/
         cursor: pointer;        
         transition: 0.3s;
         font-size: 13px;
@@ -71,7 +65,6 @@
     margin-bottom:30px;
     padding: 5px 5px 5px 5px;
     text-align:justify;
-//    background-color: #ccc;
     h6{
         cursor:pointer;
         color:#f26000;
@@ -83,7 +76,6 @@
         margin-top:-30px;
         margin-bottom:20px;       
         object-fit: cover; 
-//        border-radius: 50%;   
         width: 50%   
     }
     p{
@@ -92,11 +84,9 @@
 }
 
 .author-post-data{
-    // margin-top:30px;
     font-family: "montserrat-regular";
     padding: 25px 20px;
-    a{
-    //    color: #000000;        
+    a{   
         text-align:justify;
     }
     ul {
@@ -110,19 +100,15 @@
 .publish-data{
     padding: 30px 0px 0px 10px;
     font-family: "montserrat-regular";
-    // margin-top:30px;
-//    padding: 5px 5px 5px 5px;
     h6{
         padding: 5px 5px 5px 15px;
         color: #000000;
         font-weight: bold;
-        // margin-top:30px;  
     }
     
 }
 .tab {
-    overflow: hidden;       
-    // background-color: #f1f1f1;
+    overflow: hidden;
     display: inline-flex;
     margin-top:-15px;
     margin-left:10px;
@@ -146,10 +132,7 @@
   .social-horizontal{
     display:inline;
   }
-  .social-wrapper {  
-//    margin-left: 20px;  
- //   width: 50%;
-//    text-align: center; 
+  .social-wrapper {
     margin-top:10px;
     i {
       font-size: 20px; 
@@ -168,18 +151,7 @@
     margin-top:10px;
     padding: 5px 5px 5px 25px;
     font-family: "montserrat-regular";
-    height: auto;  
-//     img{
-//     //    height: 300px;
-//         text-align: center;
-//         overflow: hidden;
-//  //       box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-//         margin-left:50px;
-//         width : 40%;
-//     }
+    height: auto;
     a{
         font-size:14p    
    
@@ -203,24 +175,10 @@
     margin-bottom: 20px;
     margin-left: 20px;
     margin-right: 20px;
-//    padding: 5px 5px 5px 5px;
     h6{
         margin-top:20px;
         margin-bottom:10px;
     }
-//     img{
-//         //    height: 300px;
-//             text-align: center;
-//             overflow: hidden;
-//  //           box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-//             display: flex;
-//             align-items: center;
-//             justify-content: center;
-//             margin-left:30%;
-//             margin-bottom: 10px;
-//             margin-top: 20px;
-//      //       width:90%;
-//      }
     a{
         font-size: 17px;
         color:#f26000;
@@ -233,17 +191,14 @@
     margin-left: 20px;
     margin-right: 20px;
     font-family: "montserrat-regular";
-//    padding: 5px 5px 5px 5px;
     h6{
         margin-top:20px;
         margin-bottom:10px;
         font-weight: bold;
     }
     img{
-        //    height: 300px;
             text-align: center;
             overflow: hidden;
- //           box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -266,22 +221,16 @@
         border-radius: 15px;
         padding: 8px;
         background: transparent;
-    //    background-color: rgba(155, 155, 155, 0.25);;
         position: relative;
         height:max-content;
- //       height: 370px;
     }
     .upper{
-
         height: 100px;
-
     }
     .upper img{
-
         width: 100%;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-
     }
     .user{
         position: relative;
@@ -289,9 +238,7 @@
     .profile img{      
         height: 80px;
         width: 80px;
-        margin-top:2px;
-
-       
+        margin-top:2px;      
     }
     .profile{
         position: absolute;
@@ -301,7 +248,6 @@
         width: 90px;
         border:3px solid #fff;
         border-radius: 50%;
-
     }
     .stats span{
 
@@ -313,7 +259,6 @@
     margin-left: 20px;
     margin-right: 20px;
     font-family: "montserrat-regular";
-//    padding: 5px 5px 5px 5px;
     h6{
         margin-top:20px;
         margin-bottom:10px;
@@ -322,18 +267,16 @@
         font-weight: bold;
     }
     img{
-        //    height: 300px;
-            text-align: center;
-            overflow: hidden;
-//            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            margin-top: 10px;
-            width: 70%;
-            margin-left: 15%;
-            border-radius:50%;
+        text-align: center;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        width: 70%;
+        margin-left: 15%;
+        border-radius:50%;
      }
     a{
         font-size: 20px;

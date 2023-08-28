@@ -112,15 +112,7 @@
             <h3 style="text-align:center;padding-top:25px">{{title}}</h3>
             <p class="mb-1" style="text-align:center; min-height: 70px;" [innerHTML]="description"></p>
             <a routerLink="{{'/' + moduleName + '/'+ title}}" *ngIf="moduleName">{{hyperlinkText}} <i
-                    class="fas fa-arrow-right arrow-icon ml-1"></i></a>
-        <!--    <div style="text-align:center;padding-right:15px">
-                <a href="javascript:void(0)" *ngIf="!moduleName">{{hyperlinkText}} <i
-                    class="fas fa-arrow-right arrow-icon ml-1"></i></a>
-            <a href="javascript:void(0)" *ngIf="!moduleName">{{hyperlinkText}} 
-                <i class="fab fa-linkedin"></i>
-            </a>
-            </div>  -->
-                  
+                    class="fas fa-arrow-right arrow-icon ml-1"></i></a>                  
         </div>
     </div>
 </div>
@@ -131,10 +123,8 @@
                 <img src="{{image}}" alt="image" />
             </div>
         </div>
-        <div class="new-content">            
-        <!--    <a href="{{url}}" target="blank"></a> -->
+        <div class="new-content">
                 <span>
-                    <!-- <h3 *ngIf="title.length <= 31 && title !='Florida Department Of Education'" style="text-align:center;margin-top:20px;margin-bottom:50px">{{title}}</h3>    -->
                     <h3 style="text-align:center;margin-top:20px">{{title}}</h3>
                 </span>
                        

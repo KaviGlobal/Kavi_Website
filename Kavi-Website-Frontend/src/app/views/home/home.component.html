@@ -57,7 +57,6 @@
     </div>
   </ng-template> 
 <div class="cont" *ngIf="isDataLoaded">
-    <!-- {{this.homeData.attributes.HeroHeader.SliderMedia.Media.data.attributes.url | json}} -->
     <ngb-carousel class="client-slider home_slider" *ngIf="clientImages.length">
         <ng-container *ngFor="let item of this.homeData.attributes?.HeroHeader;let i = index">
             <ng-template ngbSlide>
@@ -65,44 +64,9 @@
                 <div class="slider_content">
                     <h3 *ngIf="item.Description">{{item.Description}}</h3>
                 </div>
-            <!--    <div class="slider_readmore"><a routerLink ="/newslist/kavi-global-announces-research-partnership-with-ann-and-robert-h-lurie-children-s-hospital-of-chicago" (click)="makeMenuActive(homeData.rightmenu[1])" *ngIf="i == 2">Read more</a></div>
-            -->
             </ng-template>
         </ng-container>
     </ngb-carousel>
-    <!-- <div id="home_banner" class="banner-wrapper" [ngStyle]="{'background-image': 'url(' + backgroundImg + ')'}">
-        <div class="banner-container">
-            <div class="container-fluid">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                            <div class="top-content">
-                                <h3 *ngIf="this.homeData.attributes.HeroHeader[0].Title &&
-                                this.homeData.attributes.HeroHeader[0].Description
-                                "><span>{{this.homeData.attributes.HeroHeader[0].Title}}</span>
-                                    {{this.homeData.attributes.HeroHeader[0].Description}}</h3>
-                            </div>
-                            <div class="partner-img-wrapper">
-                                <div class="row align-items-center" *ngIf="homeData.attributes?.HeroHeader">
-                                    <ng-container *ngFor="let item of homeData.attributes?.HeroHeader;let i = index">
-                                        <div class="col-3" *ngIf="i && item.SliderMedia?.Media?.data?.attributes?.url">
-                                            <div class="partner-img">
-                                                <img src="{{item.SliderMedia.Media.data.attributes.url}}" alt="logo"
-                                                    class="">
-                                            </div>
-                                        </div>
-                                    </ng-container>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-<!--                    <div class="bottom-arrow-wrapper">
-                        <i class="fas fa-angle-down"></i>
-                    </div>--
-                </div>
-            </div>
-        </div>
-    </div> -->
     <div id="achievements_section" class="achievements-section">
         <div class="container">
             <div class="description-section">
@@ -150,7 +114,6 @@
                             {{homeData.attributes.Analytics.PreviewText}}
                         </h5>
                         <h5 class="analytics-more">
-                            <!--<a [routerLink]="['/SearchTag=analytics']">-->
                             <a href="https://advana.kaviglobal.com/" target="_blank">
                             {{homeData.attributes.Analytics.LinkLabel}}<i
                                 class="fas fa-arrow-right"></i>
@@ -199,26 +162,9 @@
             <div>
                 <div class="row" *ngIf="homeData.attributes">                    
                     <ng-container>
-                        <!-- *ngFor="homeData.attributes.Blogs.data[0]; let j = index">
-                        -->
-                        <!-- <div class="col-12 col-md-4">
-                            <div class="pt-2" >
-                                <app-card-layout
-                                    [image]="homeData.attributes.Blogs.data[0].attributes.Thumbnail.Media.data.attributes.url"
-                                    [title]="homeData.attributes.Blogs.data[0].attributes.Title"
-                                    [slug]="homeData.attributes.Blogs.data[0].attributes.Slug"
-                                    [description]="homeData.attributes.Blogs.data[0].attributes.PreviewContent"
-                                    moduleName="blogs" [hyperlinkText]="hyperlinkText" 
-                                    [type]="'top-image-layout'">
-                                </app-card-layout>
-                            
-                            </div>
-                        </div> -->
-                        
                         <ng-container *ngIf="homeData.attributes.Blogs.data.length > 1">
                             <ng-container *ngFor="let item of homeData.attributes.Blogs.data; let i = index">
-                                <!-- <ng-container *ngIf="i && i < 4"> -->
-                                    <div class="col-12 col-md-4 px-4 mb-4" > <!-- [ngClass]="{'pt-2': i === 1, 'pt-3': i !== 1}" -->
+                                    <div class="col-12 col-md-4 px-4 mb-4" > 
                                         <app-card-layout [image]="item.attributes?.Thumbnail?.Media?.data?.attributes?.url"
                                             [title]="item.attributes.Title" 
                                             [slug]="item.attributes.Slug"
@@ -227,16 +173,7 @@
                                             [type]="'top-image-layout'">
                                         </app-card-layout>
                                     </div>
-                                <!-- </ng-container> -->
                             </ng-container>
-                        
-                <!--            <div class="">
-                                <div class="read-more-section">
-                                    <a class="" [routerLink]="['/blog']">
-                                        Read more on our Blogs <i class="fas fa-arrow-right arrow-icon"></i>
-                                    </a>
-                                </div>
-                            </div>-->
                         </ng-container>
                     </ng-container>
                     <div class="col-12">
@@ -276,26 +213,6 @@
             </div>
         </div>
     </div>
- <!--   <div class="container-fluid m-0 p-0 mt-4">
-        <div class="news-letter-wrapper">
-            <div class="container">
-                <div class="row m-0 p-0">
-                    <div class="col-12 col-md-6">
-                        <h3 class="mb-0">Subscribe for Newsletter</h3>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="news-letter-field">
-                            <input type="text" class="form-control" placeholder="Email Address" autocomplete="off" />
-                            <div class="send-icon">
-                                <i class="fas fa-paper-plane"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>-->
 
     <div id="clients_section" class="clients-section fade-up aos-init">
         <div class="container">
@@ -309,39 +226,6 @@
                     <div class="row">
                         <div class="col-6 col-md-3"
                             *ngFor="let item of homeData.attributes.OurClientDetail;let i = index">
-                        <!--            <div class="client-card-wrapper">
-                                <div class="client-card">
-                                    <div class="client-image">
-                                        <img src="{{item.OurClientIcon.Media.data.attributes.url}}" alt="image" />
-                                        
-                                         <div class="flip-card">
-                                            <div class="flip-card-inner">
-                                             <div class="client-card-front">
-                                                <img src="{{item.OurClientIcon.Media.data.attributes.url}}" alt="image" />
-                                              </div>
-                                              <div class="client-card-back">
-                                                <p>{{item.OurClientDescription.Paragraph}}</p>
-                                              </div>
-                                            </div>
-                                          </div>
-                                    </div> 
-                                   
-                                    <p>{{item.OurClientDescription.Title}}</p>
-                                </div> -->
-                               <!--Errror after data model changes
-                                <div class="flip-card">
-                                    <div class="flip-card-inner">
-                                      <div class="flip-card-front">
-                                        
-                                        <img src="{{item.OurClientIcon.Media.data.attributes.url}}" alt="image">
-                                        <p>{{item.OurClientDescription.Title}}</p>
-                                    </div>
-                                      <div class="flip-card-back">
-                                        <p>{{item.OurClientDescription.Paragraph}}</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                --> 
                             </div>
                         </div>
                     </div>
@@ -366,14 +250,6 @@
                                         </div>
                                     </div>
                                 </div>
-                         <!--       <div class="client-carousel-image-wrapper" >
-                                    <div class="client-carousel-image-container"> 
-                                        <div class="client-carousel-image-content">                                           
-                                            <img [src]="item.url"
-                                                alt="Random first slide" class="" />
-                                        </div>
-                                    </div>
-                                </div>-->
                           </ng-template>
                         </ng-container>
                     </ngb-carousel>
@@ -412,15 +288,13 @@
                                 <span style="color: red; font-size:18px;">
                                     {{validateMessage}}
                                 </span>
-                            </div>
-                                                         
+                            </div>        
                            
                             <div *ngIf="validateStatus" style="padding-bottom: 20px;">
                                 <span style="color: Green; font-size:18px;">
                                     {{validateMessage}}
                                 </span>
                             </div>
-                    
                           </form>
                     </ng-container>
                 </div>
@@ -438,20 +312,4 @@
                 </agm-info-window>
             </agm-marker>
         </agm-map>
-        <!-- <div class="map-contact-wrapper">
-            <div class="map-contact-container ">
-                <div class="map-contact-content" *ngIf="homeData.attributes">
-                    <h3 class="title">Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt mr-2"></i>{{homeData.attributes.ContactUs.Address}}</p>
-                    <p><i class="fas fa-envelope mr-2"></i>{{homeData.attributes.ContactUs.Email}}</p>
-                    <p><i class="fas fa-phone-alt mr-2"></i>{{homeData.attributes.ContactUs.PhoneNumber}}</p>                    
-                    <div class="social-wrapper">                    
-                        <a href="https://www.linkedin.com/company/kavi-global/mycompany/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://twitter.com/KG4Analytics" target="_blank"><i class="fab fa-twitter-square"></i></a>
-                        <a href="https://www.facebook.com/kaviglobal/" target="_blank"><i class="fab fa-facebook-square"></i></a>
-                        <a href="https://www.youtube.com/channel/UCEMWF8WAJuM5k32gkxGopBQ" target="_blank"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>

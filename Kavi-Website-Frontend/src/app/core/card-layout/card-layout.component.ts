@@ -7,7 +7,6 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 })
 export class CardLayoutComponent implements OnInit {
 
-  // @ViewChild('cardData', { static: false }) table: Table;
   @Input() description: any;
   @Input() title: any;
   @Input() hyperlinkText: any;

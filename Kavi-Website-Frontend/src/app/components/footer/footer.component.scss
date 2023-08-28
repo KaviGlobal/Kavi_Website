@@ -2,7 +2,6 @@
 .footer-container{
     max-width: 100%;
     background-color: #0c2939;
-    // padding: 40px 0;
     z-index: 999;
     position: relative;
     
@@ -11,7 +10,6 @@
     color: #ffffff;
     font-family: "montserrat-regular";
     padding: 45px 0px 0px;
-//    font-weight: 600;
     font-size: 13px;
     .pb-30{
         padding-bottom: 30px;
@@ -20,7 +18,6 @@
         color: #f26000;
         font-size: 19px;
         font-family: "montserrat-regular";
-//        font-weight: 600;
     }
     p{
         margin-bottom: 5px;
@@ -75,7 +72,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    // justify-content: center;
     padding-top: 5px;
     color: #fff;
     i {
@@ -97,8 +93,6 @@
     align-items: left;
     justify-content: left;
     padding-top: 160px;
-//    padding-bottom:40px;
-  
     p {
       font-size: 12px; 
       margin-right: 50px;

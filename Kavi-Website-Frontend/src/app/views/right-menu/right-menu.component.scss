@@ -58,20 +58,17 @@ footer-top-margin{
   }
 }
 .page-content {
-//  padding-right: 70px;
   ::ng-deep img {
       max-width: 100% !important;
   }
 }
 iframe {
-//  width: 786px;
   height: 600px;
   border: 0;
   overflow: hidden;
   margin-left:-14px;
 }
 object {
-  //  width: 786px;
     height: 600px;
     border: 0;
     overflow: hidden;
@@ -94,14 +91,12 @@ select {
   color: #74646e;
   border: 1px solid #ccc;
   border-radius: 5px;
- // box-shadow: 1px 1px 2px #999;
   background: #fff;
 }
 select:focus {
   border: 2px solid #f26000;
 }
 select:hover {
-//    color: #000000;
     background: #fff;
 }
 select::after {
@@ -166,29 +161,13 @@ select::after {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-    
-// input[type=text],[type=number] {
-//   width: 60%;
-//   padding: 10px;
-//  // margin: 8px 0;
-//   box-sizing: border-box;
-//   border: 1px solid #ccc;
-//   border-radius: 4px;
-//   margin-top: 6px;
-//   margin-bottom: 16px;
-//   -webkit-transition: 0.5s;
-//   transition: 0.5s;
-//   outline: none;
-// }
 textarea {
   width: 60%;
   padding: 10px;
- // margin: 8px 0;
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-top: 6px;
-  // margin-left:-10px;
   margin-bottom: 16px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -197,17 +176,16 @@ textarea {
 
 .formStyles {
   width: 82%;
- //  padding: 10px;
-   padding:15px 20px;
-   box-sizing: border-box;
-   border: 1px solid #ccc;
-   border-radius: 4px;
-   margin-top: 6px;
-   margin-bottom: 16px;
-   margin-right: 15px;
-   -webkit-transition: 0.5s;
-   transition: 0.5s;
-   outline: none;
+  padding:15px 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  margin-right: 15px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
  }
  .formStyles:focus {
    border: 1px solid #f26000;
@@ -260,8 +238,6 @@ input[type=submit]:hover {
 
 .container {
   border-radius: 5px;
-//  background-color: #f2f2f2;
-//  padding: 20px;
   max-width:1400px;
   padding-left: 25px;
   padding-right: 20px;
@@ -285,7 +261,6 @@ input[type=submit]:hover {
   align-items: center;
   justify-content: flex-end;
   padding: 0.75rem;
-//  border-top: 0px solid #dee2e6;
   border-bottom-right-radius: calc(0.3rem - 1px);
   border-bottom-left-radius: calc(0.3rem - 1px);
 }
@@ -295,7 +270,6 @@ body {
   max-width: 900px;
   margin: 30px auto;
   padding: 20px;
-/*   outline: 1px solid #ccc; */
 }
 
 /* Still use global css (not utility css) for base typography etc? */
@@ -307,13 +281,6 @@ p {
   padding: 30px 0 30px;
   color:#fff;
   text-align: center;
-}
-
-.tab {
-  // overflow: hidden;       
-  // background-color: #f1f1f1;
-  // display: inline-flex;
-  // margin-top:-15px;
 }
 
 /* Style the buttons inside the tab */
@@ -341,7 +308,6 @@ p {
   }
 }
 .our_page {
-  // padding: 0px 20px;
   h2 {
       color: #f26000;
       font-size: 34px;
@@ -428,14 +394,9 @@ p {
       position: relative;
       display: inline-block;
       white-space: nowrap;
-      // overflow-x: auto;
       width: 100%;
       padding:15px 0 10px;
-      
-      // margin-bottom: 15px;
-      // height: 57px;
       &::-webkit-scrollbar {
-        // width: 10px;
         height: 7px;
       }
       &::-webkit-scrollbar-button {
@@ -505,7 +466,6 @@ p {
   }
 }
 .full_heading_cover {
-  // padding: 200px 20px;
   color: #ffffff;
   font-size: 50px;
   font-weight: 700;
@@ -575,7 +535,6 @@ markdown ::ng-deep  {
   }
   details{
     overflow:hidden;
-//    background-color: #fff;
     p{
       padding: 0px 10px 10px;
       margin: 0px;
@@ -608,11 +567,6 @@ markdown ::ng-deep  {
     word-break: break-word;
     font-size: 1.1rem;
   }
-  // table ul {
-  //     list-style-type: none;
-  //     padding: 15px;
-  //     margin: 0;
-  // }
 }
 td{
   width:400px;
@@ -627,7 +581,6 @@ td{
     color: #f26000;
     font-weight: 600;
     font-family: "montserrat-regular";
- //   font-size: 1.5rem;
     text-align:center;
     padding:20px;
   }

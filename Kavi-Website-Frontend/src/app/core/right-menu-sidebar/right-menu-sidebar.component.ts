@@ -46,31 +46,19 @@ export class RightMenuSidebarComponent implements OnInit {
     this.model = this.calendar.getToday();    
     let routeConfig: any = this.activatedRoute.routeConfig;
     this.commonService.activeMenuName = this.module;
-//console.log("routeConfig",routeConfig,cloneDeep(routeConfig.path),this.commonService.activeMenuName);
-//    this.commonService.activeMenuName = cloneDeep(routeConfig.path); 
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
   get TagKeys(){
     this.tagValues = Array.from(this.data1[0].values());
     return Array.from(this.data1[0].keys());
-   // console.log("hhhhh",this.data1[0]);
   }
- /* get TagValues(){
-    let result:any = []
-    result = Array.from(this.data1[0].values());
-    console.log("hhhhh",result.length);
-    return Array.from(result);
-//    return Array.from(this.data1[0].values());  
-  }*/
   showAllTagsForDimension(){
     this.showAllTags = true;
-//    this.showTagsForDimension = dimension;
   }
   searchTag(searchText:any){    
     this.commonService.activeMenuName = this.module;
-//     console.log("searchText",searchText,this.module, this.commonService.activeMenuName)
-        this.commonService.activeMenuName = this.module;
-        this.router.navigate(['/SearchTag='+searchText]);
+    this.commonService.activeMenuName = this.module;
+    this.router.navigate(['/SearchTag='+searchText]);
 
   }
 

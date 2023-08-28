@@ -13,8 +13,6 @@ import { RightMenuDetailsComponent} from 'src/app/views/right-menu-details/right
 export class DetailViewerRightPaneComponent implements OnInit {
   @Input() title: any;
   @Input() authorDetails: any;
- // @Input() cardImage: any;
- // @Input() cardContent:any;
   @Input() tags:any;
   @Input() publishDate:any;
   @Input() publishedOn:any;
@@ -29,14 +27,8 @@ export class DetailViewerRightPaneComponent implements OnInit {
   @Input() publisher:any;
   @Input() moduleName:any;  
   @Input() authorPost:any;
-  //@Input() videoUrl:any;
-  //@Output() searchText:any;
 
   private history: string[] = [];
- // private searchValue:any = '';
-//  @Output() searchTagText:any;
-  // public formattedDate: string | null | undefined;
-
   constructor(
     private datePipe: DatePipe,
     private _location: Location,
@@ -49,8 +41,6 @@ export class DetailViewerRightPaneComponent implements OnInit {
     this.router.events.subscribe((event) => {       
       if (event instanceof NavigationEnd) {
         this.history.push(event.urlAfterRedirects);
-//        console.log("event",event,event.url,(event.url).split('%3D')[1]);  
-  //      this.router.navigate(['/SearchTag=SAS']);      
       }     
     }); 
   }

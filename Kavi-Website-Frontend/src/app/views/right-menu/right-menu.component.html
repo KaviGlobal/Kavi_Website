@@ -97,8 +97,7 @@
                         </span>
                     </div>
                     <button
-                    id="submit" type="submit" value="item.Label">{{item.Label}}</button>    
-            <!--       <button id="closeModal" (click)="onClose()"> Cancel </button>-->
+                    id="submit" type="submit" value="item.Label">{{item.Label}}</button>
                 </div>
                 <div *ngIf="item.Type == 'button' && (validateMessage == 'Success')">
                     <div *ngIf="validateMessage == 'Success'" style="padding-bottom: 20px;">
@@ -106,8 +105,7 @@
                             {{formSendMessage}}
                         </span>
                     </div>
-                    <button id="submit" type="submit" value="item.Label" [disabled] = "true">{{item.Label}}</button>    
-            <!--       <button id="closeModal" (click)="onClose()"> Cancel </button>-->
+                    <button id="submit" type="submit" value="item.Label" [disabled] = "true">{{item.Label}}</button>
                 </div>
             </div>
         </form>
@@ -150,9 +148,8 @@
 </div>
 <div *ngIf="isDataLoaded && !isUserForm" class="page-container container_1400">
     <div class="container">
-        <div class=""> <!-- row -->
-            <div class=""> <!-- col-12 col-md-12 col-lg-12 border-right -->
-                <!--To display the list of Tags based on Master Tag List click event -->
+        <div>
+            <div>
                 <div class="page-content-section" *ngIf = "SearchTagMenu == ':id'">
                     <div class="centered">
                         <h2>{{tagName}} Related Post</h2>
@@ -183,31 +180,10 @@
                                 </ng-container>
                             </div>
                         </div>
-
-                        <!-- <div *ngFor="let item of menu;let i = index"> 
-                            <div class="pb-5" >
-                                    <app-right-menu-details-card 
-                                    [title]="item?.attributes?.Title"
-                                    [authorDetails]="item?.attributes?.Authors?.data"                            
-                                    [date]="item?.attributes?.PublishedOn">
-                                    </app-right-menu-details-card>   
-                               
-                                    <app-right-menu-details-card 
-                                        [cardImage]="item?.attributes?.Thumbnail?.Media?.data?.attributes.url"
-                                        [cardContent]="item?.attributes?.PreviewContent" 
-                                    >
-                                    </app-right-menu-details-card>                     
-                                <a routerLink="{{'/'+menu[0].attributes.menuType+'/'+ item?.attributes?.Slug}}" class="read-more">Read
-                                        More...</a> 
-                <!--                <a *ngIf="!searchTag" routerLink="{{'/'+menu[0].attributes.menuType+'/'+ item?.attributes?.Slug}}" class="read-more">Read
-                                            More...sssss</a> --
-                                </div>
-                        </div> -->
                     </div>
                     
                 </div>
                 <div class="page-content-section" *ngIf =" !SearchTagMenu && pageData.length > 0">
-                <!--    <h3 class="title-menu-list ">{{commonService.activeMenuData.attributes.DisplayName}}</h3>-->
                     <div class="row">        
                         <div *ngFor="let item of pageData; let i = index;"class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                             <div  >
@@ -226,9 +202,6 @@
                                             </app-right-menu-details-card>
                                             <div class="tag_block" *ngIf="item?.attributes?.Tags?.data">
                                                 <div class="tab" *ngFor="let tag of item?.attributes?.Tags?.data;  let i=index ">                                
-                                                    <!-- <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug)">
-                                                        {{tag.attributes.DisplayName}}
-                                                    </a> -->
                                                     <a *ngIf="i < 1" (click) = "callTag('SearchTag='+ tag?.attributes?.Slug, ':id')" routerLink="{{'/SearchTag='+tag?.attributes?.Slug}}">{{tag.attributes.DisplayName}}</a>
                                                 </div> 
                                                 <div class="tab" *ngIf="(item?.attributes?.Tags?.data).length > 1"> 
@@ -239,7 +212,6 @@
                                                         </div> 
                                                     </div>
                                                 </div>
-                                                
                                             </div>
                                             <app-right-menu-details-card 
                                             [cardContent]="item?.attributes?.PreviewContent">
@@ -255,47 +227,7 @@
                         </div>
                     </div>                 
                 </div>
-                <!-- <div class="page-content-section" *ngIf =" !SearchTagMenu && pageData.length > 0">           
-                    <div *ngFor="let item of pageData; let i = index;">
-                        <div class="pb-5" >
-                            <app-right-menu-details-card 
-                            [title]="item?.attributes?.Title"
-                            [authorDetails]="item?.attributes?.Authors?.data"                            
-                            [date]="item?.attributes?.PublishedOn">
-                            </app-right-menu-details-card>   
-                                                    
-                            <div class="tab" *ngFor="let tag of item?.attributes?.Tags?.data">                                
-                                <!-- <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug)">
-                                    {{tag.attributes.DisplayName}}
-                                </a> --
-                                <a (click) = "callTag('SearchTag='+ tag?.attributes?.Slug)" routerLink="{{'/SearchTag='+tag?.attributes?.Slug}}">{{tag.attributes.DisplayName}}</a>                                                      
-                            </div> 
-                            <app-right-menu-details-card 
-                                [cardImage]="item?.attributes?.Thumbnail?.Media?.data?.attributes.url"
-                                [cardContent]="item?.attributes?.PreviewContent"
-                               >
-                            </app-right-menu-details-card>                           
-                           <a *ngIf="searchTag || pageDetailsName =='analytics'" routerLink="{{'/'+SearchTagMenu+'/'+ item?.attributes?.Slug}}" class="read-more">Read
-                                More...</a>                               
-                            <a *ngIf="!searchTag && pageDetailsName !='analytics'" routerLink="{{'/'+ routePath + '/'+ item?.attributes?.Slug}}" class="read-more">Read
-                                    More...</a> 
-                              
-                        </div>
-                             
-                    </div>                    
-                </div> -->
-
             </div>
-            <!-- <div class="col-12 col-md-4 col-lg-3 border-left">
-                <div class="pt-5"><!--pageData--
-                    <app-right-menu-sidebar [data1]="rightPageData"
-                    [module]="routePath"
-                    [metaViewer]="listMetaData"></app-right-menu-sidebar>
-<!--                   <app-detail-viewer-right-pane
-                   [data1]="rightPageData"
-                    [module]="pageType"></app-detail-viewer-right-pane>--
-                </div>
-            </div> -->
         </div>
     </div>
 </div>
@@ -306,10 +238,8 @@
             <div class="col-12 col-md-8 col-lg-9 border-right">
                 <div *ngFor="let item of pageData">
                     <div class="page-content py-4" >
-                    <!--    <div [innerHTML]="parseRichText(offeringsFullContent)"></div> -->
-                        <markdown [data]="(offeringsFullContent)"> </markdown>                         
-                    
-                </div>
+                        <markdown [data]="(offeringsFullContent)"> </markdown>
+                    </div>
                 </div>                
             </div>
             <div class="col-12 col-md-4 col-lg-3 border-left">
@@ -354,23 +284,7 @@
     </div>
 </div>
 
-<div *ngIf="(isAboutUs || isJoinUs || isCareers) && !isUserForm" class="page-container" style="padding-right: 0px;"> 
-    <!--
-    <div class="container" >        
-        <div class="row">           
-            <div class="col-12 col-md-8 col-lg-9 border-right" >
-                
-                <div class="page-content py-4" *ngIf="pageData.length == 0">
-                    <markdown [data]="(offeringsFullContent)"> </markdown>         
-                </div>                           
-            </div>
-            <div class="col-12 col-md-4 col-lg-3 border-left" *ngIf="pageData.length == 0">
-                <div class="pt-5">
-                <app-right-menu-sidebar [data]=""></app-right-menu-sidebar>
-            </div>  
-        </div>        
-    </div>
-    -->
+<div *ngIf="(isAboutUs || isJoinUs || isCareers) && !isUserForm" class="page-container" style="padding-right: 0px;">
     <div *ngIf="pageData.length > 0 && isAboutUs" style="margin:0px auto;padding: 0px 0px 30px;">
         <div class="mb-5"><h2 class="full_heading_cover" style = "background-image:url('{{imageUrl}}')"><span>Our Team</span></h2></div>
             <div class="container">
@@ -387,7 +301,6 @@
                                     [type]="'personal-card-layout'"
                                     >
                                     </app-card-layout>
-            
                                 </div>                         
                                 </div> 
                             </div>
@@ -396,23 +309,7 @@
                     
                 </div>
             </div>
-    <!--    <div class="col-12 col-md-4 col-lg-3 border-left">
-            <div class="pt-5">
-            <app-right-menu-sidebar [data]=""></app-right-menu-sidebar>
-        </div>-->
     </div>
- <!--   <div *ngIf="isCareers" style="margin:0px auto;padding: 0px 0px 30px;">
-        <div class="container">
-            <div class="row">          {{pageData | json}}
-                <div *ngFor="let item of pageData; let i = index" class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12"> 
-                    <div class="pb-5" style="min-height: 70px;">
-                        {{item | json}}
-                      
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --> 
     <div *ngIf="isJoinUs" style="margin:0px auto;padding: 0px 0px 30px;">
         <div class="mb-5"><h2 class="full_heading_cover" style = "background-image:url('{{imageUrl}}')"><span>Careers</span></h2></div>
        
@@ -421,7 +318,6 @@
             <div class="page-content py-4" >
                 <markdown [data]="(offeringsFullContent)"> </markdown>  
             </div>
-          <!--  {{pageData.length}}-->
             <div *ngIf="pageData.length > 0" class="current_opening" >
                 <a (click)="getCareerList()">Browse for Open Roles</a>
             </div>
@@ -429,10 +325,6 @@
         </div>
     </div>
     <div *ngIf="isCareers" style="margin:0px auto;padding: 0px 0px 30px;">
-     <!--  <div class="mb-5"><h2 class="full_heading_cover" style = "background-image:url('{{imageUrl}}')"><span>Careers</span></h2></div>
-        <div class="page-content py-4" >
-            <markdown [data]="(offeringsFullContent)"> </markdown>  
-        </div>-->
         <div class="careerTitle" *ngIf = "pageData.length > 0"> 
                 <h2>Current Openings</h2>
             </div> 
@@ -507,13 +399,3 @@
             </div>        
     </div>
 </div>
-
-<!--
-<div *ngIf="isPolicy" class="page-container"> 
-    <div class="container">
-        <markdown [data]="terms"> </markdown>
-        <div class="modalFooter">
-            <button type="button" id="closeModal"  (click)="onClose()">Close</button>
-            </div>
-    </div>
-</div>-->

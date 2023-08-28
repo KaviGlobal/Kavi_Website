@@ -20,8 +20,6 @@ export class RightMenuDetailsCardComponent implements OnInit {
 
   private history: string[] = [];
   private searchValue:any = '';
-//  @Output() searchTagText:any;
-  // public formattedDate: string | null | undefined;
 
   constructor(
     private datePipe: DatePipe,
@@ -32,36 +30,17 @@ export class RightMenuDetailsCardComponent implements OnInit {
   ) {
     this.router.events.subscribe((event) => {       
       if (event instanceof NavigationEnd) {
-        this.history.push(event.urlAfterRedirects);
-//        console.log("event",event,event.url,(event.url).split('%3D')[1]);  
-  //      this.router.navigate(['/SearchTag=SAS']);      
+        this.history.push(event.urlAfterRedirects); 
       }     
     }); 
   }
   ngOnInit(): void {
     let routeConfig: any = this.activatedRoute.routeConfig;
     this.commonService.activeMenuName = cloneDeep(routeConfig.path);
-    // this.formattedDate = this.datePipe.transform(this.date, 'MMMM d, yyyy');
-//    let routeConfig: any = this.activatedRoute.routeConfig;
-//    console.log("routeConfig",routeConfig);
- //   this.commonService.activeMenuName = cloneDeep(routeConfig.path);
   }  
   searchTag(searchText:any){     
      this.searchValue = searchText; 
      console.log("searchText....",searchText,this.router.routeReuseStrategy.shouldReuseRoute); 
-//     this.router.routeReuseStrategy.shouldReuseRoute = () => false;    
      this.router.navigate(['/SearchTag='+searchText]);   
-    
-//    this.router.navigate(['/SearchTag='+searchText]);  
-   //
-   
-//    this.router.navigate(['/'+searchText]);    
-     /*    
-     setTimeout(() => {
-      this.commonService.routeChangeSubscription.next(true);        
-      this.router.navigate(['/'+searchText]);     
-    }, 100);
-
-        */
   }
 }

@@ -25,7 +25,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-//    this.getHeaderFooterData();
     this.getHeaderData();
     this.getFooterData();
   }
@@ -33,14 +32,10 @@ export class AppComponent implements OnInit {
     this.headerService.getHeaderData().then((response: any) => {
       if (response && response.data) {
         this.headerData = cloneDeep(response.data);
-   /*     this.headerFooterData.attributes.headerfooter.Sliders.data.forEach((element: any) => {
-          this.images.push(element.attributes.url);
-        });*/
         if (this.headerData.attributes && this.headerData.attributes?.Logo?.Media?.data?.attributes?.url) {
           this.logoImage = cloneDeep(this.headerData.attributes?.Logo?.Media?.data?.attributes?.url);
         }
       }
-//      this.getMenuList();
       this.getMenu();
     });
   }
@@ -48,16 +43,12 @@ export class AppComponent implements OnInit {
     this.headerService.getFooterData().then((response: any) => {
       if (response && response.data) {
         this.headerFooterData = cloneDeep(response.data);
-   /*     this.headerFooterData.attributes.headerfooter.Sliders.data.forEach((element: any) => {
-          this.images.push(element.attributes.url);
-        });*/
         if (this.headerFooterData.attributes && this.headerFooterData.attributes.headerfooter && this.headerFooterData.attributes.Logo &&
           this.headerFooterData.attributes.Logo.Media && this.headerFooterData.attributes.Logo.Media.data && this.headerFooterData.attributes.Logo.Media.data.attributes &&
           this.headerFooterData.attributes.Logo.Media.data.attributes.url) {
           this.logoImage = cloneDeep(this.headerFooterData.attributes.Logo.Media.data.attributes.url);
         }
       }
-//      this.getMenuList();
       this.getMenu();
     });
   }
@@ -65,33 +56,22 @@ export class AppComponent implements OnInit {
     this.headerService.getHeaderFooterData().then((response: any) => {
       if (response && response.data) {
         this.headerFooterData = cloneDeep(response.data);
-   /*     this.headerFooterData.attributes.headerfooter.Sliders.data.forEach((element: any) => {
-          this.images.push(element.attributes.url);
-        });*/
         if (this.headerFooterData.attributes && this.headerFooterData.attributes.headerfooter && this.headerFooterData.attributes.headerfooter.KaviLogo &&
           this.headerFooterData.attributes.headerfooter.KaviLogo.data && this.headerFooterData.attributes.headerfooter.KaviLogo.data.attributes &&
           this.headerFooterData.attributes.headerfooter.KaviLogo.data.attributes.url) {
           this.logoImage = cloneDeep(this.headerFooterData.attributes.headerfooter.KaviLogo.data.attributes.url);
         }
       }
-//      this.getMenuList();
       this.getMenu();
     });
   }
   public getMenuList() {
     this.headerService.getMenuList().then((response: any) => {
       if (response && response.data && response.data.attributes) {
-//        response.data = 
         let menuData = cloneDeep(response.data.attributes);
         let LeftMenu: any = cloneDeep(response.data.attributes.LeftMenu);
         menuData.RightMenu.forEach((item: any) => {
           item.Url = '';
- /*         if (item.ContentLink) {//console.log("item.ContentLink",item,item.ContentLink,menuData.RightMenu);
-            let Url = item.ContentLink.split('=').pop();
-            if (Url) {
-              item.Url = cloneDeep(Url);
-            }
-          }*/
         });
         this.commonService.menuData = menuData;
         setTimeout(() => {
@@ -153,10 +133,6 @@ export class AppComponent implements OnInit {
           rightMenu.push(element);  
         }
       });
-        // leftMenu = response.data.filter((element: any) => (element.attributes.Menu == "Offering"));
-        // rightMenu = response.data.filter((element: any) => (element.attributes.Menu == "Type"));
-        // industryMenu = response.data.filter((element: any) => (element.attributes.Menu == "Industry"));
-        // aboutUs = response.data.filter((element: any) => (element.attributes.Menu == "About Us"));
         aboutUs.sort(this.sortByDisplayOrder);
         leftMenu.sort(this.sortByDisplayOrder);
         rightMenu.sort(this.sortByDisplayOrder);
@@ -164,9 +140,7 @@ export class AppComponent implements OnInit {
         softwareMenu.sort(this.sortByDisplayOrder);
         solutionsMenu.sort(this.sortByDisplayOrder);
         advancedAnalyticsMenu.sort(this.sortByDisplayOrder);
-//        menuData.push({LeftMenu :leftMenu});        
       }  
-      // let groupedMenu = this.groupBy(leftMenu, (item:any) => item?.attributes.parent_item?.data?.attributes?.DisplayName);
       let groupindustryMenu = this.groupBy(industryMenu, (item:any) => item?.attributes?.Menu);     
       menuData.push({LeftMenu :leftMenu});
       menuData.push({RightMenu :rightMenu});
@@ -175,12 +149,7 @@ export class AppComponent implements OnInit {
       menuData.push({SoftwareMenu :softwareMenu});
       menuData.push({SolutionsMenu :solutionsMenu});
       menuData.push({AdvancedAnalyticsMenu :advancedAnalyticsMenu});
-      /*      for(let menu of menuData[0].LeftMenu) {
-        console.log("xxxx",menu?.attributes?.ParentItem?.data?.attributes?.DisplayName);
-        
-      }*/
       this.commonService.menuData = menuData;
-    // console.log("xxxx",menuData);
       setTimeout(() => {
         this.commonService.getMenuItem.next(true);
       }, 100);

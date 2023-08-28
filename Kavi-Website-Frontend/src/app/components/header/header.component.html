@@ -21,36 +21,21 @@
       </div>
       <div class="nav-right">
         <div style="padding-top:5px;" *ngIf="commonService.activeMenuName">
-          <!-- <input type="text" #searchText placeholder="Search Text" autocomplete="on"/>
-          <a  (click)="searchTag(searchText)">
-            <i class="fas fa-search"></i> 
-          </a> -->
           <a routerLink="/" >
             <i class='fas fa-home'></i>            
           </a>          
         </div>
-          <!-- <a (click)="requestForm()" *ngIf="commonService.activeMenuName != 'UserForm'">
-        <i class="fa fa-address-card"></i> 
-      </a>       -->
-    <!--    <a href="tel:+1-847-387-6760">
-          <i class="fas fa-phone-alt"></i>
-        </a>-->   
 
         <a (click)="makeMenuActive('ContactUs')" routerLink="{{'/ContactUs'}}">          
           <i class="fas fa-envelope mr-3" ></i>
         </a> 
-        <!--      
-        <a (click)="toggleDiv()">
-          <i class="fas fa-bars"></i>
-        </a>
-      -->
       </div>
 
     </div>
   </nav>
 </header>
 
-<div id="menu_block"> <!--[style.display]="showMenu ? 'block' : 'none'"-->
+<div id="menu_block">
   <div class="overflow_block" (click)="toggleDiv()"></div>
   <div class="menu-container container-fluid">
     <div class="close-btn text-right">
@@ -112,13 +97,6 @@
                         </div>
                         <div class="inner-menu-items" *ngIf="!menuItem.attributes?.IsTitle">
                           <a href="https://advana.kaviglobal.com/" target="_blank">{{menuItem.attributes.DisplayName}}</a>
-                          <!--
-                          <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName && menuItem?.attributes?.Slug != 'our-leadership-team'"
-                          (click) = "makeOfferingsActive(menuItem,menuItem?.attributes?.Slug,menuItem?.attributes?.Parameter?.type)"
-                          >{{menuItem.attributes.DisplayName}}</a>
-                          <a [routerLink]="[menuItem?.attributes?.Slug]" *ngIf="menuItem?.attributes?.DisplayName && menuItem?.attributes?.Slug == 'our-leadership-team'"
-                            (click) = "makeMenuActive(menuItem)"
-                          >{{menuItem.attributes.DisplayName}}</a>-->
                         </div>
                       </li>
                     </ng-container>
@@ -149,9 +127,6 @@
                         <ng-container *ngFor="let menuItem of IndustryList">
                           <div *ngFor="let subItem of menuItem[IndustrykeyItem];let j= index">    
                             <div *ngIf="j==0 &&  !menuItem[IndustrykeyItem][0].attributes?.IsTitle">
-                              <!-- <a [routerLink]="['/'+menuItem[IndustrykeyItem][0].attributes?.Parameter?.type+'/'+menuItem[IndustrykeyItem][0].attributes?.Slug]"
-                              (click)="makeOfferingsActive(menuItem,menuItem[IndustrykeyItem][0].attributes?.Slug,menuItem[IndustrykeyItem][0].attributes?.Parameter)"
-                              class="menu-items-left" style ="color:#f26000;margin-bottom:8px"> {{IndustrykeyItem}}</a> -->
                               <a class="menu-items-left" style ="color:#f26000;margin-bottom:8px"> {{IndustrykeyItem}}</a>
                             </div>
                             <li> 
@@ -195,32 +170,6 @@
                     </ng-container>            
                   </ul>
                 </div>
-
-            <!-- <div class="col-md-3 col-sm-6 col-xs-12">
-              <ul class="menu-items">
-                <li *ngFor="let keyItem of keyList; let i = index">
-                  <ul class="inner-menu-items" *ngIf="keyItem">
-                    <ng-container *ngFor="let menuItem of OfferingList">  
-                      <div *ngFor="let subItem of menuItem[keyItem];let j= index">           
-                        <div *ngIf="j==0 &&  menuItem[keyItem][0].attributes.parent_item.data.attributes.IsTitle">
-                          <a [routerLink]="['/'+menuItem[keyItem][0].attributes.parent_item.data.attributes.Parameter.type+'/'+menuItem[keyItem][0].attributes.parent_item.data.attributes.Slug]"
-                          (click)="makeOfferingsActive(menuItem[keyItem][0].attributes.parent_item.data,menuItem[keyItem][0].attributes.parent_item.data.attributes.Slug,menuItem[keyItem][0].attributes.Menu)"
-                          class="menu-items-left" style ="color:#f26000;margin-bottom:8px"> {{keyItem}}</a>
-                        </div>
-                        <div *ngIf="j==0 && !menuItem[keyItem][0].attributes.parent_item.data.attributes.IsTitle">
-                          <a class="menu-items-left" style ="margin-bottom:8px" href=""> {{keyItem}}</a>
-                        </div>
-                        <li> 
-                          <a [routerLink]="[subItem?.attributes?.Slug]" *ngIf="subItem?.attributes?.DisplayName"
-                          (click)="makeOfferingsActive(subItem,subItem?.attributes?.Slug,subItem?.attributes?.Menu)">{{subItem.attributes.DisplayName}}</a>
-                        </li>
-                      </div>
-                    </ng-container>
-                  </ul>                     
-                </li>
-              </ul>
-            </div> -->
-
           </div>
         </div>
       </div>

@@ -82,32 +82,14 @@ export class HomeComponent implements OnInit {
 
       if (document.documentElement.scrollTop > document.getElementById('achievements_section')!.offsetTop - 400) {
         document.getElementById('achievements_section_count')!.classList.add("fade-down-animate");
-        // setTimeout(() => {  document.getElementById('achievements_section_count')!.classList.add("fade-down-animate"); }, 500);
-        // let counts = setInterval(updated);
-        // let upto = 0;
-        // function updated() {
-
-        //     let count = document.getElementById("counter");
-        //     count!.innerHTML = String('$'+ ++upto +' million');
-        //     if (upto === 500) {
-        //         clearInterval(counts);
-        //     }
-        // }
-      } else {
-        // document.getElementById('achievements_section_desc')!.classList.remove("fade-down-animate");
-        // document.getElementById('achievements_section_count')!.classList.remove("fade-down-animate");
       }
 
       if (document.documentElement.scrollTop > document.getElementById('analytics_section')!.offsetTop - 600) {
         document.getElementById('analytics_section')!.classList.add("fade-up-animate");
-      } else {
-        // document.getElementById('analytics_section')!.classList.remove("fade-up-animate");
       }
 
       if (document.documentElement.scrollTop > document.getElementById('success_story')!.offsetTop - 500) {
         document.getElementById('success_story')!.classList.add("fade-up-animate");
-      } else {
-        // document.getElementById('success_story')!.classList.remove("fade-up-animate");
       }
 
       if (document.documentElement.scrollTop > document.getElementById('sssk_section')!.offsetTop - 500) {
@@ -116,27 +98,19 @@ export class HomeComponent implements OnInit {
 
       if (document.documentElement.scrollTop > document.getElementById('blog_section')!.offsetTop - 500) {
         document.getElementById('blog_section')!.classList.add("fade-up-animate");
-      } else {
-        // document.getElementById('blog_section')!.classList.remove("fade-up-animate");
       }
 
       if (document.documentElement.scrollTop > document.getElementById('news_cont')!.offsetTop - 500) {
         document.getElementById('news_cont')!.classList.add("fade-up-animate");
-      } else {
-        // document.getElementById('news_cont')!.classList.remove("fade-up-animate");
-      } 
+      }
 
       if (document.documentElement.scrollTop > document.getElementById('clients_section')!.offsetTop - 500) {
         document.getElementById('clients_section')!.classList.add("fade-up-animate");
-      } else {
-        // document.getElementById('clients_section')!.classList.remove("fade-up-animate");
-      } 
+      }
 
       if (document.documentElement.scrollTop > document.getElementById('clients_carousel')!.offsetTop - 500) {
         document.getElementById('clients_carousel')!.classList.add("fade-up-animate");
-      } else {
-        // document.getElementById('clients_carousel')!.classList.remove("fade-up-animate");
-      } 
+      }
   }
 
  public sendDemoRequest(){
@@ -184,7 +158,6 @@ public onClose() {
   this.modalService.dismissAll();    
 }
   public clearForm(formName:any){
-//  console.log("jjjj",formName);
   formName.value.firstName ='';
   formName.value.lastName ='';
   formName.value.email ='';
@@ -216,14 +189,9 @@ public onClose() {
       }
     };
     let emailClient = new EmailClient(appConfig.EMAIL_CONNECTION_STRING);
-    // let emailContent = new HtmlEmal
      console.log("message",message);
      emailClient.beginSend(message); 
      let contactDetails = {
-      /*  "data": 
-        {
-            "Email": email
-        }   */ 
         "emailid": contactForm.value.email,
         "firstname": contactForm.value.firstName,
         "lastname": contactForm.value.lastName,
@@ -234,7 +202,6 @@ public onClose() {
         "page":'HomePage'
       }
      this.rightMenuService.sendContactDetailsToDb(contactDetails).then((response: any) => {
-//      console.log("hhhhhh",contactForm,response);
      });
  }
   public getHomePageData() {    
@@ -268,7 +235,6 @@ public onClose() {
     let items: any = [];
     for (let index = 0; index < this.homeData.attributes.OurClientImages.length; index++) {     
       if (this.homeData.attributes.OurClientImages[index].Order % 5 === 0) {
-      //  console.log("index",index,this.homeData.attributes.OurClientImages,this.homeData.attributes.OurClientImages[index].Order);
         items.push(this.homeData.attributes.OurClientImages[index]);
         temp.push(items);
         items = [];
@@ -278,11 +244,9 @@ public onClose() {
       }
     }
     this.clientImages = temp;
-   // console.log("this.clientImages",this.clientImages);
   }
 
   clickedMarker(label: string, index: number) {
-    // console.log(`clicked the marker: ${label || index}`);
   }
 
   mapClicked($event: any) {
@@ -294,7 +258,6 @@ public onClose() {
   }
 
   public makeMenuActive(menuItem?: any) {
-    console.log("plp", menuItem);
     if (menuItem) {
       
       this.commonService.activeMenuName = menuItem?.attributes?.Parameter?.type;  
@@ -306,7 +269,6 @@ public onClose() {
   }
 
   markerDragEnd(m: marker | undefined, $event: any) {
-    // console.log('dragEnd', m, $event);
   }
 
   markers: marker[] = [

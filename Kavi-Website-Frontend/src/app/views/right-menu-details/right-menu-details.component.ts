@@ -4,7 +4,6 @@ import { RightMenuService } from '../right-menu/right-menu.service';
 import { cloneDeep, sortBy } from 'lodash';
 import { CommonService } from 'src/app/services/common.service';
 import { Subscription } from 'rxjs';
-//import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CustomPipePipe } from 'src/app/custom-pipe.pipe';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
@@ -101,7 +100,6 @@ export class RightMenuDetailsComponent implements OnInit {
     }
   }
   public loadPageData() {   
-//    console.log("this.commonService.activeMenuName",this.commonService.activeMenuName);
       this.pageType = cloneDeep(this.activatedRoute.snapshot.paramMap.get('pageType'));
       this.pageDetailsName = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id'));
       this.clearForm(this.demoSection);
@@ -126,11 +124,9 @@ export class RightMenuDetailsComponent implements OnInit {
         else if(this.pageType == "pages"){
           let activeMenuAttributes;
           this.commonService.menuData[0]?.LeftMenu.forEach((items:any,index:number) =>{ 
-            // items.forEach((item:any,index:number) =>{ 
               if(items.attributes.Slug == this.pageDetailsName){
                 activeMenuAttributes = items;
               }
-            // }) 
           });
           this.commonService.menuData[2]?.IndustryMenu.forEach((items:any,index:number) =>{ 
             items.forEach((item:any,index:number) =>{ 
@@ -160,14 +156,11 @@ export class RightMenuDetailsComponent implements OnInit {
         }
         this.commonService.activeMenuName = cloneDeep(this.pageType);
         this.isDataLoaded = false;
-    //    console.log("hi from Offerings",this.pageType,this.pageDetailsName);   
         setTimeout(() => { 
           this.pageData = [];          
           this.pageFullContent = '';
           this.authors = [];
           this.recommendationMetaData = [];
-//          console.log(this.pageType,this.pageDetailsName,this.commonService.activeMenuName);
-
           if (this.pageDetailsName && this.pageType != 'people' && this.pageType != 'tag') {
             this.getDetailsData();
           }
@@ -187,19 +180,10 @@ export class RightMenuDetailsComponent implements OnInit {
           this.commonService.pageScrollToTop();
         }, 50);
       }
-      else {
-        // this.router.navigate(['']);
-      }
       
 
   }
   public getUserInfo(){
-/*    const modalRef = this.modalService.open('', {
-      size: 'xl',
-      centered: true,
-      windowClass: 'dark-modal'
-    }); 
-    modalRef.componentInstance.title = ' title:';*/  
   }
 
   open(content:any,fileUrl:any,fileName:any,fileExtention:any,formName:any) {
@@ -212,13 +196,11 @@ export class RightMenuDetailsComponent implements OnInit {
         this.getDismissReason(reason)
       }`;     
         if(this.validateStatus && fileUrl.length > 0){  
-   //       this.emailFormName = 'Download File';     
           this.downloadFile(fileUrl,fileName,fileExtention,this.emailFormName);
         }
     });
   }
   public sendDemoRequest(){
-//    console.log("demoSection",this.demoSection,this.emailFormName);
     if(!this.demoSection.value.firstName || !this.demoSection.value.lastName || !this.demoSection.value.email){
       //error display
       this.validateStatus = false;
@@ -236,7 +218,6 @@ export class RightMenuDetailsComponent implements OnInit {
 
   sendContactDetailsToDb(contactDetails:any){
     this.rightMenuService.sendContactDetailsToDb(contactDetails).then((response: any) => {
-    //      console.log("hhhhhh",contactForm,response);
     });
   }
 
@@ -276,8 +257,6 @@ export class RightMenuDetailsComponent implements OnInit {
       }
     };
     let emailClient = new EmailClient(appConfig.EMAIL_CONNECTION_STRING);
-    // let emailContent = new HtmlEmal
-     console.log("message",message);
      emailClient.beginSend(message); 
      let contactDetails = {
         "emailid": this.demoSection.value.email,
@@ -292,7 +271,6 @@ export class RightMenuDetailsComponent implements OnInit {
      
  }
  public clearForm(formName:any){
-//  console.log("jjjj",formName);
   formName.value.firstName ='';
   formName.value.lastName ='';
   formName.value.email ='';
@@ -315,7 +293,6 @@ export class RightMenuDetailsComponent implements OnInit {
   }
 
   public downloadFile(fileUrl:any,fileName:any,fileExtention:any,formName:any){   
-//    this.getUserInfo();
     var req = new XMLHttpRequest();
             req.open("GET", fileUrl, true);
             req.responseType = "blob";
@@ -400,7 +377,6 @@ export class RightMenuDetailsComponent implements OnInit {
          
         if(peopleViewerResp.data.attributes.PodcastContribution){
           let menuName = peopleViewerResp.data.attributes.PodcastContribution.Label.toLowerCase();           
-   //       this.rightMenuService.getAuthorsPost(this.pageDetailsName,menuName).then((response: any) => { 
           this.rightMenuService.getAuthorsPodcast(this.pageDetailsName,menuName).then((response: any) => {  
             let dataObj:any=[];      
             if (response.data && response.data.length > 0) {
@@ -418,30 +394,8 @@ export class RightMenuDetailsComponent implements OnInit {
           
         }
     }    
-
-
     });
      
-  /*  let menu=[
-      'blogs', 'newslist','success-stories','podcasts','publications','presentations'
-    ]
-    let post:any=[];
-    menu.forEach((item: any, index: number) => {       
-  //    this.rightMenuService.getAuthorsPost(this.pageDetailsName,this.commonService.activeMenuName).then((response: any) => {
-      this.rightMenuService.getAuthorsPost(this.pageDetailsName,item).then((response: any) => {        
-        if (response.data && response.data.length > 0) {  
-  //        console.log("2222",item,response.data); 
-          let obj=[{            
-            [item]:response.data
-          } ]  
-          post.push(obj);              
-          }      
-
-        });
-        
-        
-    });   
-    this.authorPost = post;*/
     this.rightMenuService.getPeople(this.pageDetailsName).then((response: any) => {
       if (response.data && response.data.length > 0) {
         this.pageData = response.data[0].attributes;
@@ -490,7 +444,6 @@ export class RightMenuDetailsComponent implements OnInit {
           } 
           response.data[0].attributes.menuType = item;
           response.data[0].attributes.relatedMeta = relatedMeta;
-//                this.searchTag = true;
           menuTaglist[item] = (response.data);
         }
       })
@@ -500,11 +453,8 @@ export class RightMenuDetailsComponent implements OnInit {
   get partnerKeys(){
     this.partnerValues = Array.from(this.pageData[0].values());
     return Array.from(this.pageData[0].keys());
-   // console.log("hhhhh",this.data1[0]);
   }
   getDetailsData() { 
-//    console.log("ffff",this.pageType,this.commonService.activeMenuData?.attributes?.Slug,this.commonService.activeMenuName,this.commonService.activeMenuData?.attributes?.Viewer);
-//  if(this.commonService.activeMenuData?.attributes?.Viewer && (this.commonService.activeMenuData?.attributes?.Slug == this.commonService.activeMenuName))
     let filter :any=[];
     if(this.commonService.activeMenuName == "pages" && this.commonService.activeMenuData?.attributes?.Viewer){
         filter = this.commonService.activeMenuData?.attributes?.Parameter?.parameter?.filter;
@@ -548,7 +498,6 @@ export class RightMenuDetailsComponent implements OnInit {
           tagName = pageData.attributes.Tags.data ; 
           if (tagName) {           
             this.getRecommendations(tagName,response.data[0].attributes?.Slug);
-//            this.getRecommendationsByTag(tagName);
           }
         }
         if(this.pageType == 'podcasts'){         
@@ -564,10 +513,8 @@ export class RightMenuDetailsComponent implements OnInit {
           if(element != null){
             element.classList.add('our_page');
           }
-//          console.log("this.pageData",this.pageData);
         }
         if(this.pageType == 'partners'){
- //         this.pageData = response.data;  
           var partner_sort = sortBy(response.data, ["id"]); 
           let partner_group = this.groupBy(partner_sort, (item:any) => item?.attributes?.Type);
           this.pageData = [];
@@ -588,65 +535,9 @@ export class RightMenuDetailsComponent implements OnInit {
          } 
       }
       this.getMetaDataForListViewer();
-      // if(this.pageType != 'partners' && this.pageType != 'clients'){
-      //   this.getTagList();
-      // }
       this.isDataLoaded = true;
     });
-    // if(this.pageType == "pages"){
-    //   this.getRelatedDataByTag(this.pageDetailsName);
-    // }
   }
-//   getTagList(){
-//     let tags: any = [];
-//     this.rightPageData = [];
-//     // this.getMetaDataForListViewer();
-//     this.rightMenuService.getTagList().then((response: any) => {          //          
-//       let responseLength = response.data.length;
-// //      console.log("aaaaa",response);
-// //      let dimension_tag = this.groupBy(response.data, (item:any) => item?.attributes?.Name);      
-//       let dimension_tag = this.groupBy(response.data, (item:any) => item?.attributes?.tag_dimension?.data?.attributes?.DisplayName);
-//       this.rightPageData.push(dimension_tag);
-// //      this.rightPageData.push(dimension_tag);
-// //      console.log("sssss",dimension_tag);
-//       if (response.data) {  
-//         let i=0; 
-//         let previous_dimension = '';
-//         let current_dimension = '';
-//         let tag_list:any=[];
-//         for(let item of response.data) {
-// //                  console.log("ii",item);
-// //                    console.log(i,"ii",item.attributes.tag_dimension.data.attributes.DisplayName);
-//             current_dimension = item?.attributes?.tag_dimension?.data?.attributes?.DisplayName;
-//             if(i==0){
-//               previous_dimension = item?.attributes?.tag_dimension?.data?.attributes?.DisplayName;
-// //                      console.log("ii",item.attributes.tag_dimension.data.attributes.DisplayName);
-//               tag_list.push({name:item?.attributes?.DisplayName,slug:item?.attributes?.Slug})              
-//             }
-//             if(i > 0){
-//               if(current_dimension == previous_dimension){
-// //                        console.log("ij",item.attributes.DisplayName);
-//                 previous_dimension = item?.attributes?.tag_dimension?.data?.attributes?.DisplayName;
-// //                               console.log("xxxx",tag_list.length,this.listMetaData.TagMaxCount);
-//   //              if(tag_list.length < this.listMetaData.TagMaxCount)
-//                 tag_list.push({name:item?.attributes?.DisplayName,slug:item?.attributes?.Slug})
-//               }
-//               if(current_dimension != previous_dimension){ 
-//                 if(tag_list.length != 0)                      
-//                   tags.push({dimension:current_dimension,tag:tag_list})
-//                 tag_list=[];
-//                 previous_dimension = current_dimension;
-//               }
-//               if(i == responseLength-1){
-//                 tags.push({dimension:current_dimension,tag:tag_list})     
-//                 this.isPageLoaded = true;                  
-//               }
-//             }                    
-//           i++;
-//         }           
-//       }      
-//     });
-//   }
   public groupBy(list:any, keyGetter:any) {
     const map = new Map();
     let keyProperties :any [];
@@ -666,7 +557,6 @@ export class RightMenuDetailsComponent implements OnInit {
   getMetaDataForListViewer(){    
     this.rightMenuService.getMetaDataForListViewer().then((response: any) => { 
       this.listMetaData = response.data.attributes;
-//      console.log(" this.listMetaData", this.listMetaData);
     });
   }
   getViewer(viewerName:any) {
@@ -680,31 +570,14 @@ export class RightMenuDetailsComponent implements OnInit {
         }
       });
     }
-//    console.log("this.viewerData",this.viewerData)   
   }
   getRecommendations(tagName: any,menuSlug:any) {
     this.recommendationData = [];
     this.rightMenuService.getRecommendationsByTag(this.pageType, tagName,menuSlug).then((response: any) => {
-//      console.log("response1",response);
       if (response.data && response.data.length > 0) {
-        // this.recommendationData.push(response.data);     
        this.recommendationData=response.data;
       }      
     });  
     this.recommendationMetaData =this.viewerData.Recommendations;
   }
-  /*
-  getRecommendationsByTag(tagName: any) {
-    this.rightMenuService.getBlogViewer().then((viewerResp: any) => {
-      if (viewerResp && viewerResp.data && viewerResp.data.attributes && viewerResp.data.attributes.Recommendation) {
-        // 'data science'
-        this.recommendationMetaData = cloneDeep(viewerResp.data.attributes);        
-        this.rightMenuService.getRecommendationsByTag(this.pageType, tagName,'menuSlug').then((response: any) => {
-          if (response.data && response.data.length > 0) {
-            this.recommendationData = response.data;
-          }
-        });
-      }
-    });
-  }*/
 }
