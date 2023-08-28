@@ -399,6 +399,7 @@ export class RightMenuDetailsComponent implements OnInit {
     this.rightMenuService.getPeople(this.pageDetailsName).then((response: any) => {
       if (response.data && response.data.length > 0) {
         this.pageData = response.data[0].attributes;
+        this.pageData.Title = (this.pageData.Title).replace( /(<([^>]+)>)/ig, '');
         this.pageFullContent = response.data[0].attributes?.FullContent;        
       }      
       this.isPeople = true;
