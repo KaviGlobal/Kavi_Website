@@ -27,5 +27,8 @@ module.exports = ({ env }) => ({
           tracing: false,
         },
       },
+    },
+    seo: {
+      enabled: true,
     }
   });
