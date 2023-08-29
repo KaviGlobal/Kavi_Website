@@ -28,6 +28,7 @@ import { MAT_RIPPLE_GLOBAL_OPTIONS } from '@angular/material/core';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MAT_SELECT_CONFIG } from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {MatTableModule} from '@angular/material/table';
     RightMenuDetailsComponent,
     CustomPipePipe,
     DetailViewerRightPaneComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     MatTableModule,

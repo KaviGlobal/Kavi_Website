@@ -107,19 +107,33 @@ export class RightMenuDetailsComponent implements OnInit {
       this.imageUrl = environment.apiDetails.apiImgUrl;      
       if (this.pageType && this.pageDetailsName && !this.pageType.includes("SearchTag")) {
         if(this.pageType != "pages"){
-          let menuItemAttributes = this.commonService.menuData[1].RightMenu.filter((element: any) => (element.attributes.Parameter.type == this.pageType));
-          if(menuItemAttributes[0]){
-            this.commonService.activeMenuData = menuItemAttributes[0];
-          }
-          if(this.pageType == "clients"){
-            this.isClient = true;
-            this.isPartner = false;
-            this.imageUrl = this.imageUrl+'Our_Clients_c3172330e9.png';
-          } else if(this.pageType == "partners"){
-            this.isClient = false;
-            this.isPartner = true;
-            this.imageUrl = this.imageUrl+'Our_Partner_b53404e808.png';
-          }
+          var j = 0;
+          this.commonService.menuData[1]?.RightMenu.forEach((items:any,index:number) =>{ 
+          
+            if(this.pageType == items.attributes?.Parameter?.type){
+              j++;
+            }
+            if(index == this.commonService.menuData[1]?.RightMenu.length-1){
+              if(j == 1 || this.pageType == "clients" || this.pageType == "partners" || this.pageType == "people"){
+                let menuItemAttributes = this.commonService.menuData[1].RightMenu.filter((element: any) => (element.attributes.Parameter.type == this.pageType));
+                if(menuItemAttributes[0]){
+                  this.commonService.activeMenuData = menuItemAttributes[0];
+                }
+                if(this.pageType == "clients"){
+                  this.isClient = true;
+                  this.isPartner = false;
+                  this.imageUrl = this.imageUrl+'Our_Clients_c3172330e9.png';
+                } else if(this.pageType == "partners"){
+                  this.isClient = false;
+                  this.isPartner = true;
+                  this.imageUrl = this.imageUrl+'Our_Partner_b53404e808.png';
+                }
+              } else {
+                this.router.navigate(['/404']);
+              }
+            }
+
+          });
         }
         else if(this.pageType == "pages"){
           let activeMenuAttributes;

@@ -180,14 +180,30 @@ export class RightMenuComponent implements OnInit  {
       });     
     
     }
-    else{       
-      this.getMenuItem = this.commonService.getMenuItem.subscribe((menuItem: any) => {   
-        this.loadPageData('');
+    else{
+      var j = 0;
+      this.commonService.menuData[1]?.RightMenu.forEach((items:any,index:number) =>{ 
+       
+        if(this.pageDetailsName == items.attributes?.Parameter?.type){
+          j++;
+        }
+        
+        if(index == this.commonService.menuData[1]?.RightMenu.length-1){
+          if(j == 1 || this.pageDetailsName == 'ContactUs'){
+            this.getMenuItem = this.commonService.getMenuItem.subscribe((menuItem: any) => {
+              this.loadPageData('');
+            });
+    
+            this.routeChangeSubscription = this.commonService.routeChangeSubscription.subscribe((menuItem: any) => {
+              this.loadPageData('');
+            });
+          } else {
+            this.router.navigate(['/404']);
+          }
+        }
+
       });
-   
-      this.routeChangeSubscription = this.commonService.routeChangeSubscription.subscribe((menuItem: any) => {
-        this.loadPageData('');
-      });    
+        
     }
   }
   ngOnDestroy(): void {
