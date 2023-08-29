@@ -11,6 +11,8 @@ import { cloneDeep } from 'lodash';
 export class RightMenuDetailsCardComponent implements OnInit {
   @Input() title: any;
   @Input() authorDetails: any;
+  @Input() slug: any;
+  @Input() route: any;
   @Input() cardImage: any;
   @Input() cardContent:any;
   @Input() tags:any;

@@ -289,6 +289,11 @@
         color:#000000;
     }
 }
+.author_img{
+    a, img{
+        cursor: pointer;
+    }
+}
 .image_card {
     .image_box {
     padding: 0px 15px 25px;

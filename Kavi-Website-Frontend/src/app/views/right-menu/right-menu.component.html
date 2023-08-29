@@ -191,6 +191,8 @@
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <app-right-menu-details-card 
+                                                [route] = "routePath"
+                                                [slug]="item?.attributes?.Slug"
                                                 [cardImage]="item?.attributes?.Thumbnail?.Media?.data?.attributes.url"
                                             ></app-right-menu-details-card>
                                         </div>
@@ -198,7 +200,8 @@
                                             <app-right-menu-details-card 
                                             [title]="item?.attributes?.Title"
                                             [authorDetails]="item?.attributes?.Authors?.data"                            
-                                            [date]="item?.attributes?.PublishedOn">
+                                            [date]="item?.attributes?.PublishedOn"
+                                            >
                                             </app-right-menu-details-card>
                                             <div class="tag_block" *ngIf="item?.attributes?.Tags?.data">
                                                 <div class="tab" *ngFor="let tag of item?.attributes?.Tags?.data;  let i=index ">                                

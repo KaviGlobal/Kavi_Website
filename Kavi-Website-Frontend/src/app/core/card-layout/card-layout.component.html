@@ -40,7 +40,8 @@
     <div class="news-card-container recommendation_block" [ngClass]="{'recommendation-card-wrapper': type == 'recommendation-card-layout'}">
         <div class="news-image-wrapper" *ngIf="image">
             <div class="news-image-container">
-                <img src="{{image}}" alt="image" />
+                <a routerLink="{{'/' + moduleName + '/'+ slug}}" *ngIf="moduleName"><img src="{{image}}" alt="image" /></a>
+                <a href="javascript:void(0)" *ngIf="!moduleName"><img src="{{image}}" alt="image" /></a>
             </div>
         </div>
         <div class="new-content read_more_block">

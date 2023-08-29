@@ -9,7 +9,7 @@
         {{ date | date:'MMMM d, yyyy' }}
     </h5>
     </div>
-    <img *ngIf="cardImage" src={{cardImage}} alt="image" />    
+    <a *ngIf="cardImage && slug" routerLink="{{'/'+ route + '/'+ slug}}"><img *ngIf="cardImage" src={{cardImage}} alt="image" /></a>
     <p *ngIf="cardContent">{{cardContent}}</p>
 </div>
 

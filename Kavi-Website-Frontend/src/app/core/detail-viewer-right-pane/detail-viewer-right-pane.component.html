@@ -196,9 +196,9 @@
             <div class="card">
                 <div class="user text-center">  
                     <div>
-                        <div *ngIf="author?.attributes?.Thumbnail?.Media?.data?.attributes?.url">                          
-                                <img src="{{author.attributes.Thumbnail.Media.data.attributes.url}}" alt={{author.attributes.Thumbnail.Alt}} title={{author.attributes.DisplayName}}>
-                            <a>   {{author.attributes.DisplayName}}</a>
+                        <div *ngIf="author?.attributes?.Thumbnail?.Media?.data?.attributes?.url" class="author_img">                          
+                                <img src="{{author.attributes.Thumbnail.Media.data.attributes.url}}" alt={{author.attributes.Thumbnail.Alt}} title={{author.attributes.DisplayName}} (click) = "searchAuthor(author.attributes.Slug)">
+                                <a *ngIf="author.attributes.Slug" (click) = "searchAuthor(author.attributes.Slug)">{{author.attributes.DisplayName}}</a>
                         </div>
                         <div class="social-wrapper" *ngIf="author.attributes.SocialMedia.length >= 1">  
                             <a *ngIf="author?.attributes?.Email" href="mailto:{{author.attributes.Email}}"><i class="fas fa-envelope mr-2"></i></a>

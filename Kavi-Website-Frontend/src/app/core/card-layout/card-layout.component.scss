@@ -87,6 +87,7 @@ a {
 
 .client_block{
   &.leadership_team{
+    cursor: pointer;
     .news-card-container { 
       .news-image-wrapper {
         width:100%;
