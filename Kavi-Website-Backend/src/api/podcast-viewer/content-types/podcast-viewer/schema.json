@@ -1,0 +1,43 @@
+{
+  "kind": "singleType",
+  "collectionName": "podcast_viewers",
+  "info": {
+    "singularName": "podcast-viewer",
+    "pluralName": "podcast-viewers",
+    "displayName": "PodcastViewer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "CoverImage": {
+      "type": "string"
+    },
+    "FullContent": {
+      "type": "string"
+    },
+    "Recommendations": {
+      "type": "component",
+      "repeatable": false,
+      "component": "posts.recommendation"
+    },
+    "PodcastPlatform": {
+      "type": "component",
+      "repeatable": false,
+      "component": "posts.podcast-platform"
+    },
+    "ReleasedDate": {
+      "type": "string"
+    },
+    "ExternalLink": {
+      "type": "string"
+    },
+    "Tags": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_custom_footers",
+  "info": {
+    "displayName": "Footer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Slug": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "PreviewContent": {
+      "type": "string"
+    }
+  }
+}

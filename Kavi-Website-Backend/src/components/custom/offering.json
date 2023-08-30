@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_custom_offerings",
+  "info": {
+    "displayName": "Offering",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Label": {
+      "type": "string"
+    },
+    "Media": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
+    },
+    "PreviewContent": {
+      "type": "text"
+    }
+  }
+}

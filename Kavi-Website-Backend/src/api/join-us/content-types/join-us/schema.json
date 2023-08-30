@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "join_uses",
+  "info": {
+    "singularName": "join-us",
+    "pluralName": "join-uses",
+    "displayName": "JoinUs"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FullContent": {
+      "type": "richtext"
+    },
+    "Media": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.image"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_custom_content_links",
+  "info": {
+    "displayName": "ContentLink"
+  },
+  "options": {},
+  "attributes": {
+    "Type": {
+      "type": "string"
+    },
+    "Url": {
+      "type": "string"
+    }
+  }
+}

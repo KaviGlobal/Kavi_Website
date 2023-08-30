@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "publications",
+  "info": {
+    "singularName": "publication",
+    "pluralName": "publications",
+    "displayName": "Publication",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "PreviewContent": {
+      "type": "richtext"
+    },
+    "Thumbnail": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
+    },
+    "FullContent": {
+      "type": "richtext"
+    },
+    "CoverImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
+    },
+    "Media": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.image"
+    },
+    "ExternalLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.content-link"
+    },
+    "isDownloadable": {
+      "type": "boolean"
+    },
+    "PublishedOn": {
+      "type": "date"
+    },
+    "Publisher": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::publisher.publisher"
+    },
+    "Tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    },
+    "Authors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::person.person"
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}

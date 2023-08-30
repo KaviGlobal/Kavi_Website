@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_item_items",
+  "info": {
+    "displayName": "Card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "LinkLabel": {
+      "type": "string"
+    },
+    "OfferingMedia": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
+    },
+    "PreviewText": {
+      "type": "richtext"
+    }
+  }
+}

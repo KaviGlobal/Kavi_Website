@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "presentations",
+  "info": {
+    "singularName": "presentation",
+    "pluralName": "presentations",
+    "displayName": "Presentation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "PreviewContent": {
+      "type": "richtext"
+    },
+    "Thumbnail": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
+    },
+    "FullContent": {
+      "type": "richtext"
+    },
+    "CoverImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.image"
+    },
+    "Media": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.image"
+    },
+    "PresentedOn": {
+      "type": "date"
+    },
+    "Conference": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::conference.conference"
+    },
+    "ExternalLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "custom.content-link"
+    },
+    "Tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    },
+    "Authors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::person.person"
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}

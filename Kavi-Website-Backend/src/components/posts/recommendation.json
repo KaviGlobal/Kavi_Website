@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_custom_recommendations",
+  "info": {
+    "displayName": "Recommendation",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "MaxCount": {
+      "type": "integer"
+    },
+    "List": {
+      "type": "component",
+      "repeatable": false,
+      "component": "posts.post-list"
+    },
+    "TypeFilter": {
+      "type": "enumeration",
+      "enum": [
+        "blogs",
+        "newslist",
+        "success-stories",
+        "presentations",
+        "publications",
+        "podcasts"
+      ]
+    }
+  }
+}
