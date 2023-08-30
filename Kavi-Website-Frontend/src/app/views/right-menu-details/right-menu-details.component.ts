@@ -471,7 +471,7 @@ export class RightMenuDetailsComponent implements OnInit {
   }
   getDetailsData() { 
     let filter :any=[];
-    if(this.commonService.activeMenuName == "pages" && this.commonService.activeMenuData?.attributes?.Viewer){
+    if(this.commonService.activeMenuData?.attributes?.Viewer){ //this.commonService.activeMenuName == "pages" && 
         filter = this.commonService.activeMenuData?.attributes?.Parameter?.parameter?.filter;
         this.getViewer(this.commonService.activeMenuData?.attributes?.Viewer);
       }    
@@ -580,6 +580,7 @@ export class RightMenuDetailsComponent implements OnInit {
       this.rightMenuService.getViewer(viewerName).then((viewerResp: any) => {
         this.viewerData = viewerResp.data.attributes;
         this.rightPageRelatedData = [];
+        
         if(this.pageType == "pages"){
           this.getRelatedDataByTag(this.pageDetailsName, this.viewerData);
         }

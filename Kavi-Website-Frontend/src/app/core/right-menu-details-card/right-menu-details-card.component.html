@@ -10,6 +10,9 @@
     </h5>
     </div>
     <a *ngIf="cardImage && slug" routerLink="{{'/'+ route + '/'+ slug}}"><img *ngIf="cardImage" src={{cardImage}} alt="image" /></a>
-    <p *ngIf="cardContent">{{cardContent}}</p>
+    <div class="descript_block">
+        <div class="tool_descript" *ngIf="cardContent">{{cardContent}}</div>
+        <p *ngIf="cardContent">{{cardContent}}</p>
+    </div>
 </div>
 

@@ -148,7 +148,7 @@ export class RightMenuComponent implements OnInit  {
     }
     else if (this.pageDetailsName == 'people'){
       this.router.navigate(['/leadership-team']).then(() => {
-        window.location.reload();;
+        window.location.reload();
       })
     }
     else if (this.pageDetailsName == 'JoinUs'){
@@ -591,7 +591,7 @@ callTag(searchText:any, activemenu :any){
       } 
       else if (this.routePath == 'blogs' || this.routePath == 'newslist' ||
       this.routePath == 'success-stories' || this.routePath == 'podcasts'
-      || this.routePath == 'publications' || this.routePath == 'presentations'){        
+      || this.routePath == 'publications' || this.routePath == 'presentations'){
         this.rightPageData = [];  
         let menu =  this.commonService.menuData[1].RightMenu;
         this.rightMenuService.getMetaDataForListViewer().then((response: any) => { 

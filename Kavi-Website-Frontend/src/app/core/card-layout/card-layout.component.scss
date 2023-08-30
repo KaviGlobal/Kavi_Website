@@ -230,3 +230,24 @@ a {
     visibility: visible;
   }
 }
+.descript_block {
+  position: relative;
+}
+.tool_descript {
+  display: none;
+  width: 350px;
+  background-color: #0c2939;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 15px;
+}
+.descript_block:hover .tool_descript {
+  display: block;
+}
