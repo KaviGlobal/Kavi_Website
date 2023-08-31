@@ -14,6 +14,7 @@ import appConfig from '../../../assets/config/appconfig.json';
 import { EmailClient} from '@azure/communication-email';
 import { environment } from 'src/environments/environment.prod';
 import { Meta } from '@angular/platform-browser';
+import { HomeService } from '../home/home.service';
 @Component({
   selector: 'app-right-menu-details',
   templateUrl: './right-menu-details.component.html',
@@ -31,6 +32,7 @@ export class RightMenuDetailsComponent implements OnInit {
   public emailvalue: any = "";
   public messagevalue: any = "";
   public phonevalue: any = ""
+  public subjectvalue: any = "1";
   public viewerData:any=[];
   public pageData: any = [];  
   public pageFullContent: any;
@@ -67,6 +69,7 @@ export class RightMenuDetailsComponent implements OnInit {
     lastName: new FormControl(''),
     phone: new FormControl(''),
     email: new FormControl(''),
+    subjectId:new FormControl(''),
     message:new FormControl('')
   });
   constructor(
@@ -77,6 +80,7 @@ export class RightMenuDetailsComponent implements OnInit {
     private rightMenuService: RightMenuService,
     public modalService: NgbModal,
     private sanitizer: DomSanitizer,
+    private homeService: HomeService,
     @Inject(DOCUMENT) private document: Document
   ) {this.modalOptions = {
     backdrop:'static',
@@ -88,6 +92,7 @@ export class RightMenuDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadPageData();
+    this.contactcatagory();
     this.routerEventSubscription = this.router.events.subscribe((evt: any) => {
       if ((evt instanceof NavigationEnd)) {
         this.loadPageData();
@@ -98,6 +103,15 @@ export class RightMenuDetailsComponent implements OnInit {
     if (this.routerEventSubscription) {
       this.routerEventSubscription.unsubscribe();
     }
+  }
+  contactcatagory() {
+    this.homeService.getContactSubject().then((response: any) => {
+      
+      if (response && response.length > 0) {
+        this.commonService.contactsubject = cloneDeep(response);
+      }       
+  
+    });
   }
   public loadPageData() {   
       this.pageType = cloneDeep(this.activatedRoute.snapshot.paramMap.get('pageType'));
@@ -240,6 +254,12 @@ export class RightMenuDetailsComponent implements OnInit {
   let htmlContent = "";
   let pageName="";
   let pageType="";
+  let tomail=appConfig.CONTACT_FORM_RECIPIENT_ADDRESS;
+  if(contactForm.value.subjectId == '1'){
+    tomail = appConfig.CONTACT_FORM_RECIPIENT_ADDRESS_CAREERS;
+  } else {
+    tomail = appConfig.CONTACT_FORM_RECIPIENT_ADDRESS;
+  }
   if(this.pageType != 'pages')
     pageType =  "Page Type:"+ this.pageType.charAt(0).toUpperCase() + this.pageType.slice(1);;
   if(contactForm.value.message)
@@ -264,7 +284,7 @@ export class RightMenuDetailsComponent implements OnInit {
       recipients: {
         to: [
           {
-            address: appConfig.CONTACT_FORM_RECIPIENT_ADDRESS,
+            address: tomail,
             displayName: "Customer Name",
           },
         ],
@@ -279,6 +299,7 @@ export class RightMenuDetailsComponent implements OnInit {
         "phone": this.demoSection.value.phone,
         "message": this.demoSection.value.message,
         "category": this.pageType || this.emailFormName,
+        "subjectId": this.demoSection.value.subjectId,
         "page":this.pageDetailsName,
       }
     this.sendContactDetailsToDb(contactDetails);

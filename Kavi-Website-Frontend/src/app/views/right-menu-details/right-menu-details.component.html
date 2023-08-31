@@ -41,7 +41,9 @@
                             <input class="formStyles" type="text" placeholder = "Last Name *"  formControlName="lastName">
                          
                             <input class="formStyles" type="text" placeholder = "Email *" formControlName="email">
-                          
+                            <select class="formStyles" formControlName="subjectId" [(ngModel)]='subjectvalue'>
+                                <option *ngFor="let item of this.commonService.contactsubject" value="{{item.id}}">{{item.displayValue}}</option>
+                            </select>
                             <input class="formStyles" type="number" placeholder = "Phone" formControlName="phone">
                         
                             <textarea class="formStyles" style="width:82%; height:100px" formControlName="message" placeholder="Message.." cols="45" rows="8" aria-required="true"></textarea>

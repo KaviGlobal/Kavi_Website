@@ -39,6 +39,7 @@ export class HomeComponent implements OnInit {
   public emailvalue: any = "";
   public messagevalue: any = "";
   public phonevalue: any = ""
+  public subjectvalue: any = "1";
   public emailFormName :any;
   public modalOptions:NgbModalOptions;
   public closeResult: string = '';
@@ -48,6 +49,7 @@ export class HomeComponent implements OnInit {
     lastName: new FormControl(''),
     phone: new FormControl(''),
     email: new FormControl(''),
+    subjectId: new FormControl(''),
     message:new FormControl('')
   });
   constructor(
@@ -71,6 +73,7 @@ export class HomeComponent implements OnInit {
     this.commonService.activeMenuName = cloneDeep(routeConfig.path);
     this.getHomePageData();
     this.commonService.pageScrollToTop();
+    this.contactcatagory();
   }
 
   ngOnDestroy(): void {
@@ -114,7 +117,6 @@ export class HomeComponent implements OnInit {
   }
 
  public sendDemoRequest(){
-  console.log("demoSection",this.demoSection);
   if(!this.demoSection.value.firstName || !this.demoSection.value.lastName || !this.demoSection.value.email){
     //error display
     this.validateStatus = false;
@@ -142,6 +144,16 @@ export class HomeComponent implements OnInit {
     return  `with: ${reason}`;
   }
 }
+contactcatagory() {
+  this.homeService.getContactSubject().then((response: any) => {
+    
+    if (response && response.length > 0) {
+      this.commonService.contactsubject = cloneDeep(response);
+    }       
+
+  });
+}
+
  open(content:any,fileUrl:any,fileName:any,fileExtention:any,formName:any) {
   this.emailFormName = formName;
   this.modalService.open(content, this.modalOptions).result.then((result) => {
@@ -171,6 +183,12 @@ public onClose() {
   }
  sendEmail(contactForm:any){ 
   let contactMessage = "";
+  let tomail=appConfig.CONTACT_FORM_RECIPIENT_ADDRESS;
+  if(contactForm.value.subjectId == '1'){
+    tomail = appConfig.CONTACT_FORM_RECIPIENT_ADDRESS_CAREERS;
+  } else {
+    tomail = appConfig.CONTACT_FORM_RECIPIENT_ADDRESS;
+  }
   if(contactForm.value.message)
     contactMessage = "Message:"+contactForm.value.message;
     let message = {    
@@ -182,7 +200,7 @@ public onClose() {
       recipients: {
         to: [
           {
-            address: appConfig.CONTACT_FORM_RECIPIENT_ADDRESS,
+            address: tomail,
             displayName: "Customer Name",
           },
         ],
@@ -198,6 +216,7 @@ public onClose() {
         "company": "",
         "phone": contactForm.value.phone,
         "message": contactForm.value.message,
+        "subjectId": contactForm.value.subjectId,
         "category" : '',
         "page":'HomePage'
       }

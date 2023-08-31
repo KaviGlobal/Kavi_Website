@@ -25,4 +25,18 @@ export class HomeService {
       })
     });
   }
+
+  public getContactSubject(): any {
+    return new Promise<any>((resolve, reject) => {
+      const endpoint =  appConfig.CONTACT_Subject;
+      this.apicallService.apiCustomCall('', endpoint, 'get', '', '').then((resp: any) => {
+        if (resp) {
+          resolve(resp);
+        }
+        else {
+          resolve(false);
+        }
+      })
+    });
+  }
 }

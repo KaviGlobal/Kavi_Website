@@ -887,5 +887,12 @@ agm-map {
       transform: translate3d(0,0,0) !important;
   }
 }
+@media (min-width: 992px)
+{
+  .col-lg-20 {
+    max-width: 20%;
+    flex: 20%;
+  }
+}
 
 
