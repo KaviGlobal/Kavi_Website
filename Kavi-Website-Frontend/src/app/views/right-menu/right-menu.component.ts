@@ -18,6 +18,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { animate, state, style, transition, trigger} from '@angular/animations';
 import { environment } from 'src/environments/environment';
+import { HomeService } from '../home/home.service';
 interface Country {
   name: string;
   flag: string;
@@ -86,6 +87,7 @@ export class RightMenuComponent implements OnInit  {
   public emailvalue: any = "";
   public messagevalue: any = "";
   public phonevalue: any = ""
+  public subjectvalue: any = "1";
   public validateStatus: boolean = false;
   public emailFormName :any;
   public modalOptions:NgbModalOptions;
@@ -97,6 +99,7 @@ export class RightMenuComponent implements OnInit  {
     lastName: new FormControl(''),
     phone: new FormControl(''),
     email: new FormControl(''),
+    subjectId:new FormControl(''),
     message:new FormControl('')
   });
   public masterTagList: any = [];
@@ -108,6 +111,7 @@ export class RightMenuComponent implements OnInit  {
     private sanitizer: DomSanitizer,
     public modalService: NgbModal,
     private _location: Location,    
+    private homeService: HomeService,
     @Inject(DOCUMENT) private document: Document
   ) {this.modalOptions = {
     backdrop:'static',
@@ -118,6 +122,7 @@ export class RightMenuComponent implements OnInit  {
   } }
  
   ngOnInit(): void {
+    this.contactcatagory();
     this.imageUrl = environment.apiDetails.apiImgUrl;
     this.pageType = cloneDeep(this.activatedRoute.snapshot.paramMap.get('pageType'));
     this.pageDetailsName = cloneDeep(this.activatedRoute.snapshot.paramMap.get('id')); 
@@ -233,6 +238,12 @@ public getCareerList(){
 }
 sendEmail(contactForm:any,htmlContent:any){ 
 let message:any={};
+let tomail=appConfig.CONTACT_FORM_RECIPIENT_ADDRESS;
+if(contactForm.value.subjectId == '1'){
+  tomail = appConfig.CONTACT_FORM_RECIPIENT_ADDRESS_CAREERS;
+} else {
+  tomail = appConfig.CONTACT_FORM_RECIPIENT_ADDRESS;
+}
 if(htmlContent.length != 0){ 
   message = {    
     senderAddress: appConfig.EMAIL_SENDER_ADDRESS,
@@ -243,7 +254,7 @@ if(htmlContent.length != 0){
     recipients: {
       to: [
         {
-          address: appConfig.CONTACT_FORM_RECIPIENT_ADDRESS,
+          address: tomail,
           displayName: "Naomi Kaduwela",
         },
       ],
@@ -399,6 +410,7 @@ callTag(searchText:any, activemenu :any){
                             this.formData.forEach((item: any) => {
                             this.contactForm.addControl(item.Label,new FormControl(''));
                             });
+                            this.contactForm.addControl('jobs',new FormControl(''));
                         }
                       });
         }
@@ -408,7 +420,6 @@ callTag(searchText:any, activemenu :any){
           if(!valid)
           this.validateMessage = 'Error' ;   
         }        
-        console.log("success",this.contactForm.value['First Name'],'zzzzzz',item.Required,this.contactForm.value[item.Label].length,item.Type,item.Label);
       }
     });
     if(this.validateMessage != 'Error'){
@@ -427,6 +438,7 @@ callTag(searchText:any, activemenu :any){
             "lastname": this.contactForm.value['Last Name'],
             "phone": this.contactForm.value['Phone'],
             "message": this.contactForm.value['Message'],
+            "subjectId":this.contactForm.value['subjectId'],
             "category":'',
             "page":'Header Section'
           }
@@ -469,6 +481,14 @@ callTag(searchText:any, activemenu :any){
       }`;
     });
   }
+  contactcatagory() {
+    this.homeService.getContactSubject().then((response: any) => {
+      if (response && response.length > 0) {
+        this.commonService.contactsubject = cloneDeep(response);
+      }       
+  
+    });
+  }
    public sendDemoRequest(){
       if(!this.demoSection.value.firstName || !this.demoSection.value.lastName || !this.demoSection.value.email){
         //error display
@@ -487,6 +507,7 @@ callTag(searchText:any, activemenu :any){
             "phone": this.demoSection.value.phone,
             "message": this.demoSection.value.message,
             "category": this.routePath,
+            "subjectId": this.demoSection.value.subjectId,
             "page":''
           }
         this.sendContactDetailsToDb(contactDetails);
@@ -586,6 +607,7 @@ callTag(searchText:any, activemenu :any){
                 this.formData.forEach((item: any) => {
                 this.contactForm.addControl(item.Label,new FormControl(''));
                 });
+                this.contactForm.addControl('subjectId',new FormControl(''));
             }
           });
       } 

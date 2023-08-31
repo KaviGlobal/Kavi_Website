@@ -44,7 +44,9 @@
                             <input class="formStyles" type="text" placeholder = "Last Name *"  formControlName="lastName">
                          
                             <input class="formStyles" type="text" placeholder = "Email *" formControlName="email">
-                          
+                            <select class="formStyles" formControlName="subjectId" [(ngModel)]='subjectvalue'>
+                                <option *ngFor="let item of this.commonService.contactsubject" value="{{item.id}}">{{item.displayValue}}</option>
+                            </select>
                             <input class="formStyles" type="number" placeholder = "Phone" formControlName="phone">
                         
                             <textarea class="formStyles" style="width:82%; height:100px" formControlName="message" placeholder="Message.." cols="45" rows="8" aria-required="true"></textarea>
@@ -85,6 +87,12 @@
                 <input  class="formStyles" [type]="item.Type" [formControlName]="item.Label" placeholder={{item.Label}} item.Required>
                 <span *ngIf="item.Required == 'true'" class="mandatory_start">*</span>
             </div> 
+            <div *ngIf="item.Label == 'Email'" class="flex_div">
+                <select class="formStyles" formControlName="subjectId" [(ngModel)]='subjectvalue'>
+                    <option *ngFor="let item of this.commonService.contactsubject" value="{{item.id}}">{{item.displayValue}}</option>
+                </select>
+                <span class="mandatory_start">*</span>
+            </div>
             <div *ngIf="item.Type == 'textarea'" style="padding-right: 26px;">    
                 <textarea class="formStyles" [formControlName]="item.Label" placeholder="{{item.Label}}"></textarea>
                 <span *ngIf="item.Required == 'true'" class="mandatory_start">*</span>
