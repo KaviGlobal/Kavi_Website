@@ -19,6 +19,9 @@
     },
     "Title": {
       "type": "string"
+    },
+    "ContentLink": {
+      "type": "string"
     }
   }
 }
