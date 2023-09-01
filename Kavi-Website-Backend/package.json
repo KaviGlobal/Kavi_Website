@@ -13,11 +13,11 @@
     "@strapi/plugin-graphql": "^4.4.1",
     "@strapi/plugin-i18n": "^4.4.0",
     "@strapi/plugin-seo": "^1.9.2",
-    "@strapi/plugin-users-permissions": "4.4.0",
-    "@strapi/strapi": "4.4.0",
+    "@strapi/plugin-users-permissions": "^4.13.1",
+    "@strapi/strapi": "^4.13.1",
     "pg": "8.6.0",
-    "strapi-plugin-import-export-entries": "^1.18.0",
-    "strapi-plugin-populate-deep": "^1.1.2",
+    "strapi-plugin-import-export-entries": "^1.21.1",
+    "strapi-plugin-populate-deep": "^3.0.0",
     "strapi-plugin-wysiwyg-react-md-editor": "^4.3.0",
     "strapi-provider-upload-azure-storage": "^2.1.0"
   },
@@ -28,7 +28,7 @@
     "uuid": "4f3010eb-1de9-4cf9-8c38-731f98fa947c"
   },
   "engines": {
-    "node": ">=14.19.1 <=18.x.x",
+    "node": ">=16.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT"
