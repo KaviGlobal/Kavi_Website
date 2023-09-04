@@ -56,10 +56,9 @@
                         title={{clients?.data?.attributes?.Logo?.Media?.data?.attributes?.name}}>
                     </div>
                 </div>
-            <a target="blank">
-                <i class="fas fa-external-link-alt" style="margin-right:5px;margin-top:15px"></i> {{clients?.data.attributes?.Name}}</a>
+            <a target="blank">{{clients?.data.attributes?.Name}}</a>
         
-        <span class="text-muted d-block mb-2">{{clients?.data?.attributes?.Industry}}</span>
+        <!-- <span class="text-muted d-block mb-2">{{clients?.data?.attributes?.Industry}}</span> -->
         <div class="d-flex justify-content-between align-items-center px-4">
             <div class="stats" *ngIf="clients?.data?.attributes?.Revenue && clients?.data?.attributes?.Revenue != null">
             <h6 class="mb-0">Revenue</h6>
@@ -81,10 +80,9 @@
                         title={{clients?.data?.attributes?.IndustryLogo?.Media?.data?.attributes?.AlternateName}}>
                     </div>
                 </div>
-            <a target="blank">
-                <i class="fas fa-external-link-alt" style="margin-right:5px;margin-top:15px"></i> {{clients?.data.attributes?.AlternateName}}</a>
+            <a target="blank">{{clients?.data.attributes?.AlternateName}}</a>
         
-        <span class="text-muted d-block mb-2">{{clients?.data?.attributes?.Industry}}</span>
+        <!-- <span class="text-muted d-block mb-2">{{clients?.data?.attributes?.Industry}}</span> -->
         <div class="d-flex justify-content-between align-items-center px-4">
             <div class="stats" *ngIf="clients?.data?.attributes?.Revenue && clients?.data?.attributes?.Revenue != null">
             <h6 class="mb-0">Revenue</h6>
