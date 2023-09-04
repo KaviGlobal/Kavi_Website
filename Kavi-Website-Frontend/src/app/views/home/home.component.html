@@ -53,7 +53,7 @@
     <ngb-carousel class="client-slider home_slider" *ngIf="clientImages.length">
         <ng-container *ngFor="let item of this.homeData.attributes?.HeroHeader;let i = index">
             <ng-template ngbSlide>
-                <img *ngIf="item.SliderMedia?.Media?.data" [src]="item.SliderMedia?.Media?.data?.attributes?.url" alt="kaviglobal" />
+                <a href="{{item.ContentLink}}"><img *ngIf="item.SliderMedia?.Media?.data" [src]="item.SliderMedia?.Media?.data?.attributes?.url" alt="kaviglobal" /></a>
                 <div class="slider_content">
                     <h3 *ngIf="item.Description">{{item.Description}}</h3>
                 </div>
