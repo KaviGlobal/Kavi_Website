@@ -93,6 +93,7 @@ export class RightMenuComponent implements OnInit  {
   public modalOptions:NgbModalOptions;
   public closeResult: string = '';
   public imageUrl:string='';
+  private history: string[] = [];
   public routerEventSubscription: Subscription | undefined;
   demoSection = new FormGroup({
     firstName: new FormControl(''),
@@ -112,6 +113,7 @@ export class RightMenuComponent implements OnInit  {
     public modalService: NgbModal,
     private _location: Location,    
     private homeService: HomeService,
+    private location: Location,
     @Inject(DOCUMENT) private document: Document
   ) {this.modalOptions = {
     backdrop:'static',
@@ -119,8 +121,16 @@ export class RightMenuComponent implements OnInit  {
     size: 'xl',
     centered: true,
     windowClass: 'dark-modal'
-  } }
- 
+  },
+  this.router.events.subscribe((event) => {
+    if (event instanceof NavigationEnd) {
+      this.history.push(event.urlAfterRedirects);
+      if (this.history.length > 0 && event.urlAfterRedirects != '/404') {
+        window.location.reload();
+      }
+    }
+  });
+ }
   ngOnInit(): void {
     this.contactcatagory();
     this.imageUrl = environment.apiDetails.apiImgUrl;
@@ -195,13 +205,14 @@ export class RightMenuComponent implements OnInit  {
         
         if(index == this.commonService.menuData[1]?.RightMenu.length-1){
           if(j == 1 || this.pageDetailsName == 'ContactUs'){
-            this.getMenuItem = this.commonService.getMenuItem.subscribe((menuItem: any) => {
-              this.loadPageData('');
-            });
+            this.loadPageData('');
+            // this.getMenuItem = this.commonService.getMenuItem.subscribe((menuItem: any) => {
+            //   this.loadPageData('');
+            // });
     
-            this.routeChangeSubscription = this.commonService.routeChangeSubscription.subscribe((menuItem: any) => {
-              this.loadPageData('');
-            });
+            // this.routeChangeSubscription = this.commonService.routeChangeSubscription.subscribe((menuItem: any) => {
+            //   this.loadPageData('');
+            // });
           } else {
             this.router.navigate(['/404']);
           }
