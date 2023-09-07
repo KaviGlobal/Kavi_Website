@@ -355,6 +355,9 @@ markdown ::ng-deep  {
     font-size: 1.1rem;
   }
   video{max-width: 100%;}
+  b, strong{
+    font-family: "montserrat-semi-bold";
+  }
 }
 .formStyles {
   width: 82%;

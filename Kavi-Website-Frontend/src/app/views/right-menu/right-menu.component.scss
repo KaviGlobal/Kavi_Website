@@ -568,6 +568,9 @@ markdown ::ng-deep  {
     word-break: break-word;
     font-size: 1.1rem;
   }
+  b, strong{
+    font-family: "montserrat-semi-bold";
+  }
 }
 td{
   width:400px;
