@@ -64,6 +64,9 @@
       "type": "component",
       "repeatable": true,
       "component": "seo.seo"
+    },
+    "Country": {
+      "type": "string"
     }
   }
 }
